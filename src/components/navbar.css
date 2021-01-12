@@ -1,7 +1,7 @@
 .navbar{
     width: 100%;
     max-width: 100%;
-    min-height: 120px;
+    min-height: 100px;
     box-sizing: border-box;
     display: block;
     justify-content: space-between;
@@ -16,9 +16,10 @@
     box-sizing:border-box;
   }
   .headerContainer{
-    height:3.75rem;
+    height:100pt;
     /* background-color: blue; */
-    background-color: #3d3d3d;
+    /* background-color: #3d3d3d; */
+    background-color:white;
   }
   .navToggle{
     background: 0 0;
@@ -36,16 +37,18 @@
     position: fixed;
     top: 10;
     left: 10;
-    background-color: #3d3d3d;
+    /* background-color: #3d3d3d; */
     /* background-color: lightblue; */
+    background-color:white;
   }
   
   .logo img{
     display:block;
     position:fixed;
-    top:12px;
-    left:50px;
-    width: 50px;
+    top:33pt;
+    left:29pt;
+    /* width: 85px; */
+    height:33pt;
   }
   .headerLinks{
     display: flex;
@@ -112,7 +115,7 @@
     position: relative;
     display: flex;
     box-sizing: border-box;
-    transform:translate(0px,-2px);
+    transform:translate(0px,-6px);
   }
   .icon{
     background: #c5c5c5;

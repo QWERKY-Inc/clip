@@ -1,16 +1,73 @@
 .content{
-    width: 80%;
-    margin:2rem 10% 0 10%;
+    width: 100%;
+    /* margin:2rem 10% 0 10%; */
     max-width: 100%;
     box-sizing: border-box;
     min-height: 100vh;
   
   }
-  
+  .headerFiller{
+      /* height:88px; */
+      height:120px;
+      /* background-color: aquamarine; */
+  }
   .box{
-      width:80%;
-      margin:2rem 10% 0 10%;
+      width:100%;
+      margin: 0;
+      /* margin:2rem 10% 0 10%; */
       height:50vh;
       background-color:plum;
   
   }
+  #introImage{
+      height: 300px;
+  }
+  #introImageDiv{
+    display: block;
+    height: 600px;
+    /* background-color:brown; */
+    background-color:rgb(251, 194, 26);
+    margin:0;
+  }
+  #introduction{
+    display:block;
+    height:00px;
+    /* transform:translate(0px,-250px); */
+  }
+  
+  .regularFont{
+    color:#373a3c;
+    font-weight:400;
+    font-size:15px;
+    text-shadow: 1px 1px 2px #969696;
+}
+.introText{
+    color:white;
+    line-height:1.5;
+    font-weight: 400;
+}
+  .titleFont{
+      color:#373a3c;
+      font-weight:400;
+      font-size:24px;
+      text-shadow: 1px 1px 2px #969696;
+  }
+  .subTitleFont{
+    color:#373a3c;
+    font-weight:400;
+    font-size:18px;
+    text-shadow: 1px 1px 2px #969696;
+}
+.howToIcons{
+    /* background-color:teal; */
+    height:50px;
+}
+.howToIconsDiv{
+    /* background-color:teal; */
+    width:100%;
+    height:50px;
+}
+#howItWorksLink{
+    margin-bottom:25px;
+}
+
