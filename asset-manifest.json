@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/clip/static/css/main.7478e32e.chunk.css",
-    "main.js": "/clip/static/js/main.6d3184bb.chunk.js",
-    "main.js.map": "/clip/static/js/main.6d3184bb.chunk.js.map",
+    "main.css": "/clip/static/css/main.ab499aa4.chunk.css",
+    "main.js": "/clip/static/js/main.f787cb93.chunk.js",
+    "main.js.map": "/clip/static/js/main.f787cb93.chunk.js.map",
     "runtime-main.js": "/clip/static/js/runtime-main.c7179bcd.js",
     "runtime-main.js.map": "/clip/static/js/runtime-main.c7179bcd.js.map",
     "static/js/2.68936ff6.chunk.js": "/clip/static/js/2.68936ff6.chunk.js",
     "static/js/2.68936ff6.chunk.js.map": "/clip/static/js/2.68936ff6.chunk.js.map",
     "index.html": "/clip/index.html",
-    "static/css/main.7478e32e.chunk.css.map": "/clip/static/css/main.7478e32e.chunk.css.map",
+    "static/css/main.ab499aa4.chunk.css.map": "/clip/static/css/main.ab499aa4.chunk.css.map",
     "static/js/2.68936ff6.chunk.js.LICENSE.txt": "/clip/static/js/2.68936ff6.chunk.js.LICENSE.txt",
+    "static/media/NotoSansKR-Regular.457762ea.otf": "/clip/static/media/NotoSansKR-Regular.457762ea.otf",
     "static/media/icon1.c27070a3.svg": "/clip/static/media/icon1.c27070a3.svg",
     "static/media/icon2.279274b1.svg": "/clip/static/media/icon2.279274b1.svg",
     "static/media/icon3.1875ba61.svg": "/clip/static/media/icon3.1875ba61.svg",
@@ -19,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.c7179bcd.js",
     "static/js/2.68936ff6.chunk.js",
-    "static/css/main.7478e32e.chunk.css",
-    "static/js/main.6d3184bb.chunk.js"
+    "static/css/main.ab499aa4.chunk.css",
+    "static/js/main.f787cb93.chunk.js"
   ]
 }
