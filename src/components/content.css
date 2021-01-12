@@ -8,7 +8,7 @@
   }
   .headerFiller{
       /* height:88px; */
-      height:120px;
+      height:100pt;
       /* background-color: aquamarine; */
   }
   .box{
@@ -16,18 +16,24 @@
       margin: 0;
       /* margin:2rem 10% 0 10%; */
       height:50vh;
-      background-color:plum;
+      background-color:gray;
   
   }
   #introImage{
       height: 300px;
+      border-radius:20px;
+      margin-top:60pt;
+      margin-left:159pt;
+      margin-right:159pt ;
   }
   #introImageDiv{
     display: block;
-    height: 600px;
+    height: 360px;
+    margin-top:60pt;
     /* background-color:brown; */
-    background-color:rgb(251, 194, 26);
+    /* background-color:rgb(251, 194, 26); */
     margin:0;
+    border-radius: 20px;
   }
   #introduction{
     display:block;

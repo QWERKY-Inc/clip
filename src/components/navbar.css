@@ -1,3 +1,6 @@
+.body{
+  font-family: NotoSansKR;
+}
 .navbar{
     width: 100%;
     max-width: 100%;
@@ -12,8 +15,8 @@
     top: 0;
     left: 0;
     z-index:10;
-    box-shadow:0 0.4375rem 0.3125rem rgba(0,0,0,.1);
-    box-sizing:border-box;
+    /* box-shadow:0 0.4375rem 0.3125rem rgba(0,0,0,.1);
+    box-sizing:border-box; */
   }
   .headerContainer{
     height:100pt;

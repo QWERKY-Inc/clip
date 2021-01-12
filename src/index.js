@@ -14,6 +14,7 @@
 // reportWebVitals();
 import { AppRegistry } from "react-native";
 import App from "./App";
+import './assets/fonts/Noto_Sans_KR/NotoSansKR-Regular.otf'
 
 AppRegistry.registerComponent("App", () => App);
 
