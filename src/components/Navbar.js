@@ -84,7 +84,7 @@ const Navbar=() => {
       
         <div className="logo">
           <a
-            href="/"
+            href="/clip"
           >
             <img src={Logo} alt="Logo" title="Logo" />
           </a>
