@@ -2,7 +2,7 @@
   "name": "clip",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://bgamut.github.io/clip",
+  "homepage": ".",
   "proxy": "http://localhost:8080",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
