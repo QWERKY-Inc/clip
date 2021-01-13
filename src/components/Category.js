@@ -20,6 +20,7 @@ function Category() {
           <Text> 
             Category Data
           </Text> 
+          <br></br>
           <Text>
             {data.lastname} {data.firstname}
           </Text>
