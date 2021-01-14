@@ -5,6 +5,7 @@ const cors = require('cors')
 const port = process.env.PORT || 8080;
 //app.use(express.static(publicPath))
 const proxy = require("http-proxy-middleware");
+const fetch = require('node-fetch')
 module.exports = function(app) {
   app.use(
     proxy(["/api", , "/otherApi"], { target: "http://localhost:8080" })
@@ -45,6 +46,17 @@ app.get('/data',(req,res)=>{
         firstname : "driver"
     };
     res.json(data);
+})
+app.get('/mainitem',(req,res)=>{
+    fetch('http://clip.partners/api/mobile/Mainitem')
+    .then(res=>res.json())
+    .then(data=>{
+        res.json(data);
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+    
 })
 
 app.listen(port,()=>{

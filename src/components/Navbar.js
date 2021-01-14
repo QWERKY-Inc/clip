@@ -45,7 +45,7 @@ const Navbar=() => {
   if(scrolled){
     x.push('scrolled');
   }
-  if(width>1024){
+  if(width>1051){
   return (    
     <header className={x.join(" ")}>
       <Modal
@@ -331,7 +331,7 @@ const Navbar=() => {
     </header>
   )
 }
-else if(width>449 && width<=1024){
+else if(width>449 && width<=1051){
   return(
   <header className={x.join(" ")}>
   <Modal
