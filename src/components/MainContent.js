@@ -20,20 +20,26 @@ function MainContent() {
     .catch(err=>{
         console.log(err)
     })
-    if(data.listCategory){
+    if(data.listCategory!=undefined){
         return (
-            <div className="MainContent">
-             
-                <Navbar />
-                <NavBarFiller/>
+            <div className="MainContent"
+                style={{
+                    display:'block',
+                    height:'auto',
+
+                }}
+            >
                 <Text> 
                   MainContent
                 </Text> 
-                <br></br>
                 {/* <Text> */}
                   {/* {data.listCategory[0].ct_img_url} */}
                   {/* construction */}
-                  <img src={data.listCategory[0].ct_img_url}/>
+                  <img 
+                    style={{
+                      height:'65pt',
+                      width:'99pt',
+                    }} src={data.listCategory[0].ct_img_url}/>
                 {/* </Text> */}
                 <Content/>
                   
