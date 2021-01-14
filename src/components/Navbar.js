@@ -108,7 +108,7 @@ const Navbar=() => {
                       height:50,
                       width:240,
                       top:44,
-                      left:'187pt',
+                      left:'167pt',
                       backgroundColor:'transparent',
                       zIndex:101
                   }}
