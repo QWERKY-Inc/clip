@@ -331,6 +331,142 @@ const Navbar=() => {
     </header>
   )
 }
+else if(width>449 && width<=1024){
+  return(
+  <header className={x.join(" ")}>
+  <Modal
+      animationType="fade"
+      transparent={false}
+      visible={cartModalVisible}
+      onDismiss={() => {
+        // alert('Modal has been closed.');
+        console.log("user modal has been closed")
+      }}>
+      <View style={{marginTop: 22}}>
+        <View>
+          <Text>cart Info</Text>
+
+          <TouchableHighlight
+            onPress={() => {
+              toggleCartModal()
+            }}>
+            <Text>exit</Text>
+          </TouchableHighlight>
+        </View>
+      </View>
+    </Modal>
+  <Modal
+      animationType="fade"
+      transparent={false}
+      visible={userModalVisible}
+      onDismiss={() => {
+        // alert('Modal has been closed.');
+        console.log("user modal has been closed")
+      }}>
+      <View style={{marginTop: 22}}>
+        <View>
+          <Text>user Info</Text>
+
+          <TouchableHighlight
+            onPress={() => {
+              toggleUserModal()
+            }}>
+            <Text>exit</Text>
+          </TouchableHighlight>
+        </View>
+      </View>
+    </Modal>
+  <div className="headerContainer">
+  
+    <div className="logo">
+      <a
+        href="/clip"
+      >
+        <img src={Logo} alt="Logo" title="Logo" />
+      </a>
+    </div>
+
+        <TouchableOpacity
+          style={{
+            position:'fixed',
+            height:47,
+            width:47,
+            top:'29pt',
+            right:'173pt',
+            backgroundColor:'transparent',
+            zIndex:101
+        }}
+        >
+          <img
+            src={searchIcon}
+          >
+          </img>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={{
+            position:'fixed',
+            height:47,
+            width:47,
+            top:'29pt',
+            right:'103pt',
+            backgroundColor:'transparent',
+            zIndex:101
+        }}
+        onPress={() => {
+          toggleCartModal()
+        }}
+        >
+          <img
+            src={boxIcon}
+          >
+          </img>
+        </TouchableOpacity>
+        <TouchableOpacity
+          className="linkTo"
+          style={{
+            position:'fixed',
+            height:47,
+            width:47,
+            top:'29pt',
+            right:'33pt',
+            backgroundColor:'transparent',
+            zIndex:101,
+        }}
+        onPress={() => {
+          toggleUserModal()
+        }}
+        >
+          <img
+            src={userIcon}
+            style={{
+              height:'47pt',
+             
+            }}
+          >
+          </img>
+        </TouchableOpacity>
+        <Switch>
+          <Route path="/">
+            {/* <Text>
+              Home
+            </Text> */}
+          </Route>
+          <Route path="/category">
+            <Text>
+              category
+            </Text>
+          </Route>
+        </Switch>
+      
+
+  </div>
+  
+
+    
+
+</header>
+)
+}
 else{
   return (    
     <header className={x.join(" ")}>
@@ -393,7 +529,7 @@ else{
                 height:47,
                 width:47,
                 top:'29pt',
-                right:'173pt',
+                right:'105pt',
                 backgroundColor:'transparent',
                 zIndex:101
             }}
@@ -409,7 +545,7 @@ else{
                 height:47,
                 width:47,
                 top:'29pt',
-                right:'103pt',
+                right:'60pt',
                 backgroundColor:'transparent',
                 zIndex:101
             }}
@@ -429,7 +565,7 @@ else{
                 height:47,
                 width:47,
                 top:'29pt',
-                right:'33pt',
+                right:'15pt',
                 backgroundColor:'transparent',
                 zIndex:101,
             }}
