@@ -9,9 +9,9 @@ const IntroImage=() => {
 	const introImage=(
 		<div className="introImage">
 			<div id="introImageDiv"
-			// style={{
-			// 	backgroundColor:'orange',
-			// }}
+			style={{
+				backgroundColor:'transparent',
+			}}
 			>
 				<img id="introImage" src={IntroImg} alt="Logo" title="Logo" >
 				</img>
@@ -25,7 +25,8 @@ const IntroImage=() => {
 		style={{
 			backgroundColor:'transparent',
 			// height:'300pt'
-			height:300
+			margin:0,
+			height:'auto'
 		}}
 	>
 		{/* {filler} */}
