@@ -1,3 +1,4 @@
+@media only screen and (min-width: 1027px) {
 .body{
   font-family: NotoSansKR;
 }
@@ -199,4 +200,14 @@
     width:42px;
     transform:translate(2px,-4px);
   }
-    
+}
+@media only screen and (max-width: 1026px) {
+  .logo img{
+    display:block;
+    position:fixed;
+    top:33pt;
+    left:29pt;
+    height:33pt;
+  }
+
+}

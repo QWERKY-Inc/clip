@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react';
 import './navbar.css';
 // import Logo from './../logo.svg';
-import {TouchableOpacity,Text,View,Modal,TouchableHighlight} from 'react-native';
+import {TouchableOpacity,Text,View,Modal,TouchableHighlight,Dimensions} from 'react-native';
 import Logo from '../assets/header_logo.png'
 import { nativeTouchData } from 'react-dom/test-utils';
 import searchIcon from '../assets/icnSearch.png'
@@ -12,7 +12,10 @@ import {BrowserRouter as Router,Switch,Route,Link} from 'react-router-dom'
 const Navbar=() => {
   const [scrolled,setScrolled]=React.useState(false);
   const [userModalVisible,setUserModalVisible]=React.useState(false);
-  const [cartModalVisible,setCartModalVisible]=React.useState(false)
+  const [cartModalVisible,setCartModalVisible]=React.useState(false);
+  const [height,setHeight]=React.useState(Dimensions.get('window').height)
+  const [width,setWidth]=React.useState(Dimensions.get('window').width)
+
   const handleScroll=() => {
     const offset=window.scrollY;
     if(offset > 200 ){
@@ -28,15 +31,22 @@ const Navbar=() => {
   const toggleCartModal=()=>{
     setCartModalVisible(!cartModalVisible)
 }
+  const onChange=()=>{
+    setHeight(Dimensions.get('window').height)
+    setWidth(Dimensions.get('window').width)
+    console.log(height+" : "+width)
+  }
   useEffect(() => {
     window.addEventListener('scroll',handleScroll)
+    Dimensions.addEventListener('change',onChange)
   })
 
   let x=['navbar'];
   if(scrolled){
     x.push('scrolled');
   }
-  return (
+  if(width>1024){
+  return (    
     <header className={x.join(" ")}>
       <Modal
           animationType="fade"
@@ -91,6 +101,8 @@ const Navbar=() => {
         </div>
 
             <TouchableOpacity
+                  className="linkTo"
+                  id="category"
                   style={{
                       position:'fixed',
                       height:50,
@@ -152,6 +164,7 @@ const Navbar=() => {
         </a>
             </TouchableOpacity>
             <TouchableOpacity
+                  className='linkTo'
                   style={{
                       position:'fixed',
                       height:50,
@@ -194,6 +207,7 @@ const Navbar=() => {
                 </a>
             </TouchableOpacity>
             <TouchableOpacity
+                  className="linkTo"
                   style={{
                       position:'fixed',
                       height:50,
@@ -272,6 +286,7 @@ const Navbar=() => {
               </img>
             </TouchableOpacity>
             <TouchableOpacity
+              className="linkTo"
               style={{
                 position:'fixed',
                 height:47,
@@ -279,7 +294,7 @@ const Navbar=() => {
                 top:'29pt',
                 right:'33pt',
                 backgroundColor:'transparent',
-                zIndex:101
+                zIndex:101,
             }}
             onPress={() => {
               toggleUserModal()
@@ -315,6 +330,144 @@ const Navbar=() => {
 
     </header>
   )
+}
+else{
+  return (    
+    <header className={x.join(" ")}>
+      <Modal
+          animationType="fade"
+          transparent={false}
+          visible={cartModalVisible}
+          onDismiss={() => {
+            // alert('Modal has been closed.');
+            console.log("user modal has been closed")
+          }}>
+          <View style={{marginTop: 22}}>
+            <View>
+              <Text>cart Info</Text>
+
+              <TouchableHighlight
+                onPress={() => {
+                  toggleCartModal()
+                }}>
+                <Text>exit</Text>
+              </TouchableHighlight>
+            </View>
+          </View>
+        </Modal>
+      <Modal
+          animationType="fade"
+          transparent={false}
+          visible={userModalVisible}
+          onDismiss={() => {
+            // alert('Modal has been closed.');
+            console.log("user modal has been closed")
+          }}>
+          <View style={{marginTop: 22}}>
+            <View>
+              <Text>user Info</Text>
+
+              <TouchableHighlight
+                onPress={() => {
+                  toggleUserModal()
+                }}>
+                <Text>exit</Text>
+              </TouchableHighlight>
+            </View>
+          </View>
+        </Modal>
+      <div className="headerContainer">
+      
+        <div className="logo">
+          <a
+            href="/clip"
+          >
+            <img src={Logo} alt="Logo" title="Logo" />
+          </a>
+        </div>
+
+           
+            <TouchableOpacity
+              style={{
+                position:'fixed',
+                height:47,
+                width:47,
+                top:'29pt',
+                right:'173pt',
+                backgroundColor:'transparent',
+                zIndex:101
+            }}
+            >
+              <img
+                src={searchIcon}
+              >
+              </img>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                position:'fixed',
+                height:47,
+                width:47,
+                top:'29pt',
+                right:'103pt',
+                backgroundColor:'transparent',
+                zIndex:101
+            }}
+            onPress={() => {
+              toggleCartModal()
+            }}
+            >
+              <img
+                src={boxIcon}
+              >
+              </img>
+            </TouchableOpacity>
+            <TouchableOpacity
+              className="linkTo"
+              style={{
+                position:'fixed',
+                height:47,
+                width:47,
+                top:'29pt',
+                right:'33pt',
+                backgroundColor:'transparent',
+                zIndex:101,
+            }}
+            onPress={() => {
+              toggleUserModal()
+            }}
+            >
+              <img
+                src={userIcon}
+                style={{
+                  height:'47pt',
+                 
+                }}
+              >
+              </img>
+            </TouchableOpacity>
+            <Switch>
+              <Route path="/">
+                {/* <Text>
+                  Home
+                </Text> */}
+              </Route>
+              <Route path="/category">
+                <Text>
+                  category
+                </Text>
+              </Route>
+            </Switch>
+          
+
+      </div>
+      
+
+        
+
+    </header>
+  )
+}
 };
 
 export default Navbar;
