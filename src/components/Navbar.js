@@ -106,7 +106,7 @@ const Navbar=() => {
                   style={{
                       position:'fixed',
                       height:50,
-                      width:220,
+                      width:240,
                       top:44,
                       left:'187pt',
                       backgroundColor:'transparent',
