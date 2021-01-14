@@ -45,7 +45,7 @@ function MainContent() {
                     style={{
                         borderRadius:20,
                         height:'65pt',
-                        width:400,
+                        width:350,
                         backgroundColor:'white',
                         boxShadow:'0px 0px 2px',
                         
@@ -63,7 +63,7 @@ function MainContent() {
                             flexDirection:'row',
                             margin:11,
                             padding:'auto',
-                            zIndex:100
+                            // zIndex:100
                             // backgroundColor:'red'
                         
                     }}
@@ -74,10 +74,10 @@ function MainContent() {
                       width:'99pt',
                       borderTopLeftRadius:20,
                       borderBottomLeftRadius:20,
-                      zIndex:99,
+                    //   zIndex:99,
                       pointerEvents:'none',
                       transform:[{
-                          translateX:'-105px'
+                          translateX:'-80px'
                       }]
                     }}
                     source={{
@@ -114,7 +114,7 @@ function MainContent() {
                             padding:'auto',
                             pointerEvents:'none',
                             backgroundColor:'transparent',
-                            zIndex:99,
+                            // zIndex:99,
                             pointerEvents:'none',
                             
                         }}
