@@ -77,7 +77,7 @@ function MainContent() {
                     //   zIndex:99,
                       pointerEvents:'none',
                       transform:[{
-                          translateX:'-80px'
+                          translateX:'-81px'
                       }]
                     }}
                     source={{
