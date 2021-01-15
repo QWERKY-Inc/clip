@@ -20,6 +20,7 @@ function MainContent() {
     .catch(err=>{
         console.log(err)
     })
+
     if(data!=undefined){
         return (
             <div className="MainContent"
@@ -29,23 +30,38 @@ function MainContent() {
 
                 }}
             >
-                <Text> 
-                  MainContent
-                </Text> 
-                {/* <Text> */}
-                  {/* {data.listCategory[0].ct_img_url} */}
-                  {/* construction */}
-                  {/* <img 
+                
+                <Text
                     style={{
-                      height:'65pt',
-                      width:'99pt',
-                    }} src={data.listCategory[0].ct_img_url}
-                  /> */}
-                  <TouchableOpacity
+                        fontSize: '25pt',
+                        fontWeight:'700',
+                        textDecorationLine:'none',
+                        // color:'white',
+                        // textShadowColor: 'rgba(0, 0, 0, 0.85)',
+                        // textShadowOffset: {width: 0, height: 0},
+                        // textShadowRadius: 2,
+                        color:'black',
+                        textAlign:'left',
+                        alignItems:'center',
+                        justifyContent:'center',
+                        flexDirection:'row',
+                        margin:11,
+                        padding:'auto',
+                        zIndex:2
+                        // backgroundColor:'red'
+                    }}
+                > 
+                  자재 카테고리
+                </Text> 
+              
+                {data.listCategory.map((listCategory)=>
+
+                
+                    <TouchableOpacity
                     style={{
                         borderRadius:20,
                         height:'65pt',
-                        width:350,
+                        width:"90vw",
                         backgroundColor:'white',
                         boxShadow:'0px 0px 2px',
                         
@@ -61,43 +77,48 @@ function MainContent() {
                             alignItems:'center',
                             justifyContent:'center',
                             flexDirection:'row',
-                            margin:11,
+                            margin:'auto',
                             padding:'auto',
-                            // zIndex:100
+                            zIndex:2
                             // backgroundColor:'red'
                         
                     }}
                   >
+                  
                   <Image
                     style={{
+                      display:'block',
                       height:'65pt',
                       width:'99pt',
                       borderTopLeftRadius:20,
                       borderBottomLeftRadius:20,
-                    //   zIndex:99,
+                      zIndex:1,
                       pointerEvents:'none',
                       transform:[{
-                          translateX:'-81px'
+                          translateX:'-110px',
+                          translateY:'100px'
                       }]
                     }}
                     source={{
                         uri:
-                            data.listCategory[0].ct_img_url
+                            // data.listCategory[i].ct_img_url
+                            listCategory.ct_img_url
                     }}
 
                   >
                   </Image>
                   <a
                     style={{
-                        transform:[{
-                            translateX:'-100px'
-                        }]
+                      transform:[{
+                        translateX:'-100px'
+                      }]
                     }}
                   >
+                  <div>
                       <Text
                         style ={{
                             height:'65pt',
-                            width:'99pt',
+                            width:'99px',
                             fontSize: '15pt',
                             fontWeight:'700',
                             textDecorationLine:'none',
@@ -110,8 +131,8 @@ function MainContent() {
                             alignItems:'center',
                             justifyContent:'center',
                             flexDirection:'row',
-                            margin:11,
-                            padding:'auto',
+                            // margin:11,
+                            // padding:'auto',
                             pointerEvents:'none',
                             backgroundColor:'transparent',
                             // zIndex:99,
@@ -119,10 +140,24 @@ function MainContent() {
                             
                         }}
                       >
-                          {data.listCategory[0].ct_text}
+                          {/* {data.listCategory[i].ct_text} */}
+                          {listCategory.ct_text}
                       </Text>
+                    </div>
                   </a>
                   </TouchableOpacity>
+                )}
+                {/* <Text> */}
+                  {/* {data.listCategory[0].ct_img_url} */}
+                  {/* construction */}
+                  {/* <img 
+                    style={{
+                      height:'65pt',
+                      width:'99pt',
+                    }} src={data.listCategory[0].ct_img_url}
+                  /> */}
+                  
+                  
                 {/* </Text> */}
                 <Content/>
                   
