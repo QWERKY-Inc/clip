@@ -1,6 +1,5 @@
 import React,{useEffect} from 'react';
 import Navbar from './Navbar';
-
 import NavBarFiller from './NavBarFiller';
 import {TouchableOpacity,Text,Image,View,Modal,TouchableHighlight,Dimensions} from 'react-native';
 
@@ -28,7 +27,7 @@ function MainMoodBoard() {
             .catch(err=>{
                 console.log(err)
             })
-      })
+      },[])
     
     if(width>981){
 
@@ -38,32 +37,81 @@ function MainMoodBoard() {
                     style={{
                         display:'block',
                         height:'auto',
-
+                        backgroundColor:'black',
+                        paddingTop:'77pt'
                     }}
                 >
-                    
-                    <Text
+                    <div
                         style={{
-                            fontSize: '25pt',
-                            fontWeight:'700',
-                            textDecorationLine:'none',
-                            // color:'white',
-                            // textShadowColor: 'rgba(0, 0, 0, 0.85)',
-                            // textShadowOffset: {width: 0, height: 0},
-                            // textShadowRadius: 2,
-                            color:'black',
+                            display:'block',
+                            height:'150px',
+                            backgroundColor:'transparent',
+                            topMargin:'77pt',
+                            flexDirection:'column',
                             textAlign:'left',
-                            alignItems:'center',
-                            justifyContent:'center',
-                            flexDirection:'row',
-                            margin:11,
-                            padding:'auto',
-                            zIndex:2
-                            // backgroundColor:'red'
+                            paddingLeft:'100pt'
                         }}
-                    > 
-                    자재 카테고리
-                    </Text> 
+                    >
+                        <Text
+                            style={{
+                                fontSize: '25pt',
+                                fontWeight:'700',
+                                textDecorationLine:'none',
+                                color:'white',
+                                textAlign:'left',
+                                alignItems:'center',
+                                justifyContent:'center',
+                                flexDirection:'row',
+                                marginTop:'40px',
+                                marginBottom:'40px',
+                                padding:'auto',
+                                zIndex:2
+                                // backgroundColor:'red'
+                            }}
+                        > 
+                        무드보드
+                        </Text> 
+                        <br></br>
+                        <Text
+                            style={{
+                                fontSize: '15pt',
+                                fontWeight:'700',
+                                textDecorationLine:'none',
+                                color:'white',
+                                textAlign:'left',
+                                alignItems:'center',
+                                justifyContent:'center',
+                                flexDirection:'row',
+                                marginTop:'40px',
+                                marginBottom:'40px',
+                                padding:'auto',
+                                zIndex:2
+                                // backgroundColor:'red'
+                            }}
+                        > 
+                            새로운 아이디어와 컨셉을 찾아보세요.
+                        </Text> 
+                        <br></br>
+                        <Text
+                            style={{
+                                fontSize: '15pt',
+                                fontWeight:'700',
+                                textDecorationLine:'none',
+                                color:'white',
+                                textAlign:'left',
+                                alignItems:'center',
+                                justifyContent:'center',
+                                flexDirection:'row',
+                                marginTop:'40px',
+                                marginBottom:'40px',
+                                padding:'auto',
+                                zIndex:2
+                                // backgroundColor:'red'
+                            }}
+                        > 
+                            어떤 자재가 어떤 컨셉으로 활용되는지 알아볼 수 있습니다.
+                        </Text> 
+                    </div>
                         <View
                             style={{
                                 flex: 1, 
@@ -71,22 +119,24 @@ function MainMoodBoard() {
                                 // justifyContent: 'space-between',
                                 flexwrap:'wrap',
                                 display: 'grid',
-                                gridTemplateColumns: 'auto auto auto',
-                                padding: '10px'
+                                gridTemplateColumns: 'auto auto auto auto',
+                                paddingLeft: '77pt',
+                                paddingRight: '77pt'
                             }}
                         >
                             
                         
-                    {data.listCategory.map((listCategory)=>
+                    {data.listMoodboard.map((listMoodboard)=>
 
                     
                         <TouchableOpacity
                         style={{
+                            flexDirection:'column',
                             borderRadius:20,
-                            height:'65pt',
-                            width:"350px",
-                            backgroundColor:'white',
-                            boxShadow:'0px 0px 2px',
+                            height:'300pt',
+                            width:"240pt",
+                            backgroundColor:'rgb(33,33,33)',
+                            // boxShadow:'0px 0px 2px',
                             
                                 fontSize: '25pt',
                                 fontWeight:'700',
@@ -99,7 +149,7 @@ function MainMoodBoard() {
                                 textAlign:'left',
                                 alignItems:'center',
                                 justifyContent:'center',
-                                flexDirection:'row',
+                                flexDirection:'column',
                                 marginLeft:'auto',
                                 marginRight:'auto',
                                 marginTop:'25pt',
@@ -113,36 +163,36 @@ function MainMoodBoard() {
                     <Image
                         style={{
                         display:'block',
-                        height:'65pt',
-                        width:'99pt',
+                        height:'240pt',
+                        width:'240pt',
                         borderTopLeftRadius:20,
-                        borderBottomLeftRadius:20,
+                        borderTopRightRadius:20,
                         zIndex:1,
                         pointerEvents:'none',
                         transform:[{
-                            translateX:'-10px',
-                            translateY:'-100px'
+                            translateX:'0px',
+                            translateY:'0px'
                         }]
                         }}
                         source={{
                             uri:
                                 // data.listCategory[i].ct_img_url
-                                listCategory.ct_img_url
+                                listMoodboard.mb_img_url
                         }}
 
                     >
                     </Image>
-                    <a
+                    {/* <a
                         style={{
                         transform:[{
                             translateX:'100px'
                         }]
                         }}
-                    >
+                    > */}
                         <View
                             style ={{
-                                height:'65pt',
-                                width:'200px',
+                                height:'60pt',
+                                width:'240pt',
                                 fontSize: '15pt',
                                 fontWeight:'700',
                                 textDecorationLine:'none',
@@ -158,18 +208,21 @@ function MainMoodBoard() {
                                 // margin:11,
                                 // padding:'auto',
                                 pointerEvents:'none',
-                                borderTopRightRadius:20,
-                                borderBottomRightRadius:20,
-                                backgroundColor:'white',
+                                // borderTopRightRadius:20,
+                                // borderBottomRightRadius:20,
+                                backgroundColor:'rgb(33,33,33)',
                                 // zIndex:99,
                                 pointerEvents:'none',
+                                borderBottomLeftRadius:20,
+                                borderBottomRightRadius:20,
+                                // left:0,
                                 
                             }}
                         >
                             <View
                                 style ={{
-                                    height:'65pt',
-                                    width:'99px',
+                                    height:'60pt',
+                                    width:'230pt',
                                     fontSize: '15pt',
                                     fontWeight:'700',
                                     textDecorationLine:'none',
@@ -177,6 +230,8 @@ function MainMoodBoard() {
                                     // textShadowColor: 'rgba(0, 0, 0, 0.85)',
                                     // textShadowOffset: {width: 0, height: 0},
                                     // textShadowRadius: 2,
+                                    borderBottomLeftRadius:20,
+                                    borderBottomRightRadius:20,
                                     color:'black',
                                     textAlign:'center',
                                     alignItems:'center',
@@ -185,7 +240,7 @@ function MainMoodBoard() {
                                     marginLeft:'5pt',
                                     // padding:'auto',
                                     pointerEvents:'none',
-                                    backgroundColor:'white',
+                                    backgroundColor:"rgb(33,33,33)",
                                     // zIndex:99,
                                     pointerEvents:'none',
                                     
@@ -194,7 +249,7 @@ function MainMoodBoard() {
                                 <Text
                                     style ={{
                                         height:'65pt',
-                                        width:'99px',
+                                        width:'300px',
                                         fontSize: '15pt',
                                         fontWeight:'700',
                                         textDecorationLine:'none',
@@ -202,7 +257,7 @@ function MainMoodBoard() {
                                         // textShadowColor: 'rgba(0, 0, 0, 0.85)',
                                         // textShadowOffset: {width: 0, height: 0},
                                         // textShadowRadius: 2,
-                                        color:'black',
+                                        color:'white',
                                         textAlign:'left',
                                         alignItems:'center',
                                         justifyContent:'center',
@@ -217,28 +272,15 @@ function MainMoodBoard() {
                                     }}
                                 >
                                     {/* {data.listCategory[i].ct_text} */}
-                                    {listCategory.ct_text}
+                                    {listMoodboard.mb_name}
                                 </Text>
                             </View>
                         </View>
-                    </a>
+                    {/* </a> */}
                     </TouchableOpacity>
                     )}
                     </View>
-                    {/* <Text> */}
-                    {/* {data.listCategory[0].ct_img_url} */}
-                    {/* construction */}
-                    {/* <img 
-                        style={{
-                        height:'65pt',
-                        width:'99pt',
-                        }} src={data.listCategory[0].ct_img_url}
-                    /> */}
-                    
-                    
-                    {/* </Text> */}
-                    {/* <Content/> */}
-                    
+                   
                     
                 
                 </div>
@@ -262,466 +304,7 @@ function MainMoodBoard() {
         }
     
     }
-    else if(width>684 && width<=981){
-        if(data!=undefined){
-            return (
-                <div className="MainContent"
-                    style={{
-                        display:'block',
-                        height:'auto',
-
-                    }}
-                >
-                    
-                    <Text
-                        style={{
-                            fontSize: '25pt',
-                            fontWeight:'700',
-                            textDecorationLine:'none',
-                            // color:'white',
-                            // textShadowColor: 'rgba(0, 0, 0, 0.85)',
-                            // textShadowOffset: {width: 0, height: 0},
-                            // textShadowRadius: 2,
-                            color:'black',
-                            textAlign:'left',
-                            alignItems:'center',
-                            justifyContent:'center',
-                            flexDirection:'row',
-                            margin:11,
-                            padding:'auto',
-                            zIndex:2
-                            // backgroundColor:'red'
-                        }}
-                    > 
-                    자재 카테고리
-                    </Text> 
-                        <View
-                            style={{
-                                flex: 1, 
-                                // flexDirection: 'row',
-                                // justifyContent: 'space-between',
-                                flexwrap:'wrap',
-                                display: 'grid',
-                                gridTemplateColumns: 'auto auto',
-                                padding: '10px'
-                            }}
-                        >
-                            
-                        
-                    {data.listCategory.map((listCategory)=>
-
-                    
-                        <TouchableOpacity
-                        style={{
-                            borderRadius:20,
-                            height:'65pt',
-                            width:"350px",
-                            backgroundColor:'white',
-                            boxShadow:'0px 0px 2px',
-                            
-                                fontSize: '25pt',
-                                fontWeight:'700',
-                                textDecorationLine:'none',
-                                // color:'white',
-                                // textShadowColor: 'rgba(0, 0, 0, 0.85)',
-                                // textShadowOffset: {width: 0, height: 0},
-                                // textShadowRadius: 2,
-                                color:'black',
-                                textAlign:'left',
-                                alignItems:'center',
-                                justifyContent:'center',
-                                flexDirection:'row',
-                                marginLeft:'auto',
-                                marginRight:'auto',
-                                marginTop:'25pt',
-                                padding:'auto',
-                                zIndex:2
-                                // backgroundColor:'red'
-                            
-                        }}
-                    >
-                    
-                    <Image
-                        style={{
-                        display:'block',
-                        height:'65pt',
-                        width:'99pt',
-                        borderTopLeftRadius:20,
-                        borderBottomLeftRadius:20,
-                        zIndex:1,
-                        pointerEvents:'none',
-                        transform:[{
-                            translateX:'-10px',
-                            translateY:'-100px'
-                        }]
-                        }}
-                        source={{
-                            uri:
-                                // data.listCategory[i].ct_img_url
-                                listCategory.ct_img_url
-                        }}
-
-                    >
-                    </Image>
-                    <a
-                        style={{
-                        transform:[{
-                            translateX:'100px'
-                        }]
-                        }}
-                    >
-                        <View
-                            style ={{
-                                height:'65pt',
-                                width:'200px',
-                                fontSize: '15pt',
-                                fontWeight:'700',
-                                textDecorationLine:'none',
-                                // color:'white',
-                                // textShadowColor: 'rgba(0, 0, 0, 0.85)',
-                                // textShadowOffset: {width: 0, height: 0},
-                                // textShadowRadius: 2,
-                                color:'black',
-                                textAlign:'center',
-                                // alignItems:'center',
-                                // justifyContent:'center',
-                                flexDirection:'row',
-                                // margin:11,
-                                // padding:'auto',
-                                pointerEvents:'none',
-                                borderTopRightRadius:20,
-                                borderBottomRightRadius:20,
-                                backgroundColor:'white',
-                                // zIndex:99,
-                                pointerEvents:'none',
-                                
-                            }}
-                        >
-                            <View
-                                style ={{
-                                    height:'65pt',
-                                    width:'99px',
-                                    fontSize: '15pt',
-                                    fontWeight:'700',
-                                    textDecorationLine:'none',
-                                    // color:'white',
-                                    // textShadowColor: 'rgba(0, 0, 0, 0.85)',
-                                    // textShadowOffset: {width: 0, height: 0},
-                                    // textShadowRadius: 2,
-                                    color:'black',
-                                    textAlign:'center',
-                                    alignItems:'center',
-                                    justifyContent:'center',
-                                    flexDirection:'row',
-                                    marginLeft:'5pt',
-                                    // padding:'auto',
-                                    pointerEvents:'none',
-                                    backgroundColor:'white',
-                                    // zIndex:99,
-                                    pointerEvents:'none',
-                                    
-                                }}
-                            >
-                                <Text
-                                    style ={{
-                                        height:'65pt',
-                                        width:'99px',
-                                        fontSize: '15pt',
-                                        fontWeight:'700',
-                                        textDecorationLine:'none',
-                                        // color:'white',
-                                        // textShadowColor: 'rgba(0, 0, 0, 0.85)',
-                                        // textShadowOffset: {width: 0, height: 0},
-                                        // textShadowRadius: 2,
-                                        color:'black',
-                                        textAlign:'left',
-                                        alignItems:'center',
-                                        justifyContent:'center',
-                                        flexDirection:'row',
-                                        marginTop:'45pt',
-                                        // padding:'auto',
-                                        pointerEvents:'none',
-                                        backgroundColor:'transparent',
-                                        // zIndex:99,
-                                        pointerEvents:'none',
-                                        
-                                    }}
-                                >
-                                    {/* {data.listCategory[i].ct_text} */}
-                                    {listCategory.ct_text}
-                                </Text>
-                            </View>
-                        </View>
-                    </a>
-                    </TouchableOpacity>
-                    )}
-                    </View>
-                    {/* <Text> */}
-                    {/* {data.listCategory[0].ct_img_url} */}
-                    {/* construction */}
-                    {/* <img 
-                        style={{
-                        height:'65pt',
-                        width:'99pt',
-                        }} src={data.listCategory[0].ct_img_url}
-                    /> */}
-                    
-                    
-                    {/* </Text> */}
-                    {/* <Content/> */}
-                    
-                    
-                
-                </div>
-            );
-        }
-        else{
-            return (
-                <div className="MainContent">
-                
-                    <Navbar />
-                    <NavBarFiller/>
-                    <Text>
-                    로딩중 ...
-                    </Text>
-                    {/* <Content/> */}
-                    
-                    
-                
-                </div>
-            );
-        }
-    }
-    else{
-        if(data!=undefined){
-            return (
-                <div className="MainContent"
-                    style={{
-                        display:'block',
-                        height:'auto',
-
-                    }}
-                >
-                    
-                    <Text
-                        style={{
-                            fontSize: '25pt',
-                            fontWeight:'700',
-                            textDecorationLine:'none',
-                            // color:'white',
-                            // textShadowColor: 'rgba(0, 0, 0, 0.85)',
-                            // textShadowOffset: {width: 0, height: 0},
-                            // textShadowRadius: 2,
-                            color:'black',
-                            textAlign:'left',
-                            alignItems:'center',
-                            justifyContent:'center',
-                            flexDirection:'row',
-                            margin:11,
-                            padding:'auto',
-                            zIndex:2
-                            // backgroundColor:'red'
-                        }}
-                    > 
-                    자재 카테고리
-                    </Text> 
-                        <View
-                            style={{
-                                flex: 1, 
-                                // flexDirection: 'row',
-                                // justifyContent: 'space-between',
-                                flexwrap:'wrap',
-                                display: 'grid',
-                                gridTemplateColumns: 'auto',
-                                padding: '10px'
-                            }}
-                        >
-                            
-                        
-                    {data.listCategory.map((listCategory)=>
-
-                    
-                        <TouchableOpacity
-                        style={{
-                            borderRadius:20,
-                            height:'65pt',
-                            width:"350px",
-                            backgroundColor:'white',
-                            boxShadow:'0px 0px 2px',
-                            
-                                fontSize: '25pt',
-                                fontWeight:'700',
-                                textDecorationLine:'none',
-                                // color:'white',
-                                // textShadowColor: 'rgba(0, 0, 0, 0.85)',
-                                // textShadowOffset: {width: 0, height: 0},
-                                // textShadowRadius: 2,
-                                color:'black',
-                                textAlign:'left',
-                                alignItems:'center',
-                                justifyContent:'center',
-                                flexDirection:'row',
-                                marginLeft:'auto',
-                                marginRight:'auto',
-                                marginTop:'25pt',
-                                padding:'auto',
-                                zIndex:2
-                                // backgroundColor:'red'
-                            
-                        }}
-                    >
-                    
-                    <Image
-                        style={{
-                        display:'block',
-                        height:'65pt',
-                        width:'99pt',
-                        borderTopLeftRadius:20,
-                        borderBottomLeftRadius:20,
-                        zIndex:1,
-                        pointerEvents:'none',
-                        transform:[{
-                            translateX:'-10px',
-                            translateY:'-100px'
-                        }]
-                        }}
-                        source={{
-                            uri:
-                                // data.listCategory[i].ct_img_url
-                                listCategory.ct_img_url
-                        }}
-
-                    >
-                    </Image>
-                    <a
-                        style={{
-                        transform:[{
-                            translateX:'100px'
-                        }]
-                        }}
-                    >
-                        <View
-                            style ={{
-                                height:'65pt',
-                                width:'200px',
-                                fontSize: '15pt',
-                                fontWeight:'700',
-                                textDecorationLine:'none',
-                                // color:'white',
-                                // textShadowColor: 'rgba(0, 0, 0, 0.85)',
-                                // textShadowOffset: {width: 0, height: 0},
-                                // textShadowRadius: 2,
-                                color:'black',
-                                textAlign:'center',
-                                // alignItems:'center',
-                                // justifyContent:'center',
-                                flexDirection:'row',
-                                // margin:11,
-                                // padding:'auto',
-                                pointerEvents:'none',
-                                borderTopRightRadius:20,
-                                borderBottomRightRadius:20,
-                                backgroundColor:'white',
-                                // zIndex:99,
-                                pointerEvents:'none',
-                                
-                            }}
-                        >
-                            <View
-                                style ={{
-                                    height:'65pt',
-                                    width:'99px',
-                                    fontSize: '15pt',
-                                    fontWeight:'700',
-                                    textDecorationLine:'none',
-                                    // color:'white',
-                                    // textShadowColor: 'rgba(0, 0, 0, 0.85)',
-                                    // textShadowOffset: {width: 0, height: 0},
-                                    // textShadowRadius: 2,
-                                    color:'black',
-                                    textAlign:'center',
-                                    alignItems:'center',
-                                    justifyContent:'center',
-                                    flexDirection:'row',
-                                    marginLeft:'5pt',
-                                    // padding:'auto',
-                                    pointerEvents:'none',
-                                    backgroundColor:'white',
-                                    // zIndex:99,
-                                    pointerEvents:'none',
-                                    
-                                }}
-                            >
-                                <Text
-                                    style ={{
-                                        height:'65pt',
-                                        width:'99px',
-                                        fontSize: '15pt',
-                                        fontWeight:'700',
-                                        textDecorationLine:'none',
-                                        // color:'white',
-                                        // textShadowColor: 'rgba(0, 0, 0, 0.85)',
-                                        // textShadowOffset: {width: 0, height: 0},
-                                        // textShadowRadius: 2,
-                                        color:'black',
-                                        textAlign:'left',
-                                        alignItems:'center',
-                                        justifyContent:'center',
-                                        flexDirection:'row',
-                                        marginTop:'45pt',
-                                        // padding:'auto',
-                                        pointerEvents:'none',
-                                        backgroundColor:'transparent',
-                                        // zIndex:99,
-                                        pointerEvents:'none',
-                                        
-                                    }}
-                                >
-                                    {/* {data.listCategory[i].ct_text} */}
-                                    {listCategory.ct_text}
-                                </Text>
-                            </View>
-                        </View>
-                    </a>
-                    </TouchableOpacity>
-                    )}
-                    </View>
-                    {/* <Text> */}
-                    {/* {data.listCategory[0].ct_img_url} */}
-                    {/* construction */}
-                    {/* <img 
-                        style={{
-                        height:'65pt',
-                        width:'99pt',
-                        }} src={data.listCategory[0].ct_img_url}
-                    /> */}
-                    
-                    
-                    {/* </Text> */}
-                    {/* <Content/> */}
-                    
-                    
-                
-                </div>
-            );
-        }
-        else{
-            return (
-                <div className="MainContent">
-                
-                    <Navbar />
-                    <NavBarFiller/>
-                    <Text>
-                    로딩중 ...
-                    </Text>
-                    {/* <Content/> */}
-                    
-                    
-                
-                </div>
-            );
-        }
-    }
+ 
 }
   
   export default MainMoodBoard;

@@ -42,7 +42,17 @@ function MainMaterialCategory() {
 
                     }}
                 >
-                    
+                <div
+                    style={{
+                        display:'block',
+                        height:'50px',
+                        backgroundColor:'transparent',
+                        topMargin:'77pt',
+                        flexDirection:'column',
+                        textAlign:'left',
+                        paddingLeft:'100pt'
+                    }}
+                >
                     <Text
                         style={{
                             fontSize: '25pt',
@@ -65,6 +75,7 @@ function MainMaterialCategory() {
                     > 
                     자재 카테고리
                     </Text> 
+                </div>   
                         <View
                             style={{
                                 flex: 1, 
