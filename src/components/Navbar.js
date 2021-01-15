@@ -34,7 +34,7 @@ const Navbar=() => {
   const onChange=()=>{
     setHeight(Dimensions.get('window').height)
     setWidth(Dimensions.get('window').width)
-    console.log(height+" : "+width)
+    // console.log(height+" : "+width)
   }
   useEffect(() => {
     window.addEventListener('scroll',handleScroll)
