@@ -109,6 +109,7 @@ function MainMaterialCategory() {
                                 // backgroundColor:'red'
                             
                         }}
+                        onPress={() => Linking.openURL(`/category?cat_num=${listCategory.ct_id}`)}
                     >
                     
                     <Image
@@ -340,6 +341,7 @@ function MainMaterialCategory() {
                                 // backgroundColor:'red'
                             
                         }}
+                        onPress={() => Linking.openURL(`/category?cat_num=${listCategory.ct_id}`)}
                     >
                     
                     <Image
