@@ -94,7 +94,7 @@ function MainMaterialCategory() {
                     
                         <TouchableOpacity
                         style={{
-                            borderRadius:20,
+                            borderRadius:10,
                             height:'65pt',
                             width:"350px",
                             backgroundColor:'white',
@@ -128,8 +128,8 @@ function MainMaterialCategory() {
                         display:'block',
                         height:'65pt',
                         width:'99pt',
-                        borderTopLeftRadius:20,
-                        borderBottomLeftRadius:20,
+                        borderTopLeftRadius:10,
+                        borderBottomLeftRadius:10,
                         zIndex:1,
                         pointerEvents:'none',
                         transform:[{
@@ -171,8 +171,8 @@ function MainMaterialCategory() {
                                 // margin:11,
                                 // padding:'auto',
                                 pointerEvents:'none',
-                                borderTopRightRadius:20,
-                                borderBottomRightRadius:20,
+                                borderTopRightRadius:10,
+                                borderBottomRightRadius:10,
                                 backgroundColor:'white',
                                 // zIndex:99,
                                 pointerEvents:'none',
@@ -326,7 +326,7 @@ function MainMaterialCategory() {
                     
                         <TouchableOpacity
                         style={{
-                            borderRadius:20,
+                            borderRadius:10,
                             height:'65pt',
                             width:"350px",
                             backgroundColor:'white',
@@ -360,8 +360,8 @@ function MainMaterialCategory() {
                         display:'block',
                         height:'65pt',
                         width:'99pt',
-                        borderTopLeftRadius:20,
-                        borderBottomLeftRadius:20,
+                        borderTopLeftRadius:10,
+                        borderBottomLeftRadius:10,
                         zIndex:1,
                         pointerEvents:'none',
                         transform:[{
@@ -403,8 +403,8 @@ function MainMaterialCategory() {
                                 // margin:11,
                                 // padding:'auto',
                                 pointerEvents:'none',
-                                borderTopRightRadius:20,
-                                borderBottomRightRadius:20,
+                                borderTopRightRadius:10,
+                                borderBottomRightRadius:10,
                                 backgroundColor:'white',
                                 // zIndex:99,
                                 pointerEvents:'none',
@@ -557,7 +557,7 @@ function MainMaterialCategory() {
                     
                         <TouchableOpacity
                         style={{
-                            borderRadius:20,
+                            borderRadius:10,
                             height:'65pt',
                             width:"350px",
                             backgroundColor:'white',
@@ -591,8 +591,8 @@ function MainMaterialCategory() {
                         display:'block',
                         height:'65pt',
                         width:'99pt',
-                        borderTopLeftRadius:20,
-                        borderBottomLeftRadius:20,
+                        borderTopLeftRadius:10,
+                        borderBottomLeftRadius:10,
                         zIndex:1,
                         pointerEvents:'none',
                         transform:[{
@@ -634,8 +634,8 @@ function MainMaterialCategory() {
                                 // margin:11,
                                 // padding:'auto',
                                 pointerEvents:'none',
-                                borderTopRightRadius:20,
-                                borderBottomRightRadius:20,
+                                borderTopRightRadius:10,
+                                borderBottomRightRadius:10,
                                 backgroundColor:'white',
                                 // zIndex:99,
                                 pointerEvents:'none',

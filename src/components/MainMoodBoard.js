@@ -29,7 +29,7 @@ function MainMoodBoard() {
             })
       },[])
     
-    if(width>981){
+    // if(width>981){
 
         if(data!=undefined){
             return (
@@ -132,7 +132,7 @@ function MainMoodBoard() {
                         <TouchableOpacity
                         style={{
                             flexDirection:'column',
-                            borderRadius:20,
+                            borderRadius:10,
                             height:'300pt',
                             width:"240pt",
                             backgroundColor:'rgb(33,33,33)',
@@ -165,8 +165,8 @@ function MainMoodBoard() {
                         display:'block',
                         height:'240pt',
                         width:'240pt',
-                        borderTopLeftRadius:20,
-                        borderTopRightRadius:20,
+                        borderTopLeftRadius:10,
+                        borderTopRightRadius:10,
                         zIndex:1,
                         pointerEvents:'none',
                         transform:[{
@@ -213,8 +213,8 @@ function MainMoodBoard() {
                                 backgroundColor:'rgb(33,33,33)',
                                 // zIndex:99,
                                 pointerEvents:'none',
-                                borderBottomLeftRadius:20,
-                                borderBottomRightRadius:20,
+                                borderBottomLeftRadius:10,
+                                borderBottomRightRadius:10,
                                 // left:0,
                                 
                             }}
@@ -230,8 +230,8 @@ function MainMoodBoard() {
                                     // textShadowColor: 'rgba(0, 0, 0, 0.85)',
                                     // textShadowOffset: {width: 0, height: 0},
                                     // textShadowRadius: 2,
-                                    borderBottomLeftRadius:20,
-                                    borderBottomRightRadius:20,
+                                    borderBottomLeftRadius:10,
+                                    borderBottomRightRadius:10,
                                     color:'black',
                                     textAlign:'center',
                                     alignItems:'center',
@@ -303,7 +303,7 @@ function MainMoodBoard() {
             );
         }
     
-    }
+    // }
  
 }
   
