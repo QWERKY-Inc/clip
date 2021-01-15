@@ -61,6 +61,7 @@ function MainContent() {
                             flexwrap:'wrap',
                             display: 'grid',
                             gridTemplateColumns: 'auto auto',
+                            padding: '10px'
                         }}
                     >
                         
