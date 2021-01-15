@@ -1,10 +1,10 @@
 import React,{useEffect} from 'react';
 import Navbar from './Navbar';
-import Content from './Content';
+
 import NavBarFiller from './NavBarFiller';
 import {TouchableOpacity,Text,Image,View,Modal,TouchableHighlight,Dimensions} from 'react-native';
 
-function MainContent() {
+function MainMaterialCategory() {
 
     const[data,setData]=React.useState(undefined)
     const [height,setHeight]=React.useState(Dimensions.get('window').height)
@@ -31,7 +31,7 @@ function MainContent() {
             })
       })
     
-    if(width>1051){
+    if(width>981){
 
         if(data!=undefined){
             return (
@@ -238,7 +238,7 @@ function MainContent() {
                     
                     
                     {/* </Text> */}
-                    <Content/>
+                    {/* <Content/> */}
                     
                     
                 
@@ -254,7 +254,7 @@ function MainContent() {
                     <Text>
                     loading ...
                     </Text>
-                    <Content/>
+                    {/* <Content/> */}
                     
                     
                 
@@ -263,7 +263,7 @@ function MainContent() {
         }
     
     }
-    else if(width>449 && width<=1051){
+    else if(width>684 && width<=981){
         if(data!=undefined){
             return (
                 <div className="MainContent"
@@ -469,7 +469,7 @@ function MainContent() {
                     
                     
                     {/* </Text> */}
-                    <Content/>
+                    {/* <Content/> */}
                     
                     
                 
@@ -485,7 +485,7 @@ function MainContent() {
                     <Text>
                     loading ...
                     </Text>
-                    <Content/>
+                    {/* <Content/> */}
                     
                     
                 
@@ -699,7 +699,7 @@ function MainContent() {
                     
                     
                     {/* </Text> */}
-                    <Content/>
+                    {/* <Content/> */}
                     
                     
                 
@@ -715,7 +715,7 @@ function MainContent() {
                     <Text>
                     loading ...
                     </Text>
-                    <Content/>
+                    {/* <Content/> */}
                     
                     
                 
@@ -725,4 +725,4 @@ function MainContent() {
     }
 }
   
-  export default MainContent;
+  export default MainMaterialCategory;
