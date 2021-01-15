@@ -2,7 +2,7 @@ import React,{useEffect} from 'react';
 import Navbar from './Navbar';
 
 import NavBarFiller from './NavBarFiller';
-import {TouchableOpacity,Text,Image,View,Modal,TouchableHighlight,Dimensions} from 'react-native';
+import {TouchableOpacity,Text,Image,View,Modal,TouchableHighlight,Dimensions,Linking} from 'react-native';
 
 function MainMaterialCategory() {
 
@@ -29,7 +29,7 @@ function MainMaterialCategory() {
             .catch(err=>{
                 console.log(err)
             })
-      })
+      },[])
     
     if(width>981){
 
@@ -483,7 +483,7 @@ function MainMaterialCategory() {
                     <Navbar />
                     <NavBarFiller/>
                     <Text>
-                    loading ...
+                    로딩중 ...
                     </Text>
                     {/* <Content/> */}
                     
@@ -568,8 +568,9 @@ function MainMaterialCategory() {
                                 padding:'auto',
                                 zIndex:2
                                 // backgroundColor:'red'
-                            
                         }}
+                        // onPress={() => Linking.openURL(`/category:${listCategory.ct_id}`)}
+                        onPress={() => Linking.openURL(`/category?cat_num=${listCategory.ct_id}`)}
                     >
                     
                     <Image
@@ -713,7 +714,7 @@ function MainMaterialCategory() {
                     <Navbar />
                     <NavBarFiller/>
                     <Text>
-                    loading ...
+                    로딩중 ...
                     </Text>
                     {/* <Content/> */}
                     

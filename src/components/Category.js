@@ -1,17 +1,21 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import Navbar from './Navbar';
 import Content from './Content';
 import NavBarFiller from './NavBarFiller';
 import {TouchableOpacity,Text,View,Modal,TouchableHighlight} from 'react-native';
 
-function Category() {
+function Category(props) {
 
-    const[data,setData]=React.useState({})
-    fetch('/data')
-    .then(res=>res.json())
-    .then(data=>setData(data),()=>{
-      console.log('data read : ' , data);
-    })
+  const[data,setData]=React.useState({})
+    useEffect(() => {
+      
+      fetch('/data')
+      .then(res=>res.json())
+      .then(data=>setData(data),()=>{
+        console.log('data read : ' , data);
+      })
+      console.log(props.location.search)
+    },[])
     return (
       <div className="Category">
        
