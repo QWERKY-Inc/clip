@@ -4,7 +4,7 @@ import Navbar from './Navbar';
 import NavBarFiller from './NavBarFiller';
 import {TouchableOpacity,Text,Image,View,Modal,TouchableHighlight,Dimensions} from 'react-native';
 
-function MainMaterialCategory() {
+function MainMoodBoard() {
 
     const[data,setData]=React.useState(undefined)
     const [height,setHeight]=React.useState(Dimensions.get('window').height)
@@ -22,8 +22,7 @@ function MainMaterialCategory() {
                 console.log(err)
             })
             .then(incomingData=>setData(incomingData),()=>{
-            
-            console.log(data)
+            // console.log(data)
             console.log('data read : ' , data.listCategory[0].ct_img_url);
             })
             .catch(err=>{
@@ -483,7 +482,7 @@ function MainMaterialCategory() {
                     <Navbar />
                     <NavBarFiller/>
                     <Text>
-                    loading ...
+                    로딩중 ...
                     </Text>
                     {/* <Content/> */}
                     
@@ -713,7 +712,7 @@ function MainMaterialCategory() {
                     <Navbar />
                     <NavBarFiller/>
                     <Text>
-                    loading ...
+                    로딩중 ...
                     </Text>
                     {/* <Content/> */}
                     
@@ -725,4 +724,4 @@ function MainMaterialCategory() {
     }
 }
   
-  export default MainMaterialCategory;
+  export default MainMoodBoard;
