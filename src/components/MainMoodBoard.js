@@ -29,7 +29,7 @@ function MainMoodBoard() {
             })
       },[])
     
-    if(width>949){
+    if(width>940){
 
         if(data!=undefined){
             return (
@@ -150,8 +150,8 @@ function MainMoodBoard() {
                                 alignItems:'center',
                                 justifyContent:'center',
                                 flexDirection:'column',
-                                marginLeft:'auto',
-                                marginRight:'auto',
+                                marginLeft:'25pt',
+                                marginRight:'25pt',
                                 marginTop:'25pt',
                                 padding:'auto',
                                 zIndex:2
@@ -304,7 +304,7 @@ function MainMoodBoard() {
         }
     
     }
-    else if(width > 717 && width<=949){
+    else if(width > 760 && width<=940){
 
         if(data!=undefined){
             return (
@@ -314,6 +314,7 @@ function MainMoodBoard() {
                         height:'auto',
                         backgroundColor:'black',
                         paddingTop:'77pt'
+
                     }}
                 >
                     <div
@@ -412,24 +413,23 @@ function MainMoodBoard() {
                             width:"200pt",
                             backgroundColor:'rgb(33,33,33)',
                             // boxShadow:'0px 0px 2px',
-                            
-                                fontSize: '25pt',
-                                fontWeight:'700',
-                                textDecorationLine:'none',
-                                // color:'white',
-                                // textShadowColor: 'rgba(0, 0, 0, 0.85)',
-                                // textShadowOffset: {width: 0, height: 0},
-                                // textShadowRadius: 2,
-                                color:'black',
-                                textAlign:'left',
-                                alignItems:'center',
-                                justifyContent:'center',
-                                flexDirection:'column',
-                                marginLeft:'auto',
-                                marginRight:'auto',
-                                marginTop:'25pt',
-                                padding:'auto',
-                                zIndex:2
+                            fontSize: '25pt',
+                            fontWeight:'700',
+                            textDecorationLine:'none',
+                            // color:'white',
+                            // textShadowColor: 'rgba(0, 0, 0, 0.85)',
+                            // textShadowOffset: {width: 0, height: 0},
+                            // textShadowRadius: 2,
+                            color:'black',
+                            textAlign:'left',
+                            alignItems:'center',
+                            justifyContent:'center',
+                            flexDirection:'column',
+                            marginLeft:'25pt',
+                            marginRight:'25pt',
+                            marginTop:'25pt',
+                            padding:'auto',
+                            zIndex:2
                                 // backgroundColor:'red'
                             
                         }}
@@ -579,7 +579,7 @@ function MainMoodBoard() {
         }
     
     }
-    else if(width > 670 && width<=717){
+    else if(width > 512 && width<=760){
 
         if(data!=undefined){
             return (
@@ -975,8 +975,8 @@ function MainMoodBoard() {
                                 alignItems:'center',
                                 justifyContent:'center',
                                 flexDirection:'column',
-                                marginLeft:'auto',
-                                marginRight:'auto',
+                                marginLeft:'25pt',
+                                marginRight:'25pt',
                                 marginTop:'25pt',
                                 padding:'auto',
                                 zIndex:2
