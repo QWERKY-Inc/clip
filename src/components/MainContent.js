@@ -61,7 +61,7 @@ function MainContent() {
                     style={{
                         borderRadius:20,
                         height:'65pt',
-                        width:"90vw",
+                        width:"350px",
                         backgroundColor:'white',
                         boxShadow:'0px 0px 2px',
                         
@@ -77,7 +77,9 @@ function MainContent() {
                             alignItems:'center',
                             justifyContent:'center',
                             flexDirection:'row',
-                            margin:'auto',
+                            marginLeft:'auto',
+                            marginRight:'auto',
+                            marginTop:'25pt',
                             padding:'auto',
                             zIndex:2
                             // backgroundColor:'red'
@@ -95,8 +97,8 @@ function MainContent() {
                       zIndex:1,
                       pointerEvents:'none',
                       transform:[{
-                          translateX:'-110px',
-                          translateY:'100px'
+                          translateX:'-10px',
+                          translateY:'-100px'
                       }]
                     }}
                     source={{
@@ -110,15 +112,14 @@ function MainContent() {
                   <a
                     style={{
                       transform:[{
-                        translateX:'-100px'
+                        translateX:'100px'
                       }]
                     }}
                   >
-                  <div>
-                      <Text
+                    <View
                         style ={{
                             height:'65pt',
-                            width:'99px',
+                            width:'200px',
                             fontSize: '15pt',
                             fontWeight:'700',
                             textDecorationLine:'none',
@@ -128,22 +129,75 @@ function MainContent() {
                             // textShadowRadius: 2,
                             color:'black',
                             textAlign:'center',
-                            alignItems:'center',
-                            justifyContent:'center',
+                            // alignItems:'center',
+                            // justifyContent:'center',
                             flexDirection:'row',
                             // margin:11,
                             // padding:'auto',
                             pointerEvents:'none',
-                            backgroundColor:'transparent',
+                            borderTopRightRadius:20,
+                            borderBottomRightRadius:20,
+                            backgroundColor:'white',
                             // zIndex:99,
                             pointerEvents:'none',
                             
                         }}
-                      >
-                          {/* {data.listCategory[i].ct_text} */}
-                          {listCategory.ct_text}
-                      </Text>
-                    </div>
+                    >
+                        <View
+                            style ={{
+                                height:'65pt',
+                                width:'99px',
+                                fontSize: '15pt',
+                                fontWeight:'700',
+                                textDecorationLine:'none',
+                                // color:'white',
+                                // textShadowColor: 'rgba(0, 0, 0, 0.85)',
+                                // textShadowOffset: {width: 0, height: 0},
+                                // textShadowRadius: 2,
+                                color:'black',
+                                textAlign:'center',
+                                alignItems:'center',
+                                justifyContent:'center',
+                                flexDirection:'row',
+                                marginLeft:'5pt',
+                                // padding:'auto',
+                                pointerEvents:'none',
+                                backgroundColor:'white',
+                                // zIndex:99,
+                                pointerEvents:'none',
+                                
+                            }}
+                        >
+                            <Text
+                                style ={{
+                                    height:'65pt',
+                                    width:'99px',
+                                    fontSize: '15pt',
+                                    fontWeight:'700',
+                                    textDecorationLine:'none',
+                                    // color:'white',
+                                    // textShadowColor: 'rgba(0, 0, 0, 0.85)',
+                                    // textShadowOffset: {width: 0, height: 0},
+                                    // textShadowRadius: 2,
+                                    color:'black',
+                                    textAlign:'left',
+                                    alignItems:'center',
+                                    justifyContent:'center',
+                                    flexDirection:'row',
+                                    marginTop:'45pt',
+                                    // padding:'auto',
+                                    pointerEvents:'none',
+                                    backgroundColor:'transparent',
+                                    // zIndex:99,
+                                    pointerEvents:'none',
+                                    
+                                }}
+                            >
+                                {/* {data.listCategory[i].ct_text} */}
+                                {listCategory.ct_text}
+                            </Text>
+                        </View>
+                    </View>
                   </a>
                   </TouchableOpacity>
                 )}
