@@ -53,7 +53,18 @@ function MainContent() {
                 > 
                   자재 카테고리
                 </Text> 
-              
+                    <View
+                        style={{
+                            flex: 1, 
+                            // flexDirection: 'row',
+                            // justifyContent: 'space-between',
+                            flexwrap:'wrap',
+                            display: 'grid',
+                            gridTemplateColumns: 'auto auto',
+                        }}
+                    >
+                        
+                    
                 {data.listCategory.map((listCategory)=>
 
                 
@@ -201,6 +212,7 @@ function MainContent() {
                   </a>
                   </TouchableOpacity>
                 )}
+                </View>
                 {/* <Text> */}
                   {/* {data.listCategory[0].ct_img_url} */}
                   {/* construction */}
