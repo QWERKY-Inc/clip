@@ -55,6 +55,9 @@ const IntroImage=() => {
 				{/* {filler} */}
 				{/* {introImage} */}
 				<div className="introImage">
+			<a
+				href="/brands"
+			>
 			<div id="introImageDiv"
 			style={{
 				backgroundColor:'transparent',
@@ -68,6 +71,7 @@ const IntroImage=() => {
 
 
 			</div>
+			</a>
 		</div>
 
 			</div>
