@@ -18,7 +18,7 @@
     z-index:10;
   }
   .headerContainer{
-    height:100pt;
+    height:100px;
     background-color:white;
   }
   .navToggle{
@@ -43,8 +43,8 @@
   .logo img{
     display:block;
     position:fixed;
-    top:33pt;
-    left:29pt;
+    top:33px;
+    left:29px;
     height:33pt;
   }
   .headerLinks{

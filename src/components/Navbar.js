@@ -107,7 +107,7 @@ const Navbar=() => {
                       position:'fixed',
                       height:50,
                       width:240,
-                      top:44,
+                      top:38,
                       left:'167pt',
                       backgroundColor:'transparent',
                       zIndex:101
@@ -142,7 +142,7 @@ const Navbar=() => {
            <Text
                 selectable={false} 
                 style ={{
-                    fontSize: '25pt',
+                    fontSize: '25px',
                     fontWeight:'700',
                     textDecorationLine:'none',
                     color:'black',
@@ -169,7 +169,7 @@ const Navbar=() => {
                       position:'fixed',
                       height:50,
                       width:170,
-                      top:44,
+                      top:38,
                       left:'349pt',
                       backgroundColor:'transparent',
                       zIndex:101
@@ -185,7 +185,7 @@ const Navbar=() => {
                 <Text
                 selectable={false} 
                 style ={{
-                    fontSize: '25pt',
+                    fontSize: '25px',
                     fontWeight:'700',
                     textDecorationLine:'none',
                     // color:'white',
@@ -212,7 +212,7 @@ const Navbar=() => {
                       position:'fixed',
                       height:50,
                       width:140,
-                      top:44,
+                      top:38,
                       left:'478pt',
                       backgroundColor:'transparent',
                       zIndex:101
@@ -228,7 +228,7 @@ const Navbar=() => {
                   <Text
                   selectable={false} 
                   style ={{
-                      fontSize: '25pt',
+                      fontSize: '25px',
                       fontWeight:'700',
                       textDecorationLine:'none',
                       // color:'white',
@@ -255,7 +255,7 @@ const Navbar=() => {
                 position:'fixed',
                 height:47,
                 width:47,
-                top:'29pt',
+                top:'29px',
                 right:'173pt',
                 backgroundColor:'transparent',
                 zIndex:101
@@ -271,7 +271,7 @@ const Navbar=() => {
                 position:'fixed',
                 height:47,
                 width:47,
-                top:'29pt',
+                top:'29px',
                 right:'103pt',
                 backgroundColor:'transparent',
                 zIndex:101
@@ -291,7 +291,7 @@ const Navbar=() => {
                 position:'fixed',
                 height:47,
                 width:47,
-                top:'29pt',
+                top:'29px',
                 right:'33pt',
                 backgroundColor:'transparent',
                 zIndex:101,
@@ -391,7 +391,7 @@ else if(width>449 && width<=1051){
             position:'fixed',
             height:47,
             width:47,
-            top:'29pt',
+            top:'29px',
             right:'173pt',
             backgroundColor:'transparent',
             zIndex:101
@@ -407,7 +407,7 @@ else if(width>449 && width<=1051){
             position:'fixed',
             height:47,
             width:47,
-            top:'29pt',
+            top:'29px',
             right:'103pt',
             backgroundColor:'transparent',
             zIndex:101
@@ -427,7 +427,7 @@ else if(width>449 && width<=1051){
             position:'fixed',
             height:47,
             width:47,
-            top:'29pt',
+            top:'29px',
             right:'33pt',
             backgroundColor:'transparent',
             zIndex:101,
@@ -528,7 +528,7 @@ else{
                 position:'fixed',
                 height:47,
                 width:47,
-                top:'29pt',
+                top:'29px',
                 right:'105pt',
                 backgroundColor:'transparent',
                 zIndex:101
@@ -544,7 +544,7 @@ else{
                 position:'fixed',
                 height:47,
                 width:47,
-                top:'29pt',
+                top:'29px',
                 right:'60pt',
                 backgroundColor:'transparent',
                 zIndex:101
@@ -564,7 +564,7 @@ else{
                 position:'fixed',
                 height:47,
                 width:47,
-                top:'29pt',
+                top:'29px',
                 right:'15pt',
                 backgroundColor:'transparent',
                 zIndex:101,

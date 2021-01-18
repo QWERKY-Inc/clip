@@ -31,7 +31,7 @@ function MainMaterialCategory() {
             })
       },[])
     
-    if(width>981){
+    if(width>1000){
 
         if(data!=undefined){
             return (
@@ -55,7 +55,7 @@ function MainMaterialCategory() {
                 >
                     <Text
                         style={{
-                            fontSize: '25pt',
+                            fontSize: '25px',
                             fontWeight:'700',
                             textDecorationLine:'none',
                             // color:'white',
@@ -275,7 +275,7 @@ function MainMaterialCategory() {
         }
     
     }
-    else if(width>684 && width<=981){
+    else if(width>684 && width<=1000){
         if(data!=undefined){
             return (
                 <div className="MainContent"
@@ -288,7 +288,7 @@ function MainMaterialCategory() {
                     
                     <Text
                         style={{
-                            fontSize: '25pt',
+                            fontSize: '25px',
                             fontWeight:'700',
                             textDecorationLine:'none',
                             // color:'white',
@@ -519,7 +519,7 @@ function MainMaterialCategory() {
                     
                     <Text
                         style={{
-                            fontSize: '25pt',
+                            fontSize: '25px',
                             fontWeight:'700',
                             textDecorationLine:'none',
                             // color:'white',

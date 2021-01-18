@@ -4,7 +4,7 @@ function NavBarFiller() {
         <div 
             className="headerFiller"
             style={{
-                height:'100pt'
+                height:'100px'
             }}
         >
         </div>
