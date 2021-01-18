@@ -6,6 +6,8 @@ import Content from './components/Content';
 import Category from './components/Category';
 import ConstructionPart from './components/ConstructionPart';
 import Brands from './components/Brands'
+import PrivacyPolicy from './components/PrivacyPolicy'
+import Terms from './components/Terms'
 import {BrowserRouter as BrowserRouter,Router,Switch,Route,Link} from 'react-router-dom'
 
 
@@ -21,6 +23,8 @@ function App() {
           <Route exact path="/category" component={Category}/>
           <Route exact path="/constructionPart" component={ConstructionPart}/>
           <Route exact path="/brands" component={Brands}/>
+          <Route exact path="/privacypolicy" component={PrivacyPolicy}/>
+          <Route exact path="/terms" component={Terms}/>
         </Switch>
       </BrowserRouter>
     </div>

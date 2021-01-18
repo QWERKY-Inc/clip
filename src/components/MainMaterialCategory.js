@@ -50,7 +50,7 @@ function MainMaterialCategory() {
                         topMargin:'77pt',
                         flexDirection:'column',
                         textAlign:'left',
-                        paddingLeft:'100pt'
+                        paddingLeft:'100px'
                     }}
                 >
                     <Text
@@ -275,7 +275,7 @@ function MainMaterialCategory() {
         }
     
     }
-    else if(width>684 && width<=1000){
+    else if(width>803 && width<=1000){
         if(data!=undefined){
             return (
                 <div className="MainContent"

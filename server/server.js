@@ -35,6 +35,14 @@ app.get('/constructionpart', (req,res)=>{
     // res.sendFile(path.join(publicPath,'index.html'))
     res.sendFile(path.join(__dirname,'..','build','index.html'))
 })
+app.get('/terms', (req,res)=>{
+    // res.sendFile(path.join(publicPath,'index.html'))
+    res.sendFile(path.join(__dirname,'..','build','index.html'))
+})
+app.get('/privacypolicy', (req,res)=>{
+    // res.sendFile(path.join(publicPath,'index.html'))
+    res.sendFile(path.join(__dirname,'..','build','index.html'))
+})
 app.use(cors());
 app.get('/', function (req, res) {
     res.json(path.join(__dirname, '..','build', 'index.html'))

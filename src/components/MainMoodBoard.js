@@ -49,7 +49,7 @@ function MainMoodBoard() {
                             topMargin:'77pt',
                             flexDirection:'column',
                             textAlign:'left',
-                            paddingLeft:'100pt'
+                            paddingLeft:'100px'
                         }}
                     >
                         <Text
@@ -119,7 +119,7 @@ function MainMoodBoard() {
                                 // justifyContent: 'space-between',
                                 flexwrap:'wrap',
                                 display: 'grid',
-                                gridTemplateColumns: 'auto auto auto auto',
+                                gridTemplateColumns: 'auto auto auto',
                                 paddingLeft: '77pt',
                                 paddingRight: '77pt'
                             }}
@@ -325,7 +325,7 @@ function MainMoodBoard() {
                             topMargin:'77pt',
                             flexDirection:'column',
                             textAlign:'left',
-                            paddingLeft:'100pt'
+                            paddingLeft:'100px'
                         }}
                     >
                         <Text
@@ -395,7 +395,7 @@ function MainMoodBoard() {
                                 // justifyContent: 'space-between',
                                 flexwrap:'wrap',
                                 display: 'grid',
-                                gridTemplateColumns: 'auto auto auto',
+                                gridTemplateColumns: 'auto auto',
                                 paddingLeft: '77pt',
                                 paddingRight: '77pt'
                             }}
@@ -599,7 +599,7 @@ function MainMoodBoard() {
                             topMargin:'77pt',
                             flexDirection:'column',
                             textAlign:'left',
-                            paddingLeft:'100pt'
+                            paddingLeft:'100px'
                         }}
                     >
                         <Text
@@ -669,7 +669,7 @@ function MainMoodBoard() {
                                 // justifyContent: 'space-between',
                                 flexwrap:'wrap',
                                 display: 'grid',
-                                gridTemplateColumns: 'auto auto',
+                                gridTemplateColumns: 'auto',
                                 paddingLeft: '77pt',
                                 paddingRight: '77pt'
                             }}
@@ -874,7 +874,8 @@ function MainMoodBoard() {
                             topMargin:'77pt',
                             flexDirection:'column',
                             textAlign:'left',
-                            paddingLeft:'100pt'
+                            paddingLeft:'auto',
+                            paddingRight:'auto'
                         }}
                     >
                         <Text
@@ -945,8 +946,8 @@ function MainMoodBoard() {
                                 flexwrap:'wrap',
                                 display: 'grid',
                                 gridTemplateColumns: 'auto',
-                                paddingLeft: '77pt',
-                                paddingRight: '77pt'
+                                paddingLeft: 'auto',
+                                paddingRight: 'auto'
                             }}
                         >
                             
@@ -975,9 +976,9 @@ function MainMoodBoard() {
                                 alignItems:'center',
                                 justifyContent:'center',
                                 flexDirection:'column',
-                                marginLeft:'25pt',
-                                marginRight:'25pt',
-                                marginTop:'25pt',
+                                marginLeft:'25px',
+                                marginRight:'25px',
+                                marginTop:'25px',
                                 padding:'auto',
                                 zIndex:2
                                 // backgroundColor:'red'

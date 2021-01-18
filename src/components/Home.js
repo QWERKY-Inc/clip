@@ -4,6 +4,7 @@ import IntroImage from './IntroImage'
 import NavBarFiller from './NavBarFiller'
 import MainMaterialCategory from './MainMaterialCategory'
 import MainMoodBoard from './MainMoodBoard'
+import Footer from './Footer'
 function Home() {
     return (
       <div className="Home">
@@ -12,6 +13,7 @@ function Home() {
           <IntroImage/>
           <MainMaterialCategory/>
           <MainMoodBoard/>
+          <Footer/>
       </div>
     );
   }
