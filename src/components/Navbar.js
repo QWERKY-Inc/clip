@@ -1,13 +1,14 @@
 import React,{useEffect} from 'react';
 import './navbar.css';
 // import Logo from './../logo.svg';
-import {TouchableOpacity,Text,View,Modal,TouchableHighlight,Dimensions} from 'react-native';
+import {TouchableOpacity,Text,View,Modal,TouchableHighlight,Dimensions,TextInput} from 'react-native';
 import Logo from '../assets/header_logo.png'
 import { nativeTouchData } from 'react-dom/test-utils';
 import searchIcon from '../assets/icnSearch.png'
 import userIcon from '../assets/icnUser.png'
 import boxIcon from '../assets/icnBox.png'
 import {BrowserRouter as Router,Switch,Route,Link} from 'react-router-dom'
+
 
 const Navbar=() => {
   const [scrolled,setScrolled]=React.useState(false);
@@ -36,6 +37,8 @@ const Navbar=() => {
     setWidth(Dimensions.get('window').width)
     // console.log(height+" : "+width)
   }
+  const[userPhoneNumber,setUserPhoneNumber]=React.useState('- 없이 숫자만 입력해주세요')
+  const[password,setPassword]=React.useState(null)
   useEffect(() => {
     window.addEventListener('scroll',handleScroll)
     Dimensions.addEventListener('change',onChange)
@@ -79,8 +82,16 @@ const Navbar=() => {
           }}>
           <View style={{marginTop: 22}}>
             <View>
-              <Text>user Info</Text>
-
+            <Text>user phonenumber</Text>
+              <TextInput 
+                onChangeText={text=>setUserPhoneNumber(text)}
+              ></TextInput>
+              <Text>password</Text>
+              <TextInput
+                onChangeText={text=>setPassword(text)}
+                secureTextEntry={true}
+              ></TextInput>
+              
               <TouchableHighlight
                 onPress={() => {
                   toggleUserModal()
@@ -365,8 +376,15 @@ else if(width>449 && width<=1051){
       }}>
       <View style={{marginTop: 22}}>
         <View>
-          <Text>user Info</Text>
-
+        <Text>user phonenumber</Text>
+        <TextInput 
+          onChangeText={text=>setUserPhoneNumber(text)}
+        ></TextInput>
+        <Text>password</Text>
+        <TextInput
+          onChangeText={text=>setPassword(text)}
+          secureTextEntry={true}
+        ></TextInput>
           <TouchableHighlight
             onPress={() => {
               toggleUserModal()
@@ -501,8 +519,16 @@ else{
           }}>
           <View style={{marginTop: 22}}>
             <View>
-              <Text>user Info</Text>
-
+              <Text>user phonenumber</Text>
+              <TextInput 
+                onChangeText={text=>setUserPhoneNumber(text)}
+              ></TextInput>
+              <Text>password</Text>
+              <TextInput
+                onChangeText={text=>setPassword(text)}
+                secureTextEntry={true}
+              ></TextInput>
+              
               <TouchableHighlight
                 onPress={() => {
                   toggleUserModal()
