@@ -6,6 +6,7 @@ const port = process.env.PORT || 8080;
 //app.use(express.static(publicPath))
 const proxy = require("http-proxy-middleware");
 const fetch = require('node-fetch')
+const queryString =require('query-string');
 module.exports = function(app) {
   app.use(
     proxy(["/api", , "/otherApi"], { target: "http://localhost:8080" })
@@ -65,6 +66,33 @@ app.get('/mainitem',(req,res)=>{
         console.log(err)
     })
     
+})
+app.post('/login',(req,res)=>{
+    fetch('http://clip.partners/api/mobile/MemberLogin',{
+        method: 'post',
+        // body:JSON.stringify({
+        //     mem_jointype:'MOBILE',
+        //     mem_password:'1491625B-a',
+        //     mem_token:null,
+        //     mem_mobile:'01055981367'
+        // })
+        // headers: {'Content-Type':'application/x-www-form-urlencoded'},
+        // body:queryString.stringify({
+        //     mem_jointype:'MOBILE',
+        //     mem_password:'1491625B-a',
+        //     mem_token:null,
+        //     mem_mobile:'01055981367'
+        // })
+        headers: {'Content-Type':'application/x-www-form-urlencoded'},
+        body:queryString.stringify(req.body)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        res.json(data);
+    })
+    .catch(err=>{
+        console.log(err)
+    })
 })
 
 app.listen(port,()=>{
