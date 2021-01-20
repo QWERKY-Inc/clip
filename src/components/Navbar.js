@@ -37,6 +37,12 @@ const Navbar=() => {
   const toggleCartModal=()=>{
     setCartModalVisible(!cartModalVisible)
 }
+  const onPhoneNumberChange=()=>{
+    console.log(userPhoneNumber)
+  }
+  const onPasswordChange=()=>{
+    console.log(password)
+  }
   const login=()=>{
     // fetch('/login',{
     //     method: 'post',
@@ -173,16 +179,32 @@ const Navbar=() => {
                 value={user}
               ></TextInput> */}
               <TextInput 
-                onChangeText={text=>setUserPhoneNumber(text)}
+                onChangeText={
+                  text=>{
+                    setUserPhoneNumber(text)
+                    onPhoneNumberChange()
+                  }
+                }
                 value={userPhoneNumber}
               ></TextInput>
               <Text>password</Text>
               <TextInput
-                onChangeText={text=>setPassword(text)}
+                onChangeText={
+                  text=>{setPassword(text)
+                  onPasswordChange()
+                  }
+                }
                 secureTextEntry={true}
                 value={password}
               ></TextInput>
               
+              <TouchableHighlight
+                onPress={() => {
+                  login()
+                }}>
+                <Text>login</Text>
+              </TouchableHighlight>
+
               <TouchableHighlight
                 onPress={() => {
                   toggleUserModal()
@@ -476,22 +498,29 @@ else if(width>449 && width<=1051){
         ></TextInput> */}
         <TextInput 
           onChangeText={
-            text=>setUserPhoneNumber(text)
+            text=>{
+              setUserPhoneNumber(text)
+              onPhoneNumberChange()
+            }
           }
           value={userPhoneNumber}
         ></TextInput>
         <Text>password</Text>
         <TextInput
-          onChangeText={text=>setPassword(text)}
+          onChangeText={
+            text=>{setPassword(text)
+            onPasswordChange()
+            }
+          }
           secureTextEntry={true}
           value={password}
         ></TextInput>
           <TouchableHighlight
-            onPress={() => {
-              login()
-            }}>
-            <Text>login</Text>
-          </TouchableHighlight>
+                onPress={() => {
+                  login()
+                }}>
+                <Text>login</Text>
+              </TouchableHighlight>
           <TouchableHighlight
             onPress={() => {
               toggleUserModal()
@@ -629,12 +658,23 @@ else{
             <View>
               <Text>user phonenumber</Text>
               <TextInput 
-                onChangeText={text=>setUserPhoneNumber(text)}
+                onChangeText={
+                  text=>{
+                    setUserPhoneNumber(text)
+                    onPhoneNumberChange()
+                  }
+                }
+                value={userPhoneNumber}
               ></TextInput>
               <Text>password</Text>
               <TextInput
-                onChangeText={text=>setPassword(text)}
+                onChangeText={
+                  text=>{setPassword(text)
+                  onPasswordChange()
+                  }
+                }
                 secureTextEntry={true}
+                value={password}
               ></TextInput>
               <TouchableHighlight
                 onPress={() => {
