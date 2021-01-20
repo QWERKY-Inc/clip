@@ -7,11 +7,17 @@ const port = process.env.PORT || 8080;
 const proxy = require("http-proxy-middleware");
 const fetch = require('node-fetch')
 const queryString =require('query-string');
+var bodyParser = require('body-parser');
+
 module.exports = function(app) {
   app.use(
     proxy(["/api", , "/otherApi"], { target: "http://localhost:8080" })
   );
 };
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+    extended:true
+}))
 const buildPath = path.join(__dirname,'..','build')
 // console.log(buildPath)
 app.use(express.static(buildPath))
@@ -68,6 +74,7 @@ app.get('/mainitem',(req,res)=>{
     
 })
 app.post('/login',(req,res)=>{
+    // console.log(queryString.stringify(Object.keys(req.body)[0]))
     fetch('http://clip.partners/api/mobile/MemberLogin',{
         method: 'post',
         // body:JSON.stringify({
@@ -84,7 +91,11 @@ app.post('/login',(req,res)=>{
         //     mem_mobile:'01055981367'
         // })
         headers: {'Content-Type':'application/x-www-form-urlencoded'},
-        body:queryString.stringify(req.body)
+        //body:queryString.stringify(req.body)
+        // body:JSON.stringify(req.body)
+        // body:Object.keys(req.body)[0]
+        body:JSON.stringify(Object.keys(req.body)[0])
+        //body:queryString.stringify(Object.keys(req.body)[0])
     })
     .then(res=>res.json())
     .then(data=>{

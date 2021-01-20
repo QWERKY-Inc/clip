@@ -9,7 +9,7 @@ function useUser(){
     return context
 }
 function UserProvider(props){
-    const [user,setUser]=React.useState(0)
+    const [user,setUser]=React.useState(null)
     const value = React.useMemo(()=>[user,setUser],[user])
     return <UserContext.Provider value={value}{...props}/>
 }

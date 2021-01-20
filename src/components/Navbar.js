@@ -9,6 +9,7 @@ import userIcon from '../assets/icnUser.png'
 import boxIcon from '../assets/icnBox.png'
 import {BrowserRouter as Router,Switch,Route,Link} from 'react-router-dom'
 import {UserProvider,useUser} from './user-context'
+const queryString =require('query-string');
 
 const Navbar=() => {
   const [scrolled,setScrolled]=React.useState(false);
@@ -17,6 +18,7 @@ const Navbar=() => {
   const [height,setHeight]=React.useState(Dimensions.get('window').height)
   const [width,setWidth]=React.useState(Dimensions.get('window').width)
   const [user,setUser]=useUser()
+  const [loginInfo,setLoginInfo]=React.useState(null)
 
   const handleScroll=() => {
     const offset=window.scrollY;
@@ -33,6 +35,53 @@ const Navbar=() => {
   const toggleCartModal=()=>{
     setCartModalVisible(!cartModalVisible)
 }
+  const login=()=>{
+    fetch('/login',{
+        method: 'post',
+        // body:JSON.stringify({
+        //     mem_jointype:'MOBILE',
+        //     mem_password:'1491625B-a',
+        //     mem_token:null,
+        //     mem_mobile:'01055981367'
+        // })
+        headers: {'Content-Type':'application/x-www-form-urlencoded'},
+        body:JSON.stringify({
+            mem_jointype:'MOBILE',
+            mem_password:password,
+            mem_token:null,
+            mem_mobile:user
+        })
+      //   body:{
+      //     mem_jointype:'MOBILE',
+      //     mem_password:password,
+      //     mem_token:null,
+      //     mem_mobile:user
+      // }
+        // headers: {'Content-Type':'application/x-www-form-urlencoded'},
+        // body:queryString.stringify(req.body)
+    })
+    // .then(res=>res.json())
+    // .then(data=>{
+    //     res.json(data);
+    // })
+    // .catch(err=>{
+    //     console.log(err)
+    // })
+    
+    .then(res=>res.json())
+    .catch(err=>{
+        console.log(err)
+    })
+    .then(incomingData=>setLoginInfo(incomingData),()=>{
+    
+    console.log(loginInfo)
+    // console.log('data read : ' , data.listCategory[0].ct_img_url);
+    window.localStorage.setItem('login',loginInfo)
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+  }
   const onChange=()=>{
     setHeight(Dimensions.get('window').height)
     setWidth(Dimensions.get('window').width)
@@ -379,8 +428,12 @@ else if(width>449 && width<=1051){
       }}>
       <View style={{marginTop: 22}}>
         <View>
+        <Text>user phonenumber</Text>
         <TextInput 
-          onChangeText={text=>setUser(text)}
+          onChangeText={
+            text=>setUser(text)
+            
+          }
           value={user}
         ></TextInput>
         <Text>password</Text>
@@ -391,10 +444,17 @@ else if(width>449 && width<=1051){
         ></TextInput>
           <TouchableHighlight
             onPress={() => {
+              login()
+            }}>
+            <Text>login</Text>
+          </TouchableHighlight>
+          <TouchableHighlight
+            onPress={() => {
               toggleUserModal()
             }}>
             <Text>exit</Text>
           </TouchableHighlight>
+
         </View>
       </View>
     </Modal>
@@ -532,7 +592,12 @@ else{
                 onChangeText={text=>setPassword(text)}
                 secureTextEntry={true}
               ></TextInput>
-              
+              <TouchableHighlight
+                onPress={() => {
+                  login()
+                }}>
+                <Text>login</Text>
+              </TouchableHighlight>
               <TouchableHighlight
                 onPress={() => {
                   toggleUserModal()
