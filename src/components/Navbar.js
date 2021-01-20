@@ -103,6 +103,8 @@ const Navbar=() => {
     //             mem_mobile:user
     //         }
     // })
+
+
     fetch('/login?'+
       queryString.stringify({
               mem_jointype:'MOBILE',
@@ -110,19 +112,46 @@ const Navbar=() => {
               mem_token:null,
               mem_mobile:userPhoneNumber
           })
-  )
+    )
     .then(res=>res.json())
     // .then(res=>console.log(res.json()))
     .then((incomingData)=>{
       setLoginInfo(incomingData)
       console.log("_______")
-      console.log(loginInfo)
+      //console.log(loginInfo)
       // console.log('data read : ' , data.listCategory[0].ct_img_url);
-      window.localStorage.setItem('login',JSON.stringify(loginInfo))
+      //window.localStorage.setItem('login',JSON.stringify(loginInfo))
+      console.log(incomingData)
+      window.localStorage.setItem('login',JSON.stringify(incomingData))
     })
     .catch(err=>{
         console.log(err)
     })
+
+
+    // fetch('http://clip.partners/api/mobile/MemberLogin',{
+    //     method: 'post',
+    //     headers: {'Content-Type':'application/x-www-form-urlencoded'},
+    //     body:queryString.stringify({
+    //         mem_jointype:'MOBILE',
+    //         mem_password:password,
+    //         mem_token:null,
+    //         mem_mobile:userPhoneNumber
+    //     })
+
+    // })
+    // .then(res=>res.json())
+    // .then((incomingData)=>{
+    //   setLoginInfo(incomingData)
+    //   console.log("!_______!")
+    //   console.log(loginInfo)
+    //   // console.log('data read : ' , data.listCategory[0].ct_img_url);
+    //   window.localStorage.setItem('login',JSON.stringify(loginInfo))
+    // })
+    // .catch(err=>{
+    //     console.log(err)
+    // })
+
   }
   const onChange=()=>{
     setHeight(Dimensions.get('window').height)
@@ -185,6 +214,9 @@ const Navbar=() => {
                     onPhoneNumberChange()
                   }
                 }
+                onBlur={
+                  onPhoneNumberChange()
+                }
                 value={userPhoneNumber}
               ></TextInput>
               <Text>password</Text>
@@ -193,6 +225,9 @@ const Navbar=() => {
                   text=>{setPassword(text)
                   onPasswordChange()
                   }
+                }
+                onBlur={
+                  onPasswordChange()
                 }
                 secureTextEntry={true}
                 value={password}
@@ -503,6 +538,9 @@ else if(width>449 && width<=1051){
               onPhoneNumberChange()
             }
           }
+          onBlur={
+            onPhoneNumberChange()
+          }
           value={userPhoneNumber}
         ></TextInput>
         <Text>password</Text>
@@ -511,6 +549,9 @@ else if(width>449 && width<=1051){
             text=>{setPassword(text)
             onPasswordChange()
             }
+          }
+          onBlur={
+            onPasswordChange()
           }
           secureTextEntry={true}
           value={password}
@@ -664,6 +705,9 @@ else{
                     onPhoneNumberChange()
                   }
                 }
+                onBlur={
+                  onPhoneNumberChange()
+                }
                 value={userPhoneNumber}
               ></TextInput>
               <Text>password</Text>
@@ -673,7 +717,11 @@ else{
                   onPasswordChange()
                   }
                 }
+                onBlur={
+                  onPasswordChange()
+                }
                 secureTextEntry={true}
+                
                 value={password}
               ></TextInput>
               <TouchableHighlight
