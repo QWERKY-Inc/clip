@@ -8,7 +8,7 @@ import searchIcon from '../assets/icnSearch.png'
 import userIcon from '../assets/icnUser.png'
 import boxIcon from '../assets/icnBox.png'
 import {BrowserRouter as Router,Switch,Route,Link} from 'react-router-dom'
-
+import {UserProvider,useUser} from './components/user-context'
 
 const Navbar=() => {
   const [scrolled,setScrolled]=React.useState(false);
@@ -16,6 +16,7 @@ const Navbar=() => {
   const [cartModalVisible,setCartModalVisible]=React.useState(false);
   const [height,setHeight]=React.useState(Dimensions.get('window').height)
   const [width,setWidth]=React.useState(Dimensions.get('window').width)
+  const [user,setUser]=useUser()
 
   const handleScroll=() => {
     const offset=window.scrollY;
