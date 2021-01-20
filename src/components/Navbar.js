@@ -8,7 +8,7 @@ import searchIcon from '../assets/icnSearch.png'
 import userIcon from '../assets/icnUser.png'
 import boxIcon from '../assets/icnBox.png'
 import {BrowserRouter as Router,Switch,Route,Link} from 'react-router-dom'
-import {UserProvider,useUser} from './components/user-context'
+import {UserProvider,useUser} from './user-context'
 
 const Navbar=() => {
   const [scrolled,setScrolled]=React.useState(false);
@@ -85,12 +85,14 @@ const Navbar=() => {
             <View>
             <Text>user phonenumber</Text>
               <TextInput 
-                onChangeText={text=>setUserPhoneNumber(text)}
+                onChangeText={text=>setUser(text)}
+                value={user}
               ></TextInput>
               <Text>password</Text>
               <TextInput
                 onChangeText={text=>setPassword(text)}
                 secureTextEntry={true}
+                value={password}
               ></TextInput>
               
               <TouchableHighlight
@@ -377,14 +379,15 @@ else if(width>449 && width<=1051){
       }}>
       <View style={{marginTop: 22}}>
         <View>
-        <Text>user phonenumber</Text>
         <TextInput 
-          onChangeText={text=>setUserPhoneNumber(text)}
+          onChangeText={text=>setUser(text)}
+          value={user}
         ></TextInput>
         <Text>password</Text>
         <TextInput
           onChangeText={text=>setPassword(text)}
           secureTextEntry={true}
+          value={password}
         ></TextInput>
           <TouchableHighlight
             onPress={() => {
