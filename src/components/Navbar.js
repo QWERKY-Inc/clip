@@ -19,6 +19,8 @@ const Navbar=() => {
   const [width,setWidth]=React.useState(Dimensions.get('window').width)
   const [user,setUser]=useUser()
   const [loginInfo,setLoginInfo]=React.useState(null)
+  const[userPhoneNumber,setUserPhoneNumber]=React.useState(null)
+  const[password,setPassword]=React.useState(null)
 
   const handleScroll=() => {
     const offset=window.scrollY;
@@ -100,18 +102,17 @@ const Navbar=() => {
               mem_jointype:'MOBILE',
               mem_password:password,
               mem_token:null,
-              mem_mobile:user
+              mem_mobile:userPhoneNumber
           })
   )
     .then(res=>res.json())
-    .catch(err=>{
-        console.log(err)
-    })
-    .then(incomingData=>setLoginInfo(incomingData),()=>{
-    
-    console.log(loginInfo)
-    // console.log('data read : ' , data.listCategory[0].ct_img_url);
-    window.localStorage.setItem('login',loginInfo)
+    // .then(res=>console.log(res.json()))
+    .then((incomingData)=>{
+      setLoginInfo(incomingData)
+      console.log("_______")
+      console.log(loginInfo)
+      // console.log('data read : ' , data.listCategory[0].ct_img_url);
+      window.localStorage.setItem('login',JSON.stringify(loginInfo))
     })
     .catch(err=>{
         console.log(err)
@@ -122,8 +123,7 @@ const Navbar=() => {
     setWidth(Dimensions.get('window').width)
     // console.log(height+" : "+width)
   }
-  const[userPhoneNumber,setUserPhoneNumber]=React.useState('- 없이 숫자만 입력해주세요')
-  const[password,setPassword]=React.useState(null)
+
   useEffect(() => {
     window.addEventListener('scroll',handleScroll)
     Dimensions.addEventListener('change',onChange)
@@ -168,9 +168,13 @@ const Navbar=() => {
           <View style={{marginTop: 22}}>
             <View>
             <Text>user phonenumber</Text>
-              <TextInput 
+              {/* <TextInput 
                 onChangeText={text=>setUser(text)}
                 value={user}
+              ></TextInput> */}
+              <TextInput 
+                onChangeText={text=>setUser(text)}
+                value={userPhoneNumber}
               ></TextInput>
               <Text>password</Text>
               <TextInput
@@ -464,12 +468,17 @@ else if(width>449 && width<=1051){
       <View style={{marginTop: 22}}>
         <View>
         <Text>user phonenumber</Text>
+        {/* <TextInput 
+          onChangeText={
+            text=>setUser(text)
+          }
+          value={user}
+        ></TextInput> */}
         <TextInput 
           onChangeText={
             text=>setUser(text)
-            
           }
-          value={user}
+          value={userPhoneNumber}
         ></TextInput>
         <Text>password</Text>
         <TextInput
