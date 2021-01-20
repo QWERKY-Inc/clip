@@ -9,7 +9,7 @@ import ConstructionPart from './components/ConstructionPart';
 import Brands from './components/Brands'
 import PrivacyPolicy from './components/PrivacyPolicy'
 import Terms from './components/Terms'
-import {UserProvider,useUser} from './components/user-context'
+// import {UserProvider,useUser} from './components/user-context'
 import {BrowserRouter as BrowserRouter,Router,Switch,Route,Link} from 'react-router-dom'
 
 // const globalState={
@@ -22,7 +22,7 @@ import {BrowserRouter as BrowserRouter,Router,Switch,Route,Link} from 'react-rou
 
 function App() {
   return (
-    <UserProvider>
+    // <UserProvider>
       <div className="App">
         <BrowserRouter>
           {/* <Navbar />
@@ -38,7 +38,7 @@ function App() {
           </Switch>
         </BrowserRouter>
       </div>
-    </UserProvider>
+    // </UserProvider>
   );
 }
 
