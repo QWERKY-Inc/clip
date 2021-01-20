@@ -36,30 +36,30 @@ const Navbar=() => {
     setCartModalVisible(!cartModalVisible)
 }
   const login=()=>{
-    fetch('/login',{
-        method: 'post',
-        // body:JSON.stringify({
-        //     mem_jointype:'MOBILE',
-        //     mem_password:'1491625B-a',
-        //     mem_token:null,
-        //     mem_mobile:'01055981367'
-        // })
-        headers: {'Content-Type':'application/x-www-form-urlencoded'},
-        body:JSON.stringify({
-            mem_jointype:'MOBILE',
-            mem_password:password,
-            mem_token:null,
-            mem_mobile:user
-        })
-      //   body:{
-      //     mem_jointype:'MOBILE',
-      //     mem_password:password,
-      //     mem_token:null,
-      //     mem_mobile:user
-      // }
-        // headers: {'Content-Type':'application/x-www-form-urlencoded'},
-        // body:queryString.stringify(req.body)
-    })
+    // fetch('/login',{
+    //     method: 'post',
+    //     // body:JSON.stringify({
+    //     //     mem_jointype:'MOBILE',
+    //     //     mem_password:'1491625B-a',
+    //     //     mem_token:null,
+    //     //     mem_mobile:'01055981367'
+    //     // })
+    //     headers: {'Content-Type':'application/x-www-form-urlencoded'},
+    //     body:JSON.stringify({
+    //         mem_jointype:'MOBILE',
+    //         mem_password:password,
+    //         mem_token:null,
+    //         mem_mobile:user
+    //     })
+    //   //   body:{
+    //   //     mem_jointype:'MOBILE',
+    //   //     mem_password:password,
+    //   //     mem_token:null,
+    //   //     mem_mobile:user
+    //   // }
+    //     // headers: {'Content-Type':'application/x-www-form-urlencoded'},
+    //     // body:queryString.stringify(req.body)
+    // })
     // .then(res=>res.json())
     // .then(data=>{
     //     res.json(data);
@@ -67,7 +67,42 @@ const Navbar=() => {
     // .catch(err=>{
     //     console.log(err)
     // })
-    
+    // fetch('http://clip.partners/api/mobile/MemberLogin',{
+    //     method: 'post',
+    //     // body:JSON.stringify({
+    //     //     mem_jointype:'MOBILE',
+    //     //     mem_password:'1491625B-a',
+    //     //     mem_token:null,
+    //     //     mem_mobile:'01055981367'
+    //     // })
+    //     // headers: {'Content-Type':'application/x-www-form-urlencoded'},
+    //     // body:queryString.stringify({
+    //     //     mem_jointype:'MOBILE',
+    //     //     mem_password:'1491625B-a',
+    //     //     mem_token:null,
+    //     //     mem_mobile:'01055981367'
+    //     // })
+    //     headers: {'Content-Type':'application/x-www-form-urlencoded'},
+    //     //body:queryString.stringify(req.body)
+    //     // body:JSON.stringify(req.body)
+    //     // body:Object.keys(req.body)[0]
+    //     // body:JSON.stringify(Object.keys(req.body)[0])
+    //     //body:queryString.stringify(Object.keys(req.body)[0])
+    //     body:{
+    //             mem_jointype:'MOBILE',
+    //             mem_password:password,
+    //             mem_token:null,
+    //             mem_mobile:user
+    //         }
+    // })
+    fetch('/login?'+
+      queryString.stringify({
+              mem_jointype:'MOBILE',
+              mem_password:password,
+              mem_token:null,
+              mem_mobile:user
+          })
+  )
     .then(res=>res.json())
     .catch(err=>{
         console.log(err)
