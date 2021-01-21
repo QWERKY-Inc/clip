@@ -214,9 +214,9 @@ const Navbar=() => {
   useEffect(() => {
     window.addEventListener('scroll',handleScroll)
     Dimensions.addEventListener('change',onChange)
-    // if(localStorage.login&&localStorage.login!=""){
-    //   setLoginInfo(JSON.parse(window.localStorage.getItem('login')))
-    // }
+    if(localStorage.login&&localStorage.login!=""){
+      setLoginInfo(JSON.parse(window.localStorage.getItem('login')))
+    }
     
   },[])
 
@@ -270,9 +270,9 @@ const Navbar=() => {
                     onPhoneNumberChange()
                   }
                 }
-                onBlur={
-                  onPhoneNumberChange()
-                }
+                // onBlur={
+                //   onPhoneNumberChange()
+                // }
                 value={userPhoneNumber}
               ></TextInput>
               <Text>비밀번호</Text>
@@ -282,9 +282,9 @@ const Navbar=() => {
                   onPasswordChange()
                   }
                 }
-                onBlur={
-                  onPasswordChange()
-                }
+                // onBlur={
+                //   onPasswordChange()
+                // }
                 secureTextEntry={true}
                 value={password}
               ></TextInput>
@@ -594,9 +594,9 @@ else if(width>449 && width<=1051){
               onPhoneNumberChange()
             }
           }
-          onBlur={
-            onPhoneNumberChange()
-          }
+          // onBlur={
+          //   onPhoneNumberChange()
+          // }
           value={userPhoneNumber}
         ></TextInput>
         <Text>비밀번호</Text>
@@ -606,9 +606,9 @@ else if(width>449 && width<=1051){
             onPasswordChange()
             }
           }
-          onBlur={
-            onPasswordChange()
-          }
+          // onBlur={
+          //   onPasswordChange()
+          // }
           secureTextEntry={true}
           value={password}
         ></TextInput>
@@ -761,9 +761,9 @@ else{
                     onPhoneNumberChange()
                   }
                 }
-                onBlur={
-                  onPhoneNumberChange()
-                }
+                // onBlur={
+                //   onPhoneNumberChange()
+                // }
                 value={userPhoneNumber}
               ></TextInput>
               <Text>비밀번호</Text>
@@ -773,9 +773,9 @@ else{
                   onPasswordChange()
                   }
                 }
-                onBlur={
-                  onPasswordChange()
-                }
+                // onBlur={
+                //   onPasswordChange()
+                // }
                 secureTextEntry={true}
                 
                 value={password}
