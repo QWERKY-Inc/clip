@@ -38,10 +38,20 @@ const Navbar=() => {
     setCartModalVisible(!cartModalVisible)
 }
   const onPhoneNumberChange=()=>{
-    console.log(userPhoneNumber)
+    // console.log(userPhoneNumber)
+    // console.log(JSON.parse(localStorage.login).result=="SUCCESS")
+    //console.log(localStorage.login)
+    if(localStorage.login!=undefined&&localStorage.login!=""){
+      if(JSON.parse(localStorage.login).result=="SUCCESS"){
+        console.log('logged in')
+      }
+      else{
+        console.log('offline')
+      }
+    }
   }
   const onPasswordChange=()=>{
-    console.log(password)
+    // console.log(password)
   }
   const login=()=>{
     // fetch('/login',{
@@ -187,7 +197,7 @@ const Navbar=() => {
                 onPress={() => {
                   toggleCartModal()
                 }}>
-                <Text>exit</Text>
+                <Text>x</Text>
               </TouchableHighlight>
             </View>
           </View>
@@ -202,7 +212,7 @@ const Navbar=() => {
           }}>
           <View style={{marginTop: 22}}>
             <View>
-            <Text>user phonenumber</Text>
+            <Text>전화번호</Text>
               {/* <TextInput 
                 onChangeText={text=>setUser(text)}
                 value={user}
@@ -219,7 +229,7 @@ const Navbar=() => {
                 }
                 value={userPhoneNumber}
               ></TextInput>
-              <Text>password</Text>
+              <Text>비밀번호</Text>
               <TextInput
                 onChangeText={
                   text=>{setPassword(text)
@@ -237,14 +247,14 @@ const Navbar=() => {
                 onPress={() => {
                   login()
                 }}>
-                <Text>login</Text>
+                <Text>로그인</Text>
               </TouchableHighlight>
 
               <TouchableHighlight
                 onPress={() => {
                   toggleUserModal()
                 }}>
-                <Text>exit</Text>
+                <Text>x</Text>
               </TouchableHighlight>
             </View>
           </View>
@@ -509,7 +519,7 @@ else if(width>449 && width<=1051){
             onPress={() => {
               toggleCartModal()
             }}>
-            <Text>exit</Text>
+            <Text>x</Text>
           </TouchableHighlight>
         </View>
       </View>
@@ -524,7 +534,7 @@ else if(width>449 && width<=1051){
       }}>
       <View style={{marginTop: 22}}>
         <View>
-        <Text>user phonenumber</Text>
+        <Text>전화번호</Text>
         {/* <TextInput 
           onChangeText={
             text=>setUser(text)
@@ -543,7 +553,7 @@ else if(width>449 && width<=1051){
           }
           value={userPhoneNumber}
         ></TextInput>
-        <Text>password</Text>
+        <Text>비밀번호</Text>
         <TextInput
           onChangeText={
             text=>{setPassword(text)
@@ -560,13 +570,13 @@ else if(width>449 && width<=1051){
                 onPress={() => {
                   login()
                 }}>
-                <Text>login</Text>
+                <Text>로그인</Text>
               </TouchableHighlight>
           <TouchableHighlight
             onPress={() => {
               toggleUserModal()
             }}>
-            <Text>exit</Text>
+            <Text>x</Text>
           </TouchableHighlight>
 
         </View>
@@ -682,7 +692,7 @@ else{
                 onPress={() => {
                   toggleCartModal()
                 }}>
-                <Text>exit</Text>
+                <Text>x</Text>
               </TouchableHighlight>
             </View>
           </View>
@@ -697,7 +707,7 @@ else{
           }}>
           <View style={{marginTop: 22}}>
             <View>
-              <Text>user phonenumber</Text>
+              <Text>전화번호</Text>
               <TextInput 
                 onChangeText={
                   text=>{
@@ -710,7 +720,7 @@ else{
                 }
                 value={userPhoneNumber}
               ></TextInput>
-              <Text>password</Text>
+              <Text>비밀번호</Text>
               <TextInput
                 onChangeText={
                   text=>{setPassword(text)
@@ -728,13 +738,13 @@ else{
                 onPress={() => {
                   login()
                 }}>
-                <Text>login</Text>
+                <Text>로그인</Text>
               </TouchableHighlight>
               <TouchableHighlight
                 onPress={() => {
                   toggleUserModal()
                 }}>
-                <Text>exit</Text>
+                <Text>x</Text>
               </TouchableHighlight>
             </View>
           </View>
