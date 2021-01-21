@@ -58,7 +58,15 @@ const Navbar=() => {
         console.log(loginInfo.result)
       }
       else{
-        console.log(loginInfo)
+        if(localStorage.login&&localStorage.login!=""){
+          if(JSON.parse(window.localStorage.login).result=='SUCCESS'){
+            setLoginInfo(JSON.parse(window.localStorage.getItem('login')))
+            console.log(JSON.parse(window.localStorage.getItem('login')))
+          }
+          else{
+            console.log(JSON.parse(window.localStorage.getItem('login')))
+          }
+        }
       }
     }
     
@@ -175,6 +183,11 @@ const Navbar=() => {
     //     console.log(err)
     // })
 
+  }
+  const logout=()=>{
+    setLoginInfo(null)
+    console.log("_______")
+    window.localStorage.setItem('login','')
   }
   const onChange=()=>{
     setHeight(Dimensions.get('window').height)
