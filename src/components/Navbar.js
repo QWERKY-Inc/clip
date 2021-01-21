@@ -214,8 +214,11 @@ const Navbar=() => {
   useEffect(() => {
     window.addEventListener('scroll',handleScroll)
     Dimensions.addEventListener('change',onChange)
+    // if(localStorage.login&&localStorage.login!=""){
+    //   setLoginInfo(JSON.parse(window.localStorage.getItem('login')))
+    // }
     
-  },{})
+  },[])
 
   let x=['navbar'];
   if(scrolled){

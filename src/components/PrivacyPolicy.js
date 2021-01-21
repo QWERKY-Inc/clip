@@ -41,7 +41,7 @@ const PrivacyPolicy=() => {
   useEffect(() => {
     window.addEventListener('scroll',handleScroll)
     Dimensions.addEventListener('change',onChange)
-  })
+  },[])
 
   let x=['navbar'];
   if(scrolled){
