@@ -21,7 +21,7 @@ const Navbar=() => {
   const [loginInfo,setLoginInfo]=React.useState(null)
   const[userPhoneNumber,setUserPhoneNumber]=React.useState(null)
   const[password,setPassword]=React.useState(null)
-  const
+  const [loggedOn,setLoggedOn]=React.useState(false)
   const handleScroll=() => {
     const offset=window.scrollY;
     if(offset > 200 ){
@@ -63,10 +63,12 @@ const Navbar=() => {
           // setLoginInfo(JSON.parse(window.localStorage.getItem('login')))
           console.log(JSON.parse(window.localStorage.getItem('login')))
           console.log('logged on')
+          setLoggedOn(true)
         }
         else{
           console.log(JSON.parse(window.localStorage.getItem('login')))
           console.log('logged off')
+          setLoggedOn(false)
         }
       }
       else{
@@ -79,6 +81,7 @@ const Navbar=() => {
         //     console.log(JSON.parse(window.localStorage.getItem('login')))
         //   }
         // }
+          setLoggedOn(false)
         console.log('logged off')
       }
     }
@@ -212,7 +215,7 @@ const Navbar=() => {
     window.addEventListener('scroll',handleScroll)
     Dimensions.addEventListener('change',onChange)
     
-  })
+  },{})
 
   let x=['navbar'];
   if(scrolled){
