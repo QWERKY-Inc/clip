@@ -40,15 +40,19 @@ const Navbar=() => {
   const onPhoneNumberChange=()=>{
     // console.log(userPhoneNumber)
     // console.log(JSON.parse(localStorage.login).result=="SUCCESS")
-    //console.log(localStorage.login)
-    if(localStorage.login!=undefined&&localStorage.login!=""){
-      if(JSON.parse(localStorage.login).result=="SUCCESS"){
-        console.log('logged in')
-      }
-      else{
-        console.log('offline')
-      }
-    }
+    console.log(localStorage.login)
+
+    // if(localStorage.login!=undefined&&localStorage.login!=""){
+    //   if(JSON.parse(localStorage.login).result=="SUCCESS"){
+    //     console.log('logged in')
+    //   }
+    //   else{
+    //     console.log('offline')
+    //   }
+    // }
+    // else{
+    //   console.log('offline')
+    // }
   }
   const onPasswordChange=()=>{
     // console.log(password)
