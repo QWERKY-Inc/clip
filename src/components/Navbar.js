@@ -312,7 +312,12 @@ const Navbar=() => {
                 }}>
                 <Text>로그인</Text>
               </TouchableHighlight>
-
+              <TouchableHighlight
+                onPress={() => {
+                  logout()
+                }}>
+                <Text>로그아웃</Text>
+              </TouchableHighlight>
               <TouchableHighlight
                 onPress={() => {
                   toggleUserModal()
@@ -630,11 +635,17 @@ else if(width>449 && width<=1051){
           value={password}
         ></TextInput>
           <TouchableHighlight
-                onPress={() => {
-                  login()
-                }}>
-                <Text>로그인</Text>
-              </TouchableHighlight>
+            onPress={() => {
+              login()
+            }}>
+            <Text>로그인</Text>
+          </TouchableHighlight>
+          <TouchableHighlight
+            onPress={() => {
+              logout()
+            }}>
+            <Text>로그아웃</Text>
+          </TouchableHighlight>
           <TouchableHighlight
             onPress={() => {
               toggleUserModal()
@@ -802,6 +813,12 @@ else{
                   login()
                 }}>
                 <Text>로그인</Text>
+              </TouchableHighlight>
+              <TouchableHighlight
+                onPress={() => {
+                  logout()
+                }}>
+                <Text>로그아웃</Text>
               </TouchableHighlight>
               <TouchableHighlight
                 onPress={() => {
