@@ -170,6 +170,13 @@ const Navbar=() => {
       //window.localStorage.setItem('login',JSON.stringify(loginInfo))
       console.log(incomingData)
       window.localStorage.setItem('login',JSON.stringify(incomingData))
+      if(incomingData.result=='SUCCESS'){
+        setLoggedOn(true)
+      }
+      else{
+        setLoggedOn(false)
+      }
+      // console.log(loggedOn)
     })
     .catch(err=>{
         console.log(err)
@@ -202,6 +209,7 @@ const Navbar=() => {
   }
   const logout=()=>{
     setLoginInfo(null)
+    setLoggedOn(false)
     console.log("_______")
     window.localStorage.setItem('login','')
   }
@@ -223,8 +231,11 @@ const Navbar=() => {
     else{
       setLoggedOn(false)
     }
-    
+    // console.log(loggedOn)
   },[])
+  useEffect(()=>{
+    console.log(loggedOn)
+  },[loggedOn])
 
   let x=['navbar'];
   if(scrolled){
