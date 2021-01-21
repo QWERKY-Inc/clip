@@ -216,6 +216,12 @@ const Navbar=() => {
     Dimensions.addEventListener('change',onChange)
     if(localStorage.login&&localStorage.login!=""){
       setLoginInfo(JSON.parse(window.localStorage.getItem('login')))
+      if(JSON.parse(window.localStorage.getItem('login')).result=="SUCCESS"){
+        setLoggedOn(true)
+      }
+    }
+    else{
+      setLoggedOn(false)
     }
     
   },[])
