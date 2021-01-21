@@ -241,9 +241,300 @@ const Navbar=() => {
   if(scrolled){
     x.push('scrolled');
   }
-  if(width>1051){
-  return (    
-    <header className={x.join(" ")}>
+  if(loggedOn==true){
+    if(width>1051){
+    return (    
+      <header className={x.join(" ")}>
+        <Modal
+            animationType="fade"
+            transparent={false}
+            visible={cartModalVisible}
+            onDismiss={() => {
+              // alert('Modal has been closed.');
+              console.log("user modal has been closed")
+            }}>
+            <View style={{marginTop: 22}}>
+              <View>
+                <Text>cart Info</Text>
+
+                <TouchableHighlight
+                  onPress={() => {
+                    toggleCartModal()
+                  }}>
+                  <Text>x</Text>
+                </TouchableHighlight>
+              </View>
+            </View>
+          </Modal>
+        <Modal
+            animationType="fade"
+            transparent={false}
+            visible={userModalVisible}
+            onDismiss={() => {
+              // alert('Modal has been closed.');
+              console.log("user modal has been closed")
+            }}>
+            <View style={{marginTop: 22}}>
+              <View>
+                <TouchableHighlight
+                  onPress={() => {
+                    logout()
+                  }}>
+                  <Text>로그아웃</Text>
+                </TouchableHighlight>
+                <TouchableHighlight
+                  onPress={() => {
+                    toggleUserModal()
+                  }}>
+                  <Text>x</Text>
+                </TouchableHighlight>
+              </View>
+            </View>
+          </Modal>
+        <div className="headerContainer">
+        
+          <div className="logo">
+            <a
+              href="/clip"
+            >
+              <img src={Logo} alt="Logo" title="Logo" />
+            </a>
+          </div>
+
+              <TouchableOpacity
+                    className="linkTo"
+                    id="category"
+                    style={{
+                        position:'fixed',
+                        height:50,
+                        width:240,
+                        top:38,
+                        left:'167pt',
+                        backgroundColor:'transparent',
+                        zIndex:101
+                    }}
+                    activeOpacity={0.5}
+                >
+                
+                    {/* <Link to="/category">
+                      자재카테고리
+                    </Link> */}
+                    <a 
+                    style={
+                      {
+                        // flex:1,
+                        textDecorationLine:'none',
+                        // color:'black',
+                        // //borderColor:'black',
+                        // //borderWidth:2,
+                        // backgroundColor:'transparent',
+                        // fontSize: '25pt',
+                        // fontWeight:'700',
+                        // textShadowColor: 'rgba(0, 0, 0, 0.5)',
+                        // textShadowOffset: {width: 0, height: 0},
+                        // textShadowRadius: 2,
+                        // // flex:1,
+                        // alignItems:'center',
+                        // justifyContent:'center',
+                        // flexDirection:'row',
+                        // textAlign:'center'
+                      }} 
+                      href="/category">
+            <Text
+                  selectable={false} 
+                  style ={{
+                      fontSize: '25px',
+                      fontWeight:'700',
+                      textDecorationLine:'none',
+                      color:'black',
+                      // textShadowColor: 'rgba(0, 0, 0, 0.85)',
+                      // textShadowOffset: {width: 0, height: 0},
+                      // textShadowRadius: 2,
+                      textAlign:'center',
+                      alignItems:'center',
+                      justifyContent:'center',
+                      flexDirection:'row',
+                      margin:11,
+                      // padding:'auto',
+                      pointerEvents:'none'
+
+                  }}
+                  >
+                    자재카테고리
+                  </Text>
+          </a>
+              </TouchableOpacity>
+              <TouchableOpacity
+                    className='linkTo'
+                    style={{
+                        position:'fixed',
+                        height:50,
+                        width:170,
+                        top:38,
+                        left:'349pt',
+                        backgroundColor:'transparent',
+                        zIndex:101
+                    }}
+                    activeOpacity={0.5}
+                >
+                  <a 
+                    style={
+                      {
+                        textDecorationLine:'none',
+                      }} 
+                      href="/constructionpart">
+                  <Text
+                  selectable={false} 
+                  style ={{
+                      fontSize: '25px',
+                      fontWeight:'700',
+                      textDecorationLine:'none',
+                      // color:'white',
+                      // textShadowColor: 'rgba(0, 0, 0, 0.85)',
+                      // textShadowOffset: {width: 0, height: 0},
+                      // textShadowRadius: 2,
+                      color:'black',
+                      textAlign:'center',
+                      alignItems:'center',
+                      justifyContent:'center',
+                      flexDirection:'row',
+                      margin:11,
+                      padding:'auto',
+                      pointerEvents:'none'
+                  }}
+                  >
+                    사공부위
+                  </Text>
+                  </a>
+              </TouchableOpacity>
+              <TouchableOpacity
+                    className="linkTo"
+                    style={{
+                        position:'fixed',
+                        height:50,
+                        width:140,
+                        top:38,
+                        left:'478pt',
+                        backgroundColor:'transparent',
+                        zIndex:101
+                    }}
+                    activeOpacity={0.5}
+                >
+                  <a 
+                    style={
+                      {
+                        textDecorationLine:'none',
+                      }} 
+                      href="/brands">
+                    <Text
+                    selectable={false} 
+                    style ={{
+                        fontSize: '25px',
+                        fontWeight:'700',
+                        textDecorationLine:'none',
+                        // color:'white',
+                        // textShadowColor: 'rgba(0, 0, 0, 0.85)',
+                        // textShadowOffset: {width: 0, height: 0},
+                        // textShadowRadius: 2,
+                        color:'black',
+                        textAlign:'center',
+                        alignItems:'center',
+                        justifyContent:'center',
+                        flexDirection:'row',
+                        margin:11,
+                        padding:'auto',
+                        pointerEvents:'none'
+                    }}
+                    >
+                      브랜드
+                    </Text>
+                  </a>
+              </TouchableOpacity>
+            
+              <TouchableOpacity
+                style={{
+                  position:'fixed',
+                  height:47,
+                  width:47,
+                  top:'29px',
+                  right:'173pt',
+                  backgroundColor:'transparent',
+                  zIndex:101
+              }}
+              >
+                <img
+                  src={searchIcon}
+                >
+                </img>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  position:'fixed',
+                  height:47,
+                  width:47,
+                  top:'29px',
+                  right:'103pt',
+                  backgroundColor:'transparent',
+                  zIndex:101
+              }}
+              onPress={() => {
+                toggleCartModal()
+              }}
+              >
+                <img
+                  src={boxIcon}
+                >
+                </img>
+              </TouchableOpacity>
+              <TouchableOpacity
+                className="linkTo"
+                style={{
+                  position:'fixed',
+                  height:47,
+                  width:47,
+                  top:'29px',
+                  right:'33pt',
+                  backgroundColor:'transparent',
+                  zIndex:101,
+              }}
+              onPress={() => {
+                toggleUserModal()
+              }}
+              >
+                <img
+                  src={userIcon}
+                  style={{
+                    height:'47pt',
+                  
+                  }}
+                >
+                </img>
+              </TouchableOpacity>
+              <Switch>
+                <Route path="/">
+                  {/* <Text>
+                    Home
+                  </Text> */}
+                </Route>
+                <Route path="/category">
+                  <Text>
+                    category
+                  </Text>
+                </Route>
+              </Switch>
+            
+
+        </div>
+        
+
+          
+
+      </header>
+    )
+    }
+    else if(width>449 && width<=1051){
+      return(
+      <header className={x.join(" ")}>
       <Modal
           animationType="fade"
           transparent={false}
@@ -275,43 +566,7 @@ const Navbar=() => {
           }}>
           <View style={{marginTop: 22}}>
             <View>
-            <Text>전화번호</Text>
-              {/* <TextInput 
-                onChangeText={text=>setUser(text)}
-                value={user}
-              ></TextInput> */}
-              <TextInput 
-                onChangeText={
-                  text=>{
-                    setUserPhoneNumber(text)
-                    onPhoneNumberChange()
-                  }
-                }
-                // onBlur={
-                //   onPhoneNumberChange()
-                // }
-                value={userPhoneNumber}
-              ></TextInput>
-              <Text>비밀번호</Text>
-              <TextInput
-                onChangeText={
-                  text=>{setPassword(text)
-                  onPasswordChange()
-                  }
-                }
-                // onBlur={
-                //   onPasswordChange()
-                // }
-                secureTextEntry={true}
-                value={password}
-              ></TextInput>
-              
-              <TouchableHighlight
-                onPress={() => {
-                  login()
-                }}>
-                <Text>로그인</Text>
-              </TouchableHighlight>
+            
               <TouchableHighlight
                 onPress={() => {
                   logout()
@@ -324,6 +579,7 @@ const Navbar=() => {
                 }}>
                 <Text>x</Text>
               </TouchableHighlight>
+
             </View>
           </View>
         </Modal>
@@ -337,156 +593,6 @@ const Navbar=() => {
           </a>
         </div>
 
-            <TouchableOpacity
-                  className="linkTo"
-                  id="category"
-                  style={{
-                      position:'fixed',
-                      height:50,
-                      width:240,
-                      top:38,
-                      left:'167pt',
-                      backgroundColor:'transparent',
-                      zIndex:101
-                  }}
-                  activeOpacity={0.5}
-              >
-               
-                  {/* <Link to="/category">
-                    자재카테고리
-                  </Link> */}
-                  <a 
-                  style={
-                    {
-                      // flex:1,
-                      textDecorationLine:'none',
-                      // color:'black',
-                      // //borderColor:'black',
-                      // //borderWidth:2,
-                      // backgroundColor:'transparent',
-                      // fontSize: '25pt',
-                      // fontWeight:'700',
-                      // textShadowColor: 'rgba(0, 0, 0, 0.5)',
-                      // textShadowOffset: {width: 0, height: 0},
-                      // textShadowRadius: 2,
-                      // // flex:1,
-                      // alignItems:'center',
-                      // justifyContent:'center',
-                      // flexDirection:'row',
-                      // textAlign:'center'
-                    }} 
-                    href="/category">
-           <Text
-                selectable={false} 
-                style ={{
-                    fontSize: '25px',
-                    fontWeight:'700',
-                    textDecorationLine:'none',
-                    color:'black',
-                    // textShadowColor: 'rgba(0, 0, 0, 0.85)',
-                    // textShadowOffset: {width: 0, height: 0},
-                    // textShadowRadius: 2,
-                    textAlign:'center',
-                    alignItems:'center',
-                    justifyContent:'center',
-                    flexDirection:'row',
-                    margin:11,
-                    // padding:'auto',
-                    pointerEvents:'none'
-
-                }}
-                >
-                  자재카테고리
-                </Text>
-        </a>
-            </TouchableOpacity>
-            <TouchableOpacity
-                  className='linkTo'
-                  style={{
-                      position:'fixed',
-                      height:50,
-                      width:170,
-                      top:38,
-                      left:'349pt',
-                      backgroundColor:'transparent',
-                      zIndex:101
-                  }}
-                  activeOpacity={0.5}
-              >
-                <a 
-                  style={
-                    {
-                      textDecorationLine:'none',
-                    }} 
-                    href="/constructionpart">
-                <Text
-                selectable={false} 
-                style ={{
-                    fontSize: '25px',
-                    fontWeight:'700',
-                    textDecorationLine:'none',
-                    // color:'white',
-                    // textShadowColor: 'rgba(0, 0, 0, 0.85)',
-                    // textShadowOffset: {width: 0, height: 0},
-                    // textShadowRadius: 2,
-                    color:'black',
-                    textAlign:'center',
-                    alignItems:'center',
-                    justifyContent:'center',
-                    flexDirection:'row',
-                    margin:11,
-                    padding:'auto',
-                    pointerEvents:'none'
-                }}
-                >
-                  사공부위
-                </Text>
-                </a>
-            </TouchableOpacity>
-            <TouchableOpacity
-                  className="linkTo"
-                  style={{
-                      position:'fixed',
-                      height:50,
-                      width:140,
-                      top:38,
-                      left:'478pt',
-                      backgroundColor:'transparent',
-                      zIndex:101
-                  }}
-                  activeOpacity={0.5}
-              >
-                <a 
-                  style={
-                    {
-                      textDecorationLine:'none',
-                    }} 
-                    href="/brands">
-                  <Text
-                  selectable={false} 
-                  style ={{
-                      fontSize: '25px',
-                      fontWeight:'700',
-                      textDecorationLine:'none',
-                      // color:'white',
-                      // textShadowColor: 'rgba(0, 0, 0, 0.85)',
-                      // textShadowOffset: {width: 0, height: 0},
-                      // textShadowRadius: 2,
-                      color:'black',
-                      textAlign:'center',
-                      alignItems:'center',
-                      justifyContent:'center',
-                      flexDirection:'row',
-                      margin:11,
-                      padding:'auto',
-                      pointerEvents:'none'
-                  }}
-                  >
-                    브랜드
-                  </Text>
-                </a>
-            </TouchableOpacity>
-           
             <TouchableOpacity
               style={{
                 position:'fixed',
@@ -541,7 +647,7 @@ const Navbar=() => {
                 src={userIcon}
                 style={{
                   height:'47pt',
-                 
+                
                 }}
               >
               </img>
@@ -566,190 +672,476 @@ const Navbar=() => {
         
 
     </header>
-  )
-}
-else if(width>449 && width<=1051){
-  return(
-  <header className={x.join(" ")}>
-  <Modal
-      animationType="fade"
-      transparent={false}
-      visible={cartModalVisible}
-      onDismiss={() => {
-        // alert('Modal has been closed.');
-        console.log("user modal has been closed")
-      }}>
-      <View style={{marginTop: 22}}>
-        <View>
-          <Text>cart Info</Text>
+    )
+    }
+    else{
+      return (    
+        <header className={x.join(" ")}>
+          <Modal
+              animationType="fade"
+              transparent={false}
+              visible={cartModalVisible}
+              onDismiss={() => {
+                // alert('Modal has been closed.');
+                console.log("user modal has been closed")
+              }}>
+              <View style={{marginTop: 22}}>
+                <View>
+                  <Text>cart Info</Text>
 
-          <TouchableHighlight
-            onPress={() => {
-              toggleCartModal()
+                  <TouchableHighlight
+                    onPress={() => {
+                      toggleCartModal()
+                    }}>
+                    <Text>x</Text>
+                  </TouchableHighlight>
+                </View>
+              </View>
+            </Modal>
+          <Modal
+              animationType="fade"
+              transparent={false}
+              visible={userModalVisible}
+              onDismiss={() => {
+                // alert('Modal has been closed.');
+                console.log("user modal has been closed")
+              }}>
+              <View style={{marginTop: 22}}>
+                <View>
+                  <TouchableHighlight
+                    onPress={() => {
+                      logout()
+                    }}>
+                    <Text>로그아웃</Text>
+                  </TouchableHighlight>
+                  <TouchableHighlight
+                    onPress={() => {
+                      toggleUserModal()
+                    }}>
+                    <Text>x</Text>
+                  </TouchableHighlight>
+                </View>
+              </View>
+            </Modal>
+          <div className="headerContainer">
+          
+            <div className="logo">
+              <a
+                href="/clip"
+              >
+                <img src={Logo} alt="Logo" title="Logo" />
+              </a>
+            </div>
+
+              
+                <TouchableOpacity
+                  style={{
+                    position:'fixed',
+                    height:47,
+                    width:47,
+                    top:'29px',
+                    right:'105pt',
+                    backgroundColor:'transparent',
+                    zIndex:101
+                }}
+                >
+                  <img
+                    src={searchIcon}
+                  >
+                  </img>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={{
+                    position:'fixed',
+                    height:47,
+                    width:47,
+                    top:'29px',
+                    right:'60pt',
+                    backgroundColor:'transparent',
+                    zIndex:101
+                }}
+                onPress={() => {
+                  toggleCartModal()
+                }}
+                >
+                  <img
+                    src={boxIcon}
+                  >
+                  </img>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  className="linkTo"
+                  style={{
+                    position:'fixed',
+                    height:47,
+                    width:47,
+                    top:'29px',
+                    right:'15pt',
+                    backgroundColor:'transparent',
+                    zIndex:101,
+                }}
+                onPress={() => {
+                  toggleUserModal()
+                }}
+                >
+                  <img
+                    src={userIcon}
+                    style={{
+                      height:'47pt',
+                    
+                    }}
+                  >
+                  </img>
+                </TouchableOpacity>
+                <Switch>
+                  <Route path="/">
+                    {/* <Text>
+                      Home
+                    </Text> */}
+                  </Route>
+                  <Route path="/category">
+                    <Text>
+                      category
+                    </Text>
+                  </Route>
+                </Switch>
+              
+
+          </div>
+          
+
+            
+
+        </header>
+      )
+    }
+  }
+  else{
+    if(width>1051){
+    return (    
+      <header className={x.join(" ")}>
+        <Modal
+            animationType="fade"
+            transparent={false}
+            visible={cartModalVisible}
+            onDismiss={() => {
+              // alert('Modal has been closed.');
+              console.log("user modal has been closed")
             }}>
-            <Text>x</Text>
-          </TouchableHighlight>
-        </View>
-      </View>
-    </Modal>
-  <Modal
-      animationType="fade"
-      transparent={false}
-      visible={userModalVisible}
-      onDismiss={() => {
-        // alert('Modal has been closed.');
-        console.log("user modal has been closed")
-      }}>
-      <View style={{marginTop: 22}}>
-        <View>
-        <Text>전화번호</Text>
-        {/* <TextInput 
-          onChangeText={
-            text=>setUser(text)
-          }
-          value={user}
-        ></TextInput> */}
-        <TextInput 
-          onChangeText={
-            text=>{
-              setUserPhoneNumber(text)
-              onPhoneNumberChange()
-            }
-          }
-          // onBlur={
-          //   onPhoneNumberChange()
-          // }
-          value={userPhoneNumber}
-        ></TextInput>
-        <Text>비밀번호</Text>
-        <TextInput
-          onChangeText={
-            text=>{setPassword(text)
-            onPasswordChange()
-            }
-          }
-          // onBlur={
-          //   onPasswordChange()
-          // }
-          secureTextEntry={true}
-          value={password}
-        ></TextInput>
-          <TouchableHighlight
-            onPress={() => {
-              login()
+            <View style={{marginTop: 22}}>
+              <View>
+                <Text>cart Info</Text>
+
+                <TouchableHighlight
+                  onPress={() => {
+                    toggleCartModal()
+                  }}>
+                  <Text>x</Text>
+                </TouchableHighlight>
+              </View>
+            </View>
+          </Modal>
+        <Modal
+            animationType="fade"
+            transparent={false}
+            visible={userModalVisible}
+            onDismiss={() => {
+              // alert('Modal has been closed.');
+              console.log("user modal has been closed")
             }}>
-            <Text>로그인</Text>
-          </TouchableHighlight>
-          <TouchableHighlight
-            onPress={() => {
-              logout()
-            }}>
-            <Text>로그아웃</Text>
-          </TouchableHighlight>
-          <TouchableHighlight
-            onPress={() => {
-              toggleUserModal()
-            }}>
-            <Text>x</Text>
-          </TouchableHighlight>
+            <View style={{marginTop: 22}}>
+              <View>
+              <Text>전화번호</Text>
+                {/* <TextInput 
+                  onChangeText={text=>setUser(text)}
+                  value={user}
+                ></TextInput> */}
+                <TextInput 
+                  onChangeText={
+                    text=>{
+                      setUserPhoneNumber(text)
+                      onPhoneNumberChange()
+                    }
+                  }
+                  // onBlur={
+                  //   onPhoneNumberChange()
+                  // }
+                  value={userPhoneNumber}
+                ></TextInput>
+                <Text>비밀번호</Text>
+                <TextInput
+                  onChangeText={
+                    text=>{setPassword(text)
+                    onPasswordChange()
+                    }
+                  }
+                  // onBlur={
+                  //   onPasswordChange()
+                  // }
+                  secureTextEntry={true}
+                  value={password}
+                ></TextInput>
+                
+                <TouchableHighlight
+                  onPress={() => {
+                    login()
+                  }}>
+                  <Text>로그인</Text>
+                </TouchableHighlight>
+                
+                <TouchableHighlight
+                  onPress={() => {
+                    toggleUserModal()
+                  }}>
+                  <Text>x</Text>
+                </TouchableHighlight>
+              </View>
+            </View>
+          </Modal>
+        <div className="headerContainer">
+        
+          <div className="logo">
+            <a
+              href="/clip"
+            >
+              <img src={Logo} alt="Logo" title="Logo" />
+            </a>
+          </div>
 
-        </View>
-      </View>
-    </Modal>
-  <div className="headerContainer">
-  
-    <div className="logo">
-      <a
-        href="/clip"
-      >
-        <img src={Logo} alt="Logo" title="Logo" />
-      </a>
-    </div>
+              <TouchableOpacity
+                    className="linkTo"
+                    id="category"
+                    style={{
+                        position:'fixed',
+                        height:50,
+                        width:240,
+                        top:38,
+                        left:'167pt',
+                        backgroundColor:'transparent',
+                        zIndex:101
+                    }}
+                    activeOpacity={0.5}
+                >
+                
+                    {/* <Link to="/category">
+                      자재카테고리
+                    </Link> */}
+                    <a 
+                    style={
+                      {
+                        // flex:1,
+                        textDecorationLine:'none',
+                        // color:'black',
+                        // //borderColor:'black',
+                        // //borderWidth:2,
+                        // backgroundColor:'transparent',
+                        // fontSize: '25pt',
+                        // fontWeight:'700',
+                        // textShadowColor: 'rgba(0, 0, 0, 0.5)',
+                        // textShadowOffset: {width: 0, height: 0},
+                        // textShadowRadius: 2,
+                        // // flex:1,
+                        // alignItems:'center',
+                        // justifyContent:'center',
+                        // flexDirection:'row',
+                        // textAlign:'center'
+                      }} 
+                      href="/category">
+            <Text
+                  selectable={false} 
+                  style ={{
+                      fontSize: '25px',
+                      fontWeight:'700',
+                      textDecorationLine:'none',
+                      color:'black',
+                      // textShadowColor: 'rgba(0, 0, 0, 0.85)',
+                      // textShadowOffset: {width: 0, height: 0},
+                      // textShadowRadius: 2,
+                      textAlign:'center',
+                      alignItems:'center',
+                      justifyContent:'center',
+                      flexDirection:'row',
+                      margin:11,
+                      // padding:'auto',
+                      pointerEvents:'none'
 
-        <TouchableOpacity
-          style={{
-            position:'fixed',
-            height:47,
-            width:47,
-            top:'29px',
-            right:'173pt',
-            backgroundColor:'transparent',
-            zIndex:101
-        }}
-        >
-          <img
-            src={searchIcon}
-          >
-          </img>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{
-            position:'fixed',
-            height:47,
-            width:47,
-            top:'29px',
-            right:'103pt',
-            backgroundColor:'transparent',
-            zIndex:101
-        }}
-        onPress={() => {
-          toggleCartModal()
-        }}
-        >
-          <img
-            src={boxIcon}
-          >
-          </img>
-        </TouchableOpacity>
-        <TouchableOpacity
-          className="linkTo"
-          style={{
-            position:'fixed',
-            height:47,
-            width:47,
-            top:'29px',
-            right:'33pt',
-            backgroundColor:'transparent',
-            zIndex:101,
-        }}
-        onPress={() => {
-          toggleUserModal()
-        }}
-        >
-          <img
-            src={userIcon}
-            style={{
-              height:'47pt',
-             
-            }}
-          >
-          </img>
-        </TouchableOpacity>
-        <Switch>
-          <Route path="/">
-            {/* <Text>
-              Home
-            </Text> */}
-          </Route>
-          <Route path="/category">
-            <Text>
-              category
-            </Text>
-          </Route>
-        </Switch>
-      
+                  }}
+                  >
+                    자재카테고리
+                  </Text>
+          </a>
+              </TouchableOpacity>
+              <TouchableOpacity
+                    className='linkTo'
+                    style={{
+                        position:'fixed',
+                        height:50,
+                        width:170,
+                        top:38,
+                        left:'349pt',
+                        backgroundColor:'transparent',
+                        zIndex:101
+                    }}
+                    activeOpacity={0.5}
+                >
+                  <a 
+                    style={
+                      {
+                        textDecorationLine:'none',
+                      }} 
+                      href="/constructionpart">
+                  <Text
+                  selectable={false} 
+                  style ={{
+                      fontSize: '25px',
+                      fontWeight:'700',
+                      textDecorationLine:'none',
+                      // color:'white',
+                      // textShadowColor: 'rgba(0, 0, 0, 0.85)',
+                      // textShadowOffset: {width: 0, height: 0},
+                      // textShadowRadius: 2,
+                      color:'black',
+                      textAlign:'center',
+                      alignItems:'center',
+                      justifyContent:'center',
+                      flexDirection:'row',
+                      margin:11,
+                      padding:'auto',
+                      pointerEvents:'none'
+                  }}
+                  >
+                    사공부위
+                  </Text>
+                  </a>
+              </TouchableOpacity>
+              <TouchableOpacity
+                    className="linkTo"
+                    style={{
+                        position:'fixed',
+                        height:50,
+                        width:140,
+                        top:38,
+                        left:'478pt',
+                        backgroundColor:'transparent',
+                        zIndex:101
+                    }}
+                    activeOpacity={0.5}
+                >
+                  <a 
+                    style={
+                      {
+                        textDecorationLine:'none',
+                      }} 
+                      href="/brands">
+                    <Text
+                    selectable={false} 
+                    style ={{
+                        fontSize: '25px',
+                        fontWeight:'700',
+                        textDecorationLine:'none',
+                        // color:'white',
+                        // textShadowColor: 'rgba(0, 0, 0, 0.85)',
+                        // textShadowOffset: {width: 0, height: 0},
+                        // textShadowRadius: 2,
+                        color:'black',
+                        textAlign:'center',
+                        alignItems:'center',
+                        justifyContent:'center',
+                        flexDirection:'row',
+                        margin:11,
+                        padding:'auto',
+                        pointerEvents:'none'
+                    }}
+                    >
+                      브랜드
+                    </Text>
+                  </a>
+              </TouchableOpacity>
+            
+              <TouchableOpacity
+                style={{
+                  position:'fixed',
+                  height:47,
+                  width:47,
+                  top:'29px',
+                  right:'173pt',
+                  backgroundColor:'transparent',
+                  zIndex:101
+              }}
+              >
+                <img
+                  src={searchIcon}
+                >
+                </img>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  position:'fixed',
+                  height:47,
+                  width:47,
+                  top:'29px',
+                  right:'103pt',
+                  backgroundColor:'transparent',
+                  zIndex:101
+              }}
+              onPress={() => {
+                toggleCartModal()
+              }}
+              >
+                <img
+                  src={boxIcon}
+                >
+                </img>
+              </TouchableOpacity>
+              <TouchableOpacity
+                className="linkTo"
+                style={{
+                  position:'fixed',
+                  height:47,
+                  width:47,
+                  top:'29px',
+                  right:'33pt',
+                  backgroundColor:'transparent',
+                  zIndex:101,
+              }}
+              onPress={() => {
+                toggleUserModal()
+              }}
+              >
+                <img
+                  src={userIcon}
+                  style={{
+                    height:'47pt',
+                  
+                  }}
+                >
+                </img>
+              </TouchableOpacity>
+              <Switch>
+                <Route path="/">
+                  {/* <Text>
+                    Home
+                  </Text> */}
+                </Route>
+                <Route path="/category">
+                  <Text>
+                    category
+                  </Text>
+                </Route>
+              </Switch>
+            
 
-  </div>
-  
+        </div>
+        
 
-    
+          
 
-</header>
-)
-}
-else{
-  return (    
-    <header className={x.join(" ")}>
+      </header>
+    )
+    }
+    else if(width>449 && width<=1051){
+      return(
+      <header className={x.join(" ")}>
       <Modal
           animationType="fade"
           transparent={false}
@@ -781,51 +1173,52 @@ else{
           }}>
           <View style={{marginTop: 22}}>
             <View>
-              <Text>전화번호</Text>
-              <TextInput 
-                onChangeText={
-                  text=>{
-                    setUserPhoneNumber(text)
-                    onPhoneNumberChange()
-                  }
+            <Text>전화번호</Text>
+            {/* <TextInput 
+              onChangeText={
+                text=>setUser(text)
+              }
+              value={user}
+            ></TextInput> */}
+            <TextInput 
+              onChangeText={
+                text=>{
+                  setUserPhoneNumber(text)
+                  onPhoneNumberChange()
                 }
-                // onBlur={
-                //   onPhoneNumberChange()
-                // }
-                value={userPhoneNumber}
-              ></TextInput>
-              <Text>비밀번호</Text>
-              <TextInput
-                onChangeText={
-                  text=>{setPassword(text)
-                  onPasswordChange()
-                  }
+              }
+              // onBlur={
+              //   onPhoneNumberChange()
+              // }
+              value={userPhoneNumber}
+            ></TextInput>
+            <Text>비밀번호</Text>
+            <TextInput
+              onChangeText={
+                text=>{setPassword(text)
+                onPasswordChange()
                 }
-                // onBlur={
-                //   onPasswordChange()
-                // }
-                secureTextEntry={true}
-                
-                value={password}
-              ></TextInput>
+              }
+              // onBlur={
+              //   onPasswordChange()
+              // }
+              secureTextEntry={true}
+              value={password}
+            ></TextInput>
               <TouchableHighlight
                 onPress={() => {
                   login()
                 }}>
                 <Text>로그인</Text>
               </TouchableHighlight>
-              <TouchableHighlight
-                onPress={() => {
-                  logout()
-                }}>
-                <Text>로그아웃</Text>
-              </TouchableHighlight>
+             
               <TouchableHighlight
                 onPress={() => {
                   toggleUserModal()
                 }}>
                 <Text>x</Text>
               </TouchableHighlight>
+
             </View>
           </View>
         </Modal>
@@ -839,14 +1232,13 @@ else{
           </a>
         </div>
 
-           
             <TouchableOpacity
               style={{
                 position:'fixed',
                 height:47,
                 width:47,
                 top:'29px',
-                right:'105pt',
+                right:'173pt',
                 backgroundColor:'transparent',
                 zIndex:101
             }}
@@ -862,7 +1254,7 @@ else{
                 height:47,
                 width:47,
                 top:'29px',
-                right:'60pt',
+                right:'103pt',
                 backgroundColor:'transparent',
                 zIndex:101
             }}
@@ -882,7 +1274,7 @@ else{
                 height:47,
                 width:47,
                 top:'29px',
-                right:'15pt',
+                right:'33pt',
                 backgroundColor:'transparent',
                 zIndex:101,
             }}
@@ -894,7 +1286,7 @@ else{
                 src={userIcon}
                 style={{
                   height:'47pt',
-                 
+                
                 }}
               >
               </img>
@@ -919,8 +1311,178 @@ else{
         
 
     </header>
-  )
-}
+    )
+    }
+    else{
+      return (    
+        <header className={x.join(" ")}>
+          <Modal
+              animationType="fade"
+              transparent={false}
+              visible={cartModalVisible}
+              onDismiss={() => {
+                // alert('Modal has been closed.');
+                console.log("user modal has been closed")
+              }}>
+              <View style={{marginTop: 22}}>
+                <View>
+                  <Text>cart Info</Text>
+
+                  <TouchableHighlight
+                    onPress={() => {
+                      toggleCartModal()
+                    }}>
+                    <Text>x</Text>
+                  </TouchableHighlight>
+                </View>
+              </View>
+            </Modal>
+          <Modal
+              animationType="fade"
+              transparent={false}
+              visible={userModalVisible}
+              onDismiss={() => {
+                // alert('Modal has been closed.');
+                console.log("user modal has been closed")
+              }}>
+              <View style={{marginTop: 22}}>
+                <View>
+                  <Text>전화번호</Text>
+                  <TextInput 
+                    onChangeText={
+                      text=>{
+                        setUserPhoneNumber(text)
+                        onPhoneNumberChange()
+                      }
+                    }
+                    // onBlur={
+                    //   onPhoneNumberChange()
+                    // }
+                    value={userPhoneNumber}
+                  ></TextInput>
+                  <Text>비밀번호</Text>
+                  <TextInput
+                    onChangeText={
+                      text=>{setPassword(text)
+                      onPasswordChange()
+                      }
+                    }
+                    // onBlur={
+                    //   onPasswordChange()
+                    // }
+                    secureTextEntry={true}
+                    
+                    value={password}
+                  ></TextInput>
+                  <TouchableHighlight
+                    onPress={() => {
+                      login()
+                    }}>
+                    <Text>로그인</Text>
+                  </TouchableHighlight>
+                  
+                  <TouchableHighlight
+                    onPress={() => {
+                      toggleUserModal()
+                    }}>
+                    <Text>x</Text>
+                  </TouchableHighlight>
+                </View>
+              </View>
+            </Modal>
+          <div className="headerContainer">
+          
+            <div className="logo">
+              <a
+                href="/clip"
+              >
+                <img src={Logo} alt="Logo" title="Logo" />
+              </a>
+            </div>
+
+              
+                <TouchableOpacity
+                  style={{
+                    position:'fixed',
+                    height:47,
+                    width:47,
+                    top:'29px',
+                    right:'105pt',
+                    backgroundColor:'transparent',
+                    zIndex:101
+                }}
+                >
+                  <img
+                    src={searchIcon}
+                  >
+                  </img>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={{
+                    position:'fixed',
+                    height:47,
+                    width:47,
+                    top:'29px',
+                    right:'60pt',
+                    backgroundColor:'transparent',
+                    zIndex:101
+                }}
+                onPress={() => {
+                  toggleCartModal()
+                }}
+                >
+                  <img
+                    src={boxIcon}
+                  >
+                  </img>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  className="linkTo"
+                  style={{
+                    position:'fixed',
+                    height:47,
+                    width:47,
+                    top:'29px',
+                    right:'15pt',
+                    backgroundColor:'transparent',
+                    zIndex:101,
+                }}
+                onPress={() => {
+                  toggleUserModal()
+                }}
+                >
+                  <img
+                    src={userIcon}
+                    style={{
+                      height:'47pt',
+                    
+                    }}
+                  >
+                  </img>
+                </TouchableOpacity>
+                <Switch>
+                  <Route path="/">
+                    {/* <Text>
+                      Home
+                    </Text> */}
+                  </Route>
+                  <Route path="/category">
+                    <Text>
+                      category
+                    </Text>
+                  </Route>
+                </Switch>
+              
+
+          </div>
+          
+
+            
+
+        </header>
+      )
+    }
+  }
 };
 
 export default Navbar;
