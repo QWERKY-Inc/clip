@@ -21,7 +21,7 @@ const Navbar=() => {
   const [loginInfo,setLoginInfo]=React.useState(null)
   const[userPhoneNumber,setUserPhoneNumber]=React.useState(null)
   const[password,setPassword]=React.useState(null)
-
+  const
   const handleScroll=() => {
     const offset=window.scrollY;
     if(offset > 200 ){
@@ -54,19 +54,32 @@ const Navbar=() => {
     //   console.log('offline')
     // }
     if(loginInfo!=null){
-      if(loginInfo.result=='SUCCESS'){
-        console.log(loginInfo.result)
+      // if(loginInfo.result=='SUCCESS'){
+      //   console.log(loginInfo)
+      // }
+      if(localStorage.login&&localStorage.login!=""){
+        // console.log(JSON.parse(window.localStorage.login))
+        if(JSON.parse(window.localStorage.login).result=='SUCCESS'){
+          // setLoginInfo(JSON.parse(window.localStorage.getItem('login')))
+          console.log(JSON.parse(window.localStorage.getItem('login')))
+          console.log('logged on')
+        }
+        else{
+          console.log(JSON.parse(window.localStorage.getItem('login')))
+          console.log('logged off')
+        }
       }
       else{
-        if(localStorage.login&&localStorage.login!=""){
-          if(JSON.parse(window.localStorage.login).result=='SUCCESS'){
-            setLoginInfo(JSON.parse(window.localStorage.getItem('login')))
-            console.log(JSON.parse(window.localStorage.getItem('login')))
-          }
-          else{
-            console.log(JSON.parse(window.localStorage.getItem('login')))
-          }
-        }
+        // if(localStorage.login&&localStorage.login!=""){
+        //   if(JSON.parse(window.localStorage.login).result=='SUCCESS'){
+        //     setLoginInfo(JSON.parse(window.localStorage.getItem('login')))
+        //     console.log(JSON.parse(window.localStorage.getItem('login')))
+        //   }
+        //   else{
+        //     console.log(JSON.parse(window.localStorage.getItem('login')))
+        //   }
+        // }
+        console.log('logged off')
       }
     }
     
