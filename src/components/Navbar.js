@@ -40,10 +40,10 @@ const Navbar=() => {
   const onPhoneNumberChange=()=>{
     // console.log(userPhoneNumber)
     // console.log(JSON.parse(localStorage.login).result=="SUCCESS")
-    console.log(localStorage.login)
+    //console.log(localStorage.login)
 
-    // if(localStorage.login!=undefined&&localStorage.login!=""){
-    //   if(JSON.parse(localStorage.login).result=="SUCCESS"){
+    // if(localStorage.login){
+    //   if(JSON.parse(window.localStorage.login).result=="SUCCESS"){
     //     console.log('logged in')
     //   }
     //   else{
@@ -53,6 +53,15 @@ const Navbar=() => {
     // else{
     //   console.log('offline')
     // }
+    if(loginInfo!=null){
+      if(loginInfo.result=='SUCCESS'){
+        console.log(loginInfo.result)
+      }
+      else{
+        console.log(loginInfo)
+      }
+    }
+    
   }
   const onPasswordChange=()=>{
     // console.log(password)
@@ -176,6 +185,7 @@ const Navbar=() => {
   useEffect(() => {
     window.addEventListener('scroll',handleScroll)
     Dimensions.addEventListener('change',onChange)
+    
   })
 
   let x=['navbar'];
