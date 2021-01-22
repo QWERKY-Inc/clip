@@ -69,9 +69,57 @@ function Brands(props) {
         <div>
           <Navbar />
           <NavBarFiller/>
+          <Image
+                  style={{
+                  display:'block',
+                  height:'200pt',
+                  width:'200pt',
+                  borderTopLeftRadius:10,
+                  borderTopRightRadius:10,
+                  zIndex:1,
+                  pointerEvents:'none',
+                  transform:[{
+                      translateX:'0px',
+                      translateY:'0px'
+                  }]
+                  }}
+                  source={{
+                      uri:
+                          // data.listCategory[i].ct_img_url
+                          //listMoodboard.mb_img_url
+                          brandData.brd_feature_img_url
+                  }}
+
+              >
+              </Image>
+              <Image
+                  style={{
+                  display:'block',
+                  height:'200pt',
+                  width:'200pt',
+                  borderTopLeftRadius:10,
+                  borderTopRightRadius:10,
+                  zIndex:1,
+                  pointerEvents:'none',
+                  transform:[{
+                      translateX:'0px',
+                      translateY:'0px'
+                  }]
+                  }}
+                  source={{
+                      uri:
+                          // data.listCategory[i].ct_img_url
+                          //listMoodboard.mb_img_url
+                          brandData.brd_logo_img_url
+                  }}
+
+              >
+              </Image>
+          <Text>{brandData.brd_name_kor}</Text>
           <Text>
             {brandData.brd_intro}
           </Text>
+
         </div>
       )
     }
