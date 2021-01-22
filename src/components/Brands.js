@@ -119,6 +119,9 @@ function Brands(props) {
           <Text>
             {brandData.brd_intro}
           </Text>
+          <Text>
+            {brandData.brd_description}
+          </Text>
 
         </div>
       )
