@@ -2,7 +2,7 @@ import React,{useEffect} from 'react';
 import Navbar from './Navbar';
 import Content from './Content';
 import NavBarFiller from './NavBarFiller';
-import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight} from 'react-native';
+import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking} from 'react-native';
 const queryString = require('query-string');
 
 function Brands(props) {
@@ -123,6 +123,8 @@ function Brands(props) {
                                 // backgroundColor:'red'
                             
                         }}
+                        onPress={() => Linking.openURL(`/brands?ct_id=${brand.ct_id}`)}
+                        
                     >
                     
                     <Image
