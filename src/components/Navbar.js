@@ -8,6 +8,8 @@ import searchIcon from '../assets/icnSearch.png'
 import userIcon from '../assets/icnUser.png'
 import boxIcon from '../assets/icnBox.png'
 import {BrowserRouter as Router,Switch,Route,Link} from 'react-router-dom'
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 // import {UserProvider,useUser} from './user-context'
 const queryString =require('query-string');
 
