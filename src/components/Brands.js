@@ -30,7 +30,7 @@ function Brands(props) {
       )
       .then(res=>res.json())
       .then((incomingData)=>{
-        console.log(incomingData)
+        // console.log(incomingData)
         setBrandData(incomingData)
         })
       .catch(err=>{
@@ -63,68 +63,250 @@ function Brands(props) {
     console.log(brandListData)
 
   },[brandListData])
+  useEffect(()=>{
+    console.log(brandData)
+
+  },[brandData])
   if(brandListData!=[]){
     if(brandId!=null){
-      return(
-        <div>
-          <Navbar />
-          <NavBarFiller/>
+      if(brandData.bestproducts_brand!=undefined){
+        return(
+          <div>
+            <Navbar />
+            <NavBarFiller/>
+            <Image
+                    style={{
+                    display:'block',
+                    height:'200pt',
+                    width:'200pt',
+                    borderTopLeftRadius:10,
+                    borderTopRightRadius:10,
+                    zIndex:1,
+                    pointerEvents:'none',
+                    transform:[{
+                        translateX:'0px',
+                        translateY:'0px'
+                    }]
+                    }}
+                    source={{
+                        uri:
+                            // data.listCategory[i].ct_img_url
+                            //listMoodboard.mb_img_url
+                            brandData.brd_feature_img_url
+                    }}
+
+                >
+                </Image>
+                <Image
+                    style={{
+                    display:'block',
+                    height:'200pt',
+                    width:'200pt',
+                    borderTopLeftRadius:10,
+                    borderTopRightRadius:10,
+                    zIndex:1,
+                    pointerEvents:'none',
+                    transform:[{
+                        translateX:'0px',
+                        translateY:'0px'
+                    }]
+                    }}
+                    source={{
+                        uri:
+                            // data.listCategory[i].ct_img_url
+                            //listMoodboard.mb_img_url
+                            brandData.brd_logo_img_url
+                    }}
+
+                >
+                </Image>
+            <Text>{brandData.brd_name_kor}</Text>
+            <Text>
+              {brandData.brd_intro}
+            </Text>
+            <Text>
+              {brandData.brd_description}
+            </Text>
+            {brandData.bestproducts_brand.map((material)=>{
+              <TouchableOpacity
+              style={{
+                  flexDirection:'column',
+                  borderRadius:10,
+                  height:'260pt',
+                  width:"200pt",
+                  backgroundColor:'rgb(33,33,33)',
+                  
+                      fontSize: '25pt',
+                      fontWeight:'700',
+                      textDecorationLine:'none',
+                      color:'black',
+                      textAlign:'left',
+                      alignItems:'center',
+                      justifyContent:'center',
+                      flexDirection:'column',
+                      marginLeft:'25px',
+                      marginRight:'25px',
+                      marginTop:'25px',
+                      padding:'auto',
+                      zIndex:2
+                  
+              }}
+          >
+          
           <Image
-                  style={{
-                  display:'block',
-                  height:'200pt',
-                  width:'200pt',
-                  borderTopLeftRadius:10,
-                  borderTopRightRadius:10,
-                  zIndex:1,
-                  pointerEvents:'none',
-                  transform:[{
-                      translateX:'0px',
-                      translateY:'0px'
-                  }]
-                  }}
-                  source={{
-                      uri:
-                          // data.listCategory[i].ct_img_url
-                          //listMoodboard.mb_img_url
-                          brandData.brd_feature_img_url
-                  }}
+              style={{
+              display:'block',
+              height:'200pt',
+              width:'200pt',
+              borderTopLeftRadius:10,
+              borderTopRightRadius:10,
+              zIndex:1,
+              pointerEvents:'none',
+              transform:[{
+                  translateX:'0px',
+                  translateY:'0px'
+              }]
+              }}
+              source={{
+                  uri:
+                      material.mt_feature_img_url
+              }}
 
+          >
+          </Image>
+              <View
+                  style ={{
+                      height:'60pt',
+                      width:'200pt',
+                      fontSize: '15pt',
+                      fontWeight:'700',
+                      textDecorationLine:'none',
+                      color:'black',
+                      textAlign:'center',
+                      flexDirection:'row',
+                      pointerEvents:'none',
+                      backgroundColor:'rgb(33,33,33)',
+                      pointerEvents:'none',
+                      borderBottomLeftRadius:10,
+                      borderBottomRightRadius:10,
+                      
+                  }}
               >
-              </Image>
-              <Image
-                  style={{
-                  display:'block',
-                  height:'200pt',
-                  width:'200pt',
-                  borderTopLeftRadius:10,
-                  borderTopRightRadius:10,
-                  zIndex:1,
-                  pointerEvents:'none',
-                  transform:[{
-                      translateX:'0px',
-                      translateY:'0px'
-                  }]
-                  }}
-                  source={{
-                      uri:
-                          // data.listCategory[i].ct_img_url
-                          //listMoodboard.mb_img_url
-                          brandData.brd_logo_img_url
-                  }}
+                  <View
+                      style ={{
+                          height:'60pt',
+                          width:'190pt',
+                          fontSize: '15pt',
+                          fontWeight:'700',
+                          textDecorationLine:'none',
+                          borderBottomLeftRadius:10,
+                          borderBottomRightRadius:10,
+                          color:'black',
+                          textAlign:'center',
+                          alignItems:'center',
+                          justifyContent:'center',
+                          flexDirection:'row',
+                          marginLeft:'5pt',
+                          pointerEvents:'none',
+                          backgroundColor:"rgb(33,33,33)",
+                          pointerEvents:'none',
+                          
+                      }}
+                  >
+                      <Text
+                          style ={{
+                              height:'65pt',
+                              width:'250px',
+                              fontSize: '15pt',
+                              fontWeight:'700',
+                              textDecorationLine:'none',
+                              color:'white',
+                              textAlign:'left',
+                              alignItems:'center',
+                              justifyContent:'center',
+                              flexDirection:'row',
+                              marginTop:'45pt',
+                              pointerEvents:'none',
+                              backgroundColor:'transparent',
+                              pointerEvents:'none',
+                              
+                          }}
+                      >
+                          {material.mt_subname}
+                      </Text>
+                  </View>
+              </View>
+          
+          </TouchableOpacity>
+            })} 
+          
 
-              >
-              </Image>
-          <Text>{brandData.brd_name_kor}</Text>
-          <Text>
-            {brandData.brd_intro}
-          </Text>
-          <Text>
-            {brandData.brd_description}
-          </Text>
+          </div>
+        )
+      }
+      else{
+        return(
+          <div>
+            <Navbar />
+            <NavBarFiller/>
+            <Image
+                    style={{
+                    display:'block',
+                    height:'200pt',
+                    width:'200pt',
+                    borderTopLeftRadius:10,
+                    borderTopRightRadius:10,
+                    zIndex:1,
+                    pointerEvents:'none',
+                    transform:[{
+                        translateX:'0px',
+                        translateY:'0px'
+                    }]
+                    }}
+                    source={{
+                        uri:
+                            // data.listCategory[i].ct_img_url
+                            //listMoodboard.mb_img_url
+                            brandData.brd_feature_img_url
+                    }}
 
-        </div>
-      )
+                >
+                </Image>
+                <Image
+                    style={{
+                    display:'block',
+                    height:'200pt',
+                    width:'200pt',
+                    borderTopLeftRadius:10,
+                    borderTopRightRadius:10,
+                    zIndex:1,
+                    pointerEvents:'none',
+                    transform:[{
+                        translateX:'0px',
+                        translateY:'0px'
+                    }]
+                    }}
+                    source={{
+                        uri:
+                            // data.listCategory[i].ct_img_url
+                            //listMoodboard.mb_img_url
+                            brandData.brd_logo_img_url
+                    }}
+
+                >
+                </Image>
+            <Text>{brandData.brd_name_kor}</Text>
+            <Text>
+              {brandData.brd_intro}
+            </Text>
+            <Text>
+              {brandData.brd_description}
+            </Text>
+            
+
+          </div>
+        )
+      }
     }
     else{
       return (
