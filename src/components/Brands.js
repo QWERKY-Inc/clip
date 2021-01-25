@@ -79,6 +79,11 @@ function Brands(props) {
           <div>
             <Navbar />
             <NavBarFiller/>
+            {/* <div
+            style={{
+              backgroundColor:'red'
+            }}
+            > */}
             <Image
                     style={{
                     display:'block',
@@ -132,9 +137,18 @@ function Brands(props) {
             <Text>
               {brandData.brd_description}
             </Text>
+            {/* </div> */}
             {brandData.bestproducts_brand.map((material)=>{
-              
-          <div>
+             
+          
+          <View
+              style={{
+                backgroundColor:'red',
+                height:'200px',
+                width:'200px'
+
+              }}
+          >
           <Image
               style={{
               display:'block',
@@ -218,7 +232,7 @@ function Brands(props) {
                       </Text>
                   </View>
               </View>
-            </div>
+            </View>
           
             })} 
           
