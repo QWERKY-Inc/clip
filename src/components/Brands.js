@@ -6,7 +6,7 @@ import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking} from 
 const queryString = require('query-string');
 
 function Brands(props) {
-
+  // var bestProducts
   const[brandListData,setBrandListData]=React.useState([])
   const[brandData,setBrandData]=React.useState({})
   const[detailView,setDetailView]=React.useState(false)
@@ -66,7 +66,104 @@ function Brands(props) {
   useEffect(()=>{
     if(brandData.bestproducts_brand){
       // console.log('true')
-      // console.log(brandData)
+      console.log(brandData.bestproducts_brand)
+      // bestProducts=brandData.bestproducts_brand.map((material)=>{
+             
+          
+      //   <View
+      //       style={{
+      //         backgroundColor:'red',
+      //         height:'200px',
+      //         width:'200px'
+
+      //       }}
+      //   >
+      //   <Image
+      //       style={{
+      //       display:'block',
+      //       height:'200pt',
+      //       width:'200pt',
+      //       borderTopLeftRadius:10,
+      //       borderTopRightRadius:10,
+      //       zIndex:1,
+      //       pointerEvents:'none',
+      //       transform:[{
+      //           translateX:'0px',
+      //           translateY:'0px'
+      //       }]
+      //       }}
+      //       source={{
+      //           uri:
+      //               material.mt_feature_img_url
+      //       }}
+
+      //   >
+      //   </Image>
+      //       <View
+      //           style ={{
+      //               height:'60pt',
+      //               width:'200pt',
+      //               fontSize: '15pt',
+      //               fontWeight:'700',
+      //               textDecorationLine:'none',
+      //               color:'black',
+      //               textAlign:'center',
+      //               flexDirection:'row',
+      //               pointerEvents:'none',
+      //               backgroundColor:'rgb(33,33,33)',
+      //               pointerEvents:'none',
+      //               borderBottomLeftRadius:10,
+      //               borderBottomRightRadius:10,
+                    
+      //           }}
+      //       >
+      //           <View
+      //               style ={{
+      //                   height:'60pt',
+      //                   width:'190pt',
+      //                   fontSize: '15pt',
+      //                   fontWeight:'700',
+      //                   textDecorationLine:'none',
+      //                   borderBottomLeftRadius:10,
+      //                   borderBottomRightRadius:10,
+      //                   color:'black',
+      //                   textAlign:'center',
+      //                   alignItems:'center',
+      //                   justifyContent:'center',
+      //                   flexDirection:'row',
+      //                   marginLeft:'5pt',
+      //                   pointerEvents:'none',
+      //                   backgroundColor:"rgb(33,33,33)",
+      //                   pointerEvents:'none',
+                        
+      //               }}
+      //           >
+      //               <Text
+      //                   style ={{
+      //                       height:'65pt',
+      //                       width:'250px',
+      //                       fontSize: '15pt',
+      //                       fontWeight:'700',
+      //                       textDecorationLine:'none',
+      //                       color:'white',
+      //                       textAlign:'left',
+      //                       alignItems:'center',
+      //                       justifyContent:'center',
+      //                       flexDirection:'row',
+      //                       marginTop:'45pt',
+      //                       pointerEvents:'none',
+      //                       backgroundColor:'transparent',
+      //                       pointerEvents:'none',
+                            
+      //                   }}
+      //               >
+      //                   {material.mt_subname}
+      //               </Text>
+      //           </View>
+      //       </View>
+      //     </View>
+        
+      //     })
     }
     
 
@@ -74,8 +171,9 @@ function Brands(props) {
   if(brandListData!=[]){
     if(brandId!=null){
       if(brandData.bestproducts_brand){
-        console.log(brandData.bestproducts_brand)
+        // console.log(brandData.bestproducts_brand)
         return(
+          <div>
           <div>
             <Navbar />
             <NavBarFiller/>
@@ -91,7 +189,6 @@ function Brands(props) {
                     width:'200pt',
                     borderTopLeftRadius:10,
                     borderTopRightRadius:10,
-                    zIndex:1,
                     pointerEvents:'none',
                     transform:[{
                         translateX:'0px',
@@ -100,8 +197,6 @@ function Brands(props) {
                     }}
                     source={{
                         uri:
-                            // data.listCategory[i].ct_img_url
-                            //listMoodboard.mb_img_url
                             brandData.brd_feature_img_url
                     }}
 
@@ -114,7 +209,6 @@ function Brands(props) {
                     width:'200pt',
                     borderTopLeftRadius:10,
                     borderTopRightRadius:10,
-                    zIndex:1,
                     pointerEvents:'none',
                     transform:[{
                         translateX:'0px',
@@ -123,8 +217,6 @@ function Brands(props) {
                     }}
                     source={{
                         uri:
-                            // data.listCategory[i].ct_img_url
-                            //listMoodboard.mb_img_url
                             brandData.brd_logo_img_url
                     }}
 
@@ -137,106 +229,134 @@ function Brands(props) {
             <Text>
               {brandData.brd_description}
             </Text>
+            
+            
             {/* </div> */}
-            {brandData.bestproducts_brand.map((material)=>{
+           
+            {brandData.bestproducts_brand.map((material)=>
              
-          
-          <View
-              style={{
-                backgroundColor:'red',
-                height:'200px',
-                width:'200px'
+            
+        <View
+            style={{
+              backgroundColor:'transparent',
+              height:'200px',
+              width:'200px',
+              marginLeft:'auto',
+              marginRight:'auto',
+              marginTop:'200px'
+            }}
+        >
+        <Image
+            style={{
+            display:'block',
+            height:'200pt',
+            width:'200pt',
+            borderTopLeftRadius:10,
+            borderTopRightRadius:10,
+            zIndex:1,
+            pointerEvents:'none',
+            transform:[{
+                translateX:'0px',
+                translateY:'0px'
+            }]
+            }}
+            source={{
+                uri:
+                    material.mt_feature_img_url
+            }}
 
-              }}
-          >
-          <Image
-              style={{
-              display:'block',
-              height:'200pt',
-              width:'200pt',
-              borderTopLeftRadius:10,
-              borderTopRightRadius:10,
-              zIndex:1,
-              pointerEvents:'none',
-              transform:[{
-                  translateX:'0px',
-                  translateY:'0px'
-              }]
-              }}
-              source={{
-                  uri:
-                      material.mt_feature_img_url
-              }}
-
-          >
-          </Image>
-              <View
-                  style ={{
-                      height:'60pt',
-                      width:'200pt',
-                      fontSize: '15pt',
-                      fontWeight:'700',
-                      textDecorationLine:'none',
-                      color:'black',
-                      textAlign:'center',
-                      flexDirection:'row',
-                      pointerEvents:'none',
-                      backgroundColor:'rgb(33,33,33)',
-                      pointerEvents:'none',
-                      borderBottomLeftRadius:10,
-                      borderBottomRightRadius:10,
-                      
-                  }}
-              >
-                  <View
-                      style ={{
-                          height:'60pt',
-                          width:'190pt',
-                          fontSize: '15pt',
-                          fontWeight:'700',
-                          textDecorationLine:'none',
-                          borderBottomLeftRadius:10,
-                          borderBottomRightRadius:10,
-                          color:'black',
-                          textAlign:'center',
-                          alignItems:'center',
-                          justifyContent:'center',
-                          flexDirection:'row',
-                          marginLeft:'5pt',
-                          pointerEvents:'none',
-                          backgroundColor:"rgb(33,33,33)",
-                          pointerEvents:'none',
-                          
-                      }}
-                  >
-                      <Text
-                          style ={{
-                              height:'65pt',
-                              width:'250px',
-                              fontSize: '15pt',
-                              fontWeight:'700',
-                              textDecorationLine:'none',
-                              color:'white',
-                              textAlign:'left',
-                              alignItems:'center',
-                              justifyContent:'center',
-                              flexDirection:'row',
-                              marginTop:'45pt',
-                              pointerEvents:'none',
-                              backgroundColor:'transparent',
-                              pointerEvents:'none',
-                              
-                          }}
-                      >
-                          {material.mt_subname}
-                      </Text>
-                  </View>
-              </View>
+        >
+        </Image>
+            <View
+                style ={{
+                    height:'60pt',
+                    width:'200pt',
+                    fontSize: '15pt',
+                    fontWeight:'700',
+                    textDecorationLine:'none',
+                    color:'black',
+                    textAlign:'center',
+                    flexDirection:'row',
+                    pointerEvents:'none',
+                    backgroundColor:'rgb(33,33,33)',
+                    pointerEvents:'none',
+                    borderBottomLeftRadius:10,
+                    borderBottomRightRadius:10,
+                    
+                }}
+            >
+                <View
+                    style ={{
+                        height:'60pt',
+                        width:'190pt',
+                        fontSize: '15pt',
+                        fontWeight:'700',
+                        textDecorationLine:'none',
+                        borderBottomLeftRadius:10,
+                        borderBottomRightRadius:10,
+                        color:'black',
+                        textAlign:'center',
+                        alignItems:'center',
+                        justifyContent:'center',
+                        flexDirection:'row',
+                        marginLeft:'5pt',
+                        pointerEvents:'none',
+                        backgroundColor:"rgb(33,33,33)",
+                        pointerEvents:'none',
+                        
+                    }}
+                >
+                    <Text
+                        style ={{
+                            height:'65pt',
+                            width:'250px',
+                            fontSize: '15pt',
+                            fontWeight:'700',
+                            textDecorationLine:'none',
+                            color:'white',
+                            textAlign:'left',
+                            alignItems:'center',
+                            justifyContent:'center',
+                            flexDirection:'row',
+                            marginLeft:'15px',
+                            marginTop:'45pt',
+                            pointerEvents:'none',
+                            backgroundColor:'transparent',
+                            pointerEvents:'none',
+                            
+                        }}
+                    >
+                        {material.vd_name}
+                    </Text>
+                    <Text
+                        style ={{
+                            height:'65pt',
+                            width:'250px',
+                            fontSize: '15pt',
+                            fontWeight:'700',
+                            textDecorationLine:'none',
+                            color:'white',
+                            textAlign:'left',
+                            alignItems:'center',
+                            justifyContent:'center',
+                            flexDirection:'row',
+                            marginTop:'45pt',
+                            pointerEvents:'none',
+                            backgroundColor:'transparent',
+                            pointerEvents:'none',
+                            
+                        }}
+                    >
+                        {material.mt_subname}
+                    </Text>
+                </View>
             </View>
+          </View>
+         
           
-            })} 
+            )}
           
-
+          </div>
           </div>
         )
       }
@@ -253,7 +373,7 @@ function Brands(props) {
                     width:'200pt',
                     borderTopLeftRadius:10,
                     borderTopRightRadius:10,
-                    zIndex:1,
+                    // zIndex:1,
                     pointerEvents:'none',
                     transform:[{
                         translateX:'0px',
@@ -276,7 +396,7 @@ function Brands(props) {
                     width:'200pt',
                     borderTopLeftRadius:10,
                     borderTopRightRadius:10,
-                    zIndex:1,
+                    // zIndex:1,
                     pointerEvents:'none',
                     transform:[{
                         translateX:'0px',
@@ -386,7 +506,7 @@ function Brands(props) {
                           marginRight:'25pt',
                           marginTop:'25pt',
                           padding:'auto',
-                          zIndex:2
+                          // zIndex:2
                           // backgroundColor:'red'
                       
                   }}
@@ -401,7 +521,7 @@ function Brands(props) {
                   width:'200pt',
                   borderTopLeftRadius:10,
                   borderTopRightRadius:10,
-                  zIndex:1,
+                  // zIndex:1,
                   pointerEvents:'none',
                   transform:[{
                       translateX:'0px',
