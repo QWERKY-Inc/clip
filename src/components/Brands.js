@@ -64,12 +64,17 @@ function Brands(props) {
 
   },[brandListData])
   useEffect(()=>{
-    console.log(brandData)
+    if(brandData.bestproducts_brand){
+      // console.log('true')
+      // console.log(brandData)
+    }
+    
 
   },[brandData])
   if(brandListData!=[]){
     if(brandId!=null){
-      if(brandData.bestproducts_brand!=undefined){
+      if(brandData.bestproducts_brand){
+        console.log(brandData.bestproducts_brand)
         return(
           <div>
             <Navbar />
@@ -128,31 +133,8 @@ function Brands(props) {
               {brandData.brd_description}
             </Text>
             {brandData.bestproducts_brand.map((material)=>{
-              <TouchableOpacity
-              style={{
-                  flexDirection:'column',
-                  borderRadius:10,
-                  height:'260pt',
-                  width:"200pt",
-                  backgroundColor:'rgb(33,33,33)',
-                  
-                      fontSize: '25pt',
-                      fontWeight:'700',
-                      textDecorationLine:'none',
-                      color:'black',
-                      textAlign:'left',
-                      alignItems:'center',
-                      justifyContent:'center',
-                      flexDirection:'column',
-                      marginLeft:'25px',
-                      marginRight:'25px',
-                      marginTop:'25px',
-                      padding:'auto',
-                      zIndex:2
-                  
-              }}
-          >
-          
+              
+          <div>
           <Image
               style={{
               display:'block',
@@ -236,8 +218,8 @@ function Brands(props) {
                       </Text>
                   </View>
               </View>
+            </div>
           
-          </TouchableOpacity>
             })} 
           
 
@@ -245,6 +227,7 @@ function Brands(props) {
         )
       }
       else{
+        console.log(brandData);
         return(
           <div>
             <Navbar />
