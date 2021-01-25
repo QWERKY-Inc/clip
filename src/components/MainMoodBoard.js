@@ -874,8 +874,10 @@ function MainMoodBoard() {
                             topMargin:'77pt',
                             flexDirection:'column',
                             textAlign:'left',
-                            paddingLeft:'auto',
-                            paddingRight:'auto'
+                            // paddingLeft:'auto',
+                            // paddingRight:'auto'
+                            paddingLeft:'45px',
+                            paddingRight:'45px'
                         }}
                     >
                         <Text
@@ -884,7 +886,7 @@ function MainMoodBoard() {
                                 fontWeight:'700',
                                 textDecorationLine:'none',
                                 color:'white',
-                                textAlign:'left',
+                                textAlign:'center',
                                 alignItems:'center',
                                 justifyContent:'center',
                                 flexDirection:'row',
@@ -942,7 +944,7 @@ function MainMoodBoard() {
                             style={{
                                 flex: 1, 
                                 // flexDirection: 'row',
-                                // justifyContent: 'space-between',
+                                justifyContent: 'center',
                                 flexwrap:'wrap',
                                 display: 'grid',
                                 gridTemplateColumns: 'auto',
