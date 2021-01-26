@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react';
 import './navbar.css';
 // import Logo from './../logo.svg';
-import {TouchableOpacity,Text,View,Modal,TouchableHighlight,Dimensions,TextInput} from 'react-native';
+import {TouchableOpacity,Text,View,Modal,TouchableHighlight,Dimensions,TextInput,Picker} from 'react-native';
 import Logo from '../assets/header_logo.png'
 import { nativeTouchData } from 'react-dom/test-utils';
 import searchIcon from '../assets/icnSearch.png'
@@ -25,6 +25,7 @@ const Navbar=() => {
   const[password,setPassword]=React.useState(null)
   const [loggedOn,setLoggedOn]=React.useState(false)
   const [entryCorrect,setEntryCorrect]=React.useState(true)
+  const [selectedValue, setSelectedValue] = React.useState("java");
   const handleScroll=() => {
     const offset=window.scrollY;
     if(offset > 200 ){
@@ -225,7 +226,7 @@ const Navbar=() => {
                         top:38,
                         left:'167pt',
                         backgroundColor:'transparent',
-                        zIndex:101
+                        zIndex:1
                     }}
                     activeOpacity={0.5}
                 >
@@ -287,7 +288,7 @@ const Navbar=() => {
                         top:38,
                         left:'349pt',
                         backgroundColor:'transparent',
-                        zIndex:101
+                        zIndex:1
                     }}
                     activeOpacity={0.5}
                 >
@@ -330,9 +331,12 @@ const Navbar=() => {
                         top:38,
                         left:'478pt',
                         backgroundColor:'transparent',
-                        zIndex:101
+                        zIndex:1
                     }}
                     activeOpacity={0.5}
+                    onMouseEnter={()=>
+                      console.log('mouse entered')
+                    }
                 >
                   <a 
                     style={
@@ -364,7 +368,17 @@ const Navbar=() => {
                     </Text>
                   </a>
               </TouchableOpacity>
-            
+              {/* <div
+                style={{
+                  position:'fixed',
+                  height:'100vh',
+                  width:'100vw',
+                  top:'100px',
+                  left:0,
+                  backgroundColor:'red'
+                }}
+              >
+              </div> */}
               <TouchableOpacity
                 style={{
                   position:'fixed',
@@ -373,7 +387,7 @@ const Navbar=() => {
                   top:'29px',
                   right:'173pt',
                   backgroundColor:'transparent',
-                  zIndex:101
+                  zIndex:1
               }}
               >
                 <img
@@ -389,7 +403,7 @@ const Navbar=() => {
                   top:'29px',
                   right:'103pt',
                   backgroundColor:'transparent',
-                  zIndex:101
+                  zIndex:1
               }}
               onPress={() => {
                 toggleCartModal()
@@ -409,7 +423,7 @@ const Navbar=() => {
                   top:'29px',
                   right:'33pt',
                   backgroundColor:'transparent',
-                  zIndex:101,
+                  zIndex:1,
               }}
               onPress={() => {
                 toggleUserModal()
@@ -515,7 +529,7 @@ const Navbar=() => {
                 top:'29px',
                 right:'173pt',
                 backgroundColor:'transparent',
-                zIndex:101
+                zIndex:1
             }}
             >
               <img
@@ -531,7 +545,7 @@ const Navbar=() => {
                 top:'29px',
                 right:'103pt',
                 backgroundColor:'transparent',
-                zIndex:101
+                zIndex:1
             }}
             onPress={() => {
               toggleCartModal()
@@ -551,7 +565,7 @@ const Navbar=() => {
                 top:'29px',
                 right:'33pt',
                 backgroundColor:'transparent',
-                zIndex:101,
+                zIndex:1,
             }}
             onPress={() => {
               toggleUserModal()
@@ -656,7 +670,7 @@ const Navbar=() => {
                     top:'29px',
                     right:'105pt',
                     backgroundColor:'transparent',
-                    zIndex:101
+                    zIndex:1
                 }}
                 >
                   <img
@@ -672,7 +686,7 @@ const Navbar=() => {
                     top:'29px',
                     right:'60pt',
                     backgroundColor:'transparent',
-                    zIndex:101
+                    zIndex:1
                 }}
                 onPress={() => {
                   toggleCartModal()
@@ -692,7 +706,7 @@ const Navbar=() => {
                     top:'29px',
                     right:'15pt',
                     backgroundColor:'transparent',
-                    zIndex:101,
+                    zIndex:1,
                 }}
                 onPress={() => {
                   toggleUserModal()
@@ -833,7 +847,7 @@ const Navbar=() => {
                           top:38,
                           left:'167pt',
                           backgroundColor:'transparent',
-                          zIndex:101
+                          zIndex:1
                       }}
                       activeOpacity={0.5}
                   >
@@ -895,7 +909,7 @@ const Navbar=() => {
                           top:38,
                           left:'349pt',
                           backgroundColor:'transparent',
-                          zIndex:101
+                          zIndex:1
                       }}
                       activeOpacity={0.5}
                   >
@@ -938,7 +952,7 @@ const Navbar=() => {
                           top:38,
                           left:'478pt',
                           backgroundColor:'transparent',
-                          zIndex:101
+                          zIndex:1
                       }}
                       activeOpacity={0.5}
                   >
@@ -981,7 +995,7 @@ const Navbar=() => {
                     top:'29px',
                     right:'173pt',
                     backgroundColor:'transparent',
-                    zIndex:101
+                    zIndex:1
                 }}
                 >
                   <img
@@ -997,7 +1011,7 @@ const Navbar=() => {
                     top:'29px',
                     right:'103pt',
                     backgroundColor:'transparent',
-                    zIndex:101
+                    zIndex:1
                 }}
                 onPress={() => {
                   toggleCartModal()
@@ -1017,7 +1031,7 @@ const Navbar=() => {
                     top:'29px',
                     right:'33pt',
                     backgroundColor:'transparent',
-                    zIndex:101,
+                    zIndex:1,
                 }}
                 onPress={() => {
                   toggleUserModal()
@@ -1155,7 +1169,7 @@ const Navbar=() => {
                   top:'29px',
                   right:'173pt',
                   backgroundColor:'transparent',
-                  zIndex:101
+                  zIndex:1
               }}
               >
                 <img
@@ -1171,7 +1185,7 @@ const Navbar=() => {
                   top:'29px',
                   right:'103pt',
                   backgroundColor:'transparent',
-                  zIndex:101
+                  zIndex:1
               }}
               onPress={() => {
                 toggleCartModal()
@@ -1191,7 +1205,7 @@ const Navbar=() => {
                   top:'29px',
                   right:'33pt',
                   backgroundColor:'transparent',
-                  zIndex:101,
+                  zIndex:1,
               }}
               onPress={() => {
                 toggleUserModal()
@@ -1324,7 +1338,7 @@ const Navbar=() => {
                       top:'29px',
                       right:'105pt',
                       backgroundColor:'transparent',
-                      zIndex:101
+                      zIndex:1
                   }}
                   >
                     <img
@@ -1340,7 +1354,7 @@ const Navbar=() => {
                       top:'29px',
                       right:'60pt',
                       backgroundColor:'transparent',
-                      zIndex:101
+                      zIndex:1
                   }}
                   onPress={() => {
                     toggleCartModal()
@@ -1360,7 +1374,7 @@ const Navbar=() => {
                       top:'29px',
                       right:'15pt',
                       backgroundColor:'transparent',
-                      zIndex:101,
+                      zIndex:1,
                   }}
                   onPress={() => {
                     toggleUserModal()
@@ -1501,7 +1515,7 @@ const Navbar=() => {
                           top:38,
                           left:'167pt',
                           backgroundColor:'transparent',
-                          zIndex:101
+                          zIndex:1
                       }}
                       activeOpacity={0.5}
                   >
@@ -1563,7 +1577,7 @@ const Navbar=() => {
                           top:38,
                           left:'349pt',
                           backgroundColor:'transparent',
-                          zIndex:101
+                          zIndex:1
                       }}
                       activeOpacity={0.5}
                   >
@@ -1606,7 +1620,7 @@ const Navbar=() => {
                           top:38,
                           left:'478pt',
                           backgroundColor:'transparent',
-                          zIndex:101
+                          zIndex:1
                       }}
                       activeOpacity={0.5}
                   >
@@ -1640,7 +1654,15 @@ const Navbar=() => {
                       </Text>
                     </a>
                 </TouchableOpacity>
-              
+                {/* <Picker
+                  selectedValue={selectedValue}
+                  style={{ height: 50, width: 150 }}
+                  onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+                >
+                  <Picker.Item label="Java" value="java" />
+                  <Picker.Item label="JavaScript" value="js" />
+                </Picker> */}
+                
                 <TouchableOpacity
                   style={{
                     position:'fixed',
@@ -1649,7 +1671,7 @@ const Navbar=() => {
                     top:'29px',
                     right:'173pt',
                     backgroundColor:'transparent',
-                    zIndex:101
+                    zIndex:1
                 }}
                 >
                   <img
@@ -1665,7 +1687,7 @@ const Navbar=() => {
                     top:'29px',
                     right:'103pt',
                     backgroundColor:'transparent',
-                    zIndex:101
+                    zIndex:1
                 }}
                 onPress={() => {
                   toggleCartModal()
@@ -1685,7 +1707,7 @@ const Navbar=() => {
                     top:'29px',
                     right:'33pt',
                     backgroundColor:'transparent',
-                    zIndex:101,
+                    zIndex:1
                 }}
                 onPress={() => {
                   toggleUserModal()
@@ -1824,7 +1846,7 @@ const Navbar=() => {
                   top:'29px',
                   right:'173pt',
                   backgroundColor:'transparent',
-                  zIndex:101
+                  zIndex:1
               }}
               >
                 <img
@@ -1840,7 +1862,7 @@ const Navbar=() => {
                   top:'29px',
                   right:'103pt',
                   backgroundColor:'transparent',
-                  zIndex:101
+                  zIndex:1
               }}
               onPress={() => {
                 toggleCartModal()
@@ -1860,7 +1882,7 @@ const Navbar=() => {
                   top:'29px',
                   right:'33pt',
                   backgroundColor:'transparent',
-                  zIndex:101,
+                  zIndex:1
               }}
               onPress={() => {
                 toggleUserModal()
@@ -1994,7 +2016,7 @@ const Navbar=() => {
                       top:'29px',
                       right:'105pt',
                       backgroundColor:'transparent',
-                      zIndex:101
+                      zIndex:1
                   }}
                   >
                     <img
@@ -2010,7 +2032,7 @@ const Navbar=() => {
                       top:'29px',
                       right:'60pt',
                       backgroundColor:'transparent',
-                      zIndex:101
+                      zIndex:1
                   }}
                   onPress={() => {
                     toggleCartModal()
@@ -2030,7 +2052,7 @@ const Navbar=() => {
                       top:'29px',
                       right:'15pt',
                       backgroundColor:'transparent',
-                      zIndex:101,
+                      zIndex:1
                   }}
                   onPress={() => {
                     toggleUserModal()

@@ -100,7 +100,15 @@ const IntroImage=() => {
 							Linking.openURL(`/brands?ct_id=${data.listBanner[0].banner_detail}`)
 							}
                     >
-				<img id="introImage" src={data.listBanner[0].banner_img_url} alt="Logo" title="Logo" >
+				<img id="introImage" 
+					src={data.listBanner[0].banner_img_url} 
+					alt="Logo" 
+					title="Logo" 
+					style={{
+						height:'500pt',
+						width:'auto'
+					}}
+				>
 				</img>
 				</TouchableOpacity>
 
