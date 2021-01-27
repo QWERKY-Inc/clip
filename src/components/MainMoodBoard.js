@@ -2,8 +2,7 @@ import React,{useEffect} from 'react';
 import Navbar from './Navbar';
 import NavBarFiller from './NavBarFiller';
 import {TouchableOpacity,Text,Image,View,Modal,TouchableHighlight,Dimensions} from 'react-native';
-import Carousel from '@brainhubeu/react-carousel';
-import '@brainhubeu/react-carousel/lib/style.css';
+
 function MainMoodBoard() {
 
     const[data,setData]=React.useState(undefined)

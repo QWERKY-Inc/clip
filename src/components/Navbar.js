@@ -169,7 +169,7 @@ const Navbar=() => {
   },[loggedOn])
   useEffect(()=>{
     console.log(brandListData)
-  })
+  },[brandListData])
   // useEffect(()=>{
   //   console.log(brandsDropDownDisplay)
   //   if(brandsDropDown==true){

@@ -3,6 +3,13 @@ import Navbar from './Navbar';
 import Content from './Content';
 import NavBarFiller from './NavBarFiller';
 import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking,Dimensions} from 'react-native';
+import Carousel from '@brainhubeu/react-carousel';
+import '@brainhubeu/react-carousel/lib/style.css';
+// import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+// import { Carousel } from 'react-responsive-carousel';
+// import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+// import 'pure-react-carousel/dist/react-carousel.es.css'
+
 const queryString = require('query-string');
 
 function Brands(props) {
@@ -77,7 +84,7 @@ function Brands(props) {
   useEffect(()=>{
     if(brandData.bestproducts_brand){
       // console.log('true')
-      console.log(brandData.bestproducts_brand)
+      console.log(brandData)
       // bestProducts=brandData.bestproducts_brand.map((material)=>{
              
           
@@ -393,7 +400,55 @@ function Brands(props) {
             </div>
             
             {/* </div> */}
-           
+            <Carousel plugins={['arrows']}>
+              {brandData.pictures_brand.map((atom)=>
+                <img src={atom.pic_url}
+                  style={{
+                    height:"300px",
+                    width:"auto"
+                  }}
+                />
+              )}
+            </Carousel>
+            {/* <CarouselProvider
+              naturalSlideWidth={100}
+              naturalSlideHeight={300}
+              totalSlides={brandData.pictures_brand.length}
+              visibleSlides={3}
+              interval={5000}
+              infinite={true}
+            >
+              <Slider>
+              {brandData.pictures_brand.map((atom,index)=>
+                
+                <Slide index={index}
+
+                >
+                  <img src={atom.pic_url}
+                    style={{
+                      height:"300px",
+                      width:"auto"
+                    }}
+                  />
+                </Slide>
+
+              )}
+                
+              </Slider>
+              
+            </CarouselProvider> */}
+            {/* <Carousel >
+            {brandData.pictures_brand.map((atom)=>
+                  <div>
+                    <img src={atom.pic_url}
+                      style={{
+                        height:"300px",
+                        width:"auto"
+                      }}
+                    />
+                  </div>
+                )}
+            </Carousel> */}
             {brandData.bestproducts_brand.map((material)=>
              
             
