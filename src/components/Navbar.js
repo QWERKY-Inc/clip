@@ -538,15 +538,16 @@ const Navbar=() => {
                         )} */}
                       <div
                       style={{
-                        paddingTop:'50pt',
-                        paddingLeft:'100pt',
-                        paddingRight:'100pt'
+                        paddingTop:'50px',
+                        paddingLeft:'65px',
+                        paddingRight:'65px'
                       }}
                       >
                         <div
                           style={{
                             textAlign:'left',
-                            margin:'25pt'
+                            // margin:'25pt'
+                            paddingLeft:'25px'
                           }}
                         >
 
@@ -564,8 +565,8 @@ const Navbar=() => {
                               alignItems:'center',
                               justifyContent:'center',
                               flexDirection:'row',
-                              margin:11,
-                              marginTop:'25px',
+                              // margin:11,
+                              marginTop:'5px',
                               padding:'auto',
                               pointerEvents:'none'
                             }}
@@ -580,7 +581,10 @@ const Navbar=() => {
                         >
                         <div
                         style={{
-                          columnCount:3,
+                          // columnCount:3,
+                          flexwrap:'wrap',
+                          display: 'grid',
+                          gridTemplateColumns: 'auto auto auto auto',
                         }}
                         >
                           
@@ -601,7 +605,7 @@ const Navbar=() => {
                         <div
                          style={{
                            textAlign:'left',
-                           padding:'15pt'
+                           padding:'5pt'
                          }}
                         >
 

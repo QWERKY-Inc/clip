@@ -2,7 +2,7 @@ import React,{useEffect} from 'react';
 import Navbar from './Navbar';
 import Content from './Content';
 import NavBarFiller from './NavBarFiller';
-import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking} from 'react-native';
+import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking,Dimensions} from 'react-native';
 const queryString = require('query-string');
 
 function Brands(props) {
@@ -11,6 +11,8 @@ function Brands(props) {
   const[brandData,setBrandData]=React.useState({})
   const[detailView,setDetailView]=React.useState(false)
   const[brandId,setBrandId]=React.useState(null)
+  const [height,setHeight]=React.useState(Dimensions.get('window').height)
+  const [width,setWidth]=React.useState(Dimensions.get('window').width)
   const brands=()=>{
     fetch('/brandslist')
     .then(res=>res.json())
@@ -30,13 +32,18 @@ function Brands(props) {
       )
       .then(res=>res.json())
       .then((incomingData)=>{
-        // console.log(incomingData)
+        console.log(incomingData)
         setBrandData(incomingData)
         })
       .catch(err=>{
           console.log(err)
       })
     
+  }
+  const onChange=()=>{
+    setHeight(Dimensions.get('window').height)
+    setWidth(Dimensions.get('window').width)
+    // console.log(height+" : "+width)
   }
   useEffect(() => {
       
@@ -45,6 +52,7 @@ function Brands(props) {
     // .then(data=>setData(data),()=>{
     //   console.log('data read : ' , data);
     // })
+    Dimensions.addEventListener('change',onChange)
     const parsed = queryString.parse(props.location.search);
     console.log(parsed.ct_id==undefined)
     if(parsed.ct_id==undefined){
@@ -58,6 +66,9 @@ function Brands(props) {
     }
     
   },[])
+
+
+
   useEffect(()=>{
     console.log(typeof(brandListData))
     console.log(brandListData)
@@ -177,23 +188,40 @@ function Brands(props) {
           <div>
             <Navbar />
             <NavBarFiller/>
-            {/* <div
+            <div
+            style={{
+              backgroundColor:'transparent',
+              alignItems:'center',
+              padding:'auto'
+            }}
+            >
+              {/* <div
             style={{
               backgroundColor:'red'
             }}
             > */}
+            <div
+              style={{
+                paddingTop:'100px',
+                paddingLeft:'150px',
+                paddingRight:'150px'
+              }}
+            >
             <Image
                     style={{
                     display:'block',
-                    height:'200pt',
-                    width:'200pt',
-                    borderTopLeftRadius:10,
-                    borderTopRightRadius:10,
+                    height:'300px',
+                    width:'auto',
+                    // borderTopLeftRadius:10,
+                    // borderTopRightRadius:10,
+                    borderRadius:'10px',
                     pointerEvents:'none',
-                    transform:[{
-                        translateX:'0px',
-                        translateY:'0px'
-                    }]
+                    marginLeft:'auto',
+                    marginRight:'auto'
+                    // transform:[{
+                    //     translateX:'0px',
+                    //     translateY:'0px'
+                    // }]
                     }}
                     source={{
                         uri:
@@ -201,8 +229,10 @@ function Brands(props) {
                     }}
 
                 >
-                </Image>
-                <Image
+            </Image>
+            </div>
+                </div>
+                {/* <Image
                     style={{
                     display:'block',
                     height:'200pt',
@@ -221,15 +251,146 @@ function Brands(props) {
                     }}
 
                 >
-                </Image>
-            <Text>{brandData.brd_name_kor}</Text>
-            <Text>
-              {brandData.brd_intro}
-            </Text>
-            <Text>
-              {brandData.brd_description}
-            </Text>
+                </Image> */}
+            <div
+              style={{
+                textAlign:'left',
+                paddingLeft:'150px',
+                paddingRight:'150px',
+                paddingTop:'50px'
+              }}
+            >
+            <View
+              style={{
+                flex:1,
+                flexDirection:'row',
+                paddingTop:'15px',
+                paddingBottom:'15px',
+              }}
+            >
+              <View
+                style={{
+                  
+                  // width:"450px",
+                  // alignItems:'center',
+                  // justifyContent:'center',
+                  textAlign:'left',
+                  flex:2
+                }}
+              >
+                <Text
+                  style={{
+                    fontSize: '15px',
+                    fontWeight:'500',
+                    textDecorationLine:'none',
+                    // color:'white',
+                    // textShadowColor: 'rgba(0, 0, 0, 0.85)',
+                    // textShadowOffset: {width: 0, height: 0},
+                    // textShadowRadius: 2,
+                    color:'gray',
+                    // textAlign:'center',
+                    // alignItems:'center',
+                    // justifyContent:'center',
+                    flexDirection:'row',
+                    // margin:11,
+                    marginTop:'25px',
+                    padding:'auto',
+                    pointerEvents:'none'
+                  }}
+                >
+                  {brandData.brd_intro}
+                </Text>
+                <br></br>
+                <View>
+                <Text
+                    style={{
+                      fontSize: '20px',
+                      fontWeight:'700',
+                      textDecorationLine:'none',
+                      // color:'white',
+                      // textShadowColor: 'rgba(0, 0, 0, 0.85)',
+                      // textShadowOffset: {width: 0, height: 0},
+                      // textShadowRadius: 2,
+                      color:'black',
+                      // textAlign:'center',
+                      // alignItems:'center',
+                      // justifyContent:'center',
+                      //flexDirection:'row',
+                      // margin:11,
+                      marginTop:'25px',
+                      padding:'auto',
+                      pointerEvents:'none'
+                    }}
+                  >
+                    {brandData.brd_name_eng}
+                  </Text>
+                  <Text
+                  style={{
+                    fontSize: '20px',
+                    fontWeight:'700',
+                    textDecorationLine:'none',
+                    // color:'white',
+                    // textShadowColor: 'rgba(0, 0, 0, 0.85)',
+                    // textShadowOffset: {width: 0, height: 0},
+                    // textShadowRadius: 2,
+                    color:'black',
+                    // textAlign:'center',
+                    // alignItems:'center',
+                    // justifyContent:'center',
+                    flexDirection:'row',
+                    // margin:11,
+                    marginTop:'25px',
+                    padding:'auto',
+                    pointerEvents:'none'
+                  }}
+                  > 
+                    {brandData.brd_name_kor}
+                  </Text>
+                  <br></br>
+                  <Text>
+                    {brandData.brd_description}
+                  </Text>
+                </View>
+              </View>
+              <TouchableOpacity>
+                <View
+                  style={{
+                    marginTop:'25px',
+                    marginLeft:'25px',
+                    backgroundColor:'white',
+                    width:300,
+                    // flex:1,
+                    height:40,
+                    borderRadius:10,
+                    borderColor:'black',
+                    borderStyle:'solid',
+                    borderWidth:'2px',
+                    textAlign:'center',
+                    alignItems:'center',
+                    justifyContent:'center',
+                  }}
+                >
+                  <View
+                    style={{
+                      backgroundColor:'transparent',
+                      transform:[{
+                        translateX:'0px',
+                        translateY:'50px',
+                      }]
+                    }}
+                  >
+                    <Text
+                      
+                    >
+                      {brandData.brd_name_eng} {brandData.brd_name_kor} 자재 보기
+                    </Text>
+                  </View> 
+                </View>
+              </TouchableOpacity>
+            </View>
+            <br></br>
             
+            </div>
             
             {/* </div> */}
            
