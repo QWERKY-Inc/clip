@@ -3,10 +3,10 @@ import Navbar from './Navbar';
 import Content from './Content';
 import NavBarFiller from './NavBarFiller';
 import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking,Dimensions} from 'react-native';
-import Carousel from '@brainhubeu/react-carousel';
-import '@brainhubeu/react-carousel/lib/style.css';
-// import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-// import { Carousel } from 'react-responsive-carousel';
+// import Carousel from '@brainhubeu/react-carousel';
+// import '@brainhubeu/react-carousel/lib/style.css';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 // import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 // import 'pure-react-carousel/dist/react-carousel.es.css'
 
@@ -365,7 +365,7 @@ function Brands(props) {
                     marginTop:'25px',
                     marginLeft:'25px',
                     backgroundColor:'white',
-                    width:300,
+                    width:100,
                     // flex:1,
                     height:40,
                     borderRadius:10,
@@ -386,10 +386,15 @@ function Brands(props) {
                       }]
                     }}
                   >
-                    <Text
+                    {/* <Text
                       
                     >
                       {brandData.brd_name_eng} {brandData.brd_name_kor} 자재 보기
+                    </Text> */}
+                    <Text
+                      
+                    >
+                      자재 보기
                     </Text>
                   </View> 
                 </View>
@@ -400,7 +405,7 @@ function Brands(props) {
             </div>
             
             {/* </div> */}
-            <Carousel plugins={['arrows']}>
+            {/* <Carousel plugins={['arrows']}>
               {brandData.pictures_brand.map((atom)=>
                 <img src={atom.pic_url}
                   style={{
@@ -409,7 +414,7 @@ function Brands(props) {
                   }}
                 />
               )}
-            </Carousel>
+            </Carousel> */}
             {/* <CarouselProvider
               naturalSlideWidth={100}
               naturalSlideHeight={300}
@@ -437,18 +442,48 @@ function Brands(props) {
               </Slider>
               
             </CarouselProvider> */}
-            {/* <Carousel >
-            {brandData.pictures_brand.map((atom)=>
-                  <div>
-                    <img src={atom.pic_url}
+            <div
+              style={{
+                paddingLeft:'150px',
+                paddingRight:'150px'
+              }}
+            >
+              <Carousel
+                style={{
+                  borderRadius:10
+                }}
+                showArrows={true} 
+                showStatus={false} 
+                showIndicators={true}
+                showThumbs={false}
+                infiniteLoop={true}
+                autoPlay={true}
+                interval={4500}
+                transitionTime={500}
+                emulateTouch={true}
+                stopOnHover={false}
+                //swipeScrollTolerance={1}
+                useKeyboardArrows={true}
+                //centerSlidePercentage={10}
+              >
+              {brandData.pictures_brand.map((atom)=>
+                    <div
                       style={{
-                        height:"300px",
-                        width:"auto"
+                        backgroundColor:'gainsboro',
+                        
                       }}
-                    />
-                  </div>
-                )}
-            </Carousel> */}
+                    >
+                      <img src={atom.pic_url}
+                        style={{
+                          height:"300px",
+                          width:"auto",
+                          // borderRadius:10
+                        }}
+                      />
+                    </div>
+                  )}
+              </Carousel>
+            </div>
             {brandData.bestproducts_brand.map((material)=>
              
             
