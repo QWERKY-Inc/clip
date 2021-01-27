@@ -632,85 +632,82 @@ function Brands(props) {
                     >
                         {material.vd_name}
                     </Text>
-                    {/* <View
-                      style ={{
-                        height:'50px',
-                        width:'98px',
-                        fontSize: '15pt',
-                        fontWeight:'700',
-                        textDecorationLine:'none',
-                        borderBottomLeftRadius:10,
-                        borderBottomRightRadius:10,
-                        color:'black',
-                        textAlign:'left',
-                        alignItems:'center',
-                        justifyContent:'center',
-                        flexDirection:'row',
-                        marginLeft:'5pt',
-                        pointerEvents:'none',
-                        backgroundColor:"magenta",
-                        pointerEvents:'none',
-                        transform:[{
-                              translateX:'-5px',
-                              translateY:'0px'
-                          }] 
-                      }}
-                    >
-                    <Text
-                            style ={{
-                                height:'100px',
-                                width:'120px',
-                                fontSize: '8pt',
-                                fontWeight:'500',
-                                textDecorationLine:'none',
-                                color:'black',
-                                textAlign:'left',
-                                alignItems:'center',
-                                justifyContent:'center',
-                                flexDirection:'row',
-                                marginLeft:'1px',
-                                marginTop:'1px',
-                                pointerEvents:'none',
-                                backgroundColor:'red',
-                                pointerEvents:'none',
-                                zIndex:1000
-                                
-                            }}
-                        >
-                        {material.mt_subname}
-                        
-                      </Text>
-                    <Text
-                        style ={{
-                            height:'65pt',
-                            width:'250px',
-                            fontSize: '8pt',
-                            fontWeight:'700',
-                            textDecorationLine:'none',
-                            color:'white',
-                            textAlign:'left',
-                            alignItems:'center',
-                            justifyContent:'center',
-                            flexDirection:'row',
-                            marginTop:'45pt',
-                            pointerEvents:'none',
-                            backgroundColor:'red',
-                            pointerEvents:'none',
-                            
-                        }}
-                    >
-                        {material.vd_name}
-                    </Text>
-                </View> */}
-
             </View>
           </View>
          
           
             )}
+          
           </div>
           </div>
+          <div
+              style={{
+                textAlign:'left',
+                paddingLeft:'150px',
+                paddingRight:'150px',
+                paddingTop:'50px'
+              }}
+            >
+            {/* <Text
+              style ={{
+
+                fontSize: '20px',
+                fontWeight:'700',
+                textDecorationLine:'none',
+                color:'black',
+                textAlign:'left',
+                alignItems:'center',
+                justifyContent:'center',
+                flexDirection:'row',
+                marginTop:'100px',
+                pointerEvents:'none',
+                backgroundColor:'transparent',
+                pointerEvents:'none',
+                
+            }}
+            >
+              다운로드 가능한 파일일
+            </Text> */}
+            <br></br>
+            {/* {brandData.brd_files.map((file)=>
+            <a
+              href={file.fl_url}
+            >
+            <Text
+              style ={{
+
+                fontSize: '8pt',
+                fontWeight:'500',
+                textDecorationLine:'none',
+                color:'black',
+                textAlign:'left',
+                alignItems:'center',
+                justifyContent:'center',
+                flexDirection:'row',
+                marginTop:'100px',
+                pointerEvents:'none',
+                backgroundColor:'transparent',
+                pointerEvents:'none',
+                
+            }}
+            >
+              {file.fl_displayname}
+            </Text>
+            </a>
+            )} */}
+            
+            
+            </div>
           </div>
+          <div
+              style={{
+                height:'100px',
+                width:'100vw',
+                backgroundColor:'transparent'
+              }}
+            >
+
+            </div>
           </div>
         )
       }
