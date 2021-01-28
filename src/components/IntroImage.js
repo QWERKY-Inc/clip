@@ -105,7 +105,7 @@ const IntroImage=() => {
 					alt="Logo" 
 					title="Logo" 
 					style={{
-						height:'500pt',
+						height:'300px',
 						width:'auto'
 					}}
 				>

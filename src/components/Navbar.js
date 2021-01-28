@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react';
 import './navbar.css';
 // import Logo from './../logo.svg';
-import {TouchableOpacity,Text,View,Modal,TouchableHighlight,Dimensions,TextInput,Picker,Linking} from 'react-native';
+import {TouchableOpacity,Text,View,Modal,TouchableHighlight,Dimensions,TextInput,Picker,Linking,ScrollView} from 'react-native';
 import Logo from '../assets/header_logo.png'
 import { nativeTouchData } from 'react-dom/test-utils';
 import searchIcon from '../assets/icnSearch.png'
@@ -584,10 +584,11 @@ const Navbar=() => {
                           // columnCount:3,
                           flexwrap:'wrap',
                           display: 'grid',
-                          gridTemplateColumns: 'auto auto auto auto',
+                          gridTemplateColumns: 'auto auto auto',
+                          overflowY: 'scroll'
                         }}
                         >
-                          
+                      
                         {brandListData.map((brand)=>
                         <TouchableOpacity
                         // style={{
@@ -634,6 +635,7 @@ const Navbar=() => {
                         </div>
                         </TouchableOpacity>
                         )}
+                          
                         </div>
                         </div>
                       </div>

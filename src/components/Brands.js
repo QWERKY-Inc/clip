@@ -529,7 +529,8 @@ function Brands(props) {
                   gridTemplateColumns: 'auto auto auto auto auto',
                   marginLeft:'150px',
                   marginRight:'150px',
-                  backgroundColor:'transparent'
+                  backgroundColor:'transparent',
+                  
                 }}
               >
                 
