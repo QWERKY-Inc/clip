@@ -205,7 +205,7 @@ const Navbar=() => {
     else{
       setLoggedOn(false)
     }
-    brands()
+    //brands()
     // console.log(loggedOn)
   },[])
   useEffect(()=>{
