@@ -779,224 +779,125 @@ function Brands(props) {
     }
     else{
       return (
-        <div className="Brands">
-          <Navbar />
-          <NavBarFiller/>
-          {/* <Text> 
-            Brands
-          </Text> 
-          <br></br>
-            <Text>
-              {catQ.ct_id}
-            </Text>
-          <Content/>   */}
-
-          {brandListData.map((brand)=>
-          <div>
-            {/* <Image
-            style={{
-              display:'block',
-              height:'150pt',
-              width:'150pt',
-              borderTopLeftRadius:10,
-              borderTopRightRadius:10,
-              zIndex:1,
-              pointerEvents:'none',
-              transform:[{
-                  translateX:'0px',
-                  translateY:'0px'
-              }]
-              }}
-              source={{
-                  uri:brand.ct_img_url
-              }}
-            >
-
-            </Image>
-            <Text>
-              {brand.ct_text}
-            </Text> */}
-            <View
-              style={{
-                flex: 1, 
-                // flexDirection: 'row',
-                // justifyContent: 'space-between',
-                flexwrap:'wrap',
-                display: 'grid',
-                gridTemplateColumns: 'auto auto auto',
-                paddingLeft: '77pt',
-                paddingRight: '77pt'
-              }}
-            >
-                      
-                  
-              
-
-              
-                  <TouchableOpacity
-                  style={{
-                      flexDirection:'column',
-                      borderRadius:10,
-                      height:'260pt',
-                      width:"200pt",
-                      backgroundColor:'rgb(33,33,33)',
-                      // boxShadow:'0px 0px 2px',
-                      
-                          fontSize: '25pt',
-                          fontWeight:'700',
-                          textDecorationLine:'none',
-                          // color:'white',
-                          // textShadowColor: 'rgba(0, 0, 0, 0.85)',
-                          // textShadowOffset: {width: 0, height: 0},
-                          // textShadowRadius: 2,
-                          color:'black',
-                          textAlign:'left',
-                          alignItems:'center',
-                          justifyContent:'center',
-                          flexDirection:'column',
-                          marginLeft:'25pt',
-                          marginRight:'25pt',
-                          marginTop:'25pt',
-                          padding:'auto',
-                          // zIndex:2
-                          // backgroundColor:'red'
-                      
-                  }}
-                  onPress={() => Linking.openURL(`/brands?ct_id=${brand.ct_id}`)}
-                  
-              >
-              
-              <Image
-                  style={{
-                  display:'block',
-                  height:'200pt',
-                  width:'200pt',
-                  borderTopLeftRadius:10,
-                  borderTopRightRadius:10,
-                  // zIndex:1,
-                  pointerEvents:'none',
-                  transform:[{
-                      translateX:'0px',
-                      translateY:'0px'
-                  }]
-                  }}
-                  source={{
-                      uri:
-                          // data.listCategory[i].ct_img_url
-                          //listMoodboard.mb_img_url
-                          brand.ct_img_url
-                  }}
-
-              >
-              </Image>
-              {/* <a
-                  style={{
-                  transform:[{
-                      translateX:'100px'
-                  }]
-                  }}
-              > */}
-                  <View
-                      style ={{
-                          height:'60pt',
-                          width:'200pt',
-                          fontSize: '15pt',
-                          fontWeight:'700',
-                          textDecorationLine:'none',
-                          // color:'white',
-                          // textShadowColor: 'rgba(0, 0, 0, 0.85)',
-                          // textShadowOffset: {width: 0, height: 0},
-                          // textShadowRadius: 2,
-                          color:'black',
-                          textAlign:'center',
-                          // alignItems:'center',
-                          // justifyContent:'center',
-                          flexDirection:'row',
-                          // margin:11,
-                          // padding:'auto',
-                          pointerEvents:'none',
-                          // borderTopRightRadius:20,
-                          // borderBottomRightRadius:20,
-                          backgroundColor:'rgb(33,33,33)',
-                          // zIndex:99,
-                          pointerEvents:'none',
-                          borderBottomLeftRadius:10,
-                          borderBottomRightRadius:10,
-                          // left:0,
-                          
+        
+        <div
+                    style={{
+                      position:'fixed',
+                      // height:'200vh',
+                      width:'100vw',
+                      top:'100px',
+                      left:0,
+                      backgroundColor:'white',
+                      // display:`${brandsDropDownDisplay}%`,
+                      display:'block',
+                      // overflowY:'scroll'
+                    }}
+                  > 
+                   
+                      <div
+                      style={{
+                        paddingTop:'50px',
+                        paddingLeft:'65px',
+                        paddingRight:'65px'
                       }}
-                  >
-                      <View
-                          style ={{
-                              height:'60pt',
-                              width:'190pt',
-                              fontSize: '15pt',
+                      >
+                        <div
+                          style={{
+                            textAlign:'left',
+                            // margin:'25pt'
+                            paddingLeft:'25px'
+                          }}
+                        >
+
+                          <Text
+                            style ={{
+                              fontSize: '40px',
                               fontWeight:'700',
                               textDecorationLine:'none',
                               // color:'white',
                               // textShadowColor: 'rgba(0, 0, 0, 0.85)',
                               // textShadowOffset: {width: 0, height: 0},
                               // textShadowRadius: 2,
-                              borderBottomLeftRadius:10,
-                              borderBottomRightRadius:10,
                               color:'black',
                               textAlign:'center',
                               alignItems:'center',
                               justifyContent:'center',
                               flexDirection:'row',
-                              marginLeft:'5pt',
-                              // padding:'auto',
+                              // margin:11,
+                              marginTop:'5px',
+                              padding:'auto',
+                              pointerEvents:'none'
+                            }}
+                          >
+                            브랜드
+                          </Text>
+                        </div>
+                        <div
+                        style={{
+                          padding:'25px'
+                        }}
+                        >
+                        <div
+                        style={{
+                          // columnCount:3,
+                          flexwrap:'wrap',
+                          display: 'grid',
+                          gridTemplateColumns: 'auto auto auto',
+                          overflowY: 'scroll'
+                        }}
+                        > 
+                      
+                        {brandListData.map((brand)=>
+                        <TouchableOpacity
+                          onPress={() => 
+                            Linking.openURL(`/brands?ct_id=${brand.ct_id}`)
+                          }
+                        >
+                        <div
+                         style={{
+                           textAlign:'left',
+                           padding:'5pt'
+                         }}
+                        >
+
+                          <Text
+                            style ={{
+                              height:'65pt',
+                              width:'250px',
+                              fontSize: '15pt',
+                              fontWeight:'700',
+                              textDecorationLine:'none',
+                              color:'black',
+                              textAlign:'left',
+                              alignItems:'center',
+                              justifyContent:'center',
+                              flexDirection:'row',
+                              marginTop:'45pt',
                               pointerEvents:'none',
-                              backgroundColor:"rgb(33,33,33)",
-                              // zIndex:99,
+                              backgroundColor:'transparent',
                               pointerEvents:'none',
                               
                           }}
-                      >
-                          <Text
-                              style ={{
-                                  height:'65pt',
-                                  width:'250px',
-                                  fontSize: '15pt',
-                                  fontWeight:'700',
-                                  textDecorationLine:'none',
-                                  // color:'white',
-                                  // textShadowColor: 'rgba(0, 0, 0, 0.85)',
-                                  // textShadowOffset: {width: 0, height: 0},
-                                  // textShadowRadius: 2,
-                                  color:'white',
-                                  textAlign:'left',
-                                  alignItems:'center',
-                                  justifyContent:'center',
-                                  flexDirection:'row',
-                                  marginTop:'45pt',
-                                  // padding:'auto',
-                                  pointerEvents:'none',
-                                  backgroundColor:'transparent',
-                                  // zIndex:99,
-                                  pointerEvents:'none',
-                                  
-                              }}
                           >
-                              {/* {data.listCategory[i].ct_text} */}
-                              {brand.ct_text}
+                            {brand.ct_text}
                           </Text>
-                      </View>
-                  </View>
-              {/* </a> */}
-              </TouchableOpacity>
-              
-              </View>
-            </div>
-
-          )}
-          
-        </div>
+                          <br></br>
+                        </div>
+                        </TouchableOpacity>
+                        )}
+                          
+                        </div>
+                        </div>
+                      </div> 
+                  </div>
       );
     }
   }
   else{
     return (
+      <div>
+      <Navbar />
+      <NavBarFiller/>
         <div className="MainContent">
         
             <Navbar />
@@ -1009,6 +910,7 @@ function Brands(props) {
             
         
         </div>
+      </div>
     );
 }
   }

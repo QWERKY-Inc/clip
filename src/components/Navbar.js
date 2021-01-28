@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react';
 import './navbar.css';
 // import Logo from './../logo.svg';
-import {TouchableOpacity,Text,View,Modal,TouchableHighlight,Dimensions,TextInput,Picker,Linking,ScrollView} from 'react-native';
+import {TouchableOpacity,Text,View,Modal,TouchableHighlight,Dimensions,TextInput,Picker,Linking,ScrollView,FlatList} from 'react-native';
 import Logo from '../assets/header_logo.png'
 import { nativeTouchData } from 'react-dom/test-utils';
 import searchIcon from '../assets/icnSearch.png'
@@ -148,6 +148,47 @@ const Navbar=() => {
   const toggleBrandsDropDown=()=>{
     setBrandsDropDown(!brandsDropDown)
   }
+  const brandRenderRow=(brand,index,separators)=>{
+    return(
+    <TouchableOpacity
+      onPress={() => 
+        Linking.openURL(`/brands?ct_id=${brand.ct_id}`)
+      }
+    >
+    <div
+      style={{
+        textAlign:'left',
+        padding:'5pt'
+      }}
+    >
+
+      <Text
+        style ={{
+          height:'65pt',
+          width:'250px',
+          fontSize: '15pt',
+          fontWeight:'700',
+          textDecorationLine:'none',
+          color:'black',
+          textAlign:'left',
+          alignItems:'center',
+          justifyContent:'center',
+          flexDirection:'row',
+          marginTop:'45pt',
+          pointerEvents:'none',
+          backgroundColor:'transparent',
+          pointerEvents:'none',
+          
+      }}
+      >
+        {brand.ct_text}
+      </Text>
+      <br></br>
+    </div>
+    </TouchableOpacity>
+                        
+  
+  )}
 
   useEffect(() => {
     window.addEventListener('scroll',handleScroll)
@@ -376,7 +417,7 @@ const Navbar=() => {
                           {
                             textDecorationLine:'none',
                           }} 
-                          // href="/brands"
+                          //href="/brands"
                       >
                         <Text
                         selectable={false} 
@@ -414,6 +455,10 @@ const Navbar=() => {
                       display:'block'
                     }}
                   >
+                    {/* <FlatList
+                      data={brandListData}
+                      renderItem={brandRenderRow}
+                    /> */}
                     {/* {brandData.bestproducts_brand.map((material)=>
                     
                     
@@ -576,46 +621,52 @@ const Navbar=() => {
                         </div>
                         <div
                         style={{
-                          padding:'25px'
+                          //padding:'25px',
+                          
                         }}
                         >
                         <div
                         style={{
                           // columnCount:3,
                           flexwrap:'wrap',
+                          flexDirection:'column',
                           display: 'grid',
                           gridTemplateColumns: 'auto auto auto',
-                          overflowY: 'scroll'
+                          width:'100vw',
+                          height:'60vh',
+                          overflowY: 'scroll',
                         }}
                         >
                       
                         {brandListData.map((brand)=>
                         <TouchableOpacity
-                        // style={{
+                          onPress={() => 
+                            Linking.openURL(`/brands?ct_id=${brand.ct_id}`)
 
-                        //         textAlign:'left',
-                        //         alignItems:'center',
-                        //         justifyContent:'center',
-                        //         flexDirection:'row',
-                            
-                        // }}
-                      onPress={() => 
-                        Linking.openURL(`/brands?ct_id=${brand.ct_id}`)
-                        }
-                    >
+                          }
+                          
+                        >
+                        <div>
                         <div
-                         style={{
-                           textAlign:'left',
-                           padding:'5pt'
-                         }}
+                        style={{
+                          textAlign:'left',
+                          // width:'300px',
+                          height:'15px',
+                          paddingLeft:'15px',
+                          paddingRight:'15px',
+                          // paddingTop:'7px',
+                          // paddingBottom:'7px',
+                         // margin:'15px',
+                          backgroundColor:'transparent'
+                        }}
                         >
 
                           <Text
                             style ={{
-                              height:'65pt',
-                              width:'250px',
-                              fontSize: '15pt',
-                              fontWeight:'700',
+                              //height:'65pt',
+                              //width:'250px',
+                              fontSize: '12pt',
+                              fontWeight:'500',
                               textDecorationLine:'none',
                               color:'black',
                               textAlign:'left',
@@ -631,10 +682,11 @@ const Navbar=() => {
                           >
                             {brand.ct_text}
                           </Text>
-                          <br></br>
+                          
+                        </div>
                         </div>
                         </TouchableOpacity>
-                        )}
+                        )} 
                           
                         </div>
                         </div>
