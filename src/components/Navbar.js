@@ -7,6 +7,7 @@ import { nativeTouchData } from 'react-dom/test-utils';
 import searchIcon from '../assets/icnSearch.png'
 import userIcon from '../assets/icnUser.png'
 import boxIcon from '../assets/icnBox.png'
+import xIcon from '../assets/x.png'
 import {BrowserRouter as Router,Switch,Route,Link} from 'react-router-dom'
 // import Popup from 'reactjs-popup';
 // import 'reactjs-popup/dist/index.css';
@@ -592,10 +593,38 @@ const Navbar=() => {
                           style={{
                             textAlign:'left',
                             // margin:'25pt'
-                            paddingLeft:'25px'
+                            paddingLeft:'25px',
+                            paddingRight:'25px',
+                            backgroundColor:'transparent'
                           }}
                         >
-
+                        <div
+                            style={{
+                              height:'25px',
+                              width:'25px',
+                              backgroundColor:'transparent',
+                              position: 'absolute',
+                              top:'62px',
+                              right:'75px'
+                            }}
+                          >
+                            <TouchableOpacity
+                              onPress={()=>{
+                                console.log('toggle dropdown')
+                                toggleBrandsDropDown()
+                              }}
+                            >
+                            <img
+                              src={xIcon}
+                              style={{
+                                height:'25px',
+                                width:'25px',
+                              }}
+                            >
+                            </img>
+                            </TouchableOpacity>
+                          </div>
+                          
                           <Text
                             style ={{
                               fontSize: '40px',
@@ -618,6 +647,16 @@ const Navbar=() => {
                           >
                             브랜드
                           </Text>
+                         
+                        </div>
+                        <div
+                          style={{
+                            height:'20px',
+                            width:'100vw',
+                            backgroundColor:'transparent'
+                          }}
+                        >
+
                         </div>
                         <div
                         style={{
@@ -628,12 +667,12 @@ const Navbar=() => {
                         <div
                         style={{
                           // columnCount:3,
-                          flexwrap:'wrap',
-                          flexDirection:'column',
+                          //flexwrap:'wrap',
+                          //flexDirection:'column',
                           display: 'grid',
                           gridTemplateColumns: 'auto auto auto',
                           width:'100vw',
-                          height:'60vh',
+                          height:'50vh',
                           overflowY: 'scroll',
                         }}
                         >
@@ -652,8 +691,8 @@ const Navbar=() => {
                           textAlign:'left',
                           // width:'300px',
                           height:'15px',
-                          paddingLeft:'15px',
-                          paddingRight:'15px',
+                          paddingLeft:'27px',
+                          paddingRight:'27px',
                           // paddingTop:'7px',
                           // paddingBottom:'7px',
                          // margin:'15px',
