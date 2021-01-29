@@ -6,8 +6,9 @@ const queryString = require('query-string');
 
 function CategoryDropDown(props) {
   // var bestProducts
+  var subCategory=[]
   const[categoryData,setCategoryData]=React.useState([])
-  const[detailedCategoryData,setDetailedCategoryData]=React.useState([])
+  const[detailedCategoryData,setDetailedCategoryData]=React.useState({})
   const [height,setHeight]=React.useState(Dimensions.get('window').height)
   const [width,setWidth]=React.useState(Dimensions.get('window').width)
 
@@ -28,7 +29,45 @@ function CategoryDropDown(props) {
         console.log(err)
     })
   
-    }
+  }
+  const detailedCategoryDataObject = function(){
+    var data=[]
+    // if(detailedCategoryData.length==0){
+      console.log('fetch call for category')
+      categoryData.map((oneCategory,index)=>{
+        fetch('/categorylist?'+
+          queryString.stringify({
+            ct_depth:3,
+            // ct_parent:categoryData[index].ct_id
+            ct_parent:oneCategory.ct_id
+          })
+        )
+        .then(res=>res.json())
+        .then((childrenData)=>{
+
+          //setDetailedCategoryData(...detailedCategoryData,childrenData)
+          data.push({...oneCategory,children:childrenData})
+          //subCategory[index]=childrenData
+
+        })
+        .catch(err=>{
+            console.log(err)
+            // return {...oneCategory,children:null}
+            // data.push({...oneCategory,children:null})
+        })
+  
+      })
+      setDetailedCategoryData(data)
+      
+      // return data
+    // }
+    // else{
+    //   return detailedCategoryData
+    // }
+   
+}
+
+
   const onChange=()=>{
     setHeight(Dimensions.get('window').height)
     setWidth(Dimensions.get('window').width)
@@ -36,42 +75,44 @@ function CategoryDropDown(props) {
   useEffect(() => {
     Dimensions.addEventListener('change',onChange)
     outerCategory()
+    
   },[])
 
   useEffect(()=>{
 
-    const detailedCategoryDataArray = function(){
-        var data=[]
-        // if(detailedCategoryData.length==0){
-          console.log('fetch call for category')
-          categoryData.map((oneCategory,index)=>{
-            fetch('/categorylist?'+
-              queryString.stringify({
-                ct_depth:3,
-                ct_parent:categoryData[index].ct_id
-              })
-            )
-            .then(res=>res.json())
-            .then((childrenData)=>{
-              data.push({...oneCategory,children:childrenData})
-            })
-            .catch(err=>{
-                console.log(err)
-                // return {...oneCategory,children:null}
-                // data.push({...oneCategory,children:null})
-            })
+    // const detailedCategoryDataArray = function(){
+    //     var data=[]
+    //     // if(detailedCategoryData.length==0){
+    //       console.log('fetch call for category')
+    //       categoryData.map((oneCategory,index)=>{
+    //         fetch('/categorylist?'+
+    //           queryString.stringify({
+    //             ct_depth:3,
+    //             ct_parent:categoryData[index].ct_id
+    //           })
+    //         )
+    //         .then(res=>res.json())
+    //         .then((childrenData)=>{
+    //           data.push({...oneCategory,children:childrenData})
+    //         })
+    //         .catch(err=>{
+    //             console.log(err)
+    //             // return {...oneCategory,children:null}
+    //             // data.push({...oneCategory,children:null})
+    //         })
       
-          })
-          return data
-        // }
-        // else{
-        //   return detailedCategoryData
-        // }
+    //       })
+    //       return data
+    //     // }
+    //     // else{
+    //     //   return detailedCategoryData
+    //     // }
        
-    }
+    // }
 
-    setDetailedCategoryData(detailedCategoryDataArray)
+    // setDetailedCategoryData(detailedCategoryDataArray)
     //console.log(categoryData)
+    detailedCategoryDataObject()
   },[categoryData])
   
   useEffect(()=>{

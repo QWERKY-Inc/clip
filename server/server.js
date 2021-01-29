@@ -175,6 +175,49 @@ app.get('/categorylist',(req,res)=>{
         console.log(err)
     })
 })
+app.get('/wholecategorylist',(req,res)=>{
+    var wholeData=[]
+    // console.log(req.query)
+    fetch('http://clip.partners/api/mobile/Category?table=CATEGORY&ct_depth=2&ct_parent=1')
+    .then(res=>res.json())
+    .then(data=>{
+        data.map((oneCategory,index)=>{
+            fetch('http://clip.partners/api/mobile/Category?'+
+              queryString.stringify({
+                table:'CATEGORY',
+                ct_depth:3,
+                ct_parent:oneCategory.ct_id
+              })
+            )
+            .then(res=>res.json())
+            .then((childrenData)=>{
+            //   console.log(oneCategory)
+            //   console.log(childrenData)
+              wholeData.push({...oneCategory,children:childrenData})
+             // wholeData[index]=childrenData
+            })
+            .then(()=>{
+                if(wholeData.length==data.length){
+                    console.log('test end reached')
+                    res.json(wholeData.sort());
+                }
+                else{
+                    console.log(index+'/'+data.length)
+                    
+                }
+                
+                
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+        })
+        
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
 app.listen(port,()=>{
     console.log('server is up on port ' + port);
 })
