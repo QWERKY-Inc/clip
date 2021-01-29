@@ -7,7 +7,7 @@ const queryString = require('query-string');
 function CategoryDropDown(props) {
   // var bestProducts
   const[categoryData,setCategoryData]=React.useState([])
-  const[detailedCategoryData,setDetailedCategoryData]=React.useState([])
+  const[detailedCategoryData,setDetailedCategoryData]=React.useState(null)
   const [height,setHeight]=React.useState(Dimensions.get('window').height)
   const [width,setWidth]=React.useState(Dimensions.get('window').width)
 
@@ -21,7 +21,7 @@ function CategoryDropDown(props) {
     )
     .then(res=>res.json())
     .then((incomingData)=>{
-      console.log(incomingData)
+      // console.log(incomingData)
       setCategoryData(incomingData)
     })
     .catch(err=>{
@@ -34,59 +34,30 @@ function CategoryDropDown(props) {
     setWidth(Dimensions.get('window').width)
   }
   useEffect(() => {
-
     Dimensions.addEventListener('change',onChange)
     outerCategory()
   },[])
 
   useEffect(()=>{
-    // for(var i=0; i< categoryData.length; i++){
-        // if(categoryData[i].children==undefined){
-        //     fetch('/categorylist?'+
-        //         queryString.stringify({
-        //             ct_depth:3,
-        //             ct_parent:categoryData[i].ct_id
-        //         })
-        //     )
-        //     .then(res=>res.json())
-        //     .then((childrenData)=>{
-        //     console.log(childrenData)
-        //     categoryData[i]["children"]=childrenData
-        //     setCategoryData(categoryData)
-        //     //setCategoryLength(incomingData.length)
-        //     })
-        //     .catch(err=>{
-        //         console.log(err)
-        //     })
-        
-            
-        // }
-        
-    // }
+
     const detailedCategoryDataArray = function(){
         var data=[]
         categoryData.map((oneCategory,index)=>{
-            fetch('/categorylist?'+
-                queryString.stringify({
-                    ct_depth:3,
-                    ct_parent:categoryData[index].ct_id
-                })
-            )
-            .then(res=>res.json())
-            .then((childrenData)=>{
-                //console.log(oneCategory)
-                //console.log(childrenData)
-                //categoryData[i]["children"]=childrenData
-                //setCategoryData(categoryData)
-                //setCategoryLength(incomingData.length)
-                // return {...oneCategory,children:childrenData}
-                data.push({...oneCategory,children:childrenData})
+          fetch('/categorylist?'+
+            queryString.stringify({
+              ct_depth:3,
+              ct_parent:categoryData[index].ct_id
             })
-            .catch(err=>{
-                console.log(err)
-                // return {...oneCategory,children:null}
-                data.push({...oneCategory,children:null})
-        })
+          )
+          .then(res=>res.json())
+          .then((childrenData)=>{
+            data.push({...oneCategory,children:childrenData})
+          })
+          .catch(err=>{
+              console.log(err)
+              // return {...oneCategory,children:null}
+              // data.push({...oneCategory,children:null})
+          })
     
         })
         return data
@@ -99,7 +70,7 @@ function CategoryDropDown(props) {
   useEffect(()=>{
     console.log(detailedCategoryData)
   },[detailedCategoryData])
-
+  if(detailedCategoryData){
     return (
       <div
       style={{
@@ -140,6 +111,7 @@ function CategoryDropDown(props) {
         >
           <TouchableOpacity
             onPress={()=>{
+              console.log(detailedCategoryData)
               props.toggleCategoryDropDown()
             }}
           >
@@ -202,13 +174,14 @@ function CategoryDropDown(props) {
       }}
       >
     
-      {detailedCategoryData.map((category)=>
-      <TouchableOpacity
-        // onPress={() => 
-        //   Linking.openURL(`/brands?ct_id=${brand.ct_id}`)
-        // }
-      >
-      <div>
+      {detailedCategoryData.map((category)=>{
+      
+      // <TouchableOpacity
+      //   // onPress={() => 
+      //   //   Linking.openURL(`/brands?ct_id=${brand.ct_id}`)
+      //   // }
+      // >
+      {/* <div>
       <div
       style={{
         textAlign:'left',
@@ -217,7 +190,7 @@ function CategoryDropDown(props) {
         paddingRight:'27px',
         backgroundColor:'transparent'
       }}
-      >
+      > */}
 
         <Text
           style ={{
@@ -233,19 +206,30 @@ function CategoryDropDown(props) {
             pointerEvents:'none',
             backgroundColor:'transparent',
             pointerEvents:'none',
+            marginTop:100
         }}
         >
           {category.ct_text}
         </Text>
+      {/* </div>
       </div>
-      </div>
-      </TouchableOpacity>
-      )}
+      </TouchableOpacity> */}
+})}
       </div>
       </div>
     </div>
 </div>
     );
+  }
+	else{
+		return(
+			<div>
+				<Text>
+				로딩중 ...
+				</Text>
+			</div>
+		)
+	}
 }
   
   export default CategoryDropDown;
