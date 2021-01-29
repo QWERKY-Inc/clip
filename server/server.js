@@ -164,6 +164,17 @@ app.get('/onebrand',(req,res)=>{
         console.log(err)
     })
 })
+app.get('/categorylist',(req,res)=>{
+    console.log(req.query)
+    fetch('http://clip.partners/api/mobile/Category?table=CATEGORY&ct_depth='+req.query.ct_depth+'&ct_parent='+req.query.ct_parent)
+    .then(res=>res.json())
+    .then(data=>{
+        res.json(data);
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
 app.listen(port,()=>{
     console.log('server is up on port ' + port);
 })
