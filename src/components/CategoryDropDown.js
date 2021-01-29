@@ -7,7 +7,7 @@ const queryString = require('query-string');
 function CategoryDropDown(props) {
   // var bestProducts
   const[categoryData,setCategoryData]=React.useState([])
-  const[detailedCategoryData,setDetailedCategoryData]=React.useState(null)
+  const[detailedCategoryData,setDetailedCategoryData]=React.useState([])
   const [height,setHeight]=React.useState(Dimensions.get('window').height)
   const [width,setWidth]=React.useState(Dimensions.get('window').width)
 
@@ -42,25 +42,32 @@ function CategoryDropDown(props) {
 
     const detailedCategoryDataArray = function(){
         var data=[]
-        categoryData.map((oneCategory,index)=>{
-          fetch('/categorylist?'+
-            queryString.stringify({
-              ct_depth:3,
-              ct_parent:categoryData[index].ct_id
+        // if(detailedCategoryData.length==0){
+          console.log('fetch call for category')
+          categoryData.map((oneCategory,index)=>{
+            fetch('/categorylist?'+
+              queryString.stringify({
+                ct_depth:3,
+                ct_parent:categoryData[index].ct_id
+              })
+            )
+            .then(res=>res.json())
+            .then((childrenData)=>{
+              data.push({...oneCategory,children:childrenData})
             })
-          )
-          .then(res=>res.json())
-          .then((childrenData)=>{
-            data.push({...oneCategory,children:childrenData})
+            .catch(err=>{
+                console.log(err)
+                // return {...oneCategory,children:null}
+                // data.push({...oneCategory,children:null})
+            })
+      
           })
-          .catch(err=>{
-              console.log(err)
-              // return {...oneCategory,children:null}
-              // data.push({...oneCategory,children:null})
-          })
-    
-        })
-        return data
+          return data
+        // }
+        // else{
+        //   return detailedCategoryData
+        // }
+       
     }
 
     setDetailedCategoryData(detailedCategoryDataArray)
@@ -111,7 +118,7 @@ function CategoryDropDown(props) {
         >
           <TouchableOpacity
             onPress={()=>{
-              console.log(detailedCategoryData)
+              // console.log(detailedCategoryData)
               props.toggleCategoryDropDown()
             }}
           >
@@ -173,28 +180,28 @@ function CategoryDropDown(props) {
         overflowY: 'scroll',
       }}
       >
+      {/* {detailedCategoryData.map((category)=> */}
+      {categoryData.map((category,index)=>
     
-      {detailedCategoryData.map((category)=>{
-      
-      // <TouchableOpacity
-      //   // onPress={() => 
-      //   //   Linking.openURL(`/brands?ct_id=${brand.ct_id}`)
-      //   // }
-      // >
-      {/* <div>
+      <TouchableOpacity
+        // onPress={() => 
+        //   Linking.openURL(`/brands?ct_id=${brand.ct_id}`)
+        // }
+      >
+      <div>
       <div
       style={{
         textAlign:'left',
-        height:'15px',
+        height:'20px',
         paddingLeft:'27px',
         paddingRight:'27px',
         backgroundColor:'transparent'
       }}
-      > */}
+      >
 
         <Text
           style ={{
-            fontSize: '12pt',
+            fontSize: '15pt',
             fontWeight:'500',
             textDecorationLine:'none',
             color:'black',
@@ -211,10 +218,10 @@ function CategoryDropDown(props) {
         >
           {category.ct_text}
         </Text>
-      {/* </div>
       </div>
-      </TouchableOpacity> */}
-})}
+      </div>
+      </TouchableOpacity> 
+)}
       </div>
       </div>
     </div>
