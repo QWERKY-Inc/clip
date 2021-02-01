@@ -229,7 +229,7 @@ function CategoryDropDown(props) {
         display: 'grid',
         gridTemplateColumns: 'auto auto auto',
         // padding:'100px',
-        width:'calc(100vw-15px)',
+        width:'80vw',
         height:'62vh',
         overflowY: 'scroll',
       }}

@@ -174,7 +174,7 @@ const brands=()=>{
               //flexDirection:'column',
               display: 'grid',
               gridTemplateColumns: 'auto auto auto',
-              width:'90vw',
+              width:'80vw',
               height:'50vh',
               overflowY: 'scroll',
             }}
