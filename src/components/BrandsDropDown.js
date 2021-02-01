@@ -174,25 +174,31 @@ const brands=()=>{
               //flexDirection:'column',
               display: 'grid',
               gridTemplateColumns: 'auto auto auto',
-              width:'100vw',
+              width:'90vw',
               height:'50vh',
               overflowY: 'scroll',
             }}
             >
           
             {brandListData.map((brand)=>
+            <div
+              style={{
+                marginTop:'3px'
+              }}
+            >
             <TouchableOpacity
               onPress={() => 
                 Linking.openURL(`/brands?ct_id=${brand.ct_id}`)
               }
             >
-            <div>
+            
             <div
             style={{
               textAlign:'left',
-              height:'15px',
+              height:'30px',
               paddingLeft:'27px',
               paddingRight:'27px',
+              paddingTop:'7px',
               backgroundColor:'transparent'
             }}
             >
@@ -216,8 +222,9 @@ const brands=()=>{
                 {brand.ct_text}
               </Text>
             </div>
-            </div>
+            
             </TouchableOpacity>
+            </div>
             )}
             </div>
             </div>

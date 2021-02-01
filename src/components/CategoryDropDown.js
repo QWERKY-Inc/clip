@@ -281,7 +281,7 @@ function CategoryDropDown(props) {
         {categoryData[index].children.map((child,jndex)=>
           <div
             style={{
-              paddingTop:'15px'
+              paddingTop:'7px'
             }}
           >
           <TouchableOpacity
@@ -291,7 +291,7 @@ function CategoryDropDown(props) {
           >
           <Text
             style ={{
-              fontSize: '8pt',
+              fontSize: '12pt',
               fontWeight:'500',
               textDecorationLine:'none',
               color:'black',
