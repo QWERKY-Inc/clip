@@ -189,127 +189,150 @@ function Brands(props) {
   if(brandListData!=[]){
     if(brandId!=null){
       if(brandData.bestproducts_brand){
+        if(brandData.brd_files!=null){
         // console.log(brandData.bestproducts_brand)
-        return(
-          <div>
-          <div>
-            <Navbar />
-            <NavBarFiller/>
-            <div
-            style={{
-              backgroundColor:'transparent',
-              alignItems:'center',
-              padding:'auto'
-            }}
-            >
-              {/* <div
-            style={{
-              backgroundColor:'red'
-            }}
-            > */}
-            <div
+          return(
+            <div>
+            <div>
+              <Navbar />
+              <NavBarFiller/>
+              <div
               style={{
-                paddingTop:'100px',
-                paddingLeft:'150px',
-                paddingRight:'150px'
+                backgroundColor:'transparent',
+                alignItems:'center',
+                padding:'auto'
               }}
-            >
-            <Image
-                    style={{
-                    display:'block',
-                    height:'300px',
-                    width:'auto',
-                    // borderTopLeftRadius:10,
-                    // borderTopRightRadius:10,
-                    borderRadius:'10px',
-                    pointerEvents:'none',
-                    marginLeft:'auto',
-                    marginRight:'auto'
-                    // transform:[{
-                    //     translateX:'0px',
-                    //     translateY:'0px'
-                    // }]
-                    }}
-                    source={{
-                        uri:
-                            brandData.brd_feature_img_url
-                    }}
-
-                >
-            </Image>
-            </div>
-                </div>
-                {/* <Image
-                    style={{
-                    display:'block',
-                    height:'200pt',
-                    width:'200pt',
-                    borderTopLeftRadius:10,
-                    borderTopRightRadius:10,
-                    pointerEvents:'none',
-                    transform:[{
-                        translateX:'0px',
-                        translateY:'0px'
-                    }]
-                    }}
-                    source={{
-                        uri:
-                            brandData.brd_logo_img_url
-                    }}
-
-                >
-                </Image> */}
-            <div
+              >
+                {/* <div
               style={{
-                textAlign:'left',
-                paddingLeft:'150px',
-                paddingRight:'150px',
-                paddingTop:'50px'
+                backgroundColor:'red'
               }}
-            >
-            <View
-              style={{
-                flex:1,
-                flexDirection:'row',
-                paddingTop:'15px',
-                paddingBottom:'15px',
-              }}
-            >
-              <View
+              > */}
+              <div
                 style={{
-                  
-                  // width:"450px",
-                  // alignItems:'center',
-                  // justifyContent:'center',
-                  textAlign:'left',
-                  flex:2
+                  paddingTop:'100px',
+                  paddingLeft:'150px',
+                  paddingRight:'150px'
                 }}
               >
-                <Text
+              <Image
+                      style={{
+                      display:'block',
+                      height:'300px',
+                      width:'auto',
+                      // borderTopLeftRadius:10,
+                      // borderTopRightRadius:10,
+                      borderRadius:'10px',
+                      pointerEvents:'none',
+                      marginLeft:'auto',
+                      marginRight:'auto'
+                      // transform:[{
+                      //     translateX:'0px',
+                      //     translateY:'0px'
+                      // }]
+                      }}
+                      source={{
+                          uri:
+                              brandData.brd_feature_img_url
+                      }}
+
+                  >
+              </Image>
+              </div>
+                  </div>
+                  {/* <Image
+                      style={{
+                      display:'block',
+                      height:'200pt',
+                      width:'200pt',
+                      borderTopLeftRadius:10,
+                      borderTopRightRadius:10,
+                      pointerEvents:'none',
+                      transform:[{
+                          translateX:'0px',
+                          translateY:'0px'
+                      }]
+                      }}
+                      source={{
+                          uri:
+                              brandData.brd_logo_img_url
+                      }}
+
+                  >
+                  </Image> */}
+              <div
+                style={{
+                  textAlign:'left',
+                  paddingLeft:'150px',
+                  paddingRight:'150px',
+                  paddingTop:'50px'
+                }}
+              >
+              <View
+                style={{
+                  flex:1,
+                  flexDirection:'row',
+                  paddingTop:'15px',
+                  paddingBottom:'15px',
+                }}
+              >
+                <View
                   style={{
-                    fontSize: '15px',
-                    fontWeight:'500',
-                    textDecorationLine:'none',
-                    // color:'white',
-                    // textShadowColor: 'rgba(0, 0, 0, 0.85)',
-                    // textShadowOffset: {width: 0, height: 0},
-                    // textShadowRadius: 2,
-                    color:'gray',
-                    // textAlign:'center',
+                    
+                    // width:"450px",
                     // alignItems:'center',
                     // justifyContent:'center',
-                    flexDirection:'row',
-                    // margin:11,
-                    marginTop:'25px',
-                    padding:'auto',
-                    pointerEvents:'none'
+                    textAlign:'left',
+                    flex:2
                   }}
                 >
-                  {brandData.brd_intro}
-                </Text>
-                <br></br>
-                <View>
-                <Text
+                  <Text
+                    style={{
+                      fontSize: '15px',
+                      fontWeight:'500',
+                      textDecorationLine:'none',
+                      // color:'white',
+                      // textShadowColor: 'rgba(0, 0, 0, 0.85)',
+                      // textShadowOffset: {width: 0, height: 0},
+                      // textShadowRadius: 2,
+                      color:'gray',
+                      // textAlign:'center',
+                      // alignItems:'center',
+                      // justifyContent:'center',
+                      flexDirection:'row',
+                      // margin:11,
+                      marginTop:'25px',
+                      padding:'auto',
+                      pointerEvents:'none'
+                    }}
+                  >
+                    {brandData.brd_intro}
+                  </Text>
+                  <br></br>
+                  <View>
+                  <Text
+                      style={{
+                        fontSize: '20px',
+                        fontWeight:'700',
+                        textDecorationLine:'none',
+                        // color:'white',
+                        // textShadowColor: 'rgba(0, 0, 0, 0.85)',
+                        // textShadowOffset: {width: 0, height: 0},
+                        // textShadowRadius: 2,
+                        color:'black',
+                        // textAlign:'center',
+                        // alignItems:'center',
+                        // justifyContent:'center',
+                        //flexDirection:'row',
+                        // margin:11,
+                        marginTop:'25px',
+                        padding:'auto',
+                        pointerEvents:'none'
+                      }}
+                    >
+                      {brandData.brd_name_eng}
+                    </Text>
+                    <Text
                     style={{
                       fontSize: '20px',
                       fontWeight:'700',
@@ -322,400 +345,836 @@ function Brands(props) {
                       // textAlign:'center',
                       // alignItems:'center',
                       // justifyContent:'center',
-                      //flexDirection:'row',
+                      flexDirection:'row',
                       // margin:11,
                       marginTop:'25px',
                       padding:'auto',
                       pointerEvents:'none'
                     }}
-                  >
-                    {brandData.brd_name_eng}
-                  </Text>
-                  <Text
-                  style={{
-                    fontSize: '20px',
-                    fontWeight:'700',
-                    textDecorationLine:'none',
-                    // color:'white',
-                    // textShadowColor: 'rgba(0, 0, 0, 0.85)',
-                    // textShadowOffset: {width: 0, height: 0},
-                    // textShadowRadius: 2,
-                    color:'black',
-                    // textAlign:'center',
-                    // alignItems:'center',
-                    // justifyContent:'center',
-                    flexDirection:'row',
-                    // margin:11,
-                    marginTop:'25px',
-                    padding:'auto',
-                    pointerEvents:'none'
-                  }}
-                  > 
-                    {brandData.brd_name_kor}
-                  </Text>
-                  <br></br>
-                  <Text>
-                    {brandData.brd_description}
-                  </Text>
+                    > 
+                      {brandData.brd_name_kor}
+                    </Text>
+                    <br></br>
+                    <Text>
+                      {brandData.brd_description}
+                    </Text>
+                  </View>
                 </View>
-              </View>
-              <TouchableOpacity
-                 onPress={() => 
-                  Linking.openURL(`/category?cat_num=${brandData.brd_no}`)
-                  // console.log('show material list ')
-                }
-              >
-                <View
-                  style={{
-                    marginTop:'25px',
-                    marginLeft:'25px',
-                    backgroundColor:'white',
-                    width:100,
-                    // flex:1,
-                    height:40,
-                    borderRadius:10,
-                    borderColor:'black',
-                    borderStyle:'solid',
-                    borderWidth:'2px',
-                    textAlign:'center',
-                    alignItems:'center',
-                    justifyContent:'center',
-                  }}
+                <TouchableOpacity
+                  onPress={() => 
+                    Linking.openURL(`/category?cat_num=${brandData.brd_no}`)
+                    // console.log('show material list ')
+                  }
                 >
                   <View
                     style={{
-                      backgroundColor:'transparent',
-                      transform:[{
-                        translateX:'0px',
-                        translateY:'50px',
-                      }]
+                      marginTop:'25px',
+                      marginLeft:'25px',
+                      backgroundColor:'white',
+                      width:100,
+                      // flex:1,
+                      height:40,
+                      borderRadius:10,
+                      borderColor:'black',
+                      borderStyle:'solid',
+                      borderWidth:'2px',
+                      textAlign:'center',
+                      alignItems:'center',
+                      justifyContent:'center',
                     }}
                   >
-                    {/* <Text
-                      
+                    <View
+                      style={{
+                        backgroundColor:'transparent',
+                        transform:[{
+                          translateX:'0px',
+                          translateY:'50px',
+                        }]
+                      }}
                     >
-                      {brandData.brd_name_eng} {brandData.brd_name_kor} 자재 보기
-                    </Text> */}
-                    <Text
-                      
-                    >
-                      자재 보기
-                    </Text>
-                  </View> 
-                </View>
-              </TouchableOpacity>
-            </View>
-            <br></br>
-            
-            </div>
-            
-            {/* </div> */}
-            {/* <Carousel plugins={['arrows']}>
-              {brandData.pictures_brand.map((atom)=>
-                <img src={atom.pic_url}
-                  style={{
-                    height:"300px",
-                    width:"auto"
-                  }}
-                />
-              )}
-            </Carousel> */}
-            {/* <CarouselProvider
-              naturalSlideWidth={100}
-              naturalSlideHeight={300}
-              totalSlides={brandData.pictures_brand.length}
-              visibleSlides={3}
-              interval={5000}
-              infinite={true}
-            >
-              <Slider>
-              {brandData.pictures_brand.map((atom,index)=>
-                
-                <Slide index={index}
-
-                >
+                      {/* <Text
+                        
+                      >
+                        {brandData.brd_name_eng} {brandData.brd_name_kor} 자재 보기
+                      </Text> */}
+                      <Text
+                        
+                      >
+                        자재 보기
+                      </Text>
+                    </View> 
+                  </View>
+                </TouchableOpacity>
+              </View>
+              <br></br>
+              
+              </div>
+              
+              {/* </div> */}
+              {/* <Carousel plugins={['arrows']}>
+                {brandData.pictures_brand.map((atom)=>
                   <img src={atom.pic_url}
                     style={{
                       height:"300px",
                       width:"auto"
                     }}
                   />
-                </Slide>
-
-              )}
-                
-              </Slider>
-              
-            </CarouselProvider> */}
-            <div
-              style={{
-                paddingLeft:'150px',
-                paddingRight:'150px'
-              }}
-            >
-              <Carousel
-                style={{
-                  borderRadius:10
-                }}
-                showArrows={true} 
-                showStatus={false} 
-                showIndicators={true}
-                showThumbs={false}
-                infiniteLoop={true}
-                autoPlay={true}
-                interval={4500}
-                transitionTime={500}
-                emulateTouch={true}
-                stopOnHover={false}
-                //swipeScrollTolerance={1}
-                useKeyboardArrows={true}
-                //centerSlidePercentage={10}
+                )}
+              </Carousel> */}
+              {/* <CarouselProvider
+                naturalSlideWidth={100}
+                naturalSlideHeight={300}
+                totalSlides={brandData.pictures_brand.length}
+                visibleSlides={3}
+                interval={5000}
+                infinite={true}
               >
-              {brandData.pictures_brand.map((atom)=>
-                    <div
+                <Slider>
+                {brandData.pictures_brand.map((atom,index)=>
+                  
+                  <Slide index={index}
+
+                  >
+                    <img src={atom.pic_url}
                       style={{
-                        backgroundColor:'gainsboro',
-                        
+                        height:"300px",
+                        width:"auto"
                       }}
-                    >
-                      <img src={atom.pic_url}
-                        style={{
-                          height:"300px",
-                          width:"auto",
-                          // borderRadius:10
-                        }}
-                      />
-                    </div>
-                  )}
-              </Carousel>
-            </div>
-            <div
-              style={{
-                textAlign:'left',
-                paddingLeft:'150px',
-                paddingRight:'150px',
-                paddingTop:'50px'
-              }}
-            >
-            <Text
-              style ={{
+                    />
+                  </Slide>
 
-                fontSize: '20px',
-                fontWeight:'700',
-                textDecorationLine:'none',
-                color:'black',
-                textAlign:'left',
-                alignItems:'center',
-                justifyContent:'center',
-                flexDirection:'row',
-                marginTop:'100px',
-                pointerEvents:'none',
-                backgroundColor:'transparent',
-                pointerEvents:'none',
+                )}
+                  
+                </Slider>
                 
-            }}
-            >
-              인기상품
-            </Text>
-            </div>
-            <div
-              style={{
-                padding:'auto'
-              }}
-            >
-
-           
+              </CarouselProvider> */}
               <div
                 style={{
-                  // columnCount:3,
-                  flexwrap:'wrap',
-                  justifyContent:'space-between',
-                  display: 'grid',
-                  gridTemplateColumns: 'auto auto auto auto auto',
-                  marginLeft:'150px',
-                  marginRight:'150px',
-                  backgroundColor:'transparent',
-                  
+                  paddingLeft:'150px',
+                  paddingRight:'150px'
                 }}
               >
-                
-                {brandData.bestproducts_brand.map((material)=>
-             
+                <Carousel
+                  style={{
+                    borderRadius:10
+                  }}
+                  showArrows={true} 
+                  showStatus={false} 
+                  showIndicators={true}
+                  showThumbs={false}
+                  infiniteLoop={true}
+                  autoPlay={true}
+                  interval={4500}
+                  transitionTime={500}
+                  emulateTouch={true}
+                  stopOnHover={false}
+                  //swipeScrollTolerance={1}
+                  useKeyboardArrows={true}
+                  //centerSlidePercentage={10}
+                >
+                {brandData.pictures_brand.map((atom)=>
+                      <div
+                        style={{
+                          backgroundColor:'gainsboro',
+                          
+                        }}
+                      >
+                        <img src={atom.pic_url}
+                          style={{
+                            height:"300px",
+                            width:"auto",
+                            // borderRadius:10
+                          }}
+                        />
+                      </div>
+                    )}
+                </Carousel>
+              </div>
+              <div
+                style={{
+                  textAlign:'left',
+                  paddingLeft:'150px',
+                  paddingRight:'150px',
+                  paddingTop:'50px'
+                }}
+              >
+              <Text
+                style ={{
+
+                  fontSize: '20px',
+                  fontWeight:'700',
+                  textDecorationLine:'none',
+                  color:'black',
+                  textAlign:'left',
+                  alignItems:'center',
+                  justifyContent:'center',
+                  flexDirection:'row',
+                  marginTop:'100px',
+                  pointerEvents:'none',
+                  backgroundColor:'transparent',
+                  pointerEvents:'none',
+                  
+              }}
+              >
+                인기상품
+              </Text>
+              </div>
+              <div
+                style={{
+                  padding:'auto'
+                }}
+              >
+
             
+                <div
+                  style={{
+                    // columnCount:3,
+                    flexwrap:'wrap',
+                    justifyContent:'space-between',
+                    display: 'grid',
+                    gridTemplateColumns: 'auto auto auto auto auto',
+                    marginLeft:'150px',
+                    marginRight:'150px',
+                    backgroundColor:'transparent',
+                    
+                  }}
+                >
+                  
+                  {brandData.bestproducts_brand.map((material)=>
+              
+              
+                    <View
+                      style={{
+                        backgroundColor:'transparent',
+                        height:'175px',
+                        width:'125px',
+                        // marginLeft:'auto',
+                        // marginRight:'auto',
+                        marginTop:'20px',
+                        borderRadius:10,
+                        boxShadow:'0px 0px 3px black'
+                      }}
+                    >
+                      <Image
+                        style={{
+                        display:'block',
+                        height:'125px',
+                        width:'125px',
+                        borderTopLeftRadius:10,
+                        borderTopRightRadius:10,
+                        zIndex:1,
+                        pointerEvents:'none',
+                        // transform:[{
+                        //     translateX:'0px',
+                        //     translateY:'0px'
+                        // }]
+                        }}
+                        source={{
+                            uri:
+                                material.mt_feature_img_url
+                        }}
+
+                      >
+                      </Image>
+                      <View
+                        style ={{
+                          height:'50px',
+                          width:'125px',
+                          fontSize: '12pt',
+                          fontWeight:'500',
+                          textDecorationLine:'none',
+                          color:'white',
+                          textAlign:'center',
+                          flexDirection:'column',
+                          pointerEvents:'none',
+                          backgroundColor:'white',
+                          pointerEvents:'none',
+                          borderBottomLeftRadius:10,
+                          borderBottomRightRadius:10,
+                          padding:'10px'
+                        }}
+                      >
+                        <Text
+                              style ={{
+                                  height:'100px',
+                                  width:'120px',
+                                  fontSize: '8pt',
+                                  fontWeight:'500',
+                                  textDecorationLine:'none',
+                                  color:'black',
+                                  textAlign:'left',
+                                  alignItems:'center',
+                                  justifyContent:'center',
+                                  flexDirection:'row',
+                                  // marginLeft:'1px',
+                                  // marginTop:'1px',
+                                  pointerEvents:'none',
+                                  backgroundColor:'transparent',
+                                  pointerEvents:'none',
+                                  
+                                  
+                              }}
+                          >
+                          {material.mt_subname}
+                          
+                        </Text>
+                        <Text
+                          style ={{
+                              // height:'65pt',
+                              // width:'250px',
+                              fontSize: '8pt',
+                              fontWeight:'700',
+                              textDecorationLine:'none',
+                              color:'black',
+                              textAlign:'left',
+                              //alignItems:'center',
+                              //justifyContent:'center',
+                              //flexDirection:'row',
+                              //marginTop:'45pt',
+                              pointerEvents:'none',
+                              backgroundColor:'transparent',
+                              pointerEvents:'none',
+                              
+                          }}
+                      >
+                          {material.vd_name}
+                      </Text>
+              </View>
+            </View>
+          
+            
+              )}
+            
+            </div>
+            </div>
+            <div
+                style={{
+                  textAlign:'left',
+                  paddingLeft:'150px',
+                  paddingRight:'150px',
+                  paddingTop:'50px'
+                }}
+              >
+              <Text
+                style ={{
+
+                  fontSize: '20px',
+                  fontWeight:'700',
+                  textDecorationLine:'none',
+                  color:'black',
+                  textAlign:'left',
+                  alignItems:'center',
+                  justifyContent:'center',
+                  flexDirection:'row',
+                  marginTop:'100px',
+                  pointerEvents:'none',
+                  backgroundColor:'transparent',
+                  pointerEvents:'none',
+                  
+              }}
+              >
+                다운로드 가능한 파일일
+              </Text>
+              <br></br>
+              {brandData.brd_files.map((file)=>
+              <a
+                style ={{
+                  fontSize: '8pt',
+                  fontWeight:'500',
+                  textDecorationLine:'none',
+                  color:'black',
+                  textAlign:'left',
+                  alignItems:'center',
+                  justifyContent:'center',
+                  flexDirection:'row',
+                  marginTop:'100px',
+                  backgroundColor:'transparent',
+                }}
+                href={file.fl_url}
+              >
+              <Text
+                style ={{
+
+                  fontSize: '8pt',
+                  fontWeight:'500',
+                  textDecorationLine:'none',
+                  color:'black',
+                  textAlign:'left',
+                  alignItems:'center',
+                  justifyContent:'center',
+                  flexDirection:'row',
+                  marginTop:'100px',
+                  pointerEvents:'none',
+                  backgroundColor:'transparent',
+                  pointerEvents:'none',
+                  
+              }}
+              >
+                {file.fl_displayname}
+              </Text>
+              </a>
+              )}
+              
+              
+              </div>
+            </div>
+            <div
+                style={{
+                  height:'100px',
+                  width:'100vw',
+                  backgroundColor:'transparent'
+                }}
+              >
+
+              </div>
+            </div>
+          )
+        }
+        else{
+          // console.log(brandData.bestproducts_brand)
+            return(
+              <div>
+              <div>
+                <Navbar />
+                <NavBarFiller/>
+                <div
+                style={{
+                  backgroundColor:'transparent',
+                  alignItems:'center',
+                  padding:'auto'
+                }}
+                >
+                  {/* <div
+                style={{
+                  backgroundColor:'red'
+                }}
+                > */}
+                <div
+                  style={{
+                    paddingTop:'100px',
+                    paddingLeft:'150px',
+                    paddingRight:'150px'
+                  }}
+                >
+                <Image
+                        style={{
+                        display:'block',
+                        height:'300px',
+                        width:'auto',
+                        // borderTopLeftRadius:10,
+                        // borderTopRightRadius:10,
+                        borderRadius:'10px',
+                        pointerEvents:'none',
+                        marginLeft:'auto',
+                        marginRight:'auto'
+                        // transform:[{
+                        //     translateX:'0px',
+                        //     translateY:'0px'
+                        // }]
+                        }}
+                        source={{
+                            uri:
+                                brandData.brd_feature_img_url
+                        }}
+  
+                    >
+                </Image>
+                </div>
+                    </div>
+                    {/* <Image
+                        style={{
+                        display:'block',
+                        height:'200pt',
+                        width:'200pt',
+                        borderTopLeftRadius:10,
+                        borderTopRightRadius:10,
+                        pointerEvents:'none',
+                        transform:[{
+                            translateX:'0px',
+                            translateY:'0px'
+                        }]
+                        }}
+                        source={{
+                            uri:
+                                brandData.brd_logo_img_url
+                        }}
+  
+                    >
+                    </Image> */}
+                <div
+                  style={{
+                    textAlign:'left',
+                    paddingLeft:'150px',
+                    paddingRight:'150px',
+                    paddingTop:'50px'
+                  }}
+                >
+                <View
+                  style={{
+                    flex:1,
+                    flexDirection:'row',
+                    paddingTop:'15px',
+                    paddingBottom:'15px',
+                  }}
+                >
                   <View
                     style={{
-                      backgroundColor:'transparent',
-                      height:'175px',
-                      width:'125px',
-                      // marginLeft:'auto',
-                      // marginRight:'auto',
-                      marginTop:'20px',
-                      borderRadius:10,
-                      boxShadow:'0px 0px 3px black'
+                      
+                      // width:"450px",
+                      // alignItems:'center',
+                      // justifyContent:'center',
+                      textAlign:'left',
+                      flex:2
                     }}
                   >
-                    <Image
+                    <Text
                       style={{
-                      display:'block',
-                      height:'125px',
-                      width:'125px',
-                      borderTopLeftRadius:10,
-                      borderTopRightRadius:10,
-                      zIndex:1,
-                      pointerEvents:'none',
-                      // transform:[{
-                      //     translateX:'0px',
-                      //     translateY:'0px'
-                      // }]
-                      }}
-                      source={{
-                          uri:
-                              material.mt_feature_img_url
-                      }}
-
-                    >
-                    </Image>
-                    <View
-                      style ={{
-                        height:'50px',
-                        width:'125px',
-                        fontSize: '12pt',
+                        fontSize: '15px',
                         fontWeight:'500',
                         textDecorationLine:'none',
-                        color:'white',
-                        textAlign:'center',
-                        flexDirection:'column',
-                        pointerEvents:'none',
-                        backgroundColor:'white',
-                        pointerEvents:'none',
-                        borderBottomLeftRadius:10,
-                        borderBottomRightRadius:10,
-                        padding:'10px'
+                        // color:'white',
+                        // textShadowColor: 'rgba(0, 0, 0, 0.85)',
+                        // textShadowOffset: {width: 0, height: 0},
+                        // textShadowRadius: 2,
+                        color:'gray',
+                        // textAlign:'center',
+                        // alignItems:'center',
+                        // justifyContent:'center',
+                        flexDirection:'row',
+                        // margin:11,
+                        marginTop:'25px',
+                        padding:'auto',
+                        pointerEvents:'none'
                       }}
                     >
+                      {brandData.brd_intro}
+                    </Text>
+                    <br></br>
+                    <View>
+                    <Text
+                        style={{
+                          fontSize: '20px',
+                          fontWeight:'700',
+                          textDecorationLine:'none',
+                          // color:'white',
+                          // textShadowColor: 'rgba(0, 0, 0, 0.85)',
+                          // textShadowOffset: {width: 0, height: 0},
+                          // textShadowRadius: 2,
+                          color:'black',
+                          // textAlign:'center',
+                          // alignItems:'center',
+                          // justifyContent:'center',
+                          //flexDirection:'row',
+                          // margin:11,
+                          marginTop:'25px',
+                          padding:'auto',
+                          pointerEvents:'none'
+                        }}
+                      >
+                        {brandData.brd_name_eng}
+                      </Text>
                       <Text
+                      style={{
+                        fontSize: '20px',
+                        fontWeight:'700',
+                        textDecorationLine:'none',
+                        // color:'white',
+                        // textShadowColor: 'rgba(0, 0, 0, 0.85)',
+                        // textShadowOffset: {width: 0, height: 0},
+                        // textShadowRadius: 2,
+                        color:'black',
+                        // textAlign:'center',
+                        // alignItems:'center',
+                        // justifyContent:'center',
+                        flexDirection:'row',
+                        // margin:11,
+                        marginTop:'25px',
+                        padding:'auto',
+                        pointerEvents:'none'
+                      }}
+                      > 
+                        {brandData.brd_name_kor}
+                      </Text>
+                      <br></br>
+                      <Text>
+                        {brandData.brd_description}
+                      </Text>
+                    </View>
+                  </View>
+                  <TouchableOpacity
+                    onPress={() => 
+                      Linking.openURL(`/category?cat_num=${brandData.brd_no}`)
+                      // console.log('show material list ')
+                    }
+                  >
+                    <View
+                      style={{
+                        marginTop:'25px',
+                        marginLeft:'25px',
+                        backgroundColor:'white',
+                        width:100,
+                        // flex:1,
+                        height:40,
+                        borderRadius:10,
+                        borderColor:'black',
+                        borderStyle:'solid',
+                        borderWidth:'2px',
+                        textAlign:'center',
+                        alignItems:'center',
+                        justifyContent:'center',
+                      }}
+                    >
+                      <View
+                        style={{
+                          backgroundColor:'transparent',
+                          transform:[{
+                            translateX:'0px',
+                            translateY:'50px',
+                          }]
+                        }}
+                      >
+
+                        <Text
+                          
+                        >
+                          자재 보기
+                        </Text>
+                      </View> 
+                    </View>
+                  </TouchableOpacity>
+                </View>
+                <br></br>
+                
+                </div>
+                
+
+                
+                <div
+                  style={{
+                    paddingLeft:'150px',
+                    paddingRight:'150px'
+                  }}
+                >
+                  <Carousel
+                    style={{
+                      borderRadius:10
+                    }}
+                    showArrows={true} 
+                    showStatus={false} 
+                    showIndicators={true}
+                    showThumbs={false}
+                    infiniteLoop={true}
+                    autoPlay={true}
+                    interval={4500}
+                    transitionTime={500}
+                    emulateTouch={true}
+                    stopOnHover={false}
+                    //swipeScrollTolerance={1}
+                    useKeyboardArrows={true}
+                    //centerSlidePercentage={10}
+                  >
+                  {brandData.pictures_brand.map((atom)=>
+                        <div
+                          style={{
+                            backgroundColor:'gainsboro',
+                            
+                          }}
+                        >
+                          <img src={atom.pic_url}
+                            style={{
+                              height:"300px",
+                              width:"auto",
+                              // borderRadius:10
+                            }}
+                          />
+                        </div>
+                      )}
+                  </Carousel>
+                </div>
+                <div
+                  style={{
+                    textAlign:'left',
+                    paddingLeft:'150px',
+                    paddingRight:'150px',
+                    paddingTop:'50px'
+                  }}
+                >
+                <Text
+                  style ={{
+  
+                    fontSize: '20px',
+                    fontWeight:'700',
+                    textDecorationLine:'none',
+                    color:'black',
+                    textAlign:'left',
+                    alignItems:'center',
+                    justifyContent:'center',
+                    flexDirection:'row',
+                    marginTop:'100px',
+                    pointerEvents:'none',
+                    backgroundColor:'transparent',
+                    pointerEvents:'none',
+                    
+                }}
+                >
+                  인기상품
+                </Text>
+                </div>
+                <div
+                  style={{
+                    padding:'auto'
+                  }}
+                >
+  
+              
+                  <div
+                    style={{
+                      // columnCount:3,
+                      flexwrap:'wrap',
+                      justifyContent:'space-between',
+                      display: 'grid',
+                      gridTemplateColumns: 'auto auto auto auto auto',
+                      marginLeft:'150px',
+                      marginRight:'150px',
+                      backgroundColor:'transparent',
+                      
+                    }}
+                  >
+                    
+                    {brandData.bestproducts_brand.map((material)=>
+                
+                
+                      <View
+                        style={{
+                          backgroundColor:'transparent',
+                          height:'175px',
+                          width:'125px',
+                          // marginLeft:'auto',
+                          // marginRight:'auto',
+                          marginTop:'20px',
+                          borderRadius:10,
+                          boxShadow:'0px 0px 3px black'
+                        }}
+                      >
+                        <Image
+                          style={{
+                          display:'block',
+                          height:'125px',
+                          width:'125px',
+                          borderTopLeftRadius:10,
+                          borderTopRightRadius:10,
+                          zIndex:1,
+                          pointerEvents:'none',
+                          // transform:[{
+                          //     translateX:'0px',
+                          //     translateY:'0px'
+                          // }]
+                          }}
+                          source={{
+                              uri:
+                                  material.mt_feature_img_url
+                          }}
+  
+                        >
+                        </Image>
+                        <View
+                          style ={{
+                            height:'50px',
+                            width:'125px',
+                            fontSize: '12pt',
+                            fontWeight:'500',
+                            textDecorationLine:'none',
+                            color:'white',
+                            textAlign:'center',
+                            flexDirection:'column',
+                            pointerEvents:'none',
+                            backgroundColor:'white',
+                            pointerEvents:'none',
+                            borderBottomLeftRadius:10,
+                            borderBottomRightRadius:10,
+                            padding:'10px'
+                          }}
+                        >
+                          <Text
+                                style ={{
+                                    height:'100px',
+                                    width:'120px',
+                                    fontSize: '8pt',
+                                    fontWeight:'500',
+                                    textDecorationLine:'none',
+                                    color:'black',
+                                    textAlign:'left',
+                                    alignItems:'center',
+                                    justifyContent:'center',
+                                    flexDirection:'row',
+                                    // marginLeft:'1px',
+                                    // marginTop:'1px',
+                                    pointerEvents:'none',
+                                    backgroundColor:'transparent',
+                                    pointerEvents:'none',
+                                    
+                                    
+                                }}
+                            >
+                            {material.mt_subname}
+                            
+                          </Text>
+                          <Text
                             style ={{
-                                height:'100px',
-                                width:'120px',
+                                // height:'65pt',
+                                // width:'250px',
                                 fontSize: '8pt',
-                                fontWeight:'500',
+                                fontWeight:'700',
                                 textDecorationLine:'none',
                                 color:'black',
                                 textAlign:'left',
-                                alignItems:'center',
-                                justifyContent:'center',
-                                flexDirection:'row',
-                                // marginLeft:'1px',
-                                // marginTop:'1px',
+                                //alignItems:'center',
+                                //justifyContent:'center',
+                                //flexDirection:'row',
+                                //marginTop:'45pt',
                                 pointerEvents:'none',
                                 backgroundColor:'transparent',
                                 pointerEvents:'none',
                                 
-                                
                             }}
                         >
-                        {material.mt_subname}
-                        
-                      </Text>
-                      <Text
-                        style ={{
-                            // height:'65pt',
-                            // width:'250px',
-                            fontSize: '8pt',
-                            fontWeight:'700',
-                            textDecorationLine:'none',
-                            color:'black',
-                            textAlign:'left',
-                            //alignItems:'center',
-                            //justifyContent:'center',
-                            //flexDirection:'row',
-                            //marginTop:'45pt',
-                            pointerEvents:'none',
-                            backgroundColor:'transparent',
-                            pointerEvents:'none',
-                            
-                        }}
-                    >
-                        {material.vd_name}
-                    </Text>
-            </View>
-          </View>
-         
-          
-            )}
-          
-          </div>
-          </div>
-          <div
-              style={{
-                textAlign:'left',
-                paddingLeft:'150px',
-                paddingRight:'150px',
-                paddingTop:'50px'
-              }}
-            >
-            {/* <Text
-              style ={{
-
-                fontSize: '20px',
-                fontWeight:'700',
-                textDecorationLine:'none',
-                color:'black',
-                textAlign:'left',
-                alignItems:'center',
-                justifyContent:'center',
-                flexDirection:'row',
-                marginTop:'100px',
-                pointerEvents:'none',
-                backgroundColor:'transparent',
-                pointerEvents:'none',
-                
-            }}
-            >
-              다운로드 가능한 파일일
-            </Text> */}
-            <br></br>
-            {/* {brandData.brd_files.map((file)=>
-            <a
-              href={file.fl_url}
-            >
-            <Text
-              style ={{
-
-                fontSize: '8pt',
-                fontWeight:'500',
-                textDecorationLine:'none',
-                color:'black',
-                textAlign:'left',
-                alignItems:'center',
-                justifyContent:'center',
-                flexDirection:'row',
-                marginTop:'100px',
-                pointerEvents:'none',
-                backgroundColor:'transparent',
-                pointerEvents:'none',
-                
-            }}
-            >
-              {file.fl_displayname}
-            </Text>
-            </a>
-            )} */}
+                            {material.vd_name}
+                        </Text>
+                </View>
+              </View>
             
-            
-            </div>
-          </div>
-          <div
-              style={{
-                height:'100px',
-                width:'100vw',
-                backgroundColor:'transparent'
-              }}
-            >
-
-            </div>
-          </div>
-        )
+              
+                )}
+              
+              </div>
+              </div>
+              <div
+                  style={{
+                    textAlign:'left',
+                    paddingLeft:'150px',
+                    paddingRight:'150px',
+                    paddingTop:'50px'
+                  }}
+                >
+                
+                <br></br>
+                
+                
+                
+                </div>
+              </div>
+              <div
+                  style={{
+                    height:'100px',
+                    width:'100vw',
+                    backgroundColor:'transparent'
+                  }}
+                >
+  
+                </div>
+              </div>
+            )
+          }
       }
       else{
         console.log(brandData);
