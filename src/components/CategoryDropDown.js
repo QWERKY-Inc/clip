@@ -154,8 +154,8 @@ function CategoryDropDown(props) {
         style={{
           textAlign:'left',
           // margin:'25pt'
-          paddingLeft:'25px',
-          paddingRight:'25px',
+          paddingLeft:'0px',
+          paddingRight:'0px',
           backgroundColor:'transparent'
         }}
       >
@@ -198,7 +198,7 @@ function CategoryDropDown(props) {
             flexDirection:'row',
             // margin:11,
             marginTop:'5px',
-            padding:'auto',
+            //padding:'auto',
             pointerEvents:'none'
           }}
         >
@@ -223,35 +223,36 @@ function CategoryDropDown(props) {
       >
       <div
       style={{
-        // columnCount:3,
-        //flexwrap:'wrap',
-        //flexDirection:'column',
+        columnCount:3,
+        flexwrap:'wrap',
+        flexDirection:'column',
         display: 'grid',
         gridTemplateColumns: 'auto auto auto',
-        width:'100vw',
-        height:'50vh',
+        // padding:'100px',
+        width:'calc(100vw-15px)',
+        height:'62vh',
         overflowY: 'scroll',
       }}
       >
       {/* {detailedCategoryData.map((category)=> */}
       {categoryData.map((category,index)=>
     
-      <TouchableOpacity
-        // onPress={() => 
-        //   Linking.openURL(`/brands?ct_id=${brand.ct_id}`)
-        // }
-      >
+      
       <div>
       <div
       style={{
         textAlign:'left',
-        height:'20px',
-        paddingLeft:'27px',
-        paddingRight:'27px',
+        height:'200px',
+        //paddingLeft:'27px',
+        //paddingRight:'27px',
         backgroundColor:'transparent'
       }}
       >
-
+        <TouchableOpacity
+                // onPress={() => 
+                //   Linking.openURL(`/brands?ct_id=${brand.ct_id}`)
+                // }
+              >
         <Text
           style ={{
             fontSize: '15pt',
@@ -262,22 +263,32 @@ function CategoryDropDown(props) {
             alignItems:'center',
             justifyContent:'center',
             flexDirection:'row',
-            marginTop:'45pt',
+            // marginTop:'45pt',
             pointerEvents:'none',
             backgroundColor:'transparent',
             pointerEvents:'none',
-            marginTop:100
+            // marginTop:100
         }}
         >
           {category.ct_text}
         </Text>
+        </TouchableOpacity> 
         <div
           style={{
             flexDirection:'column'
           }}
         >
         {categoryData[index].children.map((child,jndex)=>
-          <div>
+          <div
+            style={{
+              paddingTop:'15px'
+            }}
+          >
+          <TouchableOpacity
+          // onPress={() => 
+          //   Linking.openURL(`/brands?ct_id=${brand.ct_id}`)
+          // }
+          >
           <Text
             style ={{
               fontSize: '8pt',
@@ -288,21 +299,22 @@ function CategoryDropDown(props) {
               alignItems:'center',
               justifyContent:'center',
               flexDirection:'row',
-              marginTop:'45pt',
+             // marginTop:'45pt',
               pointerEvents:'none',
               backgroundColor:'transparent',
               pointerEvents:'none',
-              marginTop:100
+              // marginTop:100
           }}
           >
             {child.ct_text}
           </Text>
+          </TouchableOpacity>
           </div>
         )}
         </div>
       </div>
       </div>
-      </TouchableOpacity> 
+      
 )}
       </div>
       </div>
