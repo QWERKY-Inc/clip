@@ -1,3 +1,4 @@
+import fetch from 'node-fetch';
 import React,{useEffect} from 'react';
 import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking,Dimensions} from 'react-native';
 import xIcon from '../assets/x.png'
@@ -29,6 +30,17 @@ function CategoryDropDown(props) {
         console.log(err)
     })
   
+  }
+  const categoryList=()=>{
+    fetch('/wholecategorylist')
+    .then(res=>res.json())
+    .then((incomingData)=>{
+      setCategoryData(incomingData)
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+
   }
   const detailedCategoryDataObject = function(){
     var data=[]
@@ -74,8 +86,8 @@ function CategoryDropDown(props) {
   }
   useEffect(() => {
     Dimensions.addEventListener('change',onChange)
-    outerCategory()
-    
+    //outerCategory()
+    categoryList()
   },[])
 
   useEffect(()=>{
@@ -111,14 +123,14 @@ function CategoryDropDown(props) {
     // }
 
     // setDetailedCategoryData(detailedCategoryDataArray)
-    //console.log(categoryData)
-    detailedCategoryDataObject()
+    console.log(categoryData)
+    //detailedCategoryDataObject()
   },[categoryData])
   
-  useEffect(()=>{
-    console.log(detailedCategoryData)
-  },[detailedCategoryData])
-  if(detailedCategoryData){
+  // useEffect(()=>{
+  //   console.log(detailedCategoryData)
+  // },[detailedCategoryData])
+  if(categoryData){
     return (
       <div
       style={{
@@ -259,6 +271,35 @@ function CategoryDropDown(props) {
         >
           {category.ct_text}
         </Text>
+        <div
+          style={{
+            flexDirection:'column'
+          }}
+        >
+        {categoryData[index].children.map((child,jndex)=>
+          <div>
+          <Text
+            style ={{
+              fontSize: '8pt',
+              fontWeight:'500',
+              textDecorationLine:'none',
+              color:'black',
+              textAlign:'left',
+              alignItems:'center',
+              justifyContent:'center',
+              flexDirection:'row',
+              marginTop:'45pt',
+              pointerEvents:'none',
+              backgroundColor:'transparent',
+              pointerEvents:'none',
+              marginTop:100
+          }}
+          >
+            {child.ct_text}
+          </Text>
+          </div>
+        )}
+        </div>
       </div>
       </div>
       </TouchableOpacity> 

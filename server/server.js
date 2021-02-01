@@ -198,8 +198,11 @@ app.get('/wholecategorylist',(req,res)=>{
             })
             .then(()=>{
                 if(wholeData.length==data.length){
+                    console.log(index+'/'+data.length)
                     console.log('test end reached')
-                    res.json(wholeData.sort());
+                    res.json(wholeData.sort(function(a,b){
+                        return a.ct_text-b.ct_text
+                    }));
                 }
                 else{
                     console.log(index+'/'+data.length)
