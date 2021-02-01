@@ -256,7 +256,7 @@ function CategoryDropDown(props) {
         <Text
           style ={{
             fontSize: '15pt',
-            fontWeight:'500',
+            fontWeight:'700',
             textDecorationLine:'none',
             color:'black',
             textAlign:'left',

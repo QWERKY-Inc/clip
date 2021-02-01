@@ -460,6 +460,9 @@ const Navbar=() => {
                   </TouchableOpacity>
                   <BrandsDropDown toggleBrandsDropDown={toggleBrandsDropDown}/>
                   <TouchableOpacity
+                    onPress={() => 
+                      Linking.openURL(`/searchpage`)
+                    }
                     style={{
                       position:'fixed',
                       height:47,
@@ -470,6 +473,9 @@ const Navbar=() => {
                       zIndex:1
                   }}
                   >
+                 
+      
+    
                     <img
                       src={searchIcon}
                     >
@@ -766,6 +772,9 @@ const Navbar=() => {
                       </a>
                   </TouchableOpacity>
                   <TouchableOpacity
+                    onPress={() => 
+                      Linking.openURL(`/searchpage`)
+                    }
                     style={{
                       position:'fixed',
                       height:47,
@@ -1070,6 +1079,9 @@ const Navbar=() => {
                       </a>
                   </TouchableOpacity>
                   <TouchableOpacity
+                    onPress={() => 
+                      Linking.openURL(`/searchpage`)
+                    }
                     style={{
                       position:'fixed',
                       height:47,
@@ -1213,6 +1225,9 @@ const Navbar=() => {
           </div>
 
               <TouchableOpacity
+                onPress={() => 
+                  Linking.openURL(`/searchpage`)
+                }
                 style={{
                   position:'fixed',
                   height:47,
@@ -1354,6 +1369,9 @@ const Navbar=() => {
 
               
                 <TouchableOpacity
+                  onPress={() => 
+                    Linking.openURL(`/searchpage`)
+                  }
                   style={{
                     position:'fixed',
                     height:47,
@@ -1687,6 +1705,9 @@ const Navbar=() => {
                     </TouchableOpacity>
                     <BrandsDropDown toggleBrandsDropDown={toggleBrandsDropDown}/>
                     <TouchableOpacity
+                      onPress={() => 
+                        Linking.openURL(`/searchpage`)
+                      }
                       style={{
                         position:'fixed',
                         height:47,
@@ -2015,6 +2036,9 @@ const Navbar=() => {
                         </a>
                     </TouchableOpacity>
                     <TouchableOpacity
+                      onPress={() => 
+                        Linking.openURL(`/searchpage`)
+                      }
                       style={{
                         position:'fixed',
                         height:47,
@@ -2190,6 +2214,9 @@ const Navbar=() => {
           </div>
 
               <TouchableOpacity
+                onPress={() => 
+                  Linking.openURL(`/searchpage`)
+                }
                 style={{
                   position:'fixed',
                   height:47,
@@ -2359,6 +2386,9 @@ const Navbar=() => {
 
                 
                   <TouchableOpacity
+                    onPress={() => 
+                      Linking.openURL(`/searchpage`)
+                    }
                     style={{
                       position:'fixed',
                       height:47,
@@ -2697,6 +2727,9 @@ const Navbar=() => {
                 </Picker> */}
                 
                 <TouchableOpacity
+                  onPress={() => 
+                    Linking.openURL(`/searchpage`)
+                  }
                   style={{
                     position:'fixed',
                     height:47,
@@ -2872,6 +2905,9 @@ const Navbar=() => {
           </div>
 
               <TouchableOpacity
+                onPress={() => 
+                  Linking.openURL(`/searchpage`)
+                }
                 style={{
                   position:'fixed',
                   height:47,
@@ -2881,6 +2917,7 @@ const Navbar=() => {
                   backgroundColor:'transparent',
                   zIndex:1
               }}
+                
               >
                 <img
                   src={searchIcon}
@@ -3042,6 +3079,9 @@ const Navbar=() => {
 
                 
                   <TouchableOpacity
+                    onPress={() => 
+                      Linking.openURL(`/searchpage`)
+                    }
                     style={{
                       position:'fixed',
                       height:47,

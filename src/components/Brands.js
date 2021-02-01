@@ -673,47 +673,61 @@ function Brands(props) {
                   
               }}
               >
-                다운로드 가능한 파일일
+                다운로드 가능한 파일
               </Text>
               <br></br>
-              {brandData.brd_files.map((file)=>
-              <a
-                style ={{
-                  fontSize: '8pt',
-                  fontWeight:'500',
-                  textDecorationLine:'none',
-                  color:'black',
-                  textAlign:'left',
-                  alignItems:'center',
-                  justifyContent:'center',
-                  flexDirection:'row',
-                  marginTop:'100px',
-                  backgroundColor:'transparent',
+              <div
+                style={{
+                  gridTemplateColumns:'auto auto auto'
                 }}
-                href={file.fl_url}
               >
-              <Text
-                style ={{
-
-                  fontSize: '8pt',
-                  fontWeight:'500',
-                  textDecorationLine:'none',
-                  color:'black',
-                  textAlign:'left',
-                  alignItems:'center',
-                  justifyContent:'center',
-                  flexDirection:'row',
-                  marginTop:'100px',
-                  pointerEvents:'none',
+              {brandData.brd_files.map((file)=>
+              <div
+                style={{
                   backgroundColor:'transparent',
-                  pointerEvents:'none',
-                  
-              }}
+                  paddingTop:'15px',
+                  paddingBottom:'15px'
+                }}
               >
-                {file.fl_displayname}
-              </Text>
-              </a>
+                <a
+                  style ={{
+                    fontSize: '8pt',
+                    fontWeight:'500',
+                    textDecorationLine:'none',
+                    color:'black',
+                    textAlign:'left',
+                    alignItems:'center',
+                    justifyContent:'center',
+                    flexDirection:'row',
+                    marginTop:'100px',
+                    backgroundColor:'transparent',
+                  }}
+                  href={file.fl_url}
+                >
+                  <Text
+                    style ={{
+
+                      fontSize: '8pt',
+                      fontWeight:'500',
+                      textDecorationLine:'none',
+                      color:'black',
+                      textAlign:'left',
+                      alignItems:'center',
+                      justifyContent:'center',
+                      flexDirection:'row',
+                      marginTop:'100px',
+                      pointerEvents:'none',
+                      backgroundColor:'transparent',
+                      pointerEvents:'none',
+                      
+                  }}
+                  >
+                    {file.fl_displayname}
+                  </Text>
+                </a>
+              </div>
               )}
+              </div>
               
               
               </div>
