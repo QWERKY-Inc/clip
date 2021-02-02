@@ -1126,7 +1126,7 @@ function Brands(props) {
                       <View
                         style={{
                           backgroundColor:'transparent',
-                          height:'175px',
+                          height:'200px',
                           width:'125px',
                           // marginLeft:'auto',
                           // marginRight:'auto',
@@ -1158,7 +1158,7 @@ function Brands(props) {
                         </Image>
                         <View
                           style ={{
-                            height:'50px',
+                            height:'75px',
                             width:'125px',
                             fontSize: '12pt',
                             fontWeight:'500',
@@ -1174,6 +1174,27 @@ function Brands(props) {
                             padding:'10px'
                           }}
                         >
+                          <Text
+                            style ={{
+                                // height:'65pt',
+                                // width:'250px',
+                                fontSize: '8pt',
+                                fontWeight:'700',
+                                textDecorationLine:'none',
+                                color:'black',
+                                textAlign:'left',
+                                //alignItems:'center',
+                                //justifyContent:'center',
+                                //flexDirection:'row',
+                                //marginTop:'45pt',
+                                pointerEvents:'none',
+                                backgroundColor:'transparent',
+                                pointerEvents:'none',
+                                
+                            }}
+                        >
+                            {material.vd_name}
+                        </Text>
                           <Text
                                 style ={{
                                     height:'100px',
@@ -1198,27 +1219,7 @@ function Brands(props) {
                             {material.mt_subname}
                             
                           </Text>
-                          <Text
-                            style ={{
-                                // height:'65pt',
-                                // width:'250px',
-                                fontSize: '8pt',
-                                fontWeight:'700',
-                                textDecorationLine:'none',
-                                color:'black',
-                                textAlign:'left',
-                                //alignItems:'center',
-                                //justifyContent:'center',
-                                //flexDirection:'row',
-                                //marginTop:'45pt',
-                                pointerEvents:'none',
-                                backgroundColor:'transparent',
-                                pointerEvents:'none',
-                                
-                            }}
-                        >
-                            {material.vd_name}
-                        </Text>
+                          
                 </View>
               </View>
             

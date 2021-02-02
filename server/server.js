@@ -225,6 +225,17 @@ app.get('/wholecategorylist',(req,res)=>{
         console.log(err)
     })
 })
+app.get('/search',(req,res)=>{
+    console.log('http://clip.partners/api/mobile/Material?'+queryString.stringify(req.query))
+    fetch('http://clip.partners/api/mobile/Material?'+queryString.stringify(req.query))
+    .then(res=>res.json())
+    .then(data=>{
+        res.json(data);
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
 app.listen(port,()=>{
     console.log('server is up on port ' + port);
 })

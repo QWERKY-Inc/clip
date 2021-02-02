@@ -120,7 +120,8 @@ function MainMaterialCategory() {
                                 // backgroundColor:'red'
                             
                         }}
-                        onPress={() => Linking.openURL(`/category?cat_num=${listCategory.ct_id}`)}
+                        //onPress={() => Linking.openURL(`/category?cat_num=${listCategory.ct_id}`)}
+                        onPress={() => Linking.openURL(`/searchPage?search_target=CATEGORY_DEPTH1&search_value=${listCategory.ct_id}`)}
                     >
                     
                     <Image
@@ -352,7 +353,8 @@ function MainMaterialCategory() {
                                 // backgroundColor:'red'
                             
                         }}
-                        onPress={() => Linking.openURL(`/category?cat_num=${listCategory.ct_id}`)}
+                        //onPress={() => Linking.openURL(`/category?cat_num=${listCategory.ct_id}`)}
+                        onPress={() => Linking.openURL(`/searchPage?search_target=CATEGORY_DEPTH1&search_value=${listCategory.ct_id}`)}
                     >
                     
                     <Image
@@ -583,7 +585,7 @@ function MainMaterialCategory() {
                                 // backgroundColor:'red'
                         }}
                         // onPress={() => Linking.openURL(`/category:${listCategory.ct_id}`)}
-                        onPress={() => Linking.openURL(`/category?cat_num=${listCategory.ct_id}`)}
+                        onPress={() => Linking.openURL(`/searchPage?search_target=CATEGORY_DEPTH1&search_value=${listCategory.ct_id}`)}
                     >
                     
                     <Image

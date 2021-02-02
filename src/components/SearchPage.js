@@ -3,11 +3,11 @@ import Navbar from './Navbar';
 import Content from './Content';
 import NavBarFiller from './NavBarFiller';
 import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking,Dimensions} from 'react-native';
-// import Carousel from '@brainhubeu/react-carousel';
-// import '@brainhubeu/react-carousel/lib/style.css';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import { RadioButton } from 'react-native-paper';
+import plusIcon from '../assets/plus.png';
+import minusIcon from '../assets/minus.png'
 
 // import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 // import 'pure-react-carousel/dist/react-carousel.es.css'
@@ -17,28 +17,30 @@ const queryString = require('query-string');
 function Brands(props) {
   // var bestProducts
   const[brandListData,setBrandListData]=React.useState([])
-  const[brandData,setBrandData]=React.useState({})
+  const[searchData,setSearchData]=React.useState({})
   const[detailView,setDetailView]=React.useState(false)
   const[brandId,setBrandId]=React.useState(null)
   const [height,setHeight]=React.useState(Dimensions.get('window').height)
   const [width,setWidth]=React.useState(Dimensions.get('window').width)
   const [checked, setChecked] = React.useState('first');
 
-  const oneBrand=(ct_id)=>{
-      fetch('/onebrand?'+
-        queryString.stringify({
-              ct_id:ct_id
-            })
-      )
-      .then(res=>res.json())
-      .then((incomingData)=>{
-        console.log(incomingData)
-        setBrandData(incomingData)
+  
+  const firstPage=(jsonObj)=>{
+    console.log(jsonObj)
+    fetch('/search?'+
+    queryString.stringify({
+          pagination:true,
+          ...jsonObj
         })
-      .catch(err=>{
-          console.log(err)
-      })
-    
+    )
+    .then(res=>res.json())
+    .then((incomingData)=>{
+        console.log(incomingData)
+        setSearchData(incomingData)
+        })
+    .catch(err=>{
+        console.log(err)
+    })
   }
   const onChange=()=>{
     setHeight(Dimensions.get('window').height)
@@ -49,7 +51,7 @@ function Brands(props) {
     Dimensions.addEventListener('change',onChange)
     const parsed = queryString.parse(props.location.search);
     console.log(parsed.ct_id==undefined)
-
+    firstPage(parsed)
     
   },[])
   return (
@@ -161,6 +163,7 @@ function Brands(props) {
                     >
                     </div>
                 </div>
+                
             </View>
         </div>
     </div>

@@ -252,6 +252,7 @@ function CategoryDropDown(props) {
                 // onPress={() => 
                 //   Linking.openURL(`/brands?ct_id=${brand.ct_id}`)
                 // }
+                onPress={() => Linking.openURL(`/searchPage?search_target=CATEGORY_DEPTH1&search_value=${category.ct_id}`)}
               >
         <Text
           style ={{
@@ -288,6 +289,7 @@ function CategoryDropDown(props) {
           // onPress={() => 
           //   Linking.openURL(`/brands?ct_id=${brand.ct_id}`)
           // }
+          onPress={() => Linking.openURL(`/searchPage?search_target=CATEGORY_DEPTH2&search_value=${child.ct_id}`)}
           >
           <Text
             style ={{
