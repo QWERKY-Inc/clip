@@ -114,6 +114,7 @@ function Brands(props) {
                 />
                 </View>
                 <View
+
                     style={{
                         flexDirection:'row',
                         backgroundColor:'transparent',
@@ -140,6 +141,26 @@ function Brands(props) {
                     color="rgb(255,123,88)"
                 />
                 </View>
+                <div
+                    style={{
+                        paddingTop:'15px',
+                        paddingLeft:'65px',
+                        paddingRight:'65px'
+                    }}
+                >
+                    <div
+                    
+                    style={{
+                    height:'1px',
+                    width:'187px',
+                    // border:'none',
+                    color:'rgb(219,219,219)',
+                    backgroundColor:'rgb(219,219,219)'
+                    }} 
+                
+                    >
+                    </div>
+                </div>
             </View>
         </div>
     </div>

@@ -7,6 +7,7 @@ import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking,Dimens
 // import '@brainhubeu/react-carousel/lib/style.css';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import downloadIcon from '../assets/download.png'
 // import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 // import 'pure-react-carousel/dist/react-carousel.es.css'
 
@@ -598,7 +599,7 @@ function Brands(props) {
                               style ={{
                                   height:'100px',
                                   width:'120px',
-                                  fontSize: '8pt',
+                                  fontSize: '9pt',
                                   fontWeight:'500',
                                   textDecorationLine:'none',
                                   color:'black',
@@ -622,7 +623,7 @@ function Brands(props) {
                           style ={{
                               // height:'65pt',
                               // width:'250px',
-                              fontSize: '8pt',
+                              fontSize: '9pt',
                               fontWeight:'700',
                               textDecorationLine:'none',
                               color:'black',
@@ -682,6 +683,7 @@ function Brands(props) {
                 }}
               >
               {brandData.brd_files.map((file)=>
+
               <div
                 style={{
                   backgroundColor:'transparent',
@@ -696,18 +698,75 @@ function Brands(props) {
                     textDecorationLine:'none',
                     color:'black',
                     textAlign:'left',
-                    alignItems:'center',
-                    justifyContent:'center',
-                    flexDirection:'row',
+                    // alignItems:'center',
+                    // justifyContent:'center',
+                    // flexDirection:'row',
                     marginTop:'100px',
                     backgroundColor:'transparent',
                   }}
                   href={file.fl_url}
                 >
+                  <div
+                    style={{
+                      backgroundColor:'transparent',
+                      alignItems:'center',
+                      justifyContent:'center',
+                      // flexDirection:'row',
+                      float:'left'
+                    }}
+                  >
+                    <div
+                      style={{
+                        backgroundColor:'transparent',
+                        display:'inline-block',
+                        alignItems:'center',
+                        justifyContent:'center',
+                        // flexDirection:'row'
+                        padding:'5px'
+                      }}
+                    >
+                      {/* <img
+                          src={downloadIcon}
+                          style={{
+                            height:"15px"
+                          }}
+                        >
+                      </img> */}
+                      <Image
+                        style={{
+                        display:'inline-block',
+                        height:'12px',
+                        width:'12px',
+                        marginTop:'20px'
+                        // borderTopLeftRadius:10,
+                        // borderTopRightRadius:10,
+                        // borderRadius:'10px',
+                        // pointerEvents:'none',
+                        // marginLeft:'auto',
+                        // marginRight:'auto'
+                        
+                        }}
+                        source={{
+                          uri:downloadIcon
+                        }}
+  
+                    ></Image>
+                    </div>
+                    <div
+                      style={{
+                        backgroundColor:'transparent',
+                        alignItems:'center',
+                        justifyContent:'center',
+                        display:'inline-block',
+                        padding:'5px',
+                        
+                      }}
+                    >
+
                   <Text
                     style ={{
-
-                      fontSize: '8pt',
+                      display:'inline-block',
+                      fontSize: '9pt',
                       fontWeight:'500',
                       textDecorationLine:'none',
                       color:'black',
@@ -715,15 +774,21 @@ function Brands(props) {
                       alignItems:'center',
                       justifyContent:'center',
                       flexDirection:'row',
-                      marginTop:'100px',
+                      // marginTop:'100px',
                       pointerEvents:'none',
                       backgroundColor:'transparent',
                       pointerEvents:'none',
+                      transform:[{
+                        translateX:'0px',
+                        translateY:'-100px'
+                    }]
                       
                   }}
                   >
                     {file.fl_displayname}
                   </Text>
+                  </div>
+                  </div>
                 </a>
               </div>
               )}
