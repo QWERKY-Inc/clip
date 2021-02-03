@@ -9,6 +9,7 @@ import { RadioButton } from 'react-native-paper';
 import plusIcon from '../assets/plus.png';
 import minusIcon from '../assets/minus.png'
 import './searchpage.css'
+// import { red100 } from 'react-native-paper/lib/typescript/styles/colors';
 
 // import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 // import 'pure-react-carousel/dist/react-carousel.es.css'
@@ -201,7 +202,14 @@ function Brands(props) {
                                     fontWeight:700
                                 }}
                             >자재 카테고리</Text>
+                            <div
+                                style={{
+                                    // backgroundColor:'red',
+                                    maxHeight:'400px',
+                                    overflow:'scroll'
 
+                                }}
+                            >
                             {originalSearchData.filter.category.map((category,index)=>
                             
                                 <div
@@ -260,6 +268,7 @@ function Brands(props) {
                                     
                                 </div>
                             )}
+                            </div>
                     <div
                         style={{
                             paddingTop:'15px',
@@ -287,6 +296,12 @@ function Brands(props) {
                                 fontWeight:700
                             }}
                             >사용 부위</Text>
+                            <div
+                                style={{
+                                    maxHeight:'400px',
+                                    overflow:'scroll'
+                                }}
+                            >
                             {originalSearchData.filter.use.map((use,index)=>
                             
                             <div
@@ -343,120 +358,132 @@ function Brands(props) {
                                </div>
                                 
                             </div>
-                        )}
-                    <div
-                        style={{
-                            paddingTop:'15px',
-                            // paddingLeft:'65px',
-                            // paddingRight:'65px'
-                            marginBottom:'15px'
-                        }}
-                    >
-                        <div
-                        
-                        style={{
-                        height:'1px',
-                        width:'187px',
-                        // border:'none',
-                        color:'rgb(219,219,219)',
-                        backgroundColor:'rgb(219,219,219)'
-                        }} 
-                    
-                        >
-                        </div>
-                    </div>
+                            )}
+                            </div>
+                            <div
+                                style={{
+                                    paddingTop:'15px',
+                                    // paddingLeft:'65px',
+                                    // paddingRight:'65px'
+                                    marginBottom:'15px'
+                                }}
+                            >
+                                <div
+                                
+                                style={{
+                                height:'1px',
+                                width:'187px',
+                                // border:'none',
+                                color:'rgb(219,219,219)',
+                                backgroundColor:'rgb(219,219,219)'
+                                }} 
+                            
+                                >
+                                </div>
+                            </div>
                             <Text
                             style={{
                                 fontSize:'15px',
                                 fontWeight:700
                             }}
                             >브랜드</Text>
-
-                            {originalSearchData.filter.brand.map((brand,index)=>
-                            
                             <div
                                 style={{
-                                    display:'flex',
-                                    flexDirection:'row',
-                                    backgroundColor:'transparent',
-                                    padding:'0px'
+                                    maxHeight:'400px',
+                                    overflow:'scroll'
+                                }}
+                            >
+                                {originalSearchData.filter.brand.map((brand,index)=>
+                                
+                                <div
+                                    style={{
+                                        display:'flex',
+                                        flexDirection:'row',
+                                        backgroundColor:'transparent',
+                                        padding:'0px'
+                                    }}
+                                >
+                                    <div
+                                        style={{
+                                            backgroundColor:'transparent',
+                                            height:'25px',
+                                            width:'25px',
+                                            // display:'inline-block',
+                                            paddingTop:"5px",
+                                            marginTop:"5px"
+
+                                        }}
+                                    >   
+                                    <input type="checkbox" 
+                                            style={{
+                                                height:'20px',
+                                                width:'20px'
+                                                // flex:1,
+                                                //left:0,
+                                                
+                                            }}
+                                            onChange={(e)=>checkboxClicked(index,e,brand.code_name,brand.code_text)}
+                                    
+                                    ></input>
+
+                                    </div>
+                                <div
+                                        style={{
+                                            backgroundColor:'transparent',
+                                            height:'30px',
+                                            width:'165px',
+                                            // display:'inline-block',
+                                            alignItems:'center',
+                                            justifyContent:'center',
+                                            textAlign:'left',
+                                            paddingTop:'11px',
+                                            paddingLeft:'5px'
+                                        }}
+                                >
+                                    <Text
+                                        style={{
+                                            display:'inline-block',
+                                            
+                                        }}
+                                    >{brand.code_text}</Text>
+                                </div>
+                                    
+                                </div>
+                                )}
+                            </div>
+                            <div
+                                style={{
+                                    paddingTop:'15px',
+                                    // paddingLeft:'65px',
+                                    // paddingRight:'65px'
+                                    marginBottom:'15px'
                                 }}
                             >
                                 <div
-                                    style={{
-                                        backgroundColor:'transparent',
-                                        height:'25px',
-                                        width:'25px',
-                                        // display:'inline-block',
-                                        paddingTop:"5px",
-                                        marginTop:"5px"
-
-                                    }}
-                                >   
-                                 <input type="checkbox" 
-                                        style={{
-                                            height:'20px',
-                                            width:'20px'
-                                            // flex:1,
-                                            //left:0,
-                                            
-                                        }}
-                                        onChange={(e)=>checkboxClicked(index,e,brand.code_name,brand.code_text)}
                                 
-                                ></input>
-
+                                style={{
+                                height:'1px',
+                                width:'187px',
+                                // border:'none',
+                                color:'rgb(219,219,219)',
+                                backgroundColor:'rgb(219,219,219)'
+                                }} 
+                            
+                                >
                                 </div>
-                               <div
-                                    style={{
-                                        backgroundColor:'transparent',
-                                        height:'30px',
-                                        width:'165px',
-                                        // display:'inline-block',
-                                        alignItems:'center',
-                                        justifyContent:'center',
-                                        textAlign:'left',
-                                        paddingTop:'11px',
-                                        paddingLeft:'5px'
-                                    }}
-                               >
-                                   <Text
-                                    style={{
-                                        display:'inline-block',
-                                        
-                                    }}
-                                >{brand.code_text}</Text>
-                               </div>
-                                
                             </div>
-                        )}
-                    <div
-                        style={{
-                            paddingTop:'15px',
-                            // paddingLeft:'65px',
-                            // paddingRight:'65px'
-                            marginBottom:'15px'
-                        }}
-                    >
-                        <div
-                        
-                        style={{
-                        height:'1px',
-                        width:'187px',
-                        // border:'none',
-                        color:'rgb(219,219,219)',
-                        backgroundColor:'rgb(219,219,219)'
-                        }} 
-                    
-                        >
-                        </div>
-                    </div>
                             <Text
                                 style={{
                                     fontSize:'15px',
                                     fontWeight:700
                                 }}
                             >색상</Text>
-
+                            <div
+                                style={{
+                                    maxHeight:'400px',
+                                    overflow:'scroll'
+                                }}
+                            >
                             {originalSearchData.filter.color.map((color,index)=>
                             
                             <div
@@ -513,35 +540,43 @@ function Brands(props) {
                                </div>
                                 
                             </div>
-                        )}
-                    <div
-                        style={{
-                            paddingTop:'15px',
-                            // paddingLeft:'65px',
-                            // paddingRight:'65px'
-                            marginBottom:'15px'
-                        }}
-                    >
-                        <div
-                        
-                        style={{
-                        height:'1px',
-                        width:'187px',
-                        // border:'none',
-                        color:'rgb(219,219,219)',
-                        backgroundColor:'rgb(219,219,219)'
-                        }} 
-                    
-                        >
-                        </div>
-                    </div>
+                            )}
+                            </div>
+                            <div
+                                style={{
+                                    paddingTop:'15px',
+                                    // paddingLeft:'65px',
+                                    // paddingRight:'65px'
+                                    marginBottom:'15px'
+                                }}
+                            >
+                                <div
+                                
+                                style={{
+                                height:'1px',
+                                width:'187px',
+                                // border:'none',
+                                color:'rgb(219,219,219)',
+                                backgroundColor:'rgb(219,219,219)'
+                                }} 
+                            
+                                >
+                                </div>
+                            </div>
+
+
                             <Text
                                 style={{
                                     fontSize:'15px',
                                     fontWeight:700
                                 }}
                             >패턴</Text>
-
+                            <div
+                                style={{
+                                    maxHeight:'400px',
+                                    overflow:'scroll'
+                                }}
+                            >
                             {originalSearchData.filter.pattern.map((pattern,index)=>
                             
                             <div
@@ -598,7 +633,8 @@ function Brands(props) {
                                </div>
                                 
                             </div>
-                        )}
+                             )}
+                            </div>
                             
                         </View>
                     </View>
