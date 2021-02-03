@@ -69,7 +69,12 @@ function Brands(props) {
         <div>
         <Navbar />
         <NavBarFiller/>
-            <div className="MainContent">
+            <div className="MainContent"
+                style={{
+                    width:'100vw',
+                    height:'calc(100vh-100px)'
+                }}
+            >
                 <View>
                     <View
                         style={{
@@ -594,7 +599,141 @@ function Brands(props) {
                             
                         </View>
                     </View>
+                </View>
+                <View
+                    id="SearchResults"
+                    style={{
+                        position:'absolute',
+                        top:'100px',
+                        left:'265px',
+                        backgroundColor:'transparent',
+                        height:'100vh',
+                        // width:`calc(100vw-265px)`,
+                        width:`calc(62vw)`,
+                        textAlign:'left',
+                            // columnCount:3,
+                            
+                    }}
 
+                >
+                    <Text
+                        style={{
+                            fontSize:'20px'
+                        }}
+                    >
+                        검색 결과
+                    </Text>
+                    <View
+                        style={{
+                            flexwrap:'wrap',
+                            justifyContent:'space-between',
+                            display: 'grid',
+                            gridTemplateColumns: 'auto auto auto auto',
+                        }}
+                    >
+                    {originalSearchData.resultList.map((result,index)=>
+
+                    <View
+                    style={{
+                        backgroundColor:'transparent',
+                        height:'200px',
+                        width:'125px',
+                        // marginLeft:'auto',
+                        // marginRight:'auto',
+                        marginTop:'20px',
+                        borderRadius:10,
+                        boxShadow:'0px 0px 3px black'
+                        }}
+                    >
+                    <Image
+                    style={{
+                    display:'block',
+                    height:'125px',
+                    width:'125px',
+                    borderTopLeftRadius:10,
+                    borderTopRightRadius:10,
+                    zIndex:1,
+                    pointerEvents:'none',
+                    // transform:[{
+                    //     translateX:'0px',
+                    //     translateY:'0px'
+                    // }]
+                    }}
+                    source={{
+                        uri:
+                            result.mt_feature_img_url
+                    }}
+
+                    >
+                    </Image>
+                    <View
+                    style ={{
+                        height:'75px',
+                        width:'125px',
+                        fontSize: '12pt',
+                        fontWeight:'500',
+                        textDecorationLine:'none',
+                        color:'white',
+                        textAlign:'center',
+                        flexDirection:'column',
+                        pointerEvents:'none',
+                        backgroundColor:'white',
+                        pointerEvents:'none',
+                        borderBottomLeftRadius:10,
+                        borderBottomRightRadius:10,
+                        padding:'10px'
+                    }}
+                    >
+                    <Text
+                        style ={{
+                            // height:'65pt',
+                            // width:'250px',
+                            fontSize: '8pt',
+                            fontWeight:'700',
+                            textDecorationLine:'none',
+                            color:'black',
+                            textAlign:'left',
+                            //alignItems:'center',
+                            //justifyContent:'center',
+                            //flexDirection:'row',
+                            //marginTop:'45pt',
+                            pointerEvents:'none',
+                            backgroundColor:'transparent',
+                            pointerEvents:'none',
+                            
+                        }}
+                    >
+                        {result.vd_name}
+                    </Text>
+                    <Text
+                            style ={{
+                                height:'100px',
+                                width:'120px',
+                                fontSize: '8pt',
+                                fontWeight:'500',
+                                textDecorationLine:'none',
+                                color:'black',
+                                textAlign:'left',
+                                alignItems:'center',
+                                justifyContent:'center',
+                                flexDirection:'row',
+                                // marginLeft:'1px',
+                                // marginTop:'1px',
+                                pointerEvents:'none',
+                                backgroundColor:'transparent',
+                                pointerEvents:'none',
+                                
+                                
+                            }}
+                        >
+                        {result.mt_subname}
+                        
+                    </Text>
+                    
+                    </View>
+                    </View>
+                    )}
+                    </View>
                 </View>
             </div>
         </div>
