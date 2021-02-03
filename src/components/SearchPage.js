@@ -53,8 +53,10 @@ function Brands(props) {
     setWidth(Dimensions.get('window').width)
     // console.log(height+" : "+width)
   }
-  const checkboxClicked=()=>{
-      console.log('clicked')
+  const checkboxClicked=(index,e,category_name,category_text)=>{
+      //console.log('clicked')
+      console.log(category_name)
+      console.log(e.target.checked)
   }
   useEffect(() => {
     Dimensions.addEventListener('change',onChange)
@@ -222,6 +224,7 @@ function Brands(props) {
                                         }}
                                     >   
                                      <input type="checkbox" 
+                                            id={category.code_name}
                                             style={{
                                                 height:'20px',
                                                 width:'20px'
@@ -229,7 +232,7 @@ function Brands(props) {
                                                 //left:0,
                                                 
                                             }}
-                                            onChange={checkboxClicked}
+                                            onChange={(e)=>checkboxClicked(index,e,category.code_name,category.code_text)}
                                     
                                     ></input>
 
@@ -313,7 +316,7 @@ function Brands(props) {
                                             //left:0,
                                             
                                         }}
-                                        onChange={checkboxClicked}
+                                        onChange={(e)=>checkboxClicked(index,e,use.code_name,use.code_text)}
                                 
                                 ></input>
 
@@ -398,7 +401,7 @@ function Brands(props) {
                                             //left:0,
                                             
                                         }}
-                                        onChange={checkboxClicked}
+                                        onChange={(e)=>checkboxClicked(index,e,brand.code_name,brand.code_text)}
                                 
                                 ></input>
 
@@ -483,7 +486,7 @@ function Brands(props) {
                                             //left:0,
                                             
                                         }}
-                                        onChange={checkboxClicked}
+                                        onChange={(e)=>checkboxClicked(index,e,color.code_name,color.code_text)}
                                 
                                 ></input>
 
@@ -568,7 +571,7 @@ function Brands(props) {
                                             //left:0,
                                             
                                         }}
-                                        onChange={checkboxClicked}
+                                        onChange={(e)=>checkboxClicked(index,e,pattern.code_name,pattern.code_text)}
                                 
                                 ></input>
 
