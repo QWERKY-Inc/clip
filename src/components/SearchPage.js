@@ -252,7 +252,27 @@ function Brands(props) {
                                     
                                 </div>
                             )}
-
+                    <div
+                        style={{
+                            paddingTop:'15px',
+                            // paddingLeft:'65px',
+                            // paddingRight:'65px'
+                            marginBottom:'15px'
+                        }}
+                    >
+                        <div
+                        
+                        style={{
+                        height:'1px',
+                        width:'187px',
+                        // border:'none',
+                        color:'rgb(219,219,219)',
+                        backgroundColor:'rgb(219,219,219)'
+                        }} 
+                    
+                        >
+                        </div>
+                    </div>
                             <Text
                             style={{
                                 fontSize:'15px',
@@ -316,6 +336,27 @@ function Brands(props) {
                                 
                             </div>
                         )}
+                    <div
+                        style={{
+                            paddingTop:'15px',
+                            // paddingLeft:'65px',
+                            // paddingRight:'65px'
+                            marginBottom:'15px'
+                        }}
+                    >
+                        <div
+                        
+                        style={{
+                        height:'1px',
+                        width:'187px',
+                        // border:'none',
+                        color:'rgb(219,219,219)',
+                        backgroundColor:'rgb(219,219,219)'
+                        }} 
+                    
+                        >
+                        </div>
+                    </div>
                             <Text
                             style={{
                                 fontSize:'15px',
@@ -380,6 +421,27 @@ function Brands(props) {
                                 
                             </div>
                         )}
+                    <div
+                        style={{
+                            paddingTop:'15px',
+                            // paddingLeft:'65px',
+                            // paddingRight:'65px'
+                            marginBottom:'15px'
+                        }}
+                    >
+                        <div
+                        
+                        style={{
+                        height:'1px',
+                        width:'187px',
+                        // border:'none',
+                        color:'rgb(219,219,219)',
+                        backgroundColor:'rgb(219,219,219)'
+                        }} 
+                    
+                        >
+                        </div>
+                    </div>
                             <Text
                                 style={{
                                     fontSize:'15px',
@@ -444,6 +506,27 @@ function Brands(props) {
                                 
                             </div>
                         )}
+                    <div
+                        style={{
+                            paddingTop:'15px',
+                            // paddingLeft:'65px',
+                            // paddingRight:'65px'
+                            marginBottom:'15px'
+                        }}
+                    >
+                        <div
+                        
+                        style={{
+                        height:'1px',
+                        width:'187px',
+                        // border:'none',
+                        color:'rgb(219,219,219)',
+                        backgroundColor:'rgb(219,219,219)'
+                        }} 
+                    
+                        >
+                        </div>
+                    </div>
                             <Text
                                 style={{
                                     fontSize:'15px',
