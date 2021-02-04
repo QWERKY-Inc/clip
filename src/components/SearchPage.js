@@ -196,10 +196,12 @@ function Brands(props) {
                                 textAlign:'left'
                             }}
                         >
-                            <TouchableOpacity
-                                onPress={()=>{
-                                    setCategoryOpened(!categoryOpened)
-                                    console.log('category clicked')
+                            <div
+                                style={{
+                                    backgroundColor:'transparent',
+                                    width:'187px',
+                                    display:'flex',
+                                    flexDirection:'row',
                                 }}
                             >
                                 <Text
@@ -210,7 +212,39 @@ function Brands(props) {
                                 >
                                     자재 카테고리
                                 </Text>
+                                <TouchableOpacity
+                                    onPress={()=>{
+                                        setCategoryOpened(!categoryOpened)
+                                    }}
+                                    style={{
+                                        position:'absolute',
+                                        right:'0px'
+                                    }}
+                                >
+                                <img
+                                    src={plusIcon}
+                                    style={{
+                                        display: categoryOpened? 'none': 'block',
+                                        width:'20px',
+                                        height:'20px',
+                                        position:'absolute',
+                                        right:'15px'
+                                    }}
+                                >
+                                </img>
+                                <img
+                                    src={minusIcon}
+                                    style={{
+                                        display: categoryOpened? 'block': 'none',
+                                        width:'20px',
+                                        height:'20px',
+                                        position:'absolute',
+                                        right:'15px'
+                                    }}
+                                >
+                                </img>
                             </TouchableOpacity>
+                            </div>
                             <div
                                 style={{
                                     // backgroundColor:'red',
@@ -301,18 +335,53 @@ function Brands(props) {
                         >
                         </div>
                     </div>
-                            <TouchableOpacity
-                                onPress={()=>{
-                                    setUseOpened(!useOpened)
-                                }}
-                            >
+                        <div
+                            style={{
+                                backgroundColor:'transparent',
+                                width:'187px',
+                                display:'flex',
+                                flexDirection:'row',
+                            }}
+                        >    
                             <Text
                             style={{
                                 fontSize:'15px',
                                 fontWeight:700
                             }}
                             >사용 부위</Text>
+                           <TouchableOpacity
+                                onPress={()=>{
+                                    setUseOpened(!useOpened)
+                                }}
+                                style={{
+                                    position:'absolute',
+                                    right:'0px'
+                                }}
+                            >
+                            <img
+                                src={plusIcon}
+                                style={{
+                                    display: useOpened? 'none': 'block',
+                                    width:'20px',
+                                    height:'20px',
+                                    position:'absolute',
+                                    right:'15px'
+                                }}
+                            >
+                            </img>
+                            <img
+                                src={minusIcon}
+                                style={{
+                                    display: useOpened? 'block': 'none',
+                                    width:'20px',
+                                    height:'20px',
+                                    position:'absolute',
+                                    right:'15px'
+                                }}
+                            >
+                            </img>
                             </TouchableOpacity>
+                            </div>
                             <div
                                 style={{
                                     maxHeight: useOpened?'400px':'0px',
@@ -400,18 +469,59 @@ function Brands(props) {
                                 >
                                 </div>
                             </div>
-                            <TouchableOpacity
-                                onPress={()=>{
-                                    setBrandOpened(!brandOpened)
-                                }}
-                            >
-                            <Text
-                            style={{
-                                fontSize:'15px',
-                                fontWeight:700
-                            }}
-                            >브랜드</Text>
-                            </TouchableOpacity>
+                            
+                                
+                                    <div
+                                        style={{
+                                            backgroundColor:'transparent',
+                                            width:'187px',
+                                            display:'flex',
+                                            flexDirection:'row',
+                                        }}
+                                    >
+ 
+                                        <Text
+                                        style={{
+                                            fontSize:'15px',
+                                            fontWeight:700
+                                        }}
+                                        >
+                                            브랜드
+                                        </Text>
+                                        <TouchableOpacity
+                                            onPress={()=>{
+                                                setBrandOpened(!brandOpened)
+                                            }}
+                                            style={{
+                                                position:'absolute',
+                                                right:'0px'
+                                            }}
+                                        >
+                                        <img
+                                            src={plusIcon}
+                                            style={{
+                                                display: brandOpened? 'none': 'block',
+                                                width:'20px',
+                                                height:'20px',
+                                                position:'absolute',
+                                                right:'15px'
+                                            }}
+                                        >
+                                        </img>
+                                        <img
+                                            src={minusIcon}
+                                            style={{
+                                                display: brandOpened? 'block': 'none',
+                                                width:'20px',
+                                                height:'20px',
+                                                position:'absolute',
+                                                right:'15px'
+                                            }}
+                                        >
+                                        </img>
+                                        </TouchableOpacity>
+                                    </div>
+                              
                             <div
                                 style={{
                                     maxHeight:brandOpened? '400px':'0px',
@@ -499,20 +609,55 @@ function Brands(props) {
                                 >
                                 </div>
                             </div>
-                            <TouchableOpacity
-                                onPress={()=>{
-                                    setColorOpened(!colorOpened)
+                            
+
+                            <div
+                                style={{
+                                    backgroundColor:'transparent',
+                                    width:'187px',
+                                    display:'flex',
+                                    flexDirection:'row',
                                 }}
                             >
-
-                            
                             <Text
                                 style={{
                                     fontSize:'15px',
                                     fontWeight:700
                                 }}
                             >색상</Text>
+                            <TouchableOpacity
+                                onPress={()=>{
+                                    setColorOpened(!colorOpened)
+                                }}
+                                style={{
+                                    position:'absolute',
+                                    right:'0px'
+                                }}
+                            >
+                            <img
+                                src={plusIcon}
+                                style={{
+                                    display: colorOpened? 'none': 'block',
+                                    width:'20px',
+                                    height:'20px',
+                                    position:'absolute',
+                                    right:'15px'
+                                }}
+                            >
+                            </img>
+                            <img
+                                src={minusIcon}
+                                style={{
+                                    display: colorOpened? 'block': 'none',
+                                    width:'20px',
+                                    height:'20px',
+                                    position:'absolute',
+                                    right:'15px'
+                                }}
+                            >
+                            </img>
                             </TouchableOpacity>
+                            </div>
                             <div
                                 style={{
                                     maxHeight:colorOpened? '400px':'0px',
@@ -600,19 +745,58 @@ function Brands(props) {
                                 >
                                 </div>
                             </div>
-
-                            <TouchableOpacity
-                                onPress={()=>{
-                                    setPatternOpened(!patternOpened)
+                            <div>
+                            <div
+                                style={{
+                                    backgroundColor:'transparent',
+                                    width:'187px',
+                                    display:'flex',
+                                    flexDirection:'row',
                                 }}
                             >
-                            <Text
-                                style={{
-                                    fontSize:'15px',
-                                    fontWeight:700
-                                }}
-                            >패턴</Text>
-                            </TouchableOpacity>
+                                <Text
+                                    style={{
+                                        fontSize:'15px',
+                                        fontWeight:700
+                                    }}
+                                >
+                                    패턴
+                                </Text>
+                                <TouchableOpacity
+                                    onPress={()=>{
+                                        setPatternOpened(!patternOpened)
+                                    }}
+                                    style={{
+                                        position:'absolute',
+                                        right:'0px'
+                                    }}
+                                >
+                                <img
+                                    src={plusIcon}
+                                    style={{
+                                        display: patternOpened? 'none': 'block',
+                                        width:'20px',
+                                        height:'20px',
+                                        position:'absolute',
+                                        right:'15px'
+                                    }}
+                                >
+                                </img>
+                                <img
+                                    src={minusIcon}
+                                    style={{
+                                        display: patternOpened? 'block': 'none',
+                                        width:'20px',
+                                        height:'20px',
+                                        position:'absolute',
+                                        right:'15px'
+                                    }}
+                                >
+                                </img>
+                                </TouchableOpacity>
+                            </div>
+
+                            </div>
                             <div
                                 style={{
                                     maxHeight:patternOpened? '400px':'0px',
