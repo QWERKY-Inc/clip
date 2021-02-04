@@ -196,17 +196,28 @@ function Brands(props) {
                                 textAlign:'left'
                             }}
                         >
-                            <Text
-                                style={{
-                                    fontSize:'15px',
-                                    fontWeight:700
+                            <TouchableOpacity
+                                onPress={()=>{
+                                    setCategoryOpened(!categoryOpened)
+                                    console.log('category clicked')
                                 }}
-                            >자재 카테고리</Text>
+                            >
+                                <Text
+                                    style={{
+                                        fontSize:'15px',
+                                        fontWeight:700
+                                    }}
+                                >
+                                    자재 카테고리
+                                </Text>
+                            </TouchableOpacity>
                             <div
                                 style={{
                                     // backgroundColor:'red',
-                                    maxHeight:'400px',
-                                    overflow:'scroll'
+                                    maxHeight: categoryOpened? '400px':'0px',
+                                    overflow:'scroll',
+                                    transition: '0.25s',
+                                    transitionTimingFunction:'ease-in-out'
 
                                 }}
                             >
@@ -290,16 +301,24 @@ function Brands(props) {
                         >
                         </div>
                     </div>
+                            <TouchableOpacity
+                                onPress={()=>{
+                                    setUseOpened(!useOpened)
+                                }}
+                            >
                             <Text
                             style={{
                                 fontSize:'15px',
                                 fontWeight:700
                             }}
                             >사용 부위</Text>
+                            </TouchableOpacity>
                             <div
                                 style={{
-                                    maxHeight:'400px',
-                                    overflow:'scroll'
+                                    maxHeight: useOpened?'400px':'0px',
+                                    overflow:'scroll',
+                                    transition: '0.25s',
+                                    transitionTimingFunction:'ease-in-out'
                                 }}
                             >
                             {originalSearchData.filter.use.map((use,index)=>
@@ -381,16 +400,24 @@ function Brands(props) {
                                 >
                                 </div>
                             </div>
+                            <TouchableOpacity
+                                onPress={()=>{
+                                    setBrandOpened(!brandOpened)
+                                }}
+                            >
                             <Text
                             style={{
                                 fontSize:'15px',
                                 fontWeight:700
                             }}
                             >브랜드</Text>
+                            </TouchableOpacity>
                             <div
                                 style={{
-                                    maxHeight:'400px',
-                                    overflow:'scroll'
+                                    maxHeight:brandOpened? '400px':'0px',
+                                    overflow:'scroll',
+                                    transition: '0.25s',
+                                    transitionTimingFunction:'ease-in-out'
                                 }}
                             >
                                 {originalSearchData.filter.brand.map((brand,index)=>
@@ -472,16 +499,26 @@ function Brands(props) {
                                 >
                                 </div>
                             </div>
+                            <TouchableOpacity
+                                onPress={()=>{
+                                    setColorOpened(!colorOpened)
+                                }}
+                            >
+
+                            
                             <Text
                                 style={{
                                     fontSize:'15px',
                                     fontWeight:700
                                 }}
                             >색상</Text>
+                            </TouchableOpacity>
                             <div
                                 style={{
-                                    maxHeight:'400px',
-                                    overflow:'scroll'
+                                    maxHeight:colorOpened? '400px':'0px',
+                                    overflow:'scroll',
+                                    transition: '0.25s',
+                                    transitionTimingFunction:'ease-in-out'
                                 }}
                             >
                             {originalSearchData.filter.color.map((color,index)=>
@@ -564,17 +601,24 @@ function Brands(props) {
                                 </div>
                             </div>
 
-
+                            <TouchableOpacity
+                                onPress={()=>{
+                                    setPatternOpened(!patternOpened)
+                                }}
+                            >
                             <Text
                                 style={{
                                     fontSize:'15px',
                                     fontWeight:700
                                 }}
                             >패턴</Text>
+                            </TouchableOpacity>
                             <div
                                 style={{
-                                    maxHeight:'400px',
-                                    overflow:'scroll'
+                                    maxHeight:patternOpened? '400px':'0px',
+                                    overflow:'scroll',
+                                    transition: '0.25s',
+                                    transitionTimingFunction:'ease-in-out'
                                 }}
                             >
                             {originalSearchData.filter.pattern.map((pattern,index)=>
