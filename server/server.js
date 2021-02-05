@@ -244,7 +244,8 @@ app.get('/detailedsearch',(req,res)=>{
     var a = {...req.query}
     delete a['list_category']
     delete a['list_use']
-    console.log(a)
+    delete a['list_brand']
+    // console.log(a)
 
     var categoryString=""
     if(req.query.list_category!=undefined){
@@ -254,8 +255,13 @@ app.get('/detailedsearch',(req,res)=>{
     if(req.query.list_use!=undefined){
         useageString="&list_use=["+String(req.query.list_use)+"]"
     }
-    // res.json(categoryString)
-    fetch('http://clip.partners/api/mobile/Material?'+queryString.stringify(a)+categoryString+useageString)
+    var brandString=""
+    if(req.query.list_brand!=undefined){
+        brandString="&list_brand=["+String(req.query.list_brand)+"]"
+    }
+    var qString=queryString.stringify(a)+categoryString+useageString+brandString
+    // res.json(qString)
+    fetch('http://clip.partners/api/mobile/Material?'+qString)
     .then(res=>res.json())
     .then(data=>{
         // console.log(data)

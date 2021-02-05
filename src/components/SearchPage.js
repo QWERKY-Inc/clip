@@ -34,6 +34,7 @@ function Brands(props) {
   const [filter,setFilter]=React.useState({})
   const [checkedCategory, setCheckedCategory]=React.useState([])
   const [checkedUse,setCheckedUse]=React.useState([])
+  const [checkedBrand,setCheckedBrand]=React.useState([])
 
 
   const firstPage=(jsonObj)=>{
@@ -128,6 +129,31 @@ function Brands(props) {
     //console.log(filterQ)
     
   }
+  const brandCheckboxClicked=(index,e,brand_name,brand_text)=>{
+    //console.log('clicked')
+    if(e.target.checked==true){
+        var numbers=checkedBrand
+        numbers.push(String(brand_name))
+        //console.log(numbers)
+        setCheckedBrand(numbers)
+        var filterQ={...filter}
+        filterQ.list_brand=numbers
+        setFilter(filterQ)
+    }
+    else if(e.target.checked==false){
+        var numbers=checkedBrand
+        var indexOfBrand=numbers.indexOf(String(brand_name))
+        numbers.splice(indexOfBrand,1)
+        //console.log(numbers)
+        setCheckedBrand(numbers)
+        var filterQ={...filter}
+        filterQ.list_use=numbers
+        setFilter(filterQ)
+    }
+    //console.log(filterQ)
+    
+  }
+
   useEffect(() => {
     Dimensions.addEventListener('change',onChange)
     const parsed = queryString.parse(props.location.search);
@@ -642,7 +668,7 @@ function Brands(props) {
                                                 //left:0,
                                                 
                                             }}
-                                            onChange={(e)=>checkboxClicked(index,e,brand.code_name,brand.code_text)}
+                                            onChange={(e)=>brandCheckboxClicked(index,e,brand.code_name,brand.code_text)}
                                     
                                     ></input>
 
