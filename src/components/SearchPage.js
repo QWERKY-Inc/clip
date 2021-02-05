@@ -20,6 +20,7 @@ function Brands(props) {
   // var bestProducts
   const[brandListData,setBrandListData]=React.useState([])
   const[originalSearchData,setOriginalSearchData]=React.useState(undefined)
+  const[secondSearchData,setSecondSearchData]=React.useState(undefined) 
   const[detailView,setDetailView]=React.useState(false)
   const[brandId,setBrandId]=React.useState(null)
   const [height,setHeight]=React.useState(Dimensions.get('window').height)
@@ -51,6 +52,23 @@ function Brands(props) {
         console.log(err)
     })
   }
+  const secondPage=(jsonObj)=>{
+    console.log(jsonObj)
+    fetch('/search?'+
+    queryString.stringify(
+        //   pagination:true,
+          jsonObj
+        )
+    )
+    .then(res=>res.json())
+    .then((incomingData)=>{
+        console.log(incomingData)
+        setSecondSearchData(incomingData)
+        })
+    .catch(err=>{
+        console.log(err)
+    })
+  }
   const onChange=()=>{
     setHeight(Dimensions.get('window').height)
     setWidth(Dimensions.get('window').width)
@@ -65,7 +83,7 @@ function Brands(props) {
     //console.log('clicked')
     if(e.target.checked==true){
         var numbers=checkedCategory
-        numbers.push(category_name)
+        numbers.push(String(category_name))
         //console.log(numbers)
         setCheckedCategory(numbers)
         var filterQ={...filter}
@@ -74,7 +92,7 @@ function Brands(props) {
     }
     else if(e.target.checked==false){
         var numbers=checkedCategory
-        var indexOfCategory=numbers.indexOf(category_name)
+        var indexOfCategory=numbers.indexOf(String(category_name))
         numbers.splice(indexOfCategory,1)
         //console.log(numbers)
         setCheckedCategory(numbers)
@@ -90,10 +108,19 @@ function Brands(props) {
     const parsed = queryString.parse(props.location.search);
     console.log(parsed.ct_id==undefined)
     firstPage(parsed)
+    // secondPage(parsed)
+
+    // secondPage(
+    //     {mem_no: "63", search_target: null, search_value: null, list_color: ["GOLDSILVER","RED","BLACK"], list_pattern: ["METAL","SOLID","GEOMETRIC"], list_brand: ["62","101"], list_category: ["45"], list_use: ["56","9"], pagination: true, page: 1}
+    // )
   },[])
   useEffect(() => {
-    console.log(filter)
-  },[filter])
+    //console.log({...queryString.parse(props.location.search),...filter})
+    const parsed = {...queryString.parse(props.location.search),...filter}
+    secondPage(parsed)
+    // var testObj= {mem_no: "63", keyword: "시트", search_target: null, search_value: null, list_color: ["GOLDSILVER","RED","BLACK"], list_pattern: ["METAL","SOLID","GEOMETRIC"], list_brand: ["62","101"], list_category: ["45"], list_use: ["56","9"], material_scope: "ALL", pagination: true, page: 1}
+    // secondPage(testObj)
+},[filter])
   if(originalSearchData!=undefined){
 
     return (
