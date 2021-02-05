@@ -33,6 +33,7 @@ function Brands(props) {
   const [patternOpened, setPatternOpened]=React.useState(false)
   const [filter,setFilter]=React.useState({})
   const [checkedCategory, setCheckedCategory]=React.useState([])
+  const [checkedUse,setCheckedUse]=React.useState([])
 
 
   const firstPage=(jsonObj)=>{
@@ -54,7 +55,7 @@ function Brands(props) {
   }
   const secondPage=(jsonObj)=>{
     console.log(jsonObj)
-    fetch('/search?'+
+    fetch('/detailedsearch?'+
     queryString.stringify(
         //   pagination:true,
           jsonObj
@@ -98,6 +99,30 @@ function Brands(props) {
         setCheckedCategory(numbers)
         var filterQ={...filter}
         filterQ.list_category=numbers
+        setFilter(filterQ)
+    }
+    //console.log(filterQ)
+    
+  }
+  const useageCheckboxClicked=(index,e,use_name,use_text)=>{
+    //console.log('clicked')
+    if(e.target.checked==true){
+        var numbers=checkedUse
+        numbers.push(String(use_name))
+        //console.log(numbers)
+        setCheckedUse(numbers)
+        var filterQ={...filter}
+        filterQ.list_use=numbers
+        setFilter(filterQ)
+    }
+    else if(e.target.checked==false){
+        var numbers=checkedUse
+        var indexOfUse=numbers.indexOf(String(use_name))
+        numbers.splice(indexOfUse,1)
+        //console.log(numbers)
+        setCheckedUse(numbers)
+        var filterQ={...filter}
+        filterQ.list_use=numbers
         setFilter(filterQ)
     }
     //console.log(filterQ)
@@ -477,7 +502,7 @@ function Brands(props) {
                                             //left:0,
                                             
                                         }}
-                                        onChange={(e)=>checkboxClicked(index,e,use.code_name,use.code_text)}
+                                        onChange={(e)=>useageCheckboxClicked(index,e,use.code_name,use.code_text)}
                                 
                                 ></input>
 

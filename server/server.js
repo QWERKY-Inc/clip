@@ -238,6 +238,33 @@ app.get('/search',(req,res)=>{
         console.log(err)
     })
 })
+app.get('/detailedsearch',(req,res)=>{
+    // console.log('http://clip.partners/api/mobile/Material?'+queryString.stringify(req.query))
+    //console.log(queryString.stringify(req.query))
+    var a = {...req.query}
+    delete a['list_category']
+    delete a['list_use']
+    console.log(a)
+
+    var categoryString=""
+    if(req.query.list_category!=undefined){
+        categoryString="&list_category=["+String(req.query.list_category)+"]"
+    }
+    var useageString=""
+    if(req.query.list_use!=undefined){
+        useageString="&list_use=["+String(req.query.list_use)+"]"
+    }
+    // res.json(categoryString)
+    fetch('http://clip.partners/api/mobile/Material?'+queryString.stringify(a)+categoryString+useageString)
+    .then(res=>res.json())
+    .then(data=>{
+        // console.log(data)
+        res.json(data);
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
 app.listen(port,()=>{
     console.log('server is up on port ' + port);
 })

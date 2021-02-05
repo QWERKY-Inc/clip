@@ -363,7 +363,8 @@ function Brands(props) {
                 </View>
                 <TouchableOpacity
                   onPress={() => 
-                    Linking.openURL(`/category?cat_num=${brandData.brd_no}`)
+                    // Linking.openURL(`/category?cat_num=${brandData.brd_no}`)
+                    Linking.openURL(`/searchpage?search_target=BRAND&search_value=${brandData.brd_no}`)
                     // console.log('show material list ')
                   }
                 >
