@@ -35,7 +35,8 @@ function Brands(props) {
   const [checkedCategory, setCheckedCategory]=React.useState([])
   const [checkedUse,setCheckedUse]=React.useState([])
   const [checkedBrand,setCheckedBrand]=React.useState([])
-
+  const [checkedColors,setCheckedColors]=React.useState([])
+  const [checkedPatterns,setCheckedPatterns]=React.useState([])
 
   const firstPage=(jsonObj)=>{
     console.log(jsonObj)
@@ -81,6 +82,7 @@ function Brands(props) {
       console.log(category_name)
       console.log(e.target.checked)
   }
+  
   const categoryCheckboxClicked=(index,e,category_name,category_text)=>{
     //console.log('clicked')
     if(e.target.checked==true){
@@ -153,7 +155,54 @@ function Brands(props) {
     //console.log(filterQ)
     
   }
-
+  const colorCheckboxClicked=(index,e,color_name,color_text)=>{
+    //console.log('clicked')
+    if(e.target.checked==true){
+        var colorStrings=checkedColors
+        colorStrings.push(String(color_name))
+        //console.log(numbers)
+        setCheckedColors(colorStrings)
+        var filterQ={...filter}
+        filterQ.list_color=colorStrings
+        setFilter(filterQ)
+    }
+    else if(e.target.checked==false){
+        var colorStrings=checkedCategory
+        var indexOfColor=colorStrings.indexOf(String(color_name))
+        colorStrings.splice(indexOfColor,1)
+        //console.log(numbers)
+        setCheckedColors(colorStrings)
+        var filterQ={...filter}
+        filterQ.list_color=colorStrings
+        setFilter(filterQ)
+    }
+    //console.log(filterQ)
+    
+  }
+  const patternCheckboxClicked=(index,e,pattern_name,pattern_text)=>{
+    //console.log('clicked')
+    if(e.target.checked==true){
+        var patternStrings=checkedPatterns
+        patternStrings.push(String(pattern_name))
+        //console.log(numbers)
+        setCheckedPatterns(patternStrings)
+        var filterQ={...filter}
+        filterQ.list_pattern=patternStrings
+        setFilter(filterQ)
+    }
+    else if(e.target.checked==false){
+        var patternStrings=checkedCategory
+        var indexOfPattern=patternStrings.indexOf(String(pattern_name))
+        patternStrings.splice(indexOfPattern,1)
+        //console.log(numbers)
+        setCheckedPatterns(patternStrings)
+        var filterQ={...filter}
+        filterQ.list_pattern=patternStrings
+        setFilter(filterQ)
+    }
+    //console.log(filterQ)
+    
+  }
   useEffect(() => {
     Dimensions.addEventListener('change',onChange)
     const parsed = queryString.parse(props.location.search);
@@ -804,7 +853,7 @@ function Brands(props) {
                                             //left:0,
                                             
                                         }}
-                                        onChange={(e)=>checkboxClicked(index,e,color.code_name,color.code_text)}
+                                        onChange={(e)=>colorCheckboxClicked(index,e,color.code_name,color.code_text)}
                                 
                                 ></input>
 
@@ -943,7 +992,7 @@ function Brands(props) {
                                             //left:0,
                                             
                                         }}
-                                        onChange={(e)=>checkboxClicked(index,e,pattern.code_name,pattern.code_text)}
+                                        onChange={(e)=>patternCheckboxClicked(index,e,pattern.code_name,pattern.code_text)}
                                 
                                 ></input>
 
