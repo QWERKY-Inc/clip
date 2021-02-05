@@ -30,6 +30,8 @@ function Brands(props) {
   const [brandOpened, setBrandOpened]=React.useState(false)
   const [colorOpened, setColorOpened]=React.useState(false)
   const [patternOpened, setPatternOpened]=React.useState(false)
+  const [filter,setFilter]=React.useState({})
+  const [checkedCategory, setCheckedCategory]=React.useState([])
 
 
   const firstPage=(jsonObj)=>{
@@ -59,13 +61,39 @@ function Brands(props) {
       console.log(category_name)
       console.log(e.target.checked)
   }
+  const categoryCheckboxClicked=(index,e,category_name,category_text)=>{
+    //console.log('clicked')
+    if(e.target.checked==true){
+        var numbers=checkedCategory
+        numbers.push(category_name)
+        //console.log(numbers)
+        setCheckedCategory(numbers)
+        var filterQ={...filter}
+        filterQ.list_category=numbers
+        setFilter(filterQ)
+    }
+    else if(e.target.checked==false){
+        var numbers=checkedCategory
+        var indexOfCategory=numbers.indexOf(category_name)
+        numbers.splice(indexOfCategory,1)
+        //console.log(numbers)
+        setCheckedCategory(numbers)
+        var filterQ={...filter}
+        filterQ.list_category=numbers
+        setFilter(filterQ)
+    }
+    //console.log(filterQ)
+    
+  }
   useEffect(() => {
     Dimensions.addEventListener('change',onChange)
     const parsed = queryString.parse(props.location.search);
     console.log(parsed.ct_id==undefined)
     firstPage(parsed)
-    
   },[])
+  useEffect(() => {
+    console.log(filter)
+  },[filter])
   if(originalSearchData!=undefined){
 
     return (
@@ -285,7 +313,10 @@ function Brands(props) {
                                                 //left:0,
                                                 
                                             }}
-                                            onChange={(e)=>checkboxClicked(index,e,category.code_name,category.code_text)}
+                                            onChange={(e)=>
+                                                // checkboxClicked(index,e,category.code_name,category.code_text)
+                                                categoryCheckboxClicked(index,e,category.code_name,category.code_text)
+                                            }
                                     
                                     ></input>
 
