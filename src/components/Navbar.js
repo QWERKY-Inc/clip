@@ -158,7 +158,7 @@ const Navbar=() => {
     setBrandsDropDown(!brandsDropDown)
   }
   const toggleCategoryDropDown=()=>{
-    console.log('brandsDropDown toggled')
+    console.log('categoryDropDown toggled')
     setBrandsDropDown(false)
     setUseDropDown(false)
     setCategoryDropDown(!categoryDropDown)
@@ -1051,7 +1051,7 @@ const Navbar=() => {
                       </Text>
                       </a>
                   </TouchableOpacity>
-                  <CategoryDropDown toggleUseDropDown={toggleUseDropDown}/>
+                  <UseDropDown toggleUseDropDown={toggleUseDropDown}/>
                   <TouchableOpacity
                         className="linkTo"
                         style={{

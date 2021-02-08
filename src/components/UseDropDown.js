@@ -8,7 +8,7 @@ const queryString = require('query-string');
 function UseDropDown(props) {
   // var bestProducts
   var subUse=[]
-  const[useData,setUseData]=React.useState([])
+  const[usageData,setUsageData]=React.useState([])
   const[detailedUseData,setDetailedUseData]=React.useState({})
   const [height,setHeight]=React.useState(Dimensions.get('window').height)
   const [width,setWidth]=React.useState(Dimensions.get('window').width)
@@ -24,18 +24,18 @@ function UseDropDown(props) {
     .then(res=>res.json())
     .then((incomingData)=>{
       // console.log(incomingData)
-      setUseData(incomingData)
+      setUsageData(incomingData)
     })
     .catch(err=>{
         console.log(err)
     })
   
   }
-  const useList=()=>{
+  const usageList=()=>{
     fetch('/wholeuselist')
     .then(res=>res.json())
     .then((incomingData)=>{
-      setUseData(incomingData)
+      setUsageData(incomingData)
     })
     .catch(err=>{
       console.log(err)
@@ -45,8 +45,8 @@ function UseDropDown(props) {
   const detailedUseDataObject = function(){
     var data=[]
     // if(detailedUseData.length==0){
-      console.log('fetch call for use')
-      UseData.map((oneUse,index)=>{
+      console.log('fetch call for usage')
+      usageData.map((oneUse,index)=>{
         fetch('/uselist?'+
           queryString.stringify({
             ct_depth:3,
@@ -87,7 +87,7 @@ function UseDropDown(props) {
   useEffect(() => {
     Dimensions.addEventListener('change',onChange)
     //outerUse()
-    useList()
+    usageList()
   },[])
 
   useEffect(()=>{
@@ -123,14 +123,14 @@ function UseDropDown(props) {
     // }
 
     // setDetailedUseData(detailedUseDataArray)
-    console.log(useData)
-    //detaileduseDataObject()
-  },[useData])
+    console.log(usageData)
+    //detailedusageDataObject()
+  },[usageData])
   
   // useEffect(()=>{
   //   console.log(detaileduseData)
   // },[detaileduseData])
-  if(useData){
+  if(usageData){
     return (
       <div
       style={{
@@ -202,7 +202,7 @@ function UseDropDown(props) {
             pointerEvents:'none'
           }}
         >
-          자재카테고리
+          사공부위
         </Text>
        
       </div>
@@ -235,7 +235,7 @@ function UseDropDown(props) {
       }}
       >
       {/* {detaileduseData.map((use)=> */}
-      {useData.map((use,index)=>
+      {usageData.map((usage,index)=>
     
       
       <div>
@@ -252,7 +252,7 @@ function UseDropDown(props) {
                 // onPress={() => 
                 //   Linking.openURL(`/brands?ct_id=${brand.ct_id}`)
                 // }
-                onPress={() => Linking.openURL(`/searchPage?search_target=USE_DEPTH1&search_value=${use.ct_id}`)}
+                onPress={() => Linking.openURL(`/searchPage?search_target=USE_DEPTH1&search_value=${usage.ct_id}`)}
               >
         <Text
           style ={{
@@ -271,7 +271,7 @@ function UseDropDown(props) {
             // marginTop:100
         }}
         >
-          {use.ct_text}
+          {usage.ct_text}
         </Text>
         </TouchableOpacity> 
         <div
@@ -279,7 +279,7 @@ function UseDropDown(props) {
             flexDirection:'column'
           }}
         >
-        {useData[index].children.map((child,jndex)=>
+        {usageData[index].children.map((child,jndex)=>
           <div
             style={{
               paddingTop:'7px'
