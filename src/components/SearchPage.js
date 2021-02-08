@@ -42,6 +42,7 @@ function Brands(props) {
   const [checkedColors,setCheckedColors]=React.useState([])
   const [checkedPatterns,setCheckedPatterns]=React.useState([])
   const [activePage,setActivePage]=React.useState(1)
+  const [endPage,setEndPage]=React.useState(1)
 
   const firstPage=(jsonObj)=>{
     console.log(jsonObj)
@@ -65,6 +66,7 @@ function Brands(props) {
     fetch('/detailedsearch?'+
     queryString.stringify({
            pagination:true,
+        //    page:activePage,
           ...jsonObj
             }
         )
@@ -74,6 +76,7 @@ function Brands(props) {
     .then((incomingData)=>{
         console.log(incomingData)
         setSecondSearchData(incomingData)
+        //setEndPage(incomingData.pageInfo.totalPage)
         })
     .catch(err=>{
         console.log(err)
@@ -88,11 +91,18 @@ function Brands(props) {
     //   if(document.body.offsetHeight+document.body.scrollTop===document.body.scrollHeight){
 
     //   }
-      const position=window.innerHeight+window.pageYOffset;
-    //   console.log(position+'/'+document.body.scrollHeight+' reached')
-      if(position>=document.body.scrollHeight){
-          console.log("bottom reached")
-      }
+    const position=window.innerHeight+window.pageYOffset;
+    // console.log(position+'/'+document.body.scrollHeight+' reached')
+    if(secondSearchData!=undefined){
+        if(position>=document.body.scrollHeight){
+            //if(activePage<secondSearchData.pageInfo.totalPage){
+            // if(activePage<endPage) {
+                console.log(activePage+ " / "+endPage )
+                setActivePage(activePage+1)
+            //   }
+            //console.log(secondSearchData.pageInfo)
+        }
+    }
   }
 
   const checkboxClicked=(index,e,category_name,category_text)=>{
@@ -246,15 +256,21 @@ function Brands(props) {
     // )
   },[])
   useEffect(()=>{
+    console.log(activePage)
+  },[activePage])
+
+  useEffect(()=>{
     var filterQ={...filter}
     filterQ.material_scope=materialScope
     setFilter(filterQ)
   },[materialScope])
+
   useEffect(()=>{
     var filterQ={...filter}
     filterQ.sort_method=sortMethod
     setFilter(filterQ)
   },[sortMethod])
+
   useEffect(() => {
     //console.log({...queryString.parse(props.location.search),...filter})
     const parsed = {...queryString.parse(props.location.search),...filter}
