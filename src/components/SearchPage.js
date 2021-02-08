@@ -27,6 +27,7 @@ function Brands(props) {
   const [width,setWidth]=React.useState(Dimensions.get('window').width)
   const [checked, setChecked] = React.useState('first');
   const [materialScope,setMaterialScope]=React.useState('ALL')
+  const [sortMethod,setSortMethod]=React.useState('RANKING')
   const [categoryOpened, setCategoryOpened]=React.useState(false)
   const [useOpened, setUseOpened]=React.useState(false)
   const [brandOpened, setBrandOpened]=React.useState(false)
@@ -85,7 +86,12 @@ function Brands(props) {
       console.log(category_name)
       console.log(e.target.checked)
   }
-  
+  const sortMethodSelected=(e)=>{
+    setSortMethod(e.target.options[e.target.selectedIndex].value)
+    var filterQ={...filter}
+    filterQ.sort_method=e.target.options[e.target.selectedIndex].value
+    setFilter(filterQ)
+  }
   const categoryCheckboxClicked=(index,e,category_name,category_text)=>{
     //console.log('clicked')
     if(e.target.checked==true){
@@ -222,6 +228,11 @@ function Brands(props) {
     filterQ.material_scope=materialScope
     setFilter(filterQ)
   },[materialScope])
+  useEffect(()=>{
+    var filterQ={...filter}
+    filterQ.sort_method=sortMethod
+    setFilter(filterQ)
+  },[sortMethod])
   useEffect(() => {
     //console.log({...queryString.parse(props.location.search),...filter})
     const parsed = {...queryString.parse(props.location.search),...filter}
@@ -1058,13 +1069,41 @@ function Brands(props) {
                     }}
 
                 >
-                    <Text
+                    <View
                         style={{
-                            fontSize:'20px'
+                            position:'relative',
+                            display:'flex',
+                            flexDirection:'row'
                         }}
                     >
-                        검색 결과
-                    </Text>
+                        <Text
+                            style={{
+                                fontSize:'20px'
+                            }}
+                        >
+                            검색 결과
+                        </Text>
+                        <View
+                            style={{
+                                position:'absolute',
+                                backgroundColor:'red',
+                                right:0,
+                            }}
+                        >
+                            <select name="sort_method" id="sort_method"
+                            onChange={(e)=>{
+                                //console.log("select changed")
+                                //console.log(e.target.options[e.target.selectedIndex].value)
+                                //sortMethodSelected(e)
+                                setSortMethod(e.target.options[e.target.selectedIndex].value)
+                            }}
+                            >
+                                <option value="RANKING">인기순</option>
+                                <option value="m.mt_budget asc">가격 오름차순</option>
+                                <option value="m.mt_budget desc">가격 내림차순</option>
+                            </select>
+                        </View>
+                    </View>
                     <View
                         style={{
                             flexwrap:'wrap',
