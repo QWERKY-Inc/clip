@@ -225,6 +225,52 @@ app.get('/wholecategorylist',(req,res)=>{
         console.log(err)
     })
 })
+app.get('/wholeuselist',(req,res)=>{
+    var wholeData=[]
+    // console.log(req.query)
+    fetch('http://clip.partners/api/mobile/Category?table=CATEGORY&ct_depth=2&ct_parent=2')
+    .then(res=>res.json())
+    .then(data=>{
+        data.map((oneUse,index)=>{
+            fetch('http://clip.partners/api/mobile/Category?'+
+              queryString.stringify({
+                table:'CATEGORY',
+                ct_depth:3,
+                ct_parent:oneUse.ct_id
+              })
+            )
+            .then(res=>res.json())
+            .then((childrenData)=>{
+            //   console.log(oneCategory)
+            //   console.log(childrenData)
+              wholeData.push({...oneUse,children:childrenData})
+             // wholeData[index]=childrenData
+            })
+            .then(()=>{
+                if(wholeData.length==data.length){
+                    console.log(index+'/'+data.length)
+                    console.log('test end reached')
+                    res.json(wholeData.sort(function(a,b){
+                        return a.ct_text-b.ct_text
+                    }));
+                }
+                else{
+                    console.log(index+'/'+data.length)
+                    
+                }
+                
+                
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+        })
+        
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
 app.get('/search',(req,res)=>{
     // console.log('http://clip.partners/api/mobile/Material?'+queryString.stringify(req.query))
     //console.log(queryString.stringify(req.query))
