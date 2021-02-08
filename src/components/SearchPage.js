@@ -9,6 +9,8 @@ import { RadioButton } from 'react-native-paper';
 import plusIcon from '../assets/plus.png';
 import minusIcon from '../assets/minus.png'
 import './searchpage.css'
+// import Pagination from "react-js-pagination";
+// import ReactPaginate from 'react-paginate';
 // import { red100 } from 'react-native-paper/lib/typescript/styles/colors';
 
 // import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
@@ -39,6 +41,7 @@ function Brands(props) {
   const [checkedBrand,setCheckedBrand]=React.useState([])
   const [checkedColors,setCheckedColors]=React.useState([])
   const [checkedPatterns,setCheckedPatterns]=React.useState([])
+  const [activePage,setActivePage]=React.useState(1)
 
   const firstPage=(jsonObj)=>{
     console.log(jsonObj)
@@ -81,6 +84,17 @@ function Brands(props) {
     setWidth(Dimensions.get('window').width)
     // console.log(height+" : "+width)
   }
+  const onScroll=()=>{
+    //   if(document.body.offsetHeight+document.body.scrollTop===document.body.scrollHeight){
+
+    //   }
+      const position=window.innerHeight+window.pageYOffset;
+    //   console.log(position+'/'+document.body.scrollHeight+' reached')
+      if(position>=document.body.scrollHeight){
+          console.log("bottom reached")
+      }
+  }
+
   const checkboxClicked=(index,e,category_name,category_text)=>{
       //console.log('clicked')
       console.log(category_name)
@@ -212,8 +226,16 @@ function Brands(props) {
     //console.log(filterQ)
     
   }
+  const handlePageClick=(pageNumber)=>{
+    // let page=data.selectedIndex
+    var filterQ={...filter}
+    filterQ.page=pageNumber
+    setFilter(filterQ)
+    setActivePage(pageNumber)
+  }
   useEffect(() => {
     Dimensions.addEventListener('change',onChange)
+    window.addEventListener('scroll',onScroll,{passive:true})
     const parsed = queryString.parse(props.location.search);
     console.log(parsed.ct_id==undefined)
     firstPage(parsed)
@@ -449,6 +471,7 @@ function Brands(props) {
                                     }}
                                 >
                                     <div
+                                        className='checkContainer'
                                         style={{
                                             backgroundColor:'transparent',
                                             height:'25px',
@@ -459,13 +482,16 @@ function Brands(props) {
 
                                         }}
                                     >   
-                                     <input type="checkbox" 
+                                     <input 
+                                            className='checkbox'
+                                            type="checkbox" 
                                             id={category.code_name}
                                             style={{
                                                 height:'20px',
-                                                width:'20px'
+                                                width:'20px',
                                                 // flex:1,
                                                 //left:0,
+                                                // backgroundColor: 'orange'
                                                 
                                             }}
                                             onChange={(e)=>
@@ -474,7 +500,7 @@ function Brands(props) {
                                             }
                                     
                                     ></input>
-
+                                    
                                     </div>
                                    <div
                                         style={{
@@ -1097,6 +1123,9 @@ function Brands(props) {
                                 //sortMethodSelected(e)
                                 setSortMethod(e.target.options[e.target.selectedIndex].value)
                             }}
+                            style={{
+                                borderColor: '#fff transparent transparent transparent'
+                            }}
                             >
                                 <option value="RANKING">인기순</option>
                                 <option value="m.mt_budget asc">가격 오름차순</option>
@@ -1215,6 +1244,26 @@ function Brands(props) {
                     </View>
                     )}
                     </View>
+                    {/* <ReactPaginate
+                        previousLabel={'previous'}
+                        nextLabel={'next'}
+                        breakLabel={'...'}
+                        breakClassName={'break-me'}
+                        pageCount={secondSearchData.pageInfo.totalCount}
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={5}
+                        onPageChange={handlePageClick}
+                        containerClassName={'pagination'}
+                        subContainerClassName={'pages pagination'}
+                        activeClassName={'active'}
+                    /> */}
+                    {/* <Pagination
+                    activePage={activePage}
+                    itemsCountPerPage={10}
+                    totalItemsCount={450}
+                    pageRangeDisplayed={5}
+                    onChange={handlePageClick}
+                    /> */}
                 </View>
             </div>
         </div>

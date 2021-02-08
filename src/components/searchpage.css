@@ -2,3 +2,9 @@
     width:calc(100vw-200px);
     height:100vh;
 }
+input:checked ~ .checkbox{
+    background-color: rgb(255,123,88)
+}
+input[type="checkbox"]:checked{
+    background-color: rgb(255,123,88)
+}
