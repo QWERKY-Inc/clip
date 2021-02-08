@@ -26,6 +26,7 @@ function Brands(props) {
   const [height,setHeight]=React.useState(Dimensions.get('window').height)
   const [width,setWidth]=React.useState(Dimensions.get('window').width)
   const [checked, setChecked] = React.useState('first');
+  const [materialScope,setMaterialScope]=React.useState('ALL')
   const [categoryOpened, setCategoryOpened]=React.useState(false)
   const [useOpened, setUseOpened]=React.useState(false)
   const [brandOpened, setBrandOpened]=React.useState(false)
@@ -216,6 +217,11 @@ function Brands(props) {
     //     {mem_no: "63", search_target: null, search_value: null, list_color: ["GOLDSILVER","RED","BLACK"], list_pattern: ["METAL","SOLID","GEOMETRIC"], list_brand: ["62","101"], list_category: ["45"], list_use: ["56","9"], pagination: true, page: 1}
     // )
   },[])
+  useEffect(()=>{
+    var filterQ={...filter}
+    filterQ.material_scope=materialScope
+    setFilter(filterQ)
+  },[materialScope])
   useEffect(() => {
     //console.log({...queryString.parse(props.location.search),...filter})
     const parsed = {...queryString.parse(props.location.search),...filter}
@@ -246,7 +252,8 @@ function Brands(props) {
                         }}
                     >
                         <TouchableOpacity
-                            onPress={() => setChecked('first')}
+                            // onPress={() => setChecked('first')}
+                            onPress={() => setMaterialScope('ALL')}
                             style={{
                                 width:'150px',
                                 textAlign:'left'
@@ -258,8 +265,10 @@ function Brands(props) {
                         </TouchableOpacity>
                         <RadioButton
                             value="first"
-                            status={ checked === 'first' ? 'checked' : 'unchecked' }
-                            onPress={() => setChecked('first')}
+                            // status={ checked === 'first' ? 'checked' : 'unchecked' }
+                            // onPress={() => setChecked('first')}
+                            status={ materialScope === 'ALL' ? 'checked' : 'unchecked' }
+                            onPress={() => setMaterialScope('ALL')}
                             color="rgb(255,123,88)"
                         />
                     </View>
@@ -273,7 +282,8 @@ function Brands(props) {
                         }}
                     >
                         <TouchableOpacity
-                            onPress={() => setChecked('second')}
+                            //onPress={() => setChecked('second')}
+                            onPress={() => setMaterialScope('DELIVERYABLE')}
                             style={{
                                 width:'150px',
                                 textAlign:'left'
@@ -286,8 +296,10 @@ function Brands(props) {
                     
                     <RadioButton
                         value="second"
-                        status={ checked === 'second' ? 'checked' : 'unchecked' }
-                        onPress={() => setChecked('second')}
+                        // status={ checked === 'second' ? 'checked' : 'unchecked' }
+                        // onPress={() => setChecked('second')}
+                        status={ materialScope === 'DELIVERYABLE' ? 'checked' : 'unchecked' }
+                        onPress={() => setMaterialScope('DELIVERYABLE')}
                         color="rgb(255,123,88)"
                     />
                     </View>
@@ -302,7 +314,8 @@ function Brands(props) {
                         }}
                     >
                         <TouchableOpacity
-                            onPress={() => setChecked('third')}
+                            // onPress={() => setChecked('third')}
+                            onPress={() => setMaterialScope('ONLY_CLIPDELIVERY')}
                             style={{
                                 width:'150px',
                                 textAlign:'left'
@@ -314,8 +327,10 @@ function Brands(props) {
                         </TouchableOpacity>
                     <RadioButton
                         value="third"
-                        status={ checked === 'third' ? 'checked' : 'unchecked' }
-                        onPress={() => setChecked('third')}
+                        // status={ checked === 'third' ? 'checked' : 'unchecked' }
+                        // onPress={() => setChecked('third')}
+                        status={ materialScope === 'ONLY_CLIPDELIVERY' ? 'checked' : 'unchecked' }
+                        onPress={() => setMaterialScope('ONLY_CLIPDELIVERY')}
                         color="rgb(255,123,88)"
                     />
                     </View>
