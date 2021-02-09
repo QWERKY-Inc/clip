@@ -2,6 +2,7 @@ import React,{useEffect} from 'react';
 import Navbar from './Navbar';
 import Content from './Content';
 import NavBarFiller from './NavBarFiller';
+import Pagination from './Pagination'
 import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking,Dimensions} from 'react-native';
 //import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 //import { Carousel } from 'react-responsive-carousel';
@@ -118,6 +119,7 @@ function Brands(props) {
   }
   const categoryCheckboxClicked=(index,e,category_name,category_text)=>{
     //console.log('clicked')
+    setActivePage(1)
     if(e.target.checked==true){
         var numbers=checkedCategory
         numbers.push(String(category_name))
@@ -125,6 +127,7 @@ function Brands(props) {
         setCheckedCategory(numbers)
         var filterQ={...filter}
         filterQ.list_category=numbers
+        filterQ.page=1
         setFilter(filterQ)
     }
     else if(e.target.checked==false){
@@ -135,6 +138,7 @@ function Brands(props) {
         setCheckedCategory(numbers)
         var filterQ={...filter}
         filterQ.list_category=numbers
+        filterQ.page=1
         setFilter(filterQ)
     }
     //console.log(filterQ)
@@ -142,6 +146,7 @@ function Brands(props) {
   }
   const useageCheckboxClicked=(index,e,use_name,use_text)=>{
     //console.log('clicked')
+    setActivePage(1)
     if(e.target.checked==true){
         var numbers=checkedUse
         numbers.push(String(use_name))
@@ -149,6 +154,7 @@ function Brands(props) {
         setCheckedUse(numbers)
         var filterQ={...filter}
         filterQ.list_use=numbers
+        filterQ.page=1
         setFilter(filterQ)
     }
     else if(e.target.checked==false){
@@ -159,6 +165,7 @@ function Brands(props) {
         setCheckedUse(numbers)
         var filterQ={...filter}
         filterQ.list_use=numbers
+        filterQ.page=1
         setFilter(filterQ)
     }
     //console.log(filterQ)
@@ -166,6 +173,7 @@ function Brands(props) {
   }
   const brandCheckboxClicked=(index,e,brand_name,brand_text)=>{
     //console.log('clicked')
+    setActivePage(1)
     if(e.target.checked==true){
         var numbers=checkedBrand
         numbers.push(String(brand_name))
@@ -173,6 +181,7 @@ function Brands(props) {
         setCheckedBrand(numbers)
         var filterQ={...filter}
         filterQ.list_brand=numbers
+        filterQ.page=1
         setFilter(filterQ)
     }
     else if(e.target.checked==false){
@@ -183,6 +192,7 @@ function Brands(props) {
         setCheckedBrand(numbers)
         var filterQ={...filter}
         filterQ.list_use=numbers
+        filterQ.page=1
         setFilter(filterQ)
     }
     //console.log(filterQ)
@@ -190,6 +200,7 @@ function Brands(props) {
   }
   const colorCheckboxClicked=(index,e,color_name,color_text)=>{
     //console.log('clicked')
+    setActivePage(1)
     if(e.target.checked==true){
         var colorStrings=checkedColors
         colorStrings.push(String(color_name))
@@ -197,6 +208,7 @@ function Brands(props) {
         setCheckedColors(colorStrings)
         var filterQ={...filter}
         filterQ.list_color=colorStrings
+        filterQ.page=1
         setFilter(filterQ)
     }
     else if(e.target.checked==false){
@@ -207,6 +219,7 @@ function Brands(props) {
         setCheckedColors(colorStrings)
         var filterQ={...filter}
         filterQ.list_color=colorStrings
+        filterQ.page=1
         setFilter(filterQ)
     }
     //console.log(filterQ)
@@ -214,6 +227,7 @@ function Brands(props) {
   }
   const patternCheckboxClicked=(index,e,pattern_name,pattern_text)=>{
     //console.log('clicked')
+    setActivePage(1)
     if(e.target.checked==true){
         var patternStrings=checkedPatterns
         patternStrings.push(String(pattern_name))
@@ -221,6 +235,7 @@ function Brands(props) {
         setCheckedPatterns(patternStrings)
         var filterQ={...filter}
         filterQ.list_pattern=patternStrings
+        filterQ.page=1
         setFilter(filterQ)
     }
     else if(e.target.checked==false){
@@ -231,21 +246,35 @@ function Brands(props) {
         setCheckedPatterns(patternStrings)
         var filterQ={...filter}
         filterQ.list_pattern=patternStrings
+        filterQ.page=1
         setFilter(filterQ)
     }
     //console.log(filterQ)
     
   }
-  const handlePageClick=(pageNumber)=>{
+  const currentPageTo=(pageNumber)=>{
     // let page=data.selectedIndex
-    var filterQ={...filter}
-    filterQ.page=pageNumber
-    setFilter(filterQ)
     setActivePage(pageNumber)
   }
+  const leftPageJump=()=>{
+      if(activePage-3>1){
+          setActivePage(activePage-3)
+      }
+      else{
+          setActivePage(1)
+      }
+  }
+  const rightPageJump=()=>{
+    if(secondSearchData.pageInfo.totalPage<activePage+3){
+        setActivePage(secondSearchData.pageInfo.totalPage)
+    }
+    else{
+        setActivePage(activePage+3)
+    }
+}
   useEffect(() => {
     Dimensions.addEventListener('change',onChange)
-    window.addEventListener('scroll',onScroll,{passive:true})
+    //window.addEventListener('scroll',onScroll,{passive:true})
     const parsed = queryString.parse(props.location.search);
     console.log(parsed.ct_id==undefined)
     firstPage(parsed)
@@ -257,6 +286,9 @@ function Brands(props) {
   },[])
   useEffect(()=>{
     console.log(activePage)
+    var filterQ={...filter}
+    filterQ.page=activePage
+    setFilter(filterQ)
   },[activePage])
 
   useEffect(()=>{
@@ -277,8 +309,9 @@ function Brands(props) {
     secondPage(parsed)
     // var testObj= {mem_no: "63", keyword: "시트", search_target: null, search_value: null, list_color: ["GOLDSILVER","RED","BLACK"], list_pattern: ["METAL","SOLID","GEOMETRIC"], list_brand: ["62","101"], list_category: ["45"], list_use: ["56","9"], material_scope: "ALL", pagination: true, page: 1}
     // secondPage(testObj)
+    console.log(filter.page)
 },[filter])
-  if(secondSearchData!=undefined&&originalSearchData!=undefined){
+  if(secondSearchData!=undefined && originalSearchData!=undefined){
 
     return (
         <div>
@@ -1128,7 +1161,7 @@ function Brands(props) {
                         <View
                             style={{
                                 position:'absolute',
-                                backgroundColor:'red',
+                                backgroundColor:'transparent',
                                 right:0,
                             }}
                         >
@@ -1259,6 +1292,19 @@ function Brands(props) {
                     </View>
                     </View>
                     )}
+                    
+                    </View>
+                    <View
+                        style={{
+                            position:'relative',
+                            display:'flex',
+                            flexDirection:'row',
+                            alignItems:'center',
+                            justifyContent:'center',
+                            backgroundColor:'transparent'
+                        }}
+                    >
+                        <Pagination currentPage={activePage} leftPageJump={leftPageJump} rightPageJump={rightPageJump} currentPageTo={currentPageTo} endPage={secondSearchData.pageInfo.totalPage}/>
                     </View>
                     {/* <ReactPaginate
                         previousLabel={'previous'}
