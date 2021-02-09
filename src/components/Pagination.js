@@ -19,9 +19,17 @@ function Pagination(props) {
             array.push(i)
         }
         if(array.indexOf(1)!=-1){
+            for(var i=0;i<array.indexOf(1)+1;i++){
+                array.push(array[array.length-1]+1)
+            }
             array=array.splice(array.indexOf(1)+1)
         }
         if(array.indexOf(props.endPage)!=-1){
+            for(var i=0;i<array.length-array.indexOf(props.endPage);i++){
+                if(array[0]-1>1){
+                    array.unshift(array[0]-1)
+                } 
+            }
             array.splice(array.indexOf(props.endPage))
         }
         setBetweenPages(array.slice())
@@ -37,64 +45,23 @@ function Pagination(props) {
     const handleMoveRight = function(){
         setCurrentPage(currentPage+(pageNeighbours*2-1))
     }
-    return(
-        <div
-            style={{
-                position:'relative',
-                display:'flex',
-                flexDirection:'row',
-                backgroundColor:'transparent',
-                padding:'15px'
-            }}
-        >
-            <TouchableOpacity
-            onPress={()=>{
-                props.currentPageTo(1)
-              }}
-              style={{
-                backgroundColor:1==currentPage?'rgb(255,123,88)':'transparent',
-                border:'1px solid rgb(255,123,88)',
-                width:'30px',
-                height:'30px',
-                justifyContent:'center',
-                alignItems:'center',
-                textAlign:'center',
-                padding:'auto'
-            }}
-              
-              >
-                <Text
-                    
-                >
-                    1
-                </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
+    if(endPage!=1){
+        return(
+            <div
                 style={{
+                    position:'relative',
+                    display:'flex',
+                    flexDirection:'row',
                     backgroundColor:'transparent',
-                    border:'1px solid rgb(255,123,88)',
-                    width:'30px',
-                    height:'30px',
-                    justifyContent:'center',
-                    alignItems:'center',
-                    textAlign:'center',
-
+                    padding:'15px'
                 }}
-                onPress={()=>{
-                props.leftPageJump()
-              }}>
-                <Text>
-                    &lt;
-                </Text>
-            </TouchableOpacity>
-
-            {betweenPages.map((pageNumber,index)=>
+            >
                 <TouchableOpacity
                 onPress={()=>{
-                    props.currentPageTo(pageNumber)
-                    }}
-                    style={{
-                    backgroundColor:pageNumber==currentPage?'rgb(255,123,88)':'transparent',
+                    props.currentPageTo(1)
+                }}
+                style={{
+                    backgroundColor:1==currentPage?'rgb(255,123,88)':'transparent',
                     border:'1px solid rgb(255,123,88)',
                     width:'30px',
                     height:'30px',
@@ -103,54 +70,104 @@ function Pagination(props) {
                     textAlign:'center',
                     padding:'auto'
                 }}
-                    
+                
+                >
+                    <Text
+                        
                     >
-                    <Text>
-                        {pageNumber}
+                        1
                     </Text>
                 </TouchableOpacity>
-            )}
+                <TouchableOpacity
+                    style={{
+                        backgroundColor:'transparent',
+                        border:'1px solid rgb(255,123,88)',
+                        width:'30px',
+                        height:'30px',
+                        justifyContent:'center',
+                        alignItems:'center',
+                        textAlign:'center',
 
-            <TouchableOpacity
-                style={{
-                    backgroundColor:'transparent',
-                    border:'1px solid rgb(255,123,88)',
-                    width:'30px',
-                    height:'30px',
-                    justifyContent:'center',
-                    alignItems:'center',
-                    textAlign:'center',
-
-                }}
-                onPress={()=>{
-                    props.rightPageJump()
+                    }}
+                    onPress={()=>{
+                    props.leftPageJump()
                 }}>
-                <Text>
-                    &gt;
-                </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-                style={{
-                    backgroundColor:endPage==currentPage?'rgb(255,123,88)':'transparent',
-                    border:'1px solid rgb(255,123,88)',
-                    width:'30px',
-                    height:'30px',
-                    justifyContent:'center',
-                    alignItems:'center',
-                    textAlign:'center',
+                    <Text>
+                        &lt;
+                    </Text>
+                </TouchableOpacity>
 
+                {betweenPages.map((pageNumber,index)=>
+                    <TouchableOpacity
+                    onPress={()=>{
+                        props.currentPageTo(pageNumber)
+                        }}
+                        style={{
+                        backgroundColor:pageNumber==currentPage?'rgb(255,123,88)':'transparent',
+                        border:'1px solid rgb(255,123,88)',
+                        width:'30px',
+                        height:'30px',
+                        justifyContent:'center',
+                        alignItems:'center',
+                        textAlign:'center',
+                        padding:'auto'
+                    }}
+                        
+                        >
+                        <Text>
+                            {pageNumber}
+                        </Text>
+                    </TouchableOpacity>
+                )}
+
+                <TouchableOpacity
+                    style={{
+                        backgroundColor:'transparent',
+                        border:'1px solid rgb(255,123,88)',
+                        width:'30px',
+                        height:'30px',
+                        justifyContent:'center',
+                        alignItems:'center',
+                        textAlign:'center',
+
+                    }}
+                    onPress={()=>{
+                        props.rightPageJump()
+                    }}>
+                    <Text>
+                        &gt;
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={{
+                        backgroundColor:endPage==currentPage?'rgb(255,123,88)':'transparent',
+                        border:'1px solid rgb(255,123,88)',
+                        width:'30px',
+                        height:'30px',
+                        justifyContent:'center',
+                        alignItems:'center',
+                        textAlign:'center',
+
+                    }}
+                    onPress={()=>{
+                    props.currentPageTo(endPage)
                 }}
-                onPress={()=>{
-                props.currentPageTo(endPage)
-              }}
-            >
-                <Text>
-                    {endPage}
-                </Text>
-            </TouchableOpacity>
-        </div>
+                >
+                    <Text>
+                        {endPage}
+                    </Text>
+                </TouchableOpacity>
+            </div>
 
-    )
-
+        )
+    }
+    else{
+        return(
+            <Text>
+                1
+            </Text>
+        )
+        
+    }
 }
 export default Pagination;
