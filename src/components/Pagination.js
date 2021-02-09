@@ -163,9 +163,28 @@ function Pagination(props) {
     }
     else{
         return(
-            <Text>
-                1
-            </Text>
+            <TouchableOpacity
+                onPress={()=>{
+                    props.currentPageTo(1)
+                }}
+                style={{
+                    backgroundColor:1==currentPage?'rgb(255,123,88)':'transparent',
+                    border:'1px solid rgb(255,123,88)',
+                    width:'30px',
+                    height:'30px',
+                    justifyContent:'center',
+                    alignItems:'center',
+                    textAlign:'center',
+                    padding:'auto'
+                }}
+                
+                >
+                    <Text
+                        
+                    >
+                        1
+                    </Text>
+                </TouchableOpacity>
         )
         
     }
