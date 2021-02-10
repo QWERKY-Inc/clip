@@ -214,7 +214,7 @@ function Brands(props) {
         setFilter(filterQ)
     }
     else if(e.target.checked==false){
-        var colorStrings=checkedCategory
+        var colorStrings=checkedColors
         var indexOfColor=colorStrings.indexOf(String(color_name))
         colorStrings.splice(indexOfColor,1)
         //console.log(numbers)
@@ -241,7 +241,7 @@ function Brands(props) {
         setFilter(filterQ)
     }
     else if(e.target.checked==false){
-        var patternStrings=checkedCategory
+        var patternStrings=checkedPatterns
         var indexOfPattern=patternStrings.indexOf(String(pattern_name))
         patternStrings.splice(indexOfPattern,1)
         //console.log(numbers)
