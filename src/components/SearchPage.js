@@ -1248,7 +1248,7 @@ function Brands(props) {
                                     left:'2px',
                                     fontWeight:50,
                                     fontSize:'12px',
-                                    color:secondSearchData.resultList[index].mt_budget<=1 ? 'rgb(85,85,85)':'black' 
+                                    color:secondSearchData.resultList[index].mt_budget<=1 ? 'rgb(219,219,219)':'black' 
                                 }}
                             >₩</Text>
                            <Text
@@ -1259,7 +1259,7 @@ function Brands(props) {
                                     left:'12px',
                                     fontWeight:50,
                                     fontSize:'12px',
-                                    color:secondSearchData.resultList[index].mt_budget<=2 ? 'rgb(85,85,85)':'black'
+                                    color:secondSearchData.resultList[index].mt_budget<=2 ? 'rgb(219,219,219)':'black'
                                 }}
                             >₩</Text>
                             <Text
@@ -1270,7 +1270,7 @@ function Brands(props) {
                                     left:'22px',
                                     fontWeight:50,
                                     fontSize:'12px',
-                                    color:secondSearchData.resultList[index].mt_budget<=3 ? 'rgb(85,85,85)':'black'
+                                    color:secondSearchData.resultList[index].mt_budget<=3 ? 'rgb(219,219,219)':'black'
                                 }}
                             >₩</Text>
                             <Text
@@ -1281,7 +1281,7 @@ function Brands(props) {
                                     left:'32px',
                                     fontWeight:50,
                                     fontSize:'12px',
-                                    color:secondSearchData.resultList[index].mt_budget<=4 ? 'rgb(85,85,85)':'black'
+                                    color:secondSearchData.resultList[index].mt_budget<=4 ? 'rgb(219,219,219)':'black'
                                 }}
                             >₩</Text>
                             <Text
@@ -1292,7 +1292,7 @@ function Brands(props) {
                                     left:'42px',
                                     fontWeight:50,
                                     fontSize:'12px',
-                                    color:secondSearchData.resultList[index].mt_budget<=5 ? 'rgb(85,85,85)':'black'
+                                    color:secondSearchData.resultList[index].mt_budget<=5 ? 'rgb(219,219,219)':'black'
                                 }}
                             >₩</Text>
                         </div>
