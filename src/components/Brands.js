@@ -8,6 +8,7 @@ import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking,Dimens
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import downloadIcon from '../assets/download.png'
+import clipOff from '../assets/clipOff.png'
 // import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 // import 'pure-react-carousel/dist/react-carousel.es.css'
 
@@ -19,6 +20,7 @@ function Brands(props) {
   const[brandData,setBrandData]=React.useState({})
   const[detailView,setDetailView]=React.useState(false)
   const[brandId,setBrandId]=React.useState(null)
+  const [hover,setHover]=React.useState(null)
   const [height,setHeight]=React.useState(Dimensions.get('window').height)
   const [width,setWidth]=React.useState(Dimensions.get('window').width)
   const brands=()=>{
@@ -542,110 +544,256 @@ function Brands(props) {
                   }}
                 >
                   
-                  {brandData.bestproducts_brand.map((material)=>
-              
-              
-                    <View
+                  {brandData.bestproducts_brand.map((material,index)=>
+                
+                
+                <View
+                  style={{
+                    backgroundColor:'transparent',
+                    height:'200px',
+                    width:'125px',
+                    // marginLeft:'auto',
+                    // marginRight:'auto',
+                    marginTop:'20px',
+                    borderRadius:10,
+                    boxShadow:'0px 0px 3px black'
+                  }}
+                  onMouseEnter={()=>{
+                    console.log('entered ' + index)
+                    var mem_no=JSON.parse(localStorage.login).message.split('_')
+                    console.log(mem_no)
+                    setHover(index)
+                    console.log(brandData)
+                  }
+                  }
+                  onMouseLeave={()=>{
+                      setHover(null)
+                      console.log('exited '+index)
+                  }} 
+                >
+                <div
                       style={{
-                        backgroundColor:'transparent',
-                        height:'175px',
-                        width:'125px',
-                        // marginLeft:'auto',
-                        // marginRight:'auto',
-                        marginTop:'20px',
-                        borderRadius:10,
-                        boxShadow:'0px 0px 3px black'
-                      }}
-                    >
-                      <Image
-                        style={{
-                        display:'block',
-                        height:'125px',
-                        width:'125px',
-                        borderTopLeftRadius:10,
-                        borderTopRightRadius:10,
-                        zIndex:1,
-                        pointerEvents:'none',
-                        // transform:[{
-                        //     translateX:'0px',
-                        //     translateY:'0px'
-                        // }]
-                        }}
-                        source={{
-                            uri:
-                                material.mt_feature_img_url
-                        }}
-
-                      >
-                      </Image>
-                      <View
-                        style ={{
-                          height:'50px',
-                          width:'125px',
-                          fontSize: '12pt',
-                          fontWeight:'500',
-                          textDecorationLine:'none',
-                          color:'white',
-                          textAlign:'center',
-                          flexDirection:'column',
-                          pointerEvents:'none',
                           backgroundColor:'white',
-                          pointerEvents:'none',
-                          borderBottomLeftRadius:10,
-                          borderBottomRightRadius:10,
-                          padding:'10px'
-                        }}
-                      >
-                        <Text
-                              style ={{
-                                  height:'100px',
-                                  width:'120px',
-                                  fontSize: '9pt',
-                                  fontWeight:'500',
-                                  textDecorationLine:'none',
-                                  color:'black',
-                                  textAlign:'left',
-                                  alignItems:'center',
-                                  justifyContent:'center',
-                                  flexDirection:'row',
-                                  // marginLeft:'1px',
-                                  // marginTop:'1px',
-                                  pointerEvents:'none',
-                                  backgroundColor:'transparent',
-                                  pointerEvents:'none',
-                                  
-                                  
-                              }}
+                          width:'55px',
+                          height:'12px',
+                          position:'absolute',
+                          zIndex:100,
+                          top:'6px',
+                          left:'6px',
+                          borderRadius:'6px',
+                          display:hover==index ? 'block':'none'
+                      }}
+                      onPress={()=>{  
+                          console.log('pressed clip ')
+                      }}
+                  >
+                      <Text
+                          style={{
+                              transform:'translate(2px,-2px)',
+                              position:'absolute',
+                              top:'1px',
+                              left:'2px',
+                              fontWeight:50,
+                              fontSize:'12px',
+                              color:brandData.bestproducts_brand[index].mt_budget<=1 ? 'rgb(219,219,219)':'black' 
+                          }}
+                      >₩</Text>
+                     <Text
+                          style={{
+                              transform:'translate(2px,-2px)',
+                              position:'absolute',
+                              top:'1px',
+                              left:'12px',
+                              fontWeight:50,
+                              fontSize:'12px',
+                              color:brandData.bestproducts_brand[index].mt_budget<=2 ? 'rgb(219,219,219)':'black'
+                          }}
+                      >₩</Text>
+                      <Text
+                          style={{
+                              transform:'translate(2px,-2px)',
+                              position:'absolute',
+                              top:'1px',
+                              left:'22px',
+                              fontWeight:50,
+                              fontSize:'12px',
+                              color:brandData.bestproducts_brand[index].mt_budget<=3 ? 'rgb(219,219,219)':'black'
+                          }}
+                      >₩</Text>
+                      <Text
+                          style={{
+                              transform:'translate(2px,-2px)',
+                              position:'absolute',
+                              top:'1px',
+                              left:'32px',
+                              fontWeight:50,
+                              fontSize:'12px',
+                              color:brandData.bestproducts_brand[index].mt_budget<=4 ? 'rgb(219,219,219)':'black'
+                          }}
+                      >₩</Text>
+                      <Text
+                          style={{
+                              transform:'translate(2px,-2px)',
+                              position:'absolute',
+                              top:'1px',
+                              left:'42px',
+                              fontWeight:50,
+                              fontSize:'12px',
+                              color:brandData.bestproducts_brand[index].mt_budget<=5 ? 'rgb(219,219,219)':'black'
+                          }}
+                      >₩</Text>
+                  </div>
+                  <TouchableOpacity
+                      style={{
+                          backgroundColor:'transparent',
+                          width:'20px',
+                          height:'20px',
+                          position:'absolute',
+                          zIndex:100,
+                          top:'6px',
+                          right:'6px',
+                          display:hover==index ? 'block':'none'
+                      }}
+                      onPress={()=>{  
+                          console.log('pressed clip ' + brandData.bestproducts_brand[index].mt_no)
+                      }}
+                  >   
+                      <Image
+                          style={{
+                          display:'block',
+                          height:'20px',
+                          width:'20px',
+                          borderTopLeftRadius:10,
+                          borderTopRightRadius:10,
+                          zIndex:1,
+                          pointerEvents:'none'
+                          // transform:[{
+                          //     translateX:'0px',
+                          //     translateY:'0px'
+                          // }]
+                          }}
+                          source={clipOff}
+
                           >
-                          {material.mt_subname}
                           
-                        </Text>
-                        <Text
+                      </Image>
+                  </TouchableOpacity>
+                  <Image
+                    style={{
+                    display:'block',
+                    height:'125px',
+                    width:'125px',
+                    borderTopLeftRadius:10,
+                    borderTopRightRadius:10,
+                    zIndex:1,
+                    pointerEvents:'none',
+                    filter:hover==index ? 'brightness(90%)':'brightness(100%)'
+                    // transform:[{
+                    //     translateX:'0px',
+                    //     translateY:'0px'
+                    // }]
+                    }}
+                    source={{
+                        uri:
+                            material.mt_feature_img_url
+                    }}
+
+                  >
+                  </Image>
+                  <View
+                    style ={{
+                      height:'75px',
+                      width:'125px',
+                      fontSize: '12pt',
+                      fontWeight:'500',
+                      textDecorationLine:'none',
+                      color:'white',
+                      textAlign:'center',
+                      flexDirection:'column',
+                      pointerEvents:'none',
+                      backgroundColor:'white',
+                      pointerEvents:'none',
+                      borderBottomLeftRadius:10,
+                      borderBottomRightRadius:10,
+                      padding:'10px'
+                    }}
+                  >
+                    <Text
+                      style ={{
+                          // height:'65pt',
+                          // width:'250px',
+                          fontSize: '8pt',
+                          fontWeight:'700',
+                          textDecorationLine:'none',
+                          color:'black',
+                          textAlign:'left',
+                          //alignItems:'center',
+                          //justifyContent:'center',
+                          //flexDirection:'row',
+                          //marginTop:'45pt',
+                          pointerEvents:'none',
+                          backgroundColor:'transparent',
+                          pointerEvents:'none',
+                          
+                      }}
+                  >
+                      {material.vd_name}
+                  </Text>
+                    <Text
                           style ={{
-                              // height:'65pt',
-                              // width:'250px',
-                              fontSize: '9pt',
-                              fontWeight:'700',
+                              height:'100px',
+                              width:'120px',
+                              fontSize: '8pt',
+                              fontWeight:'500',
                               textDecorationLine:'none',
                               color:'black',
                               textAlign:'left',
-                              //alignItems:'center',
-                              //justifyContent:'center',
-                              //flexDirection:'row',
-                              //marginTop:'45pt',
+                              alignItems:'center',
+                              justifyContent:'center',
+                              flexDirection:'row',
+                              // marginLeft:'1px',
+                              // marginTop:'1px',
                               pointerEvents:'none',
                               backgroundColor:'transparent',
                               pointerEvents:'none',
                               
+                              
                           }}
                       >
-                          {material.vd_name}
-                      </Text>
-              </View>
-            </View>
-          
-            
-              )}
+                      {material.mt_subname}
+                      
+                    </Text>
+                    <Text
+                      style ={{
+                          height:'100px',
+                          width:'120px',
+                          fontSize: '8pt',
+                          fontWeight:'500',
+                          textDecorationLine:'none',
+                          color:'rgb(85,85,85)',
+                          textAlign:'left',
+                          alignItems:'center',
+                          justifyContent:'center',
+                          flexDirection:'row',
+                          // marginLeft:'1px',
+                          // marginTop:'1px',
+                          pointerEvents:'none',
+                          backgroundColor:'transparent',
+                          pointerEvents:'none',
+                          whiteSpace:'nowrap',
+                          textOverflow: 'ellipsis',
+                          overflow:'hidden'
+                      }}
+                  >
+                  {material.mt_name}
+                  
+              </Text>
+                    
+          </View>
+        </View>
+      
+        
+          )}
             
             </div>
             </div>
@@ -1122,7 +1270,7 @@ function Brands(props) {
                     }}
                   >
                     
-                    {brandData.bestproducts_brand.map((material)=>
+                    {brandData.bestproducts_brand.map((material,index)=>
                 
                 
                       <View
@@ -1136,7 +1284,126 @@ function Brands(props) {
                           borderRadius:10,
                           boxShadow:'0px 0px 3px black'
                         }}
+                        onMouseEnter={()=>{
+                          console.log('entered ' + index)
+                          var mem_no=JSON.parse(localStorage.login).message.split('_')
+                          console.log(mem_no)
+                          setHover(index)
+                          console.log(brandData)
+                        }
+                        }
+                        onMouseLeave={()=>{
+                            setHover(null)
+                            console.log('exited '+index)
+                        }} 
                       >
+                      <div
+                            style={{
+                                backgroundColor:'white',
+                                width:'55px',
+                                height:'12px',
+                                position:'absolute',
+                                zIndex:100,
+                                top:'6px',
+                                left:'6px',
+                                borderRadius:'6px',
+                                display:hover==index ? 'block':'none'
+                            }}
+                            onPress={()=>{  
+                                console.log('pressed clip ')
+                            }}
+                        >
+                            <Text
+                                style={{
+                                    transform:'translate(2px,-2px)',
+                                    position:'absolute',
+                                    top:'1px',
+                                    left:'2px',
+                                    fontWeight:50,
+                                    fontSize:'12px',
+                                    color:brandData.bestproducts_brand[index].mt_budget<=1 ? 'rgb(219,219,219)':'black' 
+                                }}
+                            >₩</Text>
+                           <Text
+                                style={{
+                                    transform:'translate(2px,-2px)',
+                                    position:'absolute',
+                                    top:'1px',
+                                    left:'12px',
+                                    fontWeight:50,
+                                    fontSize:'12px',
+                                    color:brandData.bestproducts_brand[index].mt_budget<=2 ? 'rgb(219,219,219)':'black'
+                                }}
+                            >₩</Text>
+                            <Text
+                                style={{
+                                    transform:'translate(2px,-2px)',
+                                    position:'absolute',
+                                    top:'1px',
+                                    left:'22px',
+                                    fontWeight:50,
+                                    fontSize:'12px',
+                                    color:brandData.bestproducts_brand[index].mt_budget<=3 ? 'rgb(219,219,219)':'black'
+                                }}
+                            >₩</Text>
+                            <Text
+                                style={{
+                                    transform:'translate(2px,-2px)',
+                                    position:'absolute',
+                                    top:'1px',
+                                    left:'32px',
+                                    fontWeight:50,
+                                    fontSize:'12px',
+                                    color:brandData.bestproducts_brand[index].mt_budget<=4 ? 'rgb(219,219,219)':'black'
+                                }}
+                            >₩</Text>
+                            <Text
+                                style={{
+                                    transform:'translate(2px,-2px)',
+                                    position:'absolute',
+                                    top:'1px',
+                                    left:'42px',
+                                    fontWeight:50,
+                                    fontSize:'12px',
+                                    color:brandData.bestproducts_brand[index].mt_budget<=5 ? 'rgb(219,219,219)':'black'
+                                }}
+                            >₩</Text>
+                        </div>
+                        <TouchableOpacity
+                            style={{
+                                backgroundColor:'transparent',
+                                width:'20px',
+                                height:'20px',
+                                position:'absolute',
+                                zIndex:100,
+                                top:'6px',
+                                right:'6px',
+                                display:hover==index ? 'block':'none'
+                            }}
+                            onPress={()=>{  
+                                console.log('pressed clip ' + brandData.bestproducts_brand[index].mt_no)
+                            }}
+                        >   
+                            <Image
+                                style={{
+                                display:'block',
+                                height:'20px',
+                                width:'20px',
+                                borderTopLeftRadius:10,
+                                borderTopRightRadius:10,
+                                zIndex:1,
+                                pointerEvents:'none'
+                                // transform:[{
+                                //     translateX:'0px',
+                                //     translateY:'0px'
+                                // }]
+                                }}
+                                source={clipOff}
+
+                                >
+                                
+                            </Image>
+                        </TouchableOpacity>
                         <Image
                           style={{
                           display:'block',
@@ -1146,6 +1413,7 @@ function Brands(props) {
                           borderTopRightRadius:10,
                           zIndex:1,
                           pointerEvents:'none',
+                          filter:hover==index ? 'brightness(90%)':'brightness(100%)'
                           // transform:[{
                           //     translateX:'0px',
                           //     translateY:'0px'
@@ -1221,6 +1489,31 @@ function Brands(props) {
                             {material.mt_subname}
                             
                           </Text>
+                          <Text
+                            style ={{
+                                height:'100px',
+                                width:'120px',
+                                fontSize: '8pt',
+                                fontWeight:'500',
+                                textDecorationLine:'none',
+                                color:'rgb(85,85,85)',
+                                textAlign:'left',
+                                alignItems:'center',
+                                justifyContent:'center',
+                                flexDirection:'row',
+                                // marginLeft:'1px',
+                                // marginTop:'1px',
+                                pointerEvents:'none',
+                                backgroundColor:'transparent',
+                                pointerEvents:'none',
+                                whiteSpace:'nowrap',
+                                textOverflow: 'ellipsis',
+                                overflow:'hidden'
+                            }}
+                        >
+                        {material.mt_name}
+                        
+                    </Text>
                           
                 </View>
               </View>
