@@ -8,7 +8,8 @@ import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking,Dimens
 //import { Carousel } from 'react-responsive-carousel';
 import { RadioButton } from 'react-native-paper';
 import plusIcon from '../assets/plus.png';
-import minusIcon from '../assets/minus.png'
+import minusIcon from '../assets/minus.png';
+import clipOff from '../assets/clipOff.png'
 import './searchpage.css'
 // import Pagination from "react-js-pagination";
 // import ReactPaginate from 'react-paginate';
@@ -44,6 +45,7 @@ function Brands(props) {
   const [checkedPatterns,setCheckedPatterns]=React.useState([])
   const [activePage,setActivePage]=React.useState(1)
   const [endPage,setEndPage]=React.useState(1)
+  const [hover,setHover]=React.useState(null)
 
   const firstPage=(jsonObj)=>{
     console.log(jsonObj)
@@ -1192,7 +1194,7 @@ function Brands(props) {
                     >
                     
                     {secondSearchData.resultList.map((result,index)=>
-                    <View
+                    <TouchableOpacity
                     style={{
                         backgroundColor:'transparent',
                         height:'200px',
@@ -1201,9 +1203,136 @@ function Brands(props) {
                         // marginRight:'auto',
                         marginTop:'20px',
                         borderRadius:10,
-                        boxShadow:'0px 0px 3px black'
+                        boxShadow:'0px 0px 3px black',
+                        backgroundColor: hover==index ? 'rgba(0,0,0,0.1)':'transparent'
                         }}
+                    onPress={()=>{  
+                        console.log('pressed material ' + result.mt_no)
+                    }}
+                    onMouseEnter={()=>{
+                            console.log('entered ' + index)
+                            var mem_no=JSON.parse(localStorage.login).message.split('_')
+                            console.log(mem_no)
+                            setHover(index)
+                            console.log(secondSearchData)
+                        }
+                    }
+                    onMouseLeave={()=>{
+                        setHover(null)
+                        console.log('exited '+index)
+                    }}  
+                    
+                    
                     >
+                        <div
+                            style={{
+                                backgroundColor:'white',
+                                width:'55px',
+                                height:'12px',
+                                position:'absolute',
+                                zIndex:100,
+                                top:'6px',
+                                left:'6px',
+                                borderRadius:'6px',
+                                display:hover==index ? 'block':'none'
+                            }}
+                            onPress={()=>{  
+                                console.log('pressed clip ' + result.mt_no)
+                            }}
+                        >
+                            <Text
+                                style={{
+                                    transform:'translate(2px,-2px)',
+                                    position:'absolute',
+                                    top:'1px',
+                                    left:'2px',
+                                    fontWeight:50,
+                                    fontSize:'12px',
+                                    color:secondSearchData.resultList[index].mt_budget<=1 ? 'rgb(85,85,85)':'black' 
+                                }}
+                            >₩</Text>
+                           <Text
+                                style={{
+                                    transform:'translate(2px,-2px)',
+                                    position:'absolute',
+                                    top:'1px',
+                                    left:'12px',
+                                    fontWeight:50,
+                                    fontSize:'12px',
+                                    color:secondSearchData.resultList[index].mt_budget<=2 ? 'rgb(85,85,85)':'black'
+                                }}
+                            >₩</Text>
+                            <Text
+                                style={{
+                                    transform:'translate(2px,-2px)',
+                                    position:'absolute',
+                                    top:'1px',
+                                    left:'22px',
+                                    fontWeight:50,
+                                    fontSize:'12px',
+                                    color:secondSearchData.resultList[index].mt_budget<=3 ? 'rgb(85,85,85)':'black'
+                                }}
+                            >₩</Text>
+                            <Text
+                                style={{
+                                    transform:'translate(2px,-2px)',
+                                    position:'absolute',
+                                    top:'1px',
+                                    left:'32px',
+                                    fontWeight:50,
+                                    fontSize:'12px',
+                                    color:secondSearchData.resultList[index].mt_budget<=4 ? 'rgb(85,85,85)':'black'
+                                }}
+                            >₩</Text>
+                            <Text
+                                style={{
+                                    transform:'translate(2px,-2px)',
+                                    position:'absolute',
+                                    top:'1px',
+                                    left:'42px',
+                                    fontWeight:50,
+                                    fontSize:'12px',
+                                    color:secondSearchData.resultList[index].mt_budget<=5 ? 'rgb(85,85,85)':'black'
+                                }}
+                            >₩</Text>
+                        </div>
+                    
+                        <TouchableOpacity
+                            style={{
+                                backgroundColor:'transparent',
+                                width:'20px',
+                                height:'20px',
+                                position:'absolute',
+                                zIndex:100,
+                                top:'6px',
+                                right:'6px',
+                                display:hover==index ? 'block':'none'
+                            }}
+                            onPress={()=>{  
+                                console.log('pressed clip ' + result.mt_no)
+                            }}
+                        >   
+                            <Image
+                                style={{
+                                display:'block',
+                                height:'20px',
+                                width:'20px',
+                                borderTopLeftRadius:10,
+                                borderTopRightRadius:10,
+                                zIndex:1,
+                                pointerEvents:'none'
+                                // transform:[{
+                                //     translateX:'0px',
+                                //     translateY:'0px'
+                                // }]
+                                }}
+                                source={clipOff}
+
+                                >
+                                
+                            </Image>
+                        </TouchableOpacity>
+                        
                     <Image
                     style={{
                     display:'block',
@@ -1213,6 +1342,7 @@ function Brands(props) {
                     borderTopRightRadius:10,
                     zIndex:1,
                     pointerEvents:'none',
+                    filter:hover==index ? 'brightness(90%)':'brightness(100%)'
                     // transform:[{
                     //     translateX:'0px',
                     //     translateY:'0px'
@@ -1224,7 +1354,9 @@ function Brands(props) {
                     }}
 
                     >
+                    
                     </Image>
+                    
                     <View
                     style ={{
                         height:'75px',
@@ -1288,9 +1420,33 @@ function Brands(props) {
                         {result.mt_subname}
                         
                     </Text>
-                    
+                    <Text
+                            style ={{
+                                height:'100px',
+                                width:'120px',
+                                fontSize: '8pt',
+                                fontWeight:'500',
+                                textDecorationLine:'none',
+                                color:'rgb(85,85,85)',
+                                textAlign:'left',
+                                alignItems:'center',
+                                justifyContent:'center',
+                                flexDirection:'row',
+                                // marginLeft:'1px',
+                                // marginTop:'1px',
+                                pointerEvents:'none',
+                                backgroundColor:'transparent',
+                                pointerEvents:'none',
+                                whiteSpace:'nowrap',
+                                textOverflow: 'ellipsis',
+                                overflow:'hidden'
+                            }}
+                        >
+                        {result.mt_name}
+                        
+                    </Text>
                     </View>
-                    </View>
+                    </TouchableOpacity>
                     )}
                     
                     </View>
