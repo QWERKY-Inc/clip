@@ -20,7 +20,7 @@ import './searchpage.css'
 
 const queryString = require('query-string');
 
-function Brands(props) {
+function SearchPage(props) {
   // var bestProducts
   const[brandListData,setBrandListData]=React.useState([])
   const[originalSearchData,setOriginalSearchData]=React.useState(undefined)
@@ -1208,6 +1208,7 @@ function Brands(props) {
                         }}
                     onPress={()=>{  
                         console.log('pressed material ' + result.mt_no)
+                        Linking.openURL(`/partDetail?mt_no=${result.mt_no}`)
                     }}
                     onMouseEnter={()=>{
                             console.log('entered ' + index)
@@ -1498,4 +1499,4 @@ function Brands(props) {
   }
 }
   
-  export default Brands;
+  export default SearchPage;

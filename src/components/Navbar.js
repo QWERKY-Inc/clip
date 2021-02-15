@@ -134,7 +134,8 @@ const Navbar=() => {
     setLoginInfo(null)
     setLoggedOn(false)
     console.log("_______")
-    window.localStorage.setItem('login','')
+    // window.localStorage.setItem('login','')
+    localStorage.removeItem('login')
   }
   const onChange=()=>{
     setHeight(Dimensions.get('window').height)
