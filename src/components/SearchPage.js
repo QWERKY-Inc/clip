@@ -1212,8 +1212,10 @@ function SearchPage(props) {
                     }}
                     onMouseEnter={()=>{
                             console.log('entered ' + index)
-                            var mem_no=JSON.parse(localStorage.login).message.split('_')
-                            console.log(mem_no)
+                            if(localStorage.login!=undefined){
+                                var mem_no=JSON.parse(localStorage.login).message.split('_')
+                                console.log(mem_no)
+                            }
                             setHover(index)
                             console.log(secondSearchData)
                         }

@@ -3,6 +3,7 @@ import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking,Dimens
 import Navbar from './Navbar';
 import NavBarFiller from './NavBarFiller';
 import parse from 'html-react-parser';
+import chatIcon from '../assets/chat.png'
 const queryString = require('query-string');
 function PartDetail(props){
     const [height,setHeight]=React.useState(Dimensions.get('window').height)
@@ -277,7 +278,85 @@ function PartDetail(props){
                                     {materialData.mt_sample_width}&nbsp;mm&nbsp;x&nbsp;{materialData.mt_sample_height}&nbsp;mm
                                 </Text>
                             </div>
+                            <View
+                                style={{
+                                    position:'absolute',
+                                    bottom:0,
+                                    backgroundColor:'transparent',
+                                    height:'40px',
+                                    width:'100%',
+                                    flexDirection:'row'
+                                }}
+                            >
+                                <TouchableOpacity
+                                    style={{
+                                        backgroundColor:'transparent',
+                                        height:'40px',
+                                        width:'40px'
+                                    }}
+                                >
+                                    <Image
+                                    style={{
+                                    display:'block',
+                                    height:'40px',
+                                    width:'40px',
+                                    // borderTopLeftRadius:10,
+                                    // borderTopRightRadius:10,
+                                    zIndex:1,
+                                    pointerEvents:'none'
+                                    // transform:[{
+                                    //     translateX:'0px',
+                                    //     translateY:'0px'
+                                    // }]
+                                    }}
+                                    source={chatIcon}
+
+                                    >
+                                    
+                                    </Image>
+                                </TouchableOpacity>
+                                <div
+                                    style={{
+                                        backgroundColor:"transparent",
+                                        width:'250px',
+                                        justifyContent:'center',
+                                        alignItems:'center',
+                                        height:'40px',
+                                        paddingLeft:'15px',
+                                    }}
+                                >
+                                <TouchableOpacity
+                                    style={{
+                                        display:'block',
+                                        height:'40px',
+                                        width:'100%',
+                                        backgroundColor:'rgb(255,123,88)',
+                                        color:'white',
+                                        borderRadius:'10px',
+                                        alignItems:'center',
+                                        justifyContent:'center',
+                                        textAlign:'center',
+                                        verticalAlign:'middle',
+                                        lineHeight:'40px',
+                                        
+
+                                    }}
+                                >
+                  
+                                        <Text
+                                            style={{
+                                                color:'white',
+                                                
+                                            }}
+                                        >
+                                            장바구니에 샘플 담기
+                                        </Text>
+                                    
+                                </TouchableOpacity>
+                                </div>
+                            </View>
                         </View>
+                        
                     </View>
                     {parse(materialData.mt_description)}
                 </View>
