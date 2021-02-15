@@ -1,5 +1,8 @@
 import React,{useEffect} from 'react';
 import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking,Dimensions} from 'react-native';
+import Navbar from './Navbar';
+import NavBarFiller from './NavBarFiller';
+import parse from 'html-react-parser';
 const queryString = require('query-string');
 function PartDetail(props){
     const [height,setHeight]=React.useState(Dimensions.get('window').height)
@@ -25,6 +28,11 @@ function PartDetail(props){
     })
     
 }
+    // var stringToHTML=function(str){
+    //     var parser=new DOMParser();
+    //     var doc = parser.parseFromString(str,'text/html')
+    //     return doc.body;
+    // }
     useEffect(() => {
         Dimensions.addEventListener('change',onChange)
         const parsed = queryString.parse(props.location.search);
@@ -53,9 +61,237 @@ function PartDetail(props){
         // }
         
       },[])
-      return(
-        <div>
-        </div>
-      )
+      if(materialData!=undefined){
+        return(
+            <div>
+                <Navbar />
+                <NavBarFiller/>
+                <View
+                    style={{
+                        textAlign:'left',
+                        paddingLeft:'160px',
+                        paddingRight:'160px'
+                    }}
+                >
+                    <View
+                        style={{
+                            backgroundColor:'transparent',
+                            height:'400px',
+                            width:'100%',
+                            flexDirection:'row',
+                            // flex:1,
+                            // justifyContent:'flex-start'
+                            justifyContent:'space-between',
+                            alignItems:'center'
+
+                        }}
+                    >
+                        <View
+                            style={{
+                                backgroundColor:'transparent',
+                                // position:'absolute',
+                                justifyContent:'flex-start',
+                                // flex:1,
+                                flexDirection:'row',
+                                width:'400px'
+                                
+                            }}
+                        >
+                            <Image
+                            style={{
+                            display:'block',
+                            height:'400px',
+                            width:'400px',
+                            // borderTopLeftRadius:10,
+                            // borderTopRightRadius:10,
+                            borderRadius:'10px',
+                            pointerEvents:'none',
+                            marginLeft:'auto',
+                            marginRight:'auto',
+                            position:'relative',
+                            left:'0px'
+                            // transform:[{
+                            //     translateX:'0px',
+                            //     translateY:'0px'
+                            // }]
+                            }}
+             
+                            source={{
+                                uri:
+                                    materialData.mt_feature_img_url
+                            }}
+
+                            >
+                            </Image>
+                        </View>
+                        <View
+                            style={{
+                                flex:1,
+                                flexDirection:'column',
+                                backgroundColor:'transparent',
+                                width:width-'800px',
+                                height:'400px',
+                                justifyContent:'left',
+                                textAlign:'left',
+                                paddingLeft:'15px',
+                                paddingRight:'15px',
+                            }}
+                        >
+                            <Text
+                                style={{
+                                    fontWeight:700,
+                                    fontSize:'24px'
+                                }}
+                            >
+                                {materialData.mt_name}
+                            </Text>
+                            <Text
+                                style={{
+                                    
+                                    fontWeight:700,
+                                    fontSize:'24px',
+                                    marginBottom:'13px'
+                                }}
+                            >
+                                {materialData.mt_subname}
+                            </Text>
+                            <div
+                                style={{
+                                    // flex:1,
+                                    flextDirection:'row',
+                                    backgroundColor:'transparent'
+                                }}
+                            >
+                               
+                                
+                                <View
+                                style={{
+                                    height:'24px',
+                                    width:'100%',
+                                    backgroundColor:'transparent',
+                                    marginBottom:'10px'                                }}
+                                    
+                                >
+                                    <Image
+                                    style={{
+                                        height:'24px',
+                                        width:'24px',
+                                        borderRadius:'12px',
+                                        position:'absolute'
+                                    }}
+                                    source={{
+                                        uri:
+                                            materialData.brd_logo_img_url
+                                    }} 
+                                ></Image>
+                                    <div
+                                    style={{
+                                        height:'24px',
+                                        width:'24px',
+                                        backgroundColor:'transparent'
+                                    }}
+                                        
+                                    >
+
+                                    </div>
+                                    <div
+                                        style={{
+                                            transform:'translate(24px,-2px)',
+                                        }}
+                                    >
+                                        <Text
+                                            style={{
+                                                fontWeight:700,
+                                                fontSize:'18px',
+                                            }}
+                                        >
+                                            &nbsp;
+                                            {materialData.brd_name_eng}
+                                        </Text>
+                                        <Text 
+                                            style={{
+                                                fontWeight:700,
+                                                fontSize:'18px',
+                                            }}
+                                        >
+                                            &nbsp;
+                                            {materialData.brd_name_kor}
+                                        </Text>
+                                    </div>
+                                </View>
+                                
+                            </div>
+                            <div>
+                                <Text
+                                    style={{
+                                        fontWeight:700,
+                                        fontSize:'15px',
+                                        marginBottom:'15px'
+                                    }}
+                                >
+                                    자재 카테고리:&nbsp;
+                                </Text>
+                                <Text>
+                                    {materialData.mt_category}
+                                </Text>
+                            </div>
+                            <div>
+                                <Text
+                                    style={{
+                                        fontWeight:700,
+                                        fontSize:'15px',
+                                        marginBottom:'15px'
+                                    }}
+                                >
+                                     콜렉션:&nbsp;
+                                </Text>
+                                <Text>
+                                    {materialData.mt_collection}
+                                </Text>
+                            </div>
+                            <div>
+                                <Text
+                                    style={{
+                                        fontWeight:700,
+                                        fontSize:'15px',
+                                        marginBottom:'15px'
+                                    }}
+                                >
+                                     SKU:&nbsp;
+                                </Text>
+                                <Text>
+                                    {materialData.mt_sku}
+                                </Text>
+                            </div>
+                            <div>
+                                <Text
+                                    style={{
+                                        fontWeight:700,
+                                        fontSize:'15px',
+                                        marginBottom:'15px'
+                                    }}
+                                >
+                                     샘플 사이즈:&nbsp;
+                                </Text>
+                                <Text>
+                                    {materialData.mt_sample_width}&nbsp;mm&nbsp;x&nbsp;{materialData.mt_sample_height}&nbsp;mm
+                                </Text>
+                            </div>
+                        </View>
+                    </View>
+                    {parse(materialData.mt_description)}
+                </View>
+            </div>
+          )
+      }
+      else{
+          return(
+            <div>
+                <Navbar />
+                <NavBarFiller/>
+            </div>
+          )
+      }
+      
 }
 export default PartDetail
