@@ -829,8 +829,7 @@ function PartDetail(props){
                     // var mem_no=JSON.parse(localStorage.login).message.split('_')
                     // console.log(mem_no)
                     setHoverTwo(index)
-                    console.log(materialData.samecategory_list[index].mt_no)
-                    console.log(hoverTwo)
+                    console.log(materialData.samecategory_list[index])
                   }
                   }
                   onMouseLeave={()=>{
@@ -862,7 +861,7 @@ function PartDetail(props){
                               left:'2px',
                               fontWeight:50,
                               fontSize:'12px',
-                              color:materialData.samebrand_list[index].mt_budget<1 ? 'rgb(219,219,219)':'black' 
+                              color:materialData.samecategory_list[index].mt_budget<1 ? 'rgb(219,219,219)':'black' 
                           }}
                       >₩</Text>
                      <Text
@@ -873,7 +872,7 @@ function PartDetail(props){
                               left:'12px',
                               fontWeight:50,
                               fontSize:'12px',
-                              color:materialData.samebrand_list[index].mt_budget<2 ? 'rgb(219,219,219)':'black'
+                              color:materialData.samecategory_list[index].mt_budget<2 ? 'rgb(219,219,219)':'black'
                           }}
                       >₩</Text>
                       <Text
@@ -884,7 +883,7 @@ function PartDetail(props){
                               left:'22px',
                               fontWeight:50,
                               fontSize:'12px',
-                              color:materialData.samebrand_list[index].mt_budget<3 ? 'rgb(219,219,219)':'black'
+                              color:materialData.samecategory_list[index].mt_budget<3 ? 'rgb(219,219,219)':'black'
                           }}
                       >₩</Text>
                       <Text
@@ -895,7 +894,7 @@ function PartDetail(props){
                               left:'32px',
                               fontWeight:50,
                               fontSize:'12px',
-                              color:materialData.samebrand_list[index].mt_budget<4 ? 'rgb(219,219,219)':'black'
+                              color:materialData.samecategory_list[index].mt_budget<4 ? 'rgb(219,219,219)':'black'
                           }}
                       >₩</Text>
                       <Text
@@ -906,7 +905,7 @@ function PartDetail(props){
                               left:'42px',
                               fontWeight:50,
                               fontSize:'12px',
-                              color:materialData.samebrand_list[index].mt_budget<5 ? 'rgb(219,219,219)':'black'
+                              color:materialData.samecategory_list[index].mt_budget<5 ? 'rgb(219,219,219)':'black'
                           }}
                       >₩</Text>
                   </div>
