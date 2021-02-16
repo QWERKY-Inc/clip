@@ -42,7 +42,7 @@ function PartDetail(props){
     useEffect(() => {
         Dimensions.addEventListener('change',onChange)
         const parsed = queryString.parse(props.location.search);
-        console.log(parsed)
+        
         console.log(localStorage.login==undefined)
         if(localStorage.login!=undefined){
             var mem_no=undefined
@@ -52,6 +52,7 @@ function PartDetail(props){
         else{
             parsed.mem_no=""
         }
+        console.log(parsed)
         materialInfo(queryString.stringify(parsed)) 
         console.log('q = '+JSON.stringify(parsed))
         
