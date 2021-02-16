@@ -1217,7 +1217,7 @@ function SearchPage(props) {
                                 console.log(mem_no)
                             }
                             setHover(index)
-                            console.log(secondSearchData)
+                            console.log(secondSearchData.resultList[index])
                         }
                     }
                     onMouseLeave={()=>{
@@ -1251,7 +1251,7 @@ function SearchPage(props) {
                                     left:'2px',
                                     fontWeight:50,
                                     fontSize:'12px',
-                                    color:secondSearchData.resultList[index].mt_budget<=1 ? 'rgb(219,219,219)':'black' 
+                                    color:secondSearchData.resultList[index].mt_budget<1 ? 'rgb(219,219,219)':'black' 
                                 }}
                             >₩</Text>
                            <Text
@@ -1262,7 +1262,7 @@ function SearchPage(props) {
                                     left:'12px',
                                     fontWeight:50,
                                     fontSize:'12px',
-                                    color:secondSearchData.resultList[index].mt_budget<=2 ? 'rgb(219,219,219)':'black'
+                                    color:secondSearchData.resultList[index].mt_budget<2 ? 'rgb(219,219,219)':'black'
                                 }}
                             >₩</Text>
                             <Text
@@ -1273,7 +1273,7 @@ function SearchPage(props) {
                                     left:'22px',
                                     fontWeight:50,
                                     fontSize:'12px',
-                                    color:secondSearchData.resultList[index].mt_budget<=3 ? 'rgb(219,219,219)':'black'
+                                    color:secondSearchData.resultList[index].mt_budget<3 ? 'rgb(219,219,219)':'black'
                                 }}
                             >₩</Text>
                             <Text
@@ -1284,7 +1284,7 @@ function SearchPage(props) {
                                     left:'32px',
                                     fontWeight:50,
                                     fontSize:'12px',
-                                    color:secondSearchData.resultList[index].mt_budget<=4 ? 'rgb(219,219,219)':'black'
+                                    color:secondSearchData.resultList[index].mt_budget<4 ? 'rgb(219,219,219)':'black'
                                 }}
                             >₩</Text>
                             <Text
@@ -1295,7 +1295,7 @@ function SearchPage(props) {
                                     left:'42px',
                                     fontWeight:50,
                                     fontSize:'12px',
-                                    color:secondSearchData.resultList[index].mt_budget<=5 ? 'rgb(219,219,219)':'black'
+                                    color:secondSearchData.resultList[index].mt_budget<5 ? 'rgb(219,219,219)':'black'
                                 }}
                             >₩</Text>
                         </div>

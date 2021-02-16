@@ -12,6 +12,8 @@ function PartDetail(props){
     const [width,setWidth]=React.useState(Dimensions.get('window').width)
     const [q,setQ]=React.useState(undefined)
     const [materialData,setMaterialData]=React.useState(undefined)
+    const [hoverOne, setHoverOne]=React.useState(null)
+    const [hoverTwo, setHoverTwo]=React.useState(null)
     const onChange=()=>{
         setHeight(Dimensions.get('window').height)
         setWidth(Dimensions.get('window').width)
@@ -159,7 +161,7 @@ function PartDetail(props){
                                     left:'6px',
                                     fontWeight:50,
                                     fontSize:'15px',
-                                    color:materialData.mt_budget<=1 ? 'rgb(219,219,219)':'black' 
+                                    color:materialData.mt_budget<1 ? 'rgb(219,219,219)':'black' 
                                 }}
                             >₩</Text>
                            <Text
@@ -170,7 +172,7 @@ function PartDetail(props){
                                     left:'16px',
                                     fontWeight:50,
                                     fontSize:'15px',
-                                    color:materialData.mt_budget<=2 ? 'rgb(219,219,219)':'black'
+                                    color:materialData.mt_budget<2 ? 'rgb(219,219,219)':'black'
                                 }}
                             >₩</Text>
                             <Text
@@ -181,7 +183,7 @@ function PartDetail(props){
                                     left:'26px',
                                     fontWeight:50,
                                     fontSize:'15px',
-                                    color:materialData.mt_budget<=3 ? 'rgb(219,219,219)':'black'
+                                    color:materialData.mt_budget<3 ? 'rgb(219,219,219)':'black'
                                 }}
                             >₩</Text>
                             <Text
@@ -192,7 +194,7 @@ function PartDetail(props){
                                     left:'36px',
                                     fontWeight:50,
                                     fontSize:'15px',
-                                    color:materialData.mt_budget<=4 ? 'rgb(219,219,219)':'black'
+                                    color:materialData.mt_budget<4 ? 'rgb(219,219,219)':'black'
                                 }}
                             >₩</Text>
                             <Text
@@ -203,7 +205,7 @@ function PartDetail(props){
                                     left:'46px',
                                     fontWeight:50,
                                     fontSize:'15px',
-                                    color:materialData.mt_budget<=5 ? 'rgb(219,219,219)':'black'
+                                    color:materialData.mt_budget<5 ? 'rgb(219,219,219)':'black'
                                 }}
                             >₩</Text>
                         </div>
@@ -547,15 +549,15 @@ function PartDetail(props){
                     boxShadow:'0px 0px 3px black'
                   }}
                   onMouseEnter={()=>{
-                    console.log('entered ' + index)
+                    console.log(materialData.samebrand_list[index])
                     // var mem_no=JSON.parse(localStorage.login).message.split('_')
                     // console.log(mem_no)
-                    // setHover(index)
+                    setHoverOne(index)
                     // console.log(brandData)
                   }
                   }
                   onMouseLeave={()=>{
-                    //   setHover(null)
+                      setHoverOne(null)
                       console.log('exited '+index)
                   }} 
                 >
@@ -569,7 +571,7 @@ function PartDetail(props){
                           top:'6px',
                           left:'6px',
                           borderRadius:'6px',
-                        //   display:hover==index ? 'block':'none'
+                          display:hoverOne==index ? 'block':'none'
                       }}
                       onPress={()=>{  
                           console.log('pressed clip ')
@@ -583,7 +585,7 @@ function PartDetail(props){
                               left:'2px',
                               fontWeight:50,
                               fontSize:'12px',
-                              color:materialData.samebrand_list[index].mt_budget<=1 ? 'rgb(219,219,219)':'black' 
+                              color:materialData.samebrand_list[index].mt_budget<1 ? 'rgb(219,219,219)':'black' 
                           }}
                       >₩</Text>
                      <Text
@@ -594,7 +596,7 @@ function PartDetail(props){
                               left:'12px',
                               fontWeight:50,
                               fontSize:'12px',
-                              color:materialData.samebrand_list[index].mt_budget<=2 ? 'rgb(219,219,219)':'black'
+                              color:materialData.samebrand_list[index].mt_budget<2 ? 'rgb(219,219,219)':'black'
                           }}
                       >₩</Text>
                       <Text
@@ -605,7 +607,7 @@ function PartDetail(props){
                               left:'22px',
                               fontWeight:50,
                               fontSize:'12px',
-                              color:materialData.samebrand_list[index].mt_budget<=3 ? 'rgb(219,219,219)':'black'
+                              color:materialData.samebrand_list[index].mt_budget<3 ? 'rgb(219,219,219)':'black'
                           }}
                       >₩</Text>
                       <Text
@@ -616,7 +618,7 @@ function PartDetail(props){
                               left:'32px',
                               fontWeight:50,
                               fontSize:'12px',
-                              color:materialData.samebrand_list[index].mt_budget<=4 ? 'rgb(219,219,219)':'black'
+                              color:materialData.samebrand_list[index].mt_budget<4 ? 'rgb(219,219,219)':'black'
                           }}
                       >₩</Text>
                       <Text
@@ -627,7 +629,7 @@ function PartDetail(props){
                               left:'42px',
                               fontWeight:50,
                               fontSize:'12px',
-                              color:materialData.samebrand_list[index].mt_budget<=5 ? 'rgb(219,219,219)':'black'
+                              color:materialData.samebrand_list[index].mt_budget<5 ? 'rgb(219,219,219)':'black'
                           }}
                       >₩</Text>
                   </div>
@@ -640,7 +642,7 @@ function PartDetail(props){
                           zIndex:100,
                           top:'6px',
                           right:'6px',
-                        //   display:hover==index ? 'block':'none'
+                          display:hoverOne==index ? 'block':'none'
                       }}
                       onPress={()=>{  
                         //   console.log('pressed clip ' + brandData.bestproducts_brand[index].mt_no)
@@ -666,6 +668,12 @@ function PartDetail(props){
                           
                       </Image>
                   </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={()=>{
+                        console.log(materialData.samebrand_list[index].mt_no)
+                        Linking.openURL('/partDetail?mt_no='+materialData.samebrand_list[index].mt_no)
+                    }}
+                  >
                   <Image
                     style={{
                     display:'block',
@@ -675,7 +683,7 @@ function PartDetail(props){
                     borderTopRightRadius:10,
                     zIndex:1,
                     pointerEvents:'none',
-                    // filter:hover==index ? 'brightness(90%)':'brightness(100%)'
+                    filter:hoverOne==index ? 'brightness(90%)':'brightness(100%)'
                     // transform:[{
                     //     translateX:'0px',
                     //     translateY:'0px'
@@ -778,6 +786,7 @@ function PartDetail(props){
               </Text>
                     
           </View>
+          </TouchableOpacity>
         </View>
       
         
@@ -819,12 +828,13 @@ function PartDetail(props){
                     console.log('entered ' + index)
                     // var mem_no=JSON.parse(localStorage.login).message.split('_')
                     // console.log(mem_no)
-                    // setHover(index)
-                    // console.log(brandData)
+                    setHoverTwo(index)
+                    console.log(materialData.samecategory_list[index].mt_no)
+                    console.log(hoverTwo)
                   }
                   }
                   onMouseLeave={()=>{
-                    //   setHover(null)
+                      setHoverTwo(null)
                       console.log('exited '+index)
                   }} 
                 >
@@ -838,7 +848,7 @@ function PartDetail(props){
                           top:'6px',
                           left:'6px',
                           borderRadius:'6px',
-                        //   display:hover==index ? 'block':'none'
+                          display:hoverTwo==index ? 'block':'none'
                       }}
                       onPress={()=>{  
                           console.log('pressed clip ')
@@ -852,7 +862,7 @@ function PartDetail(props){
                               left:'2px',
                               fontWeight:50,
                               fontSize:'12px',
-                              color:materialData.samebrand_list[index].mt_budget<=1 ? 'rgb(219,219,219)':'black' 
+                              color:materialData.samebrand_list[index].mt_budget<1 ? 'rgb(219,219,219)':'black' 
                           }}
                       >₩</Text>
                      <Text
@@ -863,7 +873,7 @@ function PartDetail(props){
                               left:'12px',
                               fontWeight:50,
                               fontSize:'12px',
-                              color:materialData.samebrand_list[index].mt_budget<=2 ? 'rgb(219,219,219)':'black'
+                              color:materialData.samebrand_list[index].mt_budget<2 ? 'rgb(219,219,219)':'black'
                           }}
                       >₩</Text>
                       <Text
@@ -874,7 +884,7 @@ function PartDetail(props){
                               left:'22px',
                               fontWeight:50,
                               fontSize:'12px',
-                              color:materialData.samebrand_list[index].mt_budget<=3 ? 'rgb(219,219,219)':'black'
+                              color:materialData.samebrand_list[index].mt_budget<3 ? 'rgb(219,219,219)':'black'
                           }}
                       >₩</Text>
                       <Text
@@ -885,7 +895,7 @@ function PartDetail(props){
                               left:'32px',
                               fontWeight:50,
                               fontSize:'12px',
-                              color:materialData.samebrand_list[index].mt_budget<=4 ? 'rgb(219,219,219)':'black'
+                              color:materialData.samebrand_list[index].mt_budget<4 ? 'rgb(219,219,219)':'black'
                           }}
                       >₩</Text>
                       <Text
@@ -896,7 +906,7 @@ function PartDetail(props){
                               left:'42px',
                               fontWeight:50,
                               fontSize:'12px',
-                              color:materialData.samebrand_list[index].mt_budget<=5 ? 'rgb(219,219,219)':'black'
+                              color:materialData.samebrand_list[index].mt_budget<5 ? 'rgb(219,219,219)':'black'
                           }}
                       >₩</Text>
                   </div>
@@ -909,11 +919,11 @@ function PartDetail(props){
                           zIndex:100,
                           top:'6px',
                           right:'6px',
-                        //   display:hover==index ? 'block':'none'
+                          display:hoverTwo==index ? 'block':'none'
                       }}
                       onPress={()=>{  
-                        //   console.log('pressed clip ' + brandData.bestproducts_brand[index].mt_no)
-                      }}
+                        
+                    }}
                   >   
                       <Image
                           style={{
@@ -935,6 +945,12 @@ function PartDetail(props){
                           
                       </Image>
                   </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={()=>{
+                        console.log(materialData.samecategory_list[index].mt_no)
+                        Linking.openURL('/partDetail?mt_no='+materialData.samecategory_list[index].mt_no)
+                    }}
+                  >
                   <Image
                     style={{
                     display:'block',
@@ -944,7 +960,7 @@ function PartDetail(props){
                     borderTopRightRadius:10,
                     zIndex:1,
                     pointerEvents:'none',
-                    // filter:hover==index ? 'brightness(90%)':'brightness(100%)'
+                    filter:hoverTwo==index ? 'brightness(90%)':'brightness(100%)'
                     // transform:[{
                     //     translateX:'0px',
                     //     translateY:'0px'
@@ -957,6 +973,7 @@ function PartDetail(props){
 
                   >
                   </Image>
+                 
                   <View
                     style ={{
                       height:'75px',
@@ -1047,6 +1064,7 @@ function PartDetail(props){
               </Text>
                     
           </View>
+          </TouchableOpacity>
         </View>
       
         
