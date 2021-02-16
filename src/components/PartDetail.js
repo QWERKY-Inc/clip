@@ -229,7 +229,7 @@ function PartDetail(props){
                                 borderTopRightRadius:10,
                                 zIndex:1,
                                 pointerEvents:'none',
-                                display:materialData.is_clipped==false ? 'block':'none'
+                                // display:materialData.is_clipped==false ? 'block':'none'
                                 // transform:[{
                                 //     translateX:'0px',
                                 //     translateY:'0px'
@@ -240,7 +240,7 @@ function PartDetail(props){
                                 >
                                 
                             </Image>
-                            <Image
+                            {/* <Image
                                 style={{
                                 display:'block',
                                 height:'40px',
@@ -259,7 +259,7 @@ function PartDetail(props){
 
                                 >
                                 
-                            </Image>
+                            </Image> */}
                             </TouchableOpacity>
                         </div>
                         </View>

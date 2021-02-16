@@ -1341,7 +1341,7 @@ function SearchPage(props) {
                                 borderTopRightRadius:10,
                                 zIndex:1,
                                 pointerEvents:'none',
-                                display:result.is_clipped==false ? 'block':'none'
+                                // display:result.is_clipped==false ? 'block':'none'
                                 // transform:[{
                                 //     translateX:'0px',
                                 //     translateY:'0px'
@@ -1352,7 +1352,7 @@ function SearchPage(props) {
                                 >
                                 
                             </Image>
-                            <Image
+                            {/* <Image
                                 style={{
                                 display:'block',
                                 height:'20px',
@@ -1362,16 +1362,13 @@ function SearchPage(props) {
                                 zIndex:1,
                                 pointerEvents:'none',
                                 display:result.is_clipped==true ? 'block':'none'
-                                // transform:[{
-                                //     translateX:'0px',
-                                //     translateY:'0px'
-                                // }]
+             
                                 }}
                                 source={clipOn}
 
                                 >
                                 
-                            </Image>
+                            </Image> */}
                         </TouchableOpacity>
                         
                     <Image
