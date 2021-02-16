@@ -159,7 +159,8 @@ app.get('/brandslist',(req,res)=>{
 })
 app.get('/onebrand',(req,res)=>{
     console.log(req.query)
-    fetch('http://clip.partners/api/mobile/Brand/'+req.query.ct_id+'?mem_no=')
+    // fetch('http://clip.partners/api/mobile/Brand/'+req.query.ct_id+'?mem_no=')
+    fetch('http://clip.partners/api/mobile/Brand/'+req.query.ct_id+'?'+queryString.stringify(req.query))
     .then(res=>res.json())
     .then(data=>{
         res.json(data);

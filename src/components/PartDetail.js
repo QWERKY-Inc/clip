@@ -6,6 +6,7 @@ import parse from 'html-react-parser';
 import { Carousel } from 'react-responsive-carousel';
 import chatIcon from '../assets/chat.png'
 import clipOff from '../assets/clipOff.png'
+import clipOn from '../assets/clipOn.png'
 const queryString = require('query-string');
 function PartDetail(props){
     const [height,setHeight]=React.useState(Dimensions.get('window').height)
@@ -208,6 +209,57 @@ function PartDetail(props){
                                     color:materialData.mt_budget<5 ? 'rgb(219,219,219)':'black'
                                 }}
                             >₩</Text>
+                        </div>
+                        <div
+                            style={{
+                                backgroundColor:'transparent',
+                                position:'absolute',
+                                right:'15px',
+                                top:'19px'
+                            }}
+                        >
+                        <TouchableOpacity>
+                        <Image
+                                style={{
+                                display:'block',
+                                height:'40px',
+                                width:'40px',
+                                borderTopLeftRadius:10,
+                                borderTopRightRadius:10,
+                                zIndex:1,
+                                pointerEvents:'none',
+                                display:materialData.is_clipped==false ? 'block':'none'
+                                // transform:[{
+                                //     translateX:'0px',
+                                //     translateY:'0px'
+                                // }]
+                                }}
+                                source={clipOff}
+
+                                >
+                                
+                            </Image>
+                            <Image
+                                style={{
+                                display:'block',
+                                height:'40px',
+                                width:'40px',
+                                borderTopLeftRadius:10,
+                                borderTopRightRadius:10,
+                                zIndex:1,
+                                pointerEvents:'none',
+                                display:materialData.is_clipped==true ? 'block':'none'
+                                // transform:[{
+                                //     translateX:'0px',
+                                //     translateY:'0px'
+                                // }]
+                                }}
+                                source={clipOn}
+
+                                >
+                                
+                            </Image>
+                            </TouchableOpacity>
                         </div>
                         </View>
                         <View
@@ -649,24 +701,45 @@ function PartDetail(props){
                       }}
                   >   
                       <Image
-                          style={{
-                          display:'block',
-                          height:'20px',
-                          width:'20px',
-                          borderTopLeftRadius:10,
-                          borderTopRightRadius:10,
-                          zIndex:1,
-                          pointerEvents:'none'
-                          // transform:[{
-                          //     translateX:'0px',
-                          //     translateY:'0px'
-                          // }]
-                          }}
-                          source={clipOff}
+                                style={{
+                                display:'block',
+                                height:'20px',
+                                width:'20px',
+                                borderTopLeftRadius:10,
+                                borderTopRightRadius:10,
+                                zIndex:1,
+                                pointerEvents:'none',
+                                display:materialData.samebrand_list[index].is_clipped==false ? 'block':'none'
+                                // transform:[{
+                                //     translateX:'0px',
+                                //     translateY:'0px'
+                                // }]
+                                }}
+                                source={clipOff}
 
-                          >
-                          
-                      </Image>
+                                >
+                                
+                            </Image>
+                            <Image
+                                style={{
+                                display:'block',
+                                height:'20px',
+                                width:'20px',
+                                borderTopLeftRadius:10,
+                                borderTopRightRadius:10,
+                                zIndex:1,
+                                pointerEvents:'none',
+                                display:materialData.samebrand_list[index].is_clipped==true ? 'block':'none'
+                                // transform:[{
+                                //     translateX:'0px',
+                                //     translateY:'0px'
+                                // }]
+                                }}
+                                source={clipOn}
+
+                                >
+                                
+                            </Image>
                   </TouchableOpacity>
                   <TouchableOpacity
                     onPress={()=>{
@@ -925,24 +998,45 @@ function PartDetail(props){
                     }}
                   >   
                       <Image
-                          style={{
-                          display:'block',
-                          height:'20px',
-                          width:'20px',
-                          borderTopLeftRadius:10,
-                          borderTopRightRadius:10,
-                          zIndex:1,
-                          pointerEvents:'none'
-                          // transform:[{
-                          //     translateX:'0px',
-                          //     translateY:'0px'
-                          // }]
-                          }}
-                          source={clipOff}
+                                style={{
+                                display:'block',
+                                height:'20px',
+                                width:'20px',
+                                borderTopLeftRadius:10,
+                                borderTopRightRadius:10,
+                                zIndex:1,
+                                pointerEvents:'none',
+                                display:materialData.samecategory_list[index].is_clipped==false ? 'block':'none'
+                                // transform:[{
+                                //     translateX:'0px',
+                                //     translateY:'0px'
+                                // }]
+                                }}
+                                source={clipOff}
 
-                          >
-                          
-                      </Image>
+                                >
+                                
+                            </Image>
+                            <Image
+                                style={{
+                                display:'block',
+                                height:'20px',
+                                width:'20px',
+                                borderTopLeftRadius:10,
+                                borderTopRightRadius:10,
+                                zIndex:1,
+                                pointerEvents:'none',
+                                display:materialData.samecategory_list[index].is_clipped==true ? 'block':'none'
+                                // transform:[{
+                                //     translateX:'0px',
+                                //     translateY:'0px'
+                                // }]
+                                }}
+                                source={clipOn}
+
+                                >
+                                
+                            </Image>
                   </TouchableOpacity>
                   <TouchableOpacity
                     onPress={()=>{

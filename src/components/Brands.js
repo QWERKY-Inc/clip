@@ -34,10 +34,12 @@ function Brands(props) {
     })
 
   }
-  const oneBrand=(ct_id)=>{
+  const oneBrand=(jsonObj)=>{
+    console.log(jsonObj)
       fetch('/onebrand?'+
         queryString.stringify({
-              ct_id:ct_id
+              // ct_id:ct_id
+              ...jsonObj
             })
       )
       .then(res=>res.json())
@@ -64,13 +66,21 @@ function Brands(props) {
     // })
     Dimensions.addEventListener('change',onChange)
     const parsed = queryString.parse(props.location.search);
+    if(localStorage.login!=undefined){
+        var mem_no=undefined
+        mem_no=JSON.parse(localStorage.login).message.split('_')[0]
+        parsed.mem_no=mem_no 
+    }
+    else{
+        parsed.mem_no=""
+    }
     console.log(parsed.ct_id==undefined)
     if(parsed.ct_id==undefined){
       brands()
       setDetailView(false)
     }
     else{
-      oneBrand(parsed.ct_id)
+      oneBrand(parsed)
       setBrandId(parsed.ct_id)
       setDetailView(true)
     }

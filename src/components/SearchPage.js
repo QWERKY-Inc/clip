@@ -10,6 +10,7 @@ import { RadioButton } from 'react-native-paper';
 import plusIcon from '../assets/plus.png';
 import minusIcon from '../assets/minus.png';
 import clipOff from '../assets/clipOff.png'
+import clipOn from '../assets/clipOn.png'
 import './searchpage.css'
 // import Pagination from "react-js-pagination";
 // import ReactPaginate from 'react-paginate';
@@ -278,6 +279,14 @@ function SearchPage(props) {
     Dimensions.addEventListener('change',onChange)
     //window.addEventListener('scroll',onScroll,{passive:true})
     const parsed = queryString.parse(props.location.search);
+    if(localStorage.login!=undefined){
+        var mem_no=undefined
+        mem_no=JSON.parse(localStorage.login).message.split('_')[0]
+        parsed.mem_no=mem_no 
+    }
+    else{
+        parsed.mem_no=""
+    }
     console.log(parsed.ct_id==undefined)
     firstPage(parsed)
     // secondPage(parsed)
@@ -308,6 +317,14 @@ function SearchPage(props) {
   useEffect(() => {
     //console.log({...queryString.parse(props.location.search),...filter})
     const parsed = {...queryString.parse(props.location.search),...filter}
+    if(localStorage.login!=undefined){
+        var mem_no=undefined
+        mem_no=JSON.parse(localStorage.login).message.split('_')[0]
+        parsed.mem_no=mem_no 
+    }
+    else{
+        parsed.mem_no=""
+    }
     secondPage(parsed)
     // var testObj= {mem_no: "63", keyword: "시트", search_target: null, search_value: null, list_color: ["GOLDSILVER","RED","BLACK"], list_pattern: ["METAL","SOLID","GEOMETRIC"], list_brand: ["62","101"], list_category: ["45"], list_use: ["56","9"], material_scope: "ALL", pagination: true, page: 1}
     // secondPage(testObj)
@@ -1323,13 +1340,34 @@ function SearchPage(props) {
                                 borderTopLeftRadius:10,
                                 borderTopRightRadius:10,
                                 zIndex:1,
-                                pointerEvents:'none'
+                                pointerEvents:'none',
+                                display:result.is_clipped==false ? 'block':'none'
                                 // transform:[{
                                 //     translateX:'0px',
                                 //     translateY:'0px'
                                 // }]
                                 }}
                                 source={clipOff}
+
+                                >
+                                
+                            </Image>
+                            <Image
+                                style={{
+                                display:'block',
+                                height:'20px',
+                                width:'20px',
+                                borderTopLeftRadius:10,
+                                borderTopRightRadius:10,
+                                zIndex:1,
+                                pointerEvents:'none',
+                                display:result.is_clipped==true ? 'block':'none'
+                                // transform:[{
+                                //     translateX:'0px',
+                                //     translateY:'0px'
+                                // }]
+                                }}
+                                source={clipOn}
 
                                 >
                                 
