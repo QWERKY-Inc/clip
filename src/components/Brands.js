@@ -563,7 +563,7 @@ function Brands(props) {
                     var mem_no=JSON.parse(localStorage.login).message.split('_')
                     console.log(mem_no)
                     setHover(index)
-                    console.log(brandData)
+                    console.log(brandData.bestproducts_brand[index])
                   }
                   }
                   onMouseLeave={()=>{
@@ -595,7 +595,7 @@ function Brands(props) {
                               left:'2px',
                               fontWeight:50,
                               fontSize:'12px',
-                              color:brandData.bestproducts_brand[index].mt_budget<=1 ? 'rgb(219,219,219)':'black' 
+                              color:brandData.bestproducts_brand[index].mt_budget<1 ? 'rgb(219,219,219)':'black' 
                           }}
                       >₩</Text>
                      <Text
@@ -606,7 +606,7 @@ function Brands(props) {
                               left:'12px',
                               fontWeight:50,
                               fontSize:'12px',
-                              color:brandData.bestproducts_brand[index].mt_budget<=2 ? 'rgb(219,219,219)':'black'
+                              color:brandData.bestproducts_brand[index].mt_budget<2 ? 'rgb(219,219,219)':'black'
                           }}
                       >₩</Text>
                       <Text
@@ -617,7 +617,7 @@ function Brands(props) {
                               left:'22px',
                               fontWeight:50,
                               fontSize:'12px',
-                              color:brandData.bestproducts_brand[index].mt_budget<=3 ? 'rgb(219,219,219)':'black'
+                              color:brandData.bestproducts_brand[index].mt_budget<3 ? 'rgb(219,219,219)':'black'
                           }}
                       >₩</Text>
                       <Text
@@ -628,7 +628,7 @@ function Brands(props) {
                               left:'32px',
                               fontWeight:50,
                               fontSize:'12px',
-                              color:brandData.bestproducts_brand[index].mt_budget<=4 ? 'rgb(219,219,219)':'black'
+                              color:brandData.bestproducts_brand[index].mt_budget<4 ? 'rgb(219,219,219)':'black'
                           }}
                       >₩</Text>
                       <Text
@@ -639,7 +639,7 @@ function Brands(props) {
                               left:'42px',
                               fontWeight:50,
                               fontSize:'12px',
-                              color:brandData.bestproducts_brand[index].mt_budget<=5 ? 'rgb(219,219,219)':'black'
+                              color:brandData.bestproducts_brand[index].mt_budget<5 ? 'rgb(219,219,219)':'black'
                           }}
                       >₩</Text>
                   </div>
@@ -678,6 +678,13 @@ function Brands(props) {
                           
                       </Image>
                   </TouchableOpacity>
+                  <TouchableOpacity
+                        
+                        onPress={()=>{  
+                          
+                          Linking.openURL('/partDetail?mt_no='+brandData.bestproducts_brand[index].mt_no)
+                      }}
+                        >
                   <Image
                     style={{
                     display:'block',
@@ -790,6 +797,7 @@ function Brands(props) {
               </Text>
                     
           </View>
+          </TouchableOpacity>
         </View>
       
         
@@ -1321,7 +1329,7 @@ function Brands(props) {
                                     left:'2px',
                                     fontWeight:50,
                                     fontSize:'12px',
-                                    color:brandData.bestproducts_brand[index].mt_budget<=1 ? 'rgb(219,219,219)':'black' 
+                                    color:brandData.bestproducts_brand[index].mt_budget<1 ? 'rgb(219,219,219)':'black' 
                                 }}
                             >₩</Text>
                            <Text
@@ -1332,7 +1340,7 @@ function Brands(props) {
                                     left:'12px',
                                     fontWeight:50,
                                     fontSize:'12px',
-                                    color:brandData.bestproducts_brand[index].mt_budget<=2 ? 'rgb(219,219,219)':'black'
+                                    color:brandData.bestproducts_brand[index].mt_budget<2 ? 'rgb(219,219,219)':'black'
                                 }}
                             >₩</Text>
                             <Text
@@ -1343,7 +1351,7 @@ function Brands(props) {
                                     left:'22px',
                                     fontWeight:50,
                                     fontSize:'12px',
-                                    color:brandData.bestproducts_brand[index].mt_budget<=3 ? 'rgb(219,219,219)':'black'
+                                    color:brandData.bestproducts_brand[index].mt_budget<3 ? 'rgb(219,219,219)':'black'
                                 }}
                             >₩</Text>
                             <Text
@@ -1354,7 +1362,7 @@ function Brands(props) {
                                     left:'32px',
                                     fontWeight:50,
                                     fontSize:'12px',
-                                    color:brandData.bestproducts_brand[index].mt_budget<=4 ? 'rgb(219,219,219)':'black'
+                                    color:brandData.bestproducts_brand[index].mt_budget<4 ? 'rgb(219,219,219)':'black'
                                 }}
                             >₩</Text>
                             <Text
@@ -1365,7 +1373,7 @@ function Brands(props) {
                                     left:'42px',
                                     fontWeight:50,
                                     fontSize:'12px',
-                                    color:brandData.bestproducts_brand[index].mt_budget<=5 ? 'rgb(219,219,219)':'black'
+                                    color:brandData.bestproducts_brand[index].mt_budget<5 ? 'rgb(219,219,219)':'black'
                                 }}
                             >₩</Text>
                         </div>
@@ -1404,6 +1412,13 @@ function Brands(props) {
                                 
                             </Image>
                         </TouchableOpacity>
+                        <TouchableOpacity
+                        
+                        onPress={()=>{  
+                          
+                          Linking.openURL('/partDetail?mt_no='+brandData.bestproducts_brand[index].mt_no)
+                      }}
+                        >
                         <Image
                           style={{
                           display:'block',
@@ -1516,6 +1531,7 @@ function Brands(props) {
                     </Text>
                           
                 </View>
+                </TouchableOpacity>
               </View>
             
               
