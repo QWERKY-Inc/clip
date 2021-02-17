@@ -11,6 +11,8 @@ function ClipBoard(props){
     const [height,setHeight]=React.useState(Dimensions.get('window').height)
     const [width,setWidth]=React.useState(Dimensions.get('window').width)
     const[clipBoardData,setClipBoardData]=React.useState([])
+    // const[clipBoardDataDetail,setClipBoardDataDetail]=React.useState([])
+    const [boardBuilding,setBoardBuilding]=React.useState(false)
     const onChange=()=>{
         setHeight(Dimensions.get('window').height)
         setWidth(Dimensions.get('window').width)
@@ -29,6 +31,19 @@ function ClipBoard(props){
         console.log(err)
     })
     }
+    // const clipBoardDetailInfo=(qStr)=>{
+    //     // console.log(qStr)
+    //     fetch('/clipboardDetailInfo?'+qStr
+    //     )
+    //     .then(res=>res.json())
+    //     .then((incomingData)=>{
+    //         console.log(incomingData)
+    //         setClipBoardDataDetail([...clipBoardDataDetail,...incomingData])
+    //         })
+    //     .catch(err=>{
+    //         console.log(err)
+    //     })
+    //     }
     useEffect(() => {
         Dimensions.addEventListener('change',onChange)
         // const parsed = queryString.parse(props.location.search);
@@ -49,10 +64,20 @@ function ClipBoard(props){
 
         
       },[])
-    useEffect(()=>{
-        // console.log("clipboard length ")
-        // console.log(clipBoardData.length == 0)
-    },[clipBoardData])
+    // useEffect(()=>{
+    //     // console.log("clipboard length ")
+    //     // console.log(clipBoardData.length == 0)
+    //     if(clipBoardData.length!=0){
+    //         for(var i=0;i<clipBoardData.length;i++){
+    //             console.log(clipBoardData[i].cb_no)
+    //             clipBoardDetailInfo(queryString.stringify({cb_no:clipBoardData[i].cb_no}))
+    //         }
+    //     }
+        
+    // },[clipBoardData])
+    // useEffect(()=>{
+    //     console.log(clipBoardDataDetail)
+    // })
     // if(clipBoardData){
         return (
           <div

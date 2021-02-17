@@ -343,10 +343,69 @@ app.get('/materialDetail',(req,res)=>{
     })
 })
 app.get('/clipboardInfo',(req,res)=>{
+    var wholeData=[]
     fetch('http://clip.partners/api/mobile/Clipboard?'+queryString.stringify(req.query))
     .then(res=>res.json())
     .then(data=>{
         // console.log(data)
+        //     if(data.length!=0){
+        //         arr=[]
+        //         for(var i = 0; i<data.length; i++){
+        //             fetch('http://clip.partners/api/mobile/Clipboard/'+data[i].cb_no)
+        //             .then(res=>res.json())
+        //             .then(moreData=>{
+        //                 //console.log(moreData)
+        //                 arr.push(moreData)
+        //                 // res.json(data);
+        //             })
+        //             .catch(err=>{
+        //                 console.log(err)
+        //             })
+        //         }
+        //         console.log(arr)
+        //         res.json(arr)
+        //     }
+        //     else{
+        //         res.json(data);
+        //     }
+        data.map((oneBoard,index)=>{
+            fetch('http://clip.partners/api/mobile/Clipboard/'+oneBoard.cb_no
+            )
+            .then(res=>res.json())
+            .then((detailData)=>{
+              wholeData.push({...oneBoard,detail:detailData})
+            })
+            .then(()=>{
+                if(wholeData.length==data.length){
+                    console.log(index+'/'+data.length)
+                    console.log(' end reached')
+                    res.json(wholeData.sort(function(a,b){
+                        return a.ct_text-b.ct_text
+                    }));
+                }
+                else{
+                    console.log(index+'/'+data.length)
+                    
+                }
+                
+                
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+        })
+        
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
+app.get('clipboardDetailInfo',(req,res)=>{
+    console.log(req.query)
+    fetch('http://clip.partners/api/mobile/Clipboard/'+req.query.cb_no)
+    .then(res=>res.json())
+    .then(data=>{
+        console.log(data)
         res.json(data);
     })
     .catch(err=>{
