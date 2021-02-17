@@ -342,6 +342,17 @@ app.get('/materialDetail',(req,res)=>{
         console.log(err)
     })
 })
+app.get('/clipboardInfo',(req,res)=>{
+    fetch('http://clip.partners/api/mobile/Clipboard?'+queryString.stringify(req.query))
+    .then(res=>res.json())
+    .then(data=>{
+        // console.log(data)
+        res.json(data);
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
 
 app.listen(port,()=>{
     console.log('server is up on port ' + port);
