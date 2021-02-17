@@ -2,6 +2,7 @@ import React,{useEffect} from 'react';
 import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking,Dimensions} from 'react-native';
 import Navbar from './Navbar';
 import NavBarFiller from './NavBarFiller';
+import ClipBoard from './ClipBoard';
 import parse from 'html-react-parser';
 import { Carousel } from 'react-responsive-carousel';
 import chatIcon from '../assets/chat.png'
@@ -15,6 +16,11 @@ function PartDetail(props){
     const [materialData,setMaterialData]=React.useState(undefined)
     const [hoverOne, setHoverOne]=React.useState(null)
     const [hoverTwo, setHoverTwo]=React.useState(null)
+    const [clipBoard,setClipBoard]=React.useState(false)
+    const [materialNumber,setMaterialNumber]=React.useState(undefined)
+    const toggleClipBoard=()=>{
+        setClipBoard(!clipBoard)
+    }
     const onChange=()=>{
         setHeight(Dimensions.get('window').height)
         setWidth(Dimensions.get('window').width)
@@ -71,8 +77,16 @@ function PartDetail(props){
       if(materialData!=undefined){
         return(
             <div>
+                <div
+                    style={{
+                        display: clipBoard ? 'block':'none' 
+                    }}
+                >
+                    <ClipBoard toggleClipBoard={toggleClipBoard} material_num={materialNumber}/>
+                </div>
                 <Navbar />
                 <NavBarFiller/>
+                
                 <div
                     style={{
                         backgroundColor:'transparent',
@@ -219,7 +233,14 @@ function PartDetail(props){
                                 top:'19px'
                             }}
                         >
-                        <TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={()=>{  
+                                console.log(materialData.mt_no)
+                                setMaterialNumber(materialData.mt_no)
+                                toggleClipBoard()
+                              //   console.log('pressed clip ' + brandData.bestproducts_brand[index].mt_no)
+                            }}
+                        >
                         <Image
                                 style={{
                                 display:'block',
@@ -698,6 +719,8 @@ function PartDetail(props){
                           display:hoverOne==index ? 'block':'none'
                       }}
                       onPress={()=>{  
+                          setMaterialNumber(materialData.samebrand_list[index].mt_no)
+                          toggleClipBoard()
                         //   console.log('pressed clip ' + brandData.bestproducts_brand[index].mt_no)
                       }}
                   >   
@@ -995,7 +1018,9 @@ function PartDetail(props){
                           display:hoverTwo==index ? 'block':'none'
                       }}
                       onPress={()=>{  
-                        
+                        setMaterialNumber(materialData.samecategory_list[index].mt_no)
+                        toggleClipBoard()
+                      //   console.log('pressed clip ' + brandData.bestproducts_brand[index].mt_no)
                     }}
                   >   
                       <Image
