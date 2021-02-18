@@ -15,6 +15,7 @@ function ClipBoard(props){
     // const[clipBoardDataDetail,setClipBoardDataDetail]=React.useState([])
     const [boardBuilding,setBoardBuilding]=React.useState(false)
     const [refresh,setRefresh]=React.useState(0)
+    const [newBoard,setNewBoard]=React.useState(false)
     const onChange=()=>{
         setHeight(Dimensions.get('window').height)
         setWidth(Dimensions.get('window').width)
@@ -185,46 +186,46 @@ function ClipBoard(props){
     // useEffect(()=>{
     //     console.log(clipBoardDataDetail)
     // })
-    // if(clipBoardData){
+    if(newBoard){
         return (
-          <div
-          style={{
-          position:'fixed',
-          height:'100vh',
-          width:'100vw',
-          top:0,
-          left:0,
-          backgroundColor:'rgba(0,0,0,0.5)',
-          display:'block',
+            <div
+            style={{
+            position:'fixed',
+            height:'100vh',
+            width:'100vw',
+            top:0,
+            left:0,
+            backgroundColor:'rgba(0,0,0,0.5)',
+            display:'block',
         //   padding:'160px',
-          zIndex:101
-          }}
-      >
+            zIndex:101
+            }}
+        >
         <div
         style={{
-          paddingTop:'100px',
-          paddingLeft:'65px',
-          paddingRight:'65px'
+            paddingTop:'100px',
+            paddingLeft:'65px',
+            paddingRight:'65px'
         }}
         >
-          <div
+            <div
             style={{
-              textAlign:'left',
-              // margin:'25pt'
-              paddingLeft:'0px',
-              paddingRight:'0px',
-              backgroundColor:'transparent'
+                textAlign:'left',
+                // margin:'25pt'
+                paddingLeft:'0px',
+                paddingRight:'0px',
+                backgroundColor:'transparent'
             }}
-          >
-          
+            >
             
             
-           
-          </div>
+            
+            
+            </div>
 
-  
-          <div
-          style={{
+
+            <div
+            style={{
             borderRadius:'10px',
             backgroundColor:'white',
             width:'100%',
@@ -237,10 +238,10 @@ function ClipBoard(props){
             // gridTemplateColumns: 'auto auto',
             // // padding:'100px',
             overflowY: 'scroll',
-          }}
-          >
-              <div
-              style={{
+            }}
+            >
+                <div
+                style={{
                 height:'25px',
                 width:'25px',
                 backgroundColor:'transparent',
@@ -248,26 +249,26 @@ function ClipBoard(props){
                 top:'110px',
                 left:'75px',
                 zIndex:102,
-              }}
-            >
-              <TouchableOpacity
-                onPress={()=>{
-                  // console.log(detailedCategoryData)
-                  props.toggleClipBoard()
                 }}
-              >
-              <img
+            >
+                <TouchableOpacity
+                onPress={()=>{
+                    // console.log(detailedCategoryData)
+                    props.toggleClipBoard()
+                }}
+                >
+                <img
                 src={xIcon}
                 style={{
-                  height:'25px',
-                  width:'25px',
+                    height:'25px',
+                    width:'25px',
                 }}
-              >
-              </img>
-              </TouchableOpacity>
+                >
+                </img>
+                </TouchableOpacity>
             </div>
             
-              <View
+                <View
                 style={{
                     backgroundColor:'white',
                     height:'298px',
@@ -276,7 +277,171 @@ function ClipBoard(props){
                     borderBottomRightRadius:'10px'
 
                 }}
-              >
+                >
+                    <View
+                        style={{
+                            position:'relative',
+                            top:0,
+                            height:'30px',
+                            width:'100%',
+                            backgroundColor:'white',
+                            borderTopLeftRadius:'10px',
+                            borderTopRightRadius:'10px',
+                            borderBottom:'1px solid rgb(221,221,221)'
+                        }}
+                    >
+                    <Text
+                        style={{
+                            fontWeight:700,
+                        }}
+                    >새로운 클립보드 생성</Text>
+                    </View>
+
+                <div
+                    style={{
+                    display: clipBoardData.length==0 ? 'none':'block',
+                    textAlign:'left',
+                    padding:'15px',
+                    overflowY:'scroll',
+                    backgroundColor:'transparent'
+                }} 
+                >
+
+                </div>
+                <div>
+                <TouchableOpacity
+                    style={{
+                        position:'absolute',
+                        bottom:0,
+                        height:'50px',
+                        width:'100%',
+                        backgroundColor:'white',
+                        borderBottomLeftRadius:'10px',
+                        borderBottomRightRadius:'10px',
+                        zIndex:100
+                    }}
+                    onPress={()=>{
+                        console.log('make a new board')
+                        setNewBoard(!newBoard)
+                    }}
+                >
+                    <View
+                        style={{
+                            backgroundColor:'white',
+                            borderTop:'1px solid rgb(221,221,221)',
+                            zIndex:200
+                        }}
+                    >
+                    <Text
+                        style={{
+                            lineHeight:'50px',
+                            fontWeight:700,
+                        }}
+                    >
+                        새로 만들기
+                    </Text>
+                    </View>
+                </TouchableOpacity>
+                </div>
+                </View>
+                {/* <Text>{props.material_num}</Text> */}
+            </div>
+        </div>
+    </div>
+        );
+    }
+    else{
+        return (
+            <div
+            style={{
+            position:'fixed',
+            height:'100vh',
+            width:'100vw',
+            top:0,
+            left:0,
+            backgroundColor:'rgba(0,0,0,0.5)',
+            display:'block',
+        //   padding:'160px',
+            zIndex:101
+            }}
+        >
+        <div
+        style={{
+            paddingTop:'100px',
+            paddingLeft:'65px',
+            paddingRight:'65px'
+        }}
+        >
+            <div
+            style={{
+                textAlign:'left',
+                // margin:'25pt'
+                paddingLeft:'0px',
+                paddingRight:'0px',
+                backgroundColor:'transparent'
+            }}
+            >
+            
+            
+            
+            
+            </div>
+    
+    
+            <div
+            style={{
+            borderRadius:'10px',
+            backgroundColor:'white',
+            width:'100%',
+            height:'300px',
+            paddingTop:'15px',
+            // columnCount:3,
+            // flexwrap:'wrap',
+            // flexDirection:'column',
+            // display: 'grid',
+            // gridTemplateColumns: 'auto auto',
+            // // padding:'100px',
+            overflowY: 'scroll',
+            }}
+            >
+                <div
+                style={{
+                height:'25px',
+                width:'25px',
+                backgroundColor:'transparent',
+                position: 'absolute',
+                top:'110px',
+                left:'75px',
+                zIndex:102,
+                }}
+            >
+                <TouchableOpacity
+                onPress={()=>{
+                    // console.log(detailedCategoryData)
+                    props.toggleClipBoard()
+                }}
+                >
+                <img
+                src={xIcon}
+                style={{
+                    height:'25px',
+                    width:'25px',
+                }}
+                >
+                </img>
+                </TouchableOpacity>
+            </div>
+            
+                <View
+                style={{
+                    backgroundColor:'white',
+                    height:'298px',
+                    width:'100%',
+                    borderBottomLeftRadius:'10px',
+                    borderBottomRightRadius:'10px'
+    
+                }}
+                >
                     <View
                         style={{
                             position:'relative',
@@ -302,20 +467,20 @@ function ClipBoard(props){
                         padding:'15px'
                     }}
                 >
-                  <Text
+                    <Text
                     style={{
                         fontWeight:700,
                     }}
-                  >
-                      생성된 보드가 아직 없습니다.
-                  </Text>
-                  <br></br>
-                  <Text>
-                      진행하고 있는 프로젝트에 필요한 자재를 클립할 보드를 만들어보세요.
-                  </Text>
+                    >
+                        생성된 보드가 아직 없습니다.
+                    </Text>
+                    <br></br>
+                    <Text>
+                        진행하고 있는 프로젝트에 필요한 자재를 클립할 보드를 만들어보세요.
+                    </Text>
                 </View>
                 <div
-                   style={{
+                    style={{
                     display: clipBoardData.length==0 ? 'none':'block',
                     textAlign:'left',
                     padding:'15px',
@@ -392,7 +557,7 @@ function ClipBoard(props){
                                             uri:
                                                 clipboard.cb_images[0]
                                         }}
-
+    
                                         >
                                         </Image>
                                 </div>
@@ -427,7 +592,7 @@ function ClipBoard(props){
                                             uri:
                                                 clipboard.cb_images[1]
                                         }}
-
+    
                                         >
                                         </Image>
                                 </div>
@@ -471,7 +636,7 @@ function ClipBoard(props){
                                             uri:
                                                 clipboard.cb_images[2]
                                         }}
-
+    
                                         >
                                         </Image>
                                 </div>
@@ -506,12 +671,12 @@ function ClipBoard(props){
                                             uri:
                                                 clipboard.cb_images[3]
                                         }}
-
+    
                                         >
                                         </Image>
                                 </div>
                             </div>
-
+    
                         </div>
                         <div
                             style={{
@@ -569,7 +734,7 @@ function ClipBoard(props){
                         </div>
                         </div>
                         </div>
-
+    
                         <div
                             className='checkContainer'
                             style={{
@@ -590,7 +755,7 @@ function ClipBoard(props){
                                 alignItems:'center',
                                 justifyContent:'center',
                                 zIndex:98
-
+    
                             }}
                         >   
                             <div
@@ -623,7 +788,7 @@ function ClipBoard(props){
                                     checkboxClicked(index,e,clipboard.cb_no,clipboard.detail)
                                     // console.log(e)
                                 }
-
+    
                         
                         ></input>
                         </div>
@@ -650,6 +815,10 @@ function ClipBoard(props){
                         borderBottomRightRadius:'10px',
                         zIndex:100
                     }}
+                    onPress={()=>{
+                        console.log('make a new board')
+                        setNewBoard(!newBoard)
+                    }}
                 >
                     <View
                         style={{
@@ -669,21 +838,12 @@ function ClipBoard(props){
                     </View>
                 </TouchableOpacity>
                 </div>
-              </View>
+                </View>
                 {/* <Text>{props.material_num}</Text> */}
-          </div>
+            </div>
         </div>
     </div>
         );
-    //   }
-    //     else{
-    //         return(
-    //             <div>
-    //                 <Text>
-    //                 로딩중 ...
-    //                 </Text>
-    //             </div>
-    //         )
-    //     }
+    }
 }
 export default ClipBoard
