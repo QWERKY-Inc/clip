@@ -18,6 +18,7 @@ function PartDetail(props){
     const [hoverTwo, setHoverTwo]=React.useState(null)
     const [clipBoard,setClipBoard]=React.useState(false)
     const [materialNumber,setMaterialNumber]=React.useState(undefined)
+    const [refreshClipboard,setRefreshClipboard]=React.useState(0)
     const toggleClipBoard=()=>{
         setClipBoard(!clipBoard)
     }
@@ -82,7 +83,7 @@ function PartDetail(props){
                         display: clipBoard ? 'block':'none' 
                     }}
                 >
-                    <ClipBoard toggleClipBoard={toggleClipBoard} material_num={materialNumber}/>
+                    <ClipBoard toggleClipBoard={toggleClipBoard} material_num={materialNumber} refresh={clipBoard}/>
                 </div>
                 <Navbar />
                 <NavBarFiller/>

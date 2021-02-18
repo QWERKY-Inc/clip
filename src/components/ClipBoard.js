@@ -11,6 +11,7 @@ function ClipBoard(props){
     const [height,setHeight]=React.useState(Dimensions.get('window').height)
     const [width,setWidth]=React.useState(Dimensions.get('window').width)
     const[clipBoardData,setClipBoardData]=React.useState([])
+    const [checkButtonChecked,setCheckButtonChecked]=React.useState([])
     // const[clipBoardDataDetail,setClipBoardDataDetail]=React.useState([])
     const [boardBuilding,setBoardBuilding]=React.useState(false)
     const onChange=()=>{
@@ -44,11 +45,51 @@ function ClipBoard(props){
     //         console.log(err)
     //     })
     //     }
+    const checkboxClicked=(index,e,cb_no,details)=>{
+        console.log('clicked')
+        console.log(details)
+        // e.target.checked=true
+        // setActivePage(1)
+        // if(e.target.checked==true){
+        //     var numbers=checkedCategory
+        //     numbers.push(String(category_name))
+        //     setCheckedCategory(numbers)
+        //     var filterQ={...filter}
+        //     filterQ.list_category=numbers
+        //     filterQ.page=1
+        //     setFilter(filterQ)
+        // }
+        // else if(e.target.checked==false){
+        //     var numbers=checkedCategory
+        //     var indexOfCategory=numbers.indexOf(String(category_name))
+        //     numbers.splice(indexOfCategory,1)
+        //     //console.log(numbers)
+        //     setCheckedCategory(numbers)
+        //     var filterQ={...filter}
+        //     filterQ.list_category=numbers
+        //     filterQ.page=1
+        //     setFilter(filterQ)
+        // }
+        
+      }
+    const materialNumberMatch=(materialNumber,object)=>{
+        var value=false
+        for(var i=0; i<object.detail.list_material.length; i++){
+            // console.log(object.detail.list_material[i].mt_no)
+            // console.log(materialNumber)
+            // console.log(object.detail.list_material[i].mt_no==materialNumber)
+            if(object.detail.list_material[i].mt_no==materialNumber){
+                value=true
+            }
+        }
+        console.log('number match = '+value)
+        return value
+    }
     useEffect(() => {
         Dimensions.addEventListener('change',onChange)
         // const parsed = queryString.parse(props.location.search);
         var parsed = {}
-        console.log(localStorage.login==undefined)
+        //console.log(localStorage.login==undefined)
         if(localStorage.login!=undefined){
             var mem_no=undefined
             mem_no=JSON.parse(localStorage.login).message.split('_')[0]
@@ -64,17 +105,50 @@ function ClipBoard(props){
 
         
       },[])
-    // useEffect(()=>{
-    //     // console.log("clipboard length ")
-    //     // console.log(clipBoardData.length == 0)
-    //     if(clipBoardData.length!=0){
-    //         for(var i=0;i<clipBoardData.length;i++){
-    //             console.log(clipBoardData[i].cb_no)
-    //             clipBoardDetailInfo(queryString.stringify({cb_no:clipBoardData[i].cb_no}))
-    //         }
-    //     }
+      useEffect(() => {
+        // var parsed = {}
+        // console.log(localStorage.login==undefined)
+        // if(localStorage.login!=undefined){
+        //     var mem_no=undefined
+        //     mem_no=JSON.parse(localStorage.login).message.split('_')[0]
+        //     parsed.mem_no=mem_no 
+        // }
+        // else{
+        //     parsed.mem_no=""
+        // }
+        // parsed.cb_type='INDIV'
+        // console.log(parsed)
+        // clipBoardInfo(queryString.stringify(parsed)) 
+  
+      },[props.refresh])
+    useEffect(()=>{
+        // console.log("clipboard length ")
+        // console.log(clipBoardData.length == 0)
+        // if(clipBoardData.length!=0){
+        //     for(var i=0;i<clipBoardData.length;i++){
+        //         console.log(clipBoardData[i].cb_no)
+        //         clipBoardDetailInfo(queryString.stringify({cb_no:clipBoardData[i].cb_no}))
+        //     }
+        // }
+        // console.log(clipBoardData)
+        if(clipBoardData.length!=0){
+            var temp=checkButtonChecked.slice()
+            for(var i=0;i<clipBoardData.length;i++){
+                //console.log(clipBoardData[i].detail.list_material)
+                var checked=false
+                for(var j=0; j<clipBoardData[i].detail.list_material.length;j++){
+                    if(props.material_num==clipBoardData[i].detail.list_material[j].mt_no){
+                        checked=true
+                    }
+                }
+                temp[i]=checked
+            }
+            console.log(temp)
+            setCheckButtonChecked(temp)
+        }
         
-    // },[clipBoardData])
+        
+    },[clipBoardData,props.refresh])
     // useEffect(()=>{
     //     console.log(clipBoardDataDetail)
     // })
@@ -170,24 +244,24 @@ function ClipBoard(props){
 
                 }}
               >
-                  <View
-                    style={{
-                        position:'relative',
-                        top:0,
-                        height:'30px',
-                        width:'100%',
-                        backgroundColor:'white',
-                        borderTopLeftRadius:'10px',
-                        borderTopRightRadius:'10px',
-                        borderBottom:'1px solid rgb(221,221,221)'
-                    }}
-                >
-                <Text
-                    style={{
-                        fontWeight:700,
-                    }}
-                >클립하기</Text>
-                </View>
+                    <View
+                        style={{
+                            position:'relative',
+                            top:0,
+                            height:'30px',
+                            width:'100%',
+                            backgroundColor:'white',
+                            borderTopLeftRadius:'10px',
+                            borderTopRightRadius:'10px',
+                            borderBottom:'1px solid rgb(221,221,221)'
+                        }}
+                    >
+                    <Text
+                        style={{
+                            fontWeight:700,
+                        }}
+                    >클립하기</Text>
+                    </View>
                 <View
                     style={{
                         display: clipBoardData.length==0 ? 'block':'none',
@@ -207,6 +281,331 @@ function ClipBoard(props){
                       진행하고 있는 프로젝트에 필요한 자재를 클립할 보드를 만들어보세요.
                   </Text>
                 </View>
+                <div
+                   style={{
+                    display: clipBoardData.length==0 ? 'none':'block',
+                    textAlign:'left',
+                    padding:'15px',
+                    overflowY:'scroll',
+                    backgroundColor:'transparent'
+                }} 
+                >
+                {clipBoardData.map((clipboard,index)=>
+                            
+                    <div
+                        style={{
+                            display:'flex',
+                            flexDirection:'row',
+                            backgroundColor:'transparent',
+                            paddingLeft:'15px',
+                            paddingRight:'15px',
+                            justifyContent:'space-between'
+                        }}
+                    >
+                        <div
+                            style={{
+                                display:'flex',
+                                flexDirection:'row',
+                                backgroundColor:'transparent',
+                                padding:'15px',
+                            }}
+                        >
+                        <div
+                            style={{
+                                borderRadius:'10px',
+                                backgroundColor:'grey',
+                                height:'50px',
+                                width:'50px',
+                                display:'flex',
+                                flexDirection:'column',
+                            }}
+                        >
+                            <div
+                                style={{
+                                    display:'flex',
+                                    flexDirection:'row',
+                                    height:'25px',
+                                    width:'50px'
+                                }}
+                            >
+                                <div
+                                    style={{
+                                        height:'25px',
+                                        width:'25px',
+                                        backgroundColor:'grey',
+                                        borderTopLeftRadius:'10px'
+                                    }}
+                                >
+                                    <Image
+                                        style={{
+                                        display:'block',
+                                        height:'25px',
+                                        width:'25px',
+                                        // borderTopLeftRadius:10,
+                                        // borderTopRightRadius:10,
+                                        borderTopLeftRadius:'10px',
+                                        pointerEvents:'none',
+                                        marginLeft:'0px',
+                                        marginRight:'0px',
+                                        position:'relative',
+                                        left:'0px'
+                                        // transform:[{
+                                        //     translateX:'0px',
+                                        //     translateY:'0px'
+                                        // }]
+                                        }}
+                        
+                                        source={{
+                                            uri:
+                                                clipboard.cb_images[0]
+                                        }}
+
+                                        >
+                                        </Image>
+                                </div>
+                                <div
+                                    style={{
+                                        height:'25px',
+                                        width:'25px',
+                                        backgroundColor:'grey',
+                                        borderTopRightRadius:'10px'
+                                    }}
+                                >
+                                    <Image
+                                        style={{
+                                        display:'block',
+                                        height:'25px',
+                                        width:'25px',
+                                        // borderTopLeftRadius:10,
+                                        // borderTopRightRadius:10,
+                                        borderTopRightRadius:'10px',
+                                        pointerEvents:'none',
+                                        marginLeft:'0px',
+                                        marginRight:'0px',
+                                        position:'relative',
+                                        left:'0px'
+                                        // transform:[{
+                                        //     translateX:'0px',
+                                        //     translateY:'0px'
+                                        // }]
+                                        }}
+                        
+                                        source={{
+                                            uri:
+                                                clipboard.cb_images[1]
+                                        }}
+
+                                        >
+                                        </Image>
+                                </div>
+                            </div>
+                            <div
+                                style={{
+                                    display:'flex',
+                                    flexDirection:'row',
+                                    height:'25px',
+                                    width:'50px'
+                                }}
+                            >
+                                <div
+                                    style={{
+                                        height:'25px',
+                                        width:'25px',
+                                        backgroundColor:'grey',
+                                        borderBottomLeftRadius:'10px'
+                                    }}
+                                >
+                                    <Image
+                                        style={{
+                                        display:'block',
+                                        height:'25px',
+                                        width:'25px',
+                                        // borderTopLeftRadius:10,
+                                        // borderTopRightRadius:10,
+                                        borderBottomLeftRadius:'10px',
+                                        pointerEvents:'none',
+                                        marginLeft:'0px',
+                                        marginRight:'0px',
+                                        position:'relative',
+                                        left:'0px'
+                                        // transform:[{
+                                        //     translateX:'0px',
+                                        //     translateY:'0px'
+                                        // }]
+                                        }}
+                        
+                                        source={{
+                                            uri:
+                                                clipboard.cb_images[2]
+                                        }}
+
+                                        >
+                                        </Image>
+                                </div>
+                                <div
+                                    style={{
+                                        height:'25px',
+                                        width:'25px',
+                                        backgroundColor:'grey',
+                                        borderBottomRightRadius:'10px'
+                                    }}
+                                >
+                                    <Image
+                                        style={{
+                                        display:'block',
+                                        height:'25px',
+                                        width:'25px',
+                                        // borderTopLeftRadius:10,
+                                        // borderTopRightRadius:10,
+                                        borderBottomRightRadius:'10px',
+                                        pointerEvents:'none',
+                                        marginLeft:'0px',
+                                        marginRight:'0px',
+                                        position:'relative',
+                                        left:'0px'
+                                        // transform:[{
+                                        //     translateX:'0px',
+                                        //     translateY:'0px'
+                                        // }]
+                                        }}
+                        
+                                        source={{
+                                            uri:
+                                                clipboard.cb_images[3]
+                                        }}
+
+                                        >
+                                        </Image>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div
+                            style={{
+                                display:'flex',
+                                flexDirection:'column',
+                                backgroundColor:'transparent',
+                                padding:'0px' 
+                            }}
+                        >
+                        <div
+                            style={{
+                                backgroundColor:'transparent',
+                                height:'25px',
+                                width:'165px',
+                                // display:'inline-block',
+                                alignItems:'center',
+                                justifyContent:'center',
+                                textAlign:'left',
+                                // paddingTop:'11px',
+                                paddingLeft:'5px',
+                                lineHeight:'20px'
+                            }}
+                        >
+                            <Text
+                            style={{
+                                display:'inline-block',
+                                lineHeight:'25px',
+                                fontWeight:700
+                            }}
+                        >{clipboard.cb_name}</Text>
+                        </div>
+                        <div
+                            style={{
+                                backgroundColor:'transparent',
+                                height:'25px',
+                                width:'165px',
+                                // display:'inline-block',
+                                alignItems:'center',
+                                justifyContent:'center',
+                                textAlign:'left',
+                                paddingTop:'0px',
+                                paddingLeft:'5px',
+                                lineHeight:'15px'
+                            }}
+                        >
+                            <Text
+                            style={{
+                                display:'inline-block',
+                                color:'grey',
+                                fontSize:'10px',
+                                lineHeight:'25px'
+                            }}
+                        >클립된 항목 {clipboard.cb_num_element}개
+                        </Text>
+                        </div>
+                        </div>
+                        </div>
+
+                        <div
+                            className='checkContainer'
+                            style={{
+                                // position:'absolute',
+                                right:'0px',
+                                //top:'5px',
+                                marginTop:'10px',
+                                backgroundColor:'transparent',
+                                height:'50px',
+                                width:'50px',
+                                // display:'inline-block',
+                                paddingTop:"5px",
+                                // marginTop:"5px",
+                                // transform:[{
+                                //         translateX:'0px',
+                                //         translateY:'15px'
+                                //     }]
+                                alignItems:'center',
+                                justifyContent:'center',
+                                zIndex:98
+
+                            }}
+                        >   
+                            <div
+                                style={{
+                                    display:'flex',
+                                    alignItems:'center',
+                                    justifyContent:'center',
+                                    marginTop:'15px'
+                                }}
+                            >
+                            <input 
+                                className='checkbox'
+                                type="checkbox" 
+                                id={clipboard.cb_no}
+                                style={{
+                                    height:'20px',
+                                    width:'20px',
+                                    margin:'auto',
+                                    zIndex:99,
+                                    // flex:1,
+                                    //left:0,
+                                    // backgroundColor: 'orange'
+                                    
+                                }}
+                                // checked={true}
+                                //defaultChecked={materialNumberMatch(props.material_num,clipboard)}
+                                defaultChecked={checkButtonChecked[index]}
+                                onClick={(e)=>
+                                    // checkboxClicked(index,e,category.code_name,category.code_text)
+                                    checkboxClicked(index,e,clipboard.cb_no,clipboard.detail)
+                                    // console.log(e)
+                                }
+
+                        
+                        ></input>
+                        </div>
+                        </div>
+                    </div>
+                )}
+                    <div
+                        style={{
+                            height:'50px',
+                            width:'100%',
+                        }}
+                    >
+                    </div>
+                </div>
+                <div>
                 <TouchableOpacity
                     style={{
                         position:'absolute',
@@ -216,13 +615,14 @@ function ClipBoard(props){
                         backgroundColor:'white',
                         borderBottomLeftRadius:'10px',
                         borderBottomRightRadius:'10px',
-                        
+                        zIndex:100
                     }}
                 >
                     <View
                         style={{
                             backgroundColor:'white',
-                            borderTop:'1px solid rgb(221,221,221)'
+                            borderTop:'1px solid rgb(221,221,221)',
+                            zIndex:200
                         }}
                     >
                     <Text
@@ -235,6 +635,7 @@ function ClipBoard(props){
                     </Text>
                     </View>
                 </TouchableOpacity>
+                </div>
               </View>
                 {/* <Text>{props.material_num}</Text> */}
           </div>
