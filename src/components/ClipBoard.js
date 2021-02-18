@@ -14,6 +14,7 @@ function ClipBoard(props){
     const [checkButtonChecked,setCheckButtonChecked]=React.useState([])
     // const[clipBoardDataDetail,setClipBoardDataDetail]=React.useState([])
     const [boardBuilding,setBoardBuilding]=React.useState(false)
+    const [refresh,setRefresh]=React.useState(0)
     const onChange=()=>{
         setHeight(Dimensions.get('window').height)
         setWidth(Dimensions.get('window').width)
@@ -26,7 +27,11 @@ function ClipBoard(props){
     .then(res=>res.json())
     .then((incomingData)=>{
         console.log(incomingData)
-        setClipBoardData(incomingData)
+        setClipBoardData(incomingData.sort(function(a,b){
+            var textA = a.cb_name.toUpperCase()
+            var textB = b.cb_name.toUpperCase()
+            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        }))
         })
     .catch(err=>{
         console.log(err)
@@ -47,7 +52,33 @@ function ClipBoard(props){
     //     }
     const checkboxClicked=(index,e,cb_no,details)=>{
         console.log('clicked')
-        console.log(details)
+        console.log(details.cb_no)
+        var mem_no=undefined
+        if(localStorage.login!=undefined){
+            mem_no=JSON.parse(localStorage.login).message.split('_')[0]
+            //parsed.mem_no=mem_no 
+            console.log(mem_no)
+        }
+        else{
+            mem_no=""
+        }
+        fetch('/ScrapClipboard?'+
+            queryString.stringify({
+                    mem_no:mem_no,
+                    cb_no:details.cb_no,
+                    ce_type:"MATERIAL",
+                    ce_detail:props.material_num
+                })
+        )
+        .then(res=>res.json())
+        .then((incomingData)=>{
+            console.log(incomingData)
+            setRefresh(refresh+1)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+        
         // e.target.checked=true
         // setActivePage(1)
         // if(e.target.checked==true){
@@ -70,6 +101,8 @@ function ClipBoard(props){
         //     filterQ.page=1
         //     setFilter(filterQ)
         // }
+
+        
         
       }
     const materialNumberMatch=(materialNumber,object)=>{
@@ -106,21 +139,21 @@ function ClipBoard(props){
         
       },[])
       useEffect(() => {
-        // var parsed = {}
+        var parsed = {}
         // console.log(localStorage.login==undefined)
-        // if(localStorage.login!=undefined){
-        //     var mem_no=undefined
-        //     mem_no=JSON.parse(localStorage.login).message.split('_')[0]
-        //     parsed.mem_no=mem_no 
-        // }
-        // else{
-        //     parsed.mem_no=""
-        // }
-        // parsed.cb_type='INDIV'
+        if(localStorage.login!=undefined){
+            var mem_no=undefined
+            mem_no=JSON.parse(localStorage.login).message.split('_')[0]
+            parsed.mem_no=mem_no 
+        }
+        else{
+            parsed.mem_no=""
+        }
+        parsed.cb_type='INDIV'
         // console.log(parsed)
-        // clipBoardInfo(queryString.stringify(parsed)) 
+        clipBoardInfo(queryString.stringify(parsed)) 
   
-      },[props.refresh])
+      },[props.refresh,refresh])
     useEffect(()=>{
         // console.log("clipboard length ")
         // console.log(clipBoardData.length == 0)
