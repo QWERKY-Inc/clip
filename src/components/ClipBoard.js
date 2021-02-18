@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import Content from './Content';
 import NavBarFiller from './NavBarFiller';
 import Pagination from './Pagination';
-import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking,Dimensions} from 'react-native';
+import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking,Dimensions,textInput} from 'react-native';
 import xIcon from '../assets/x.png';
 const queryString = require('query-string');
 
@@ -16,6 +16,7 @@ function ClipBoard(props){
     const [boardBuilding,setBoardBuilding]=React.useState(false)
     const [refresh,setRefresh]=React.useState(0)
     const [newBoard,setNewBoard]=React.useState(false)
+    const [inputValue,setInputValue]=React.useState("")
     const onChange=()=>{
         setHeight(Dimensions.get('window').height)
         setWidth(Dimensions.get('window').width)
@@ -105,6 +106,32 @@ function ClipBoard(props){
 
         
         
+      }
+      const updateInputValue=(e)=>{
+          setInputValue(e.target.value)
+      }
+      const addClipboard=(cb_name)=>{
+        var mem_no=undefined
+        if(localStorage.login!=undefined){
+            mem_no=JSON.parse(localStorage.login).message.split('_')[0]
+        }
+        else{
+            mem_no=""
+        }
+        fetch('/AddClipboard?'+
+            queryString.stringify({
+                    mem_no:mem_no,
+                    cb_name:cb_name
+                })
+        )
+        .then(res=>res.json())
+        .then((incomingData)=>{
+            console.log(incomingData)
+            setRefresh(refresh+1)
+        })
+        .catch(err=>{
+            console.log(err)
+        })       
       }
     const materialNumberMatch=(materialNumber,object)=>{
         var value=false
@@ -303,10 +330,34 @@ function ClipBoard(props){
                     textAlign:'left',
                     padding:'15px',
                     overflowY:'scroll',
-                    backgroundColor:'transparent'
+                    backgroundColor:'white',
+                    height:'100%'
                 }} 
                 >
+                    <Text
+                        style={{
+                            fontWeight:700
+                        }}
+                    >보드명</Text>
+                    <div
 
+                    >
+                        <input 
+                            style={{
+                                overflow:'hidden', 
+                                width:'100%',
+                                height:'40px',
+                                padding:'12px 20px',
+                                margin:"8px 0",
+                                border:"1px solid #ccc",
+                                borderRadius:'4px',
+                                boxSizing:'border-box'
+                            }}
+                            value={inputValue} 
+                            onChange={updateInputValue}
+                            placeholder={'입력'}
+                        />
+                    </div>
                 </div>
                 <div>
                 <TouchableOpacity
