@@ -135,8 +135,9 @@ function ClipBoard(props){
         .then(res=>res.json())
         .then((incomingData)=>{
             console.log(incomingData)
-            setRefresh(refresh+1)
-            setNewBoard(!newBoard)
+            //setNewBoard(!newBoard)
+            //setRefresh(refresh+1)
+            window.location.reload()
         })
         .catch(err=>{
             console.log(err)
