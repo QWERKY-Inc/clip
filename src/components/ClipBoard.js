@@ -17,6 +17,7 @@ function ClipBoard(props){
     const [refresh,setRefresh]=React.useState(0)
     const [newBoard,setNewBoard]=React.useState(false)
     const [inputValue,setInputValue]=React.useState("")
+    const [makeButtonEnable,setMakeButtonEnable]=React.useState(false)
     const onChange=()=>{
         setHeight(Dimensions.get('window').height)
         setWidth(Dimensions.get('window').width)
@@ -109,6 +110,12 @@ function ClipBoard(props){
       }
       const updateInputValue=(e)=>{
           setInputValue(e.target.value)
+          if(e.target.value!=""){
+              setMakeButtonEnable(true)
+          }
+          else{
+              setMakeButtonEnable(false)
+          }
       }
       const addClipboard=(cb_name)=>{
         var mem_no=undefined
@@ -118,6 +125,7 @@ function ClipBoard(props){
         else{
             mem_no=""
         }
+        console.log({mem_no:mem_no,cb_name:cb_name})
         fetch('/AddClipboard?'+
             queryString.stringify({
                     mem_no:mem_no,
@@ -128,6 +136,7 @@ function ClipBoard(props){
         .then((incomingData)=>{
             console.log(incomingData)
             setRefresh(refresh+1)
+            setNewBoard(!newBoard)
         })
         .catch(err=>{
             console.log(err)
@@ -178,7 +187,7 @@ function ClipBoard(props){
             parsed.mem_no=""
         }
         parsed.cb_type='INDIV'
-        // console.log(parsed)
+        console.log(parsed)
         clipBoardInfo(queryString.stringify(parsed)) 
   
       },[props.refresh,refresh])
@@ -209,7 +218,7 @@ function ClipBoard(props){
         }
         
         
-    },[clipBoardData,props.refresh])
+    },[clipBoardData])
     // useEffect(()=>{
     //     console.log(clipBoardDataDetail)
     // })
@@ -282,6 +291,7 @@ function ClipBoard(props){
                 onPress={()=>{
                     // console.log(detailedCategoryData)
                     props.toggleClipBoard()
+                    setNewBoard(false)
                 }}
                 >
                 <img
@@ -326,7 +336,7 @@ function ClipBoard(props){
 
                 <div
                     style={{
-                    display: clipBoardData.length==0 ? 'none':'block',
+                    display: 'block',
                     textAlign:'left',
                     padding:'15px',
                     overflowY:'scroll',
@@ -339,9 +349,7 @@ function ClipBoard(props){
                             fontWeight:700
                         }}
                     >보드명</Text>
-                    <div
-
-                    >
+                    <div>
                         <input 
                             style={{
                                 overflow:'hidden', 
@@ -366,19 +374,27 @@ function ClipBoard(props){
                         bottom:0,
                         height:'50px',
                         width:'100%',
-                        backgroundColor:'white',
+                        backgroundColor:'transparent',
                         borderBottomLeftRadius:'10px',
                         borderBottomRightRadius:'10px',
                         zIndex:100
                     }}
                     onPress={()=>{
                         console.log('make a new board')
-                        setNewBoard(!newBoard)
+                        //setNewBoard(!newBoard)
+                        
+                        addClipboard(inputValue)
+                        // setRefresh(refresh+1)
+                        // setInputValue('')
+                        
                     }}
+                    disabled={
+                        !makeButtonEnable
+                    }
                 >
                     <View
                         style={{
-                            backgroundColor:'white',
+                            backgroundColor:makeButtonEnable==true ? 'white':'silver',
                             borderTop:'1px solid rgb(221,221,221)',
                             zIndex:200
                         }}
@@ -387,6 +403,7 @@ function ClipBoard(props){
                         style={{
                             lineHeight:'50px',
                             fontWeight:700,
+                            color:makeButtonEnable==false ? 'grey':'black'
                         }}
                     >
                         새로 만들기
@@ -470,6 +487,7 @@ function ClipBoard(props){
                 onPress={()=>{
                     // console.log(detailedCategoryData)
                     props.toggleClipBoard()
+                    setRefresh(refresh+1)
                 }}
                 >
                 <img

@@ -158,7 +158,7 @@ app.get('/ScrapClipboard',(req,res)=>{
     })
 })
 app.get('/AddClipboard',(req,res)=>{
-    fetch('http://clip.partners/api/mobile/ScrapClipboard',{
+    fetch('http://clip.partners/api/mobile/Clipboard',{
         method: 'post',
         headers: {'Content-Type':'application/x-www-form-urlencoded'},
         body:queryString.stringify(req.query)
