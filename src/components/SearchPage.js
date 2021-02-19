@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import Content from './Content';
 import NavBarFiller from './NavBarFiller';
 import Pagination from './Pagination'
+import ClipBoard from './ClipBoard';
 import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking,Dimensions} from 'react-native';
 //import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 //import { Carousel } from 'react-responsive-carousel';
@@ -47,6 +48,8 @@ function SearchPage(props) {
   const [activePage,setActivePage]=React.useState(1)
   const [endPage,setEndPage]=React.useState(1)
   const [hover,setHover]=React.useState(null)
+  const [clipBoard,setClipBoard]=React.useState(false)
+  const [materialNumber,setMaterialNumber]=React.useState(undefined)
 
   const firstPage=(jsonObj)=>{
     console.log(jsonObj)
@@ -275,6 +278,9 @@ function SearchPage(props) {
         setActivePage(activePage+3)
     }
 }
+    const toggleClipBoard=()=>{
+        setClipBoard(!clipBoard)
+    }
   useEffect(() => {
     Dimensions.addEventListener('change',onChange)
     //window.addEventListener('scroll',onScroll,{passive:true})
@@ -334,6 +340,13 @@ function SearchPage(props) {
 
     return (
         <div>
+            <div
+                style={{
+                    display: clipBoard ? 'block':'none' 
+                }}
+            >
+                <ClipBoard toggleClipBoard={toggleClipBoard} material_num={materialNumber} refresh={clipBoard}/>
+            </div>
         <Navbar />
         <NavBarFiller/>
             <div className="MainContent"
@@ -1330,6 +1343,8 @@ function SearchPage(props) {
                             }}
                             onPress={()=>{  
                                 console.log('pressed clip ' + result.mt_no)
+                                setMaterialNumber(result.mt_no)
+                                toggleClipBoard()
                             }}
                         >   
                             <Image
