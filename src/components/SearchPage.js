@@ -10,6 +10,7 @@ import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking,Dimens
 import { RadioButton } from 'react-native-paper';
 import plusIcon from '../assets/plus.png';
 import minusIcon from '../assets/minus.png';
+import boxIcon from '../assets/icnBox.png'
 import clipOff from '../assets/clipOff.png'
 import clipOn from '../assets/clipOn.png'
 import './searchpage.css'
@@ -1503,14 +1504,54 @@ function SearchPage(props) {
                             color:'white',
                             textAlign:'center',
                             flexDirection:'column',
-                            pointerEvents:'none',
-                            backgroundColor:'white',
-                            pointerEvents:'none',
+                            // pointerEvents:'none',
+                            backgroundColor:'transparent',
+                            // pointerEvents:'none',
                             borderBottomLeftRadius:10,
                             borderBottomRightRadius:10,
                             padding:'10px'
                         }}
                         >
+                            <TouchableOpacity
+                                style={{
+                                    zIndex:100,
+                                    backgroundColor:'transparent',
+                                    position:'absolute',
+                                    top:'7px',
+                                    right:'7px',
+                                    height:'30px',
+                                    width:'30px',
+                                    display:result.mt_isdelivery=="Y"?"block":"none"
+                                }}
+                                onPress={()=>{
+                                    console.log(result.mt_isdelivery)
+                                }}
+                            >
+                            <View
+                            style={{
+                                backgroundColor:'transparent',
+                                display:'flex',
+                                height:'30px',
+                                width:'30px',
+                                // position:'absolute',
+                                // top:'7px',
+                                // right:'15px'
+                            }}
+                            >
+                                
+                                <img
+                                        src={boxIcon}
+                                        style={{
+                                            //display: categoryOpened? 'none': 'block',
+                                            width:'30px',
+                                            height:'30px',
+                                            right:'15px'
+                                        }}
+                                    >
+                                    </img>
+                                
+                            </View>
+                            </TouchableOpacity>
                         <Text
                             style ={{
                                 // height:'65pt',
@@ -1582,6 +1623,7 @@ function SearchPage(props) {
                             
                         </Text>
                         </View>
+                        
                         </TouchableOpacity>
                         )}
                         
