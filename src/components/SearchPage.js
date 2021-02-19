@@ -429,7 +429,10 @@ function SearchPage(props) {
                         >
                             <TouchableOpacity
                                 // onPress={() => setChecked('first')}
-                                onPress={() => setMaterialScope('ALL')}
+                                onPress={() => {
+                                    setMaterialScope('ALL')
+                                    setActivePage(1)
+                                }}
                                 style={{
                                     width:'150px',
                                     textAlign:'left'
@@ -444,7 +447,10 @@ function SearchPage(props) {
                                 // status={ checked === 'first' ? 'checked' : 'unchecked' }
                                 // onPress={() => setChecked('first')}
                                 status={ materialScope === 'ALL' ? 'checked' : 'unchecked' }
-                                onPress={() => setMaterialScope('ALL')}
+                                onPress={() => {
+                                    setMaterialScope('ALL')
+                                    setActivePage(1)
+                                }}
                                 color="rgb(255,123,88)"
                             />
                         </View>
@@ -459,7 +465,11 @@ function SearchPage(props) {
                         >
                             <TouchableOpacity
                                 //onPress={() => setChecked('second')}
-                                onPress={() => setMaterialScope('DELIVERYABLE')}
+                                
+                                onPress={() => {
+                                    setMaterialScope('DELIVERYABLE')
+                                    setActivePage(1)
+                                }}
                                 style={{
                                     width:'150px',
                                     textAlign:'left'
@@ -475,7 +485,10 @@ function SearchPage(props) {
                             // status={ checked === 'second' ? 'checked' : 'unchecked' }
                             // onPress={() => setChecked('second')}
                             status={ materialScope === 'DELIVERYABLE' ? 'checked' : 'unchecked' }
-                            onPress={() => setMaterialScope('DELIVERYABLE')}
+                            onPress={() => {
+                                setMaterialScope('DELIVERYABLE')
+                                setActivePage(1)
+                            }}
                             color="rgb(255,123,88)"
                         />
                         </View>
@@ -491,7 +504,11 @@ function SearchPage(props) {
                         >
                             <TouchableOpacity
                                 // onPress={() => setChecked('third')}
-                                onPress={() => setMaterialScope('ONLY_CLIPDELIVERY')}
+                                // onPress={() => setMaterialScope('ONLY_CLIPDELIVERY')}
+                                onPress={() => {
+                                    setMaterialScope('ONLY_CLIPDELIVERY')
+                                    setActivePage(1)
+                                }}
                                 style={{
                                     width:'150px',
                                     textAlign:'left'
@@ -506,7 +523,10 @@ function SearchPage(props) {
                             // status={ checked === 'third' ? 'checked' : 'unchecked' }
                             // onPress={() => setChecked('third')}
                             status={ materialScope === 'ONLY_CLIPDELIVERY' ? 'checked' : 'unchecked' }
-                            onPress={() => setMaterialScope('ONLY_CLIPDELIVERY')}
+                            onPress={() => {
+                                setMaterialScope('ONLY_CLIPDELIVERY')
+                                setActivePage(1)
+                            }}
                             color="rgb(255,123,88)"
                         />
                         </View>
@@ -1683,7 +1703,7 @@ function SearchPage(props) {
                     }}
                 >
                     
-                    
+
                 </div>
             </div>
         );
