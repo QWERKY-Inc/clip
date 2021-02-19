@@ -50,6 +50,7 @@ function SearchPage(props) {
   const [hover,setHover]=React.useState(null)
   const [clipBoard,setClipBoard]=React.useState(false)
   const [materialNumber,setMaterialNumber]=React.useState(undefined)
+  const [mode,setMode]=React.useState('material')
 
   const firstPage=(jsonObj)=>{
     console.log(jsonObj)
@@ -337,151 +338,358 @@ function SearchPage(props) {
     console.log(filter.page)
 },[filter])
   if(secondSearchData!=undefined && originalSearchData!=undefined){
-
-    return (
-        <div>
+    if(mode=='material'){
+        return (
+            <div>
+                <div
+                    style={{
+                        display: clipBoard ? 'block':'none' 
+                    }}
+                >
+                    <ClipBoard toggleClipBoard={toggleClipBoard} material_num={materialNumber} refresh={clipBoard}/>
+                </div>
+            <Navbar />
+            <NavBarFiller/>
             <div
                 style={{
-                    display: clipBoard ? 'block':'none' 
-                }}
-            >
-                <ClipBoard toggleClipBoard={toggleClipBoard} material_num={materialNumber} refresh={clipBoard}/>
-            </div>
-        <Navbar />
-        <NavBarFiller/>
-            <div className="MainContent"
-                style={{
                     width:'100vw',
-                    height:'calc(100vh-100px)'
+                    height:'50px',
+                    backgroundColor:'transparent',
+                    paddingLeft:'65px',
+                    paddingRight:'65px',
+                    // paddingTop:'15px',
+                    display:'flex',
+                    flexDirection:'row'
+
                 }}
             >
-                <View>
-                    <View
-                        style={{
-                            flexDirection:'row',
-                            backgroundColor:'transparent',
-                            alignItems:'center',
-                            paddingLeft:'65px',
-                            paddingRight:'65px'
-                        }}
-                    >
-                        <TouchableOpacity
-                            // onPress={() => setChecked('first')}
-                            onPress={() => setMaterialScope('ALL')}
-                            style={{
-                                width:'150px',
-                                textAlign:'left'
-                            }}
-                        >
-                            <Text>
-                                모든 품목 보기  
-                            </Text>
-                        </TouchableOpacity>
-                        <RadioButton
-                            value="first"
-                            // status={ checked === 'first' ? 'checked' : 'unchecked' }
-                            // onPress={() => setChecked('first')}
-                            status={ materialScope === 'ALL' ? 'checked' : 'unchecked' }
-                            onPress={() => setMaterialScope('ALL')}
-                            color="rgb(255,123,88)"
-                        />
-                    </View>
-                    <View
-                        style={{
-                            flexDirection:'row',
-                            backgroundColor:'transparent',
-                            alignItems:'center',
-                            paddingLeft:'65px',
-                            paddingRight:'65px'
-                        }}
-                    >
-                        <TouchableOpacity
-                            //onPress={() => setChecked('second')}
-                            onPress={() => setMaterialScope('DELIVERYABLE')}
-                            style={{
-                                width:'150px',
-                                textAlign:'left'
-                            }}
-                        >
-                            <Text>
-                                샘플 주문 가능한 품목
-                            </Text>
-                        </TouchableOpacity>
-                    
-                    <RadioButton
-                        value="second"
-                        // status={ checked === 'second' ? 'checked' : 'unchecked' }
-                        // onPress={() => setChecked('second')}
-                        status={ materialScope === 'DELIVERYABLE' ? 'checked' : 'unchecked' }
-                        onPress={() => setMaterialScope('DELIVERYABLE')}
-                        color="rgb(255,123,88)"
-                    />
-                    </View>
-                    <View
-
-                        style={{
-                            flexDirection:'row',
-                            backgroundColor:'transparent',
-                            alignItems:'center',
-                            paddingLeft:'65px',
-                            paddingRight:'65px'
-                        }}
-                    >
-                        <TouchableOpacity
-                            // onPress={() => setChecked('third')}
-                            onPress={() => setMaterialScope('ONLY_CLIPDELIVERY')}
-                            style={{
-                                width:'150px',
-                                textAlign:'left'
-                            }}
-                        >
-                            <Text>
-                                클립 당일 묵음발송 품목
-                            </Text>
-                        </TouchableOpacity>
-                    <RadioButton
-                        value="third"
-                        // status={ checked === 'third' ? 'checked' : 'unchecked' }
-                        // onPress={() => setChecked('third')}
-                        status={ materialScope === 'ONLY_CLIPDELIVERY' ? 'checked' : 'unchecked' }
-                        onPress={() => setMaterialScope('ONLY_CLIPDELIVERY')}
-                        color="rgb(255,123,88)"
-                    />
-                    </View>
+                <TouchableOpacity
+                    onPress={() => setMode('material')}
+                >
                     <div
                         style={{
-                            paddingTop:'15px',
-                            paddingLeft:'65px',
-                            paddingRight:'65px'
+                            borderRadius:'15px',
+                            backgroundColor:mode=='material'?'rgb(255,123,88)':'transparent',
+                            width:'100px',
+                            height:'30px',
+                            marginTop:'10px',
+                            border:mode=='material'?'none':'2px solid rgb(221,221,221)'
                         }}
                     >
-                        <div
-                        
-                        style={{
-                        height:'1px',
-                        width:'187px',
-                        // border:'none',
-                        color:'rgb(219,219,219)',
-                        backgroundColor:'rgb(219,219,219)'
-                        }} 
-                    
+                        <Text
+                            style={{
+                                lineHeight:'30px',
+                                color:mode=='material'?'white':'black'
+                            }}
                         >
-                        </div>
+                            자재
+                        </Text>
                     </div>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => setMode('moodboard')}
+                >
+                    <div
+                        style={{
+                            borderRadius:'15px',
+                            backgroundColor:mode=='moodboard'?'rgb(255,123,88)':'transparent',
+                            width:'100px',
+                            height:'30px',
+                            marginLeft:'15px',
+                            marginTop:'10px',
+                            border:mode=='moodboard'?'none':'2px solid rgb(221,221,221)',
+                        }}
+                    >
+                        <Text
+                            style={{
+                                lineHeight:'30px',
+                                color:mode=='moodboard'?'white':'black'
+                            }}
+                        >
+                            무드보드
+                        </Text>
+                    </div>
+                </TouchableOpacity>
+            </div>
+                <div className="MainContent"
+                    style={{
+                        width:'100vw',
+                        height:'calc(100vh-100px)'
+                    }}
+                >
                     <View>
+                        <View
+                            style={{
+                                flexDirection:'row',
+                                backgroundColor:'transparent',
+                                alignItems:'center',
+                                paddingLeft:'65px',
+                                paddingRight:'65px'
+                            }}
+                        >
+                            <TouchableOpacity
+                                // onPress={() => setChecked('first')}
+                                onPress={() => setMaterialScope('ALL')}
+                                style={{
+                                    width:'150px',
+                                    textAlign:'left'
+                                }}
+                            >
+                                <Text>
+                                    모든 품목 보기  
+                                </Text>
+                            </TouchableOpacity>
+                            <RadioButton
+                                value="first"
+                                // status={ checked === 'first' ? 'checked' : 'unchecked' }
+                                // onPress={() => setChecked('first')}
+                                status={ materialScope === 'ALL' ? 'checked' : 'unchecked' }
+                                onPress={() => setMaterialScope('ALL')}
+                                color="rgb(255,123,88)"
+                            />
+                        </View>
+                        <View
+                            style={{
+                                flexDirection:'row',
+                                backgroundColor:'transparent',
+                                alignItems:'center',
+                                paddingLeft:'65px',
+                                paddingRight:'65px'
+                            }}
+                        >
+                            <TouchableOpacity
+                                //onPress={() => setChecked('second')}
+                                onPress={() => setMaterialScope('DELIVERYABLE')}
+                                style={{
+                                    width:'150px',
+                                    textAlign:'left'
+                                }}
+                            >
+                                <Text>
+                                    샘플 주문 가능한 품목
+                                </Text>
+                            </TouchableOpacity>
+                        
+                        <RadioButton
+                            value="second"
+                            // status={ checked === 'second' ? 'checked' : 'unchecked' }
+                            // onPress={() => setChecked('second')}
+                            status={ materialScope === 'DELIVERYABLE' ? 'checked' : 'unchecked' }
+                            onPress={() => setMaterialScope('DELIVERYABLE')}
+                            color="rgb(255,123,88)"
+                        />
+                        </View>
                         <View
 
                             style={{
-                                flexDirection:'column',
+                                flexDirection:'row',
                                 backgroundColor:'transparent',
-                                // alignItems:'center',
-                                marginLeft:'65px',
-                                // marginRight:'65px',
-                                paddingTop:'15px',
-                                width:'200px',
-                                textAlign:'left'
+                                alignItems:'center',
+                                paddingLeft:'65px',
+                                paddingRight:'65px'
                             }}
                         >
+                            <TouchableOpacity
+                                // onPress={() => setChecked('third')}
+                                onPress={() => setMaterialScope('ONLY_CLIPDELIVERY')}
+                                style={{
+                                    width:'150px',
+                                    textAlign:'left'
+                                }}
+                            >
+                                <Text>
+                                    클립 당일 묵음발송 품목
+                                </Text>
+                            </TouchableOpacity>
+                        <RadioButton
+                            value="third"
+                            // status={ checked === 'third' ? 'checked' : 'unchecked' }
+                            // onPress={() => setChecked('third')}
+                            status={ materialScope === 'ONLY_CLIPDELIVERY' ? 'checked' : 'unchecked' }
+                            onPress={() => setMaterialScope('ONLY_CLIPDELIVERY')}
+                            color="rgb(255,123,88)"
+                        />
+                        </View>
+                        <div
+                            style={{
+                                paddingTop:'15px',
+                                paddingLeft:'65px',
+                                paddingRight:'65px'
+                            }}
+                        >
+                            <div
+                            
+                            style={{
+                            height:'1px',
+                            width:'187px',
+                            // border:'none',
+                            color:'rgb(219,219,219)',
+                            backgroundColor:'rgb(219,219,219)'
+                            }} 
+                        
+                            >
+                            </div>
+                        </div>
+                        <View>
+                            <View
+
+                                style={{
+                                    flexDirection:'column',
+                                    backgroundColor:'transparent',
+                                    // alignItems:'center',
+                                    marginLeft:'65px',
+                                    // marginRight:'65px',
+                                    paddingTop:'15px',
+                                    width:'200px',
+                                    textAlign:'left'
+                                }}
+                            >
+                                <div
+                                    style={{
+                                        backgroundColor:'transparent',
+                                        width:'187px',
+                                        display:'flex',
+                                        flexDirection:'row',
+                                    }}
+                                >
+                                    <Text
+                                        style={{
+                                            fontSize:'15px',
+                                            fontWeight:700
+                                        }}
+                                    >
+                                        자재 카테고리
+                                    </Text>
+                                    <TouchableOpacity
+                                        onPress={()=>{
+                                            setCategoryOpened(!categoryOpened)
+                                        }}
+                                        style={{
+                                            position:'absolute',
+                                            right:'0px'
+                                        }}
+                                    >
+                                    <img
+                                        src={plusIcon}
+                                        style={{
+                                            display: categoryOpened? 'none': 'block',
+                                            width:'20px',
+                                            height:'20px',
+                                            position:'absolute',
+                                            right:'15px'
+                                        }}
+                                    >
+                                    </img>
+                                    <img
+                                        src={minusIcon}
+                                        style={{
+                                            display: categoryOpened? 'block': 'none',
+                                            width:'20px',
+                                            height:'20px',
+                                            position:'absolute',
+                                            right:'15px'
+                                        }}
+                                    >
+                                    </img>
+                                </TouchableOpacity>
+                                </div>
+                                <div
+                                    style={{
+                                        // backgroundColor:'red',
+                                        maxHeight: categoryOpened? '400px':'0px',
+                                        overflow:'scroll',
+                                        transition: '0.25s',
+                                        transitionTimingFunction:'ease-in-out'
+
+                                    }}
+                                >
+                                {originalSearchData.filter.category.map((category,index)=>
+                                
+                                    <div
+                                        style={{
+                                            display:'flex',
+                                            flexDirection:'row',
+                                            backgroundColor:'transparent',
+                                            padding:'0px'
+                                        }}
+                                    >
+                                        <div
+                                            className='checkContainer'
+                                            style={{
+                                                backgroundColor:'transparent',
+                                                height:'25px',
+                                                width:'25px',
+                                                // display:'inline-block',
+                                                paddingTop:"5px",
+                                                marginTop:"5px"
+
+                                            }}
+                                        >   
+                                        <input 
+                                                className='checkbox'
+                                                type="checkbox" 
+                                                id={category.code_name}
+                                                style={{
+                                                    height:'20px',
+                                                    width:'20px',
+                                                    // flex:1,
+                                                    //left:0,
+                                                    // backgroundColor: 'orange'
+                                                    
+                                                }}
+                                                onChange={(e)=>
+                                                    // checkboxClicked(index,e,category.code_name,category.code_text)
+                                                    categoryCheckboxClicked(index,e,category.code_name,category.code_text)
+                                                }
+                                        
+                                        ></input>
+                                        
+                                        </div>
+                                    <div
+                                            style={{
+                                                backgroundColor:'transparent',
+                                                height:'30px',
+                                                width:'165px',
+                                                // display:'inline-block',
+                                                alignItems:'center',
+                                                justifyContent:'center',
+                                                textAlign:'left',
+                                                paddingTop:'11px',
+                                                paddingLeft:'5px'
+                                            }}
+                                    >
+                                        <Text
+                                            style={{
+                                                display:'inline-block',
+                                                
+                                            }}
+                                        >{category.code_text}</Text>
+                                    </div>
+                                        
+                                    </div>
+                                )}
+                                </div>
+                        <div
+                            style={{
+                                paddingTop:'15px',
+                                // paddingLeft:'65px',
+                                // paddingRight:'65px'
+                                marginBottom:'15px'
+                            }}
+                        >
+                            <div
+                            
+                            style={{
+                            height:'1px',
+                            width:'187px',
+                            // border:'none',
+                            color:'rgb(219,219,219)',
+                            backgroundColor:'rgb(219,219,219)'
+                            }} 
+                        
+                            >
+                            </div>
+                        </div>
                             <div
                                 style={{
                                     backgroundColor:'transparent',
@@ -489,18 +697,16 @@ function SearchPage(props) {
                                     display:'flex',
                                     flexDirection:'row',
                                 }}
-                            >
+                            >    
                                 <Text
-                                    style={{
-                                        fontSize:'15px',
-                                        fontWeight:700
-                                    }}
-                                >
-                                    자재 카테고리
-                                </Text>
-                                <TouchableOpacity
+                                style={{
+                                    fontSize:'15px',
+                                    fontWeight:700
+                                }}
+                                >사용 부위</Text>
+                            <TouchableOpacity
                                     onPress={()=>{
-                                        setCategoryOpened(!categoryOpened)
+                                        setUseOpened(!useOpened)
                                     }}
                                     style={{
                                         position:'absolute',
@@ -510,7 +716,7 @@ function SearchPage(props) {
                                 <img
                                     src={plusIcon}
                                     style={{
-                                        display: categoryOpened? 'none': 'block',
+                                        display: useOpened? 'none': 'block',
                                         width:'20px',
                                         height:'20px',
                                         position:'absolute',
@@ -521,7 +727,7 @@ function SearchPage(props) {
                                 <img
                                     src={minusIcon}
                                     style={{
-                                        display: categoryOpened? 'block': 'none',
+                                        display: useOpened? 'block': 'none',
                                         width:'20px',
                                         height:'20px',
                                         position:'absolute',
@@ -529,301 +735,17 @@ function SearchPage(props) {
                                     }}
                                 >
                                 </img>
-                            </TouchableOpacity>
-                            </div>
-                            <div
-                                style={{
-                                    // backgroundColor:'red',
-                                    maxHeight: categoryOpened? '400px':'0px',
-                                    overflow:'scroll',
-                                    transition: '0.25s',
-                                    transitionTimingFunction:'ease-in-out'
-
-                                }}
-                            >
-                            {originalSearchData.filter.category.map((category,index)=>
-                            
+                                </TouchableOpacity>
+                                </div>
                                 <div
                                     style={{
-                                        display:'flex',
-                                        flexDirection:'row',
-                                        backgroundColor:'transparent',
-                                        padding:'0px'
+                                        maxHeight: useOpened?'400px':'0px',
+                                        overflow:'scroll',
+                                        transition: '0.25s',
+                                        transitionTimingFunction:'ease-in-out'
                                     }}
                                 >
-                                    <div
-                                        className='checkContainer'
-                                        style={{
-                                            backgroundColor:'transparent',
-                                            height:'25px',
-                                            width:'25px',
-                                            // display:'inline-block',
-                                            paddingTop:"5px",
-                                            marginTop:"5px"
-
-                                        }}
-                                    >   
-                                     <input 
-                                            className='checkbox'
-                                            type="checkbox" 
-                                            id={category.code_name}
-                                            style={{
-                                                height:'20px',
-                                                width:'20px',
-                                                // flex:1,
-                                                //left:0,
-                                                // backgroundColor: 'orange'
-                                                
-                                            }}
-                                            onChange={(e)=>
-                                                // checkboxClicked(index,e,category.code_name,category.code_text)
-                                                categoryCheckboxClicked(index,e,category.code_name,category.code_text)
-                                            }
-                                    
-                                    ></input>
-                                    
-                                    </div>
-                                   <div
-                                        style={{
-                                            backgroundColor:'transparent',
-                                            height:'30px',
-                                            width:'165px',
-                                            // display:'inline-block',
-                                            alignItems:'center',
-                                            justifyContent:'center',
-                                            textAlign:'left',
-                                            paddingTop:'11px',
-                                            paddingLeft:'5px'
-                                        }}
-                                   >
-                                       <Text
-                                        style={{
-                                            display:'inline-block',
-                                            
-                                        }}
-                                    >{category.code_text}</Text>
-                                   </div>
-                                    
-                                </div>
-                            )}
-                            </div>
-                    <div
-                        style={{
-                            paddingTop:'15px',
-                            // paddingLeft:'65px',
-                            // paddingRight:'65px'
-                            marginBottom:'15px'
-                        }}
-                    >
-                        <div
-                        
-                        style={{
-                        height:'1px',
-                        width:'187px',
-                        // border:'none',
-                        color:'rgb(219,219,219)',
-                        backgroundColor:'rgb(219,219,219)'
-                        }} 
-                    
-                        >
-                        </div>
-                    </div>
-                        <div
-                            style={{
-                                backgroundColor:'transparent',
-                                width:'187px',
-                                display:'flex',
-                                flexDirection:'row',
-                            }}
-                        >    
-                            <Text
-                            style={{
-                                fontSize:'15px',
-                                fontWeight:700
-                            }}
-                            >사용 부위</Text>
-                           <TouchableOpacity
-                                onPress={()=>{
-                                    setUseOpened(!useOpened)
-                                }}
-                                style={{
-                                    position:'absolute',
-                                    right:'0px'
-                                }}
-                            >
-                            <img
-                                src={plusIcon}
-                                style={{
-                                    display: useOpened? 'none': 'block',
-                                    width:'20px',
-                                    height:'20px',
-                                    position:'absolute',
-                                    right:'15px'
-                                }}
-                            >
-                            </img>
-                            <img
-                                src={minusIcon}
-                                style={{
-                                    display: useOpened? 'block': 'none',
-                                    width:'20px',
-                                    height:'20px',
-                                    position:'absolute',
-                                    right:'15px'
-                                }}
-                            >
-                            </img>
-                            </TouchableOpacity>
-                            </div>
-                            <div
-                                style={{
-                                    maxHeight: useOpened?'400px':'0px',
-                                    overflow:'scroll',
-                                    transition: '0.25s',
-                                    transitionTimingFunction:'ease-in-out'
-                                }}
-                            >
-                            {originalSearchData.filter.use.map((use,index)=>
-                            
-                            <div
-                                style={{
-                                    display:'flex',
-                                    flexDirection:'row',
-                                    backgroundColor:'transparent',
-                                    padding:'0px'
-                                }}
-                            >
-                                <div
-                                    style={{
-                                        backgroundColor:'transparent',
-                                        height:'25px',
-                                        width:'25px',
-                                        // display:'inline-block',
-                                        paddingTop:"5px",
-                                        marginTop:"5px"
-
-                                    }}
-                                >   
-                                 <input type="checkbox" 
-                                        style={{
-                                            height:'20px',
-                                            width:'20px'
-                                            //flex:1,
-                                            //left:0,
-                                            
-                                        }}
-                                        onChange={(e)=>useageCheckboxClicked(index,e,use.code_name,use.code_text)}
-                                
-                                ></input>
-
-                                </div>
-                               <div
-                                    style={{
-                                        backgroundColor:'transparent',
-                                        height:'30px',
-                                        width:'165px',
-                                        // display:'inline-block',
-                                        alignItems:'center',
-                                        justifyContent:'center',
-                                        textAlign:'left',
-                                        paddingTop:'11px',
-                                        paddingLeft:'5px'
-                                    }}
-                               >
-                                   <Text
-                                    style={{
-                                        display:'inline-block',
-                                        
-                                    }}
-                                >{use.code_text}</Text>
-                               </div>
-                                
-                            </div>
-                            )}
-                            </div>
-                            <div
-                                style={{
-                                    paddingTop:'15px',
-                                    // paddingLeft:'65px',
-                                    // paddingRight:'65px'
-                                    marginBottom:'15px'
-                                }}
-                            >
-                                <div
-                                
-                                style={{
-                                height:'1px',
-                                width:'187px',
-                                // border:'none',
-                                color:'rgb(219,219,219)',
-                                backgroundColor:'rgb(219,219,219)'
-                                }} 
-                            
-                                >
-                                </div>
-                            </div>
-                            
-                                
-                                    <div
-                                        style={{
-                                            backgroundColor:'transparent',
-                                            width:'187px',
-                                            display:'flex',
-                                            flexDirection:'row',
-                                        }}
-                                    >
- 
-                                        <Text
-                                        style={{
-                                            fontSize:'15px',
-                                            fontWeight:700
-                                        }}
-                                        >
-                                            브랜드
-                                        </Text>
-                                        <TouchableOpacity
-                                            onPress={()=>{
-                                                setBrandOpened(!brandOpened)
-                                            }}
-                                            style={{
-                                                position:'absolute',
-                                                right:'0px'
-                                            }}
-                                        >
-                                        <img
-                                            src={plusIcon}
-                                            style={{
-                                                display: brandOpened? 'none': 'block',
-                                                width:'20px',
-                                                height:'20px',
-                                                position:'absolute',
-                                                right:'15px'
-                                            }}
-                                        >
-                                        </img>
-                                        <img
-                                            src={minusIcon}
-                                            style={{
-                                                display: brandOpened? 'block': 'none',
-                                                width:'20px',
-                                                height:'20px',
-                                                position:'absolute',
-                                                right:'15px'
-                                            }}
-                                        >
-                                        </img>
-                                        </TouchableOpacity>
-                                    </div>
-                              
-                            <div
-                                style={{
-                                    maxHeight:brandOpened? '400px':'0px',
-                                    overflow:'scroll',
-                                    transition: '0.25s',
-                                    transitionTimingFunction:'ease-in-out'
-                                }}
-                            >
-                                {originalSearchData.filter.brand.map((brand,index)=>
+                                {originalSearchData.filter.use.map((use,index)=>
                                 
                                 <div
                                     style={{
@@ -848,11 +770,11 @@ function SearchPage(props) {
                                             style={{
                                                 height:'20px',
                                                 width:'20px'
-                                                // flex:1,
+                                                //flex:1,
                                                 //left:0,
                                                 
                                             }}
-                                            onChange={(e)=>brandCheckboxClicked(index,e,brand.code_name,brand.code_text)}
+                                            onChange={(e)=>useageCheckboxClicked(index,e,use.code_name,use.code_text)}
                                     
                                     ></input>
 
@@ -875,189 +797,192 @@ function SearchPage(props) {
                                             display:'inline-block',
                                             
                                         }}
-                                    >{brand.code_text}</Text>
+                                    >{use.code_text}</Text>
                                 </div>
                                     
                                 </div>
                                 )}
-                            </div>
-                            <div
-                                style={{
-                                    paddingTop:'15px',
-                                    // paddingLeft:'65px',
-                                    // paddingRight:'65px'
-                                    marginBottom:'15px'
-                                }}
-                            >
-                                <div
-                                
-                                style={{
-                                height:'1px',
-                                width:'187px',
-                                // border:'none',
-                                color:'rgb(219,219,219)',
-                                backgroundColor:'rgb(219,219,219)'
-                                }} 
-                            
-                                >
                                 </div>
-                            </div>
-                            
-
-                            <div
-                                style={{
-                                    backgroundColor:'transparent',
-                                    width:'187px',
-                                    display:'flex',
-                                    flexDirection:'row',
-                                }}
-                            >
-                            <Text
-                                style={{
-                                    fontSize:'15px',
-                                    fontWeight:700
-                                }}
-                            >색상</Text>
-                            <TouchableOpacity
-                                onPress={()=>{
-                                    setColorOpened(!colorOpened)
-                                }}
-                                style={{
-                                    position:'absolute',
-                                    right:'0px'
-                                }}
-                            >
-                            <img
-                                src={plusIcon}
-                                style={{
-                                    display: colorOpened? 'none': 'block',
-                                    width:'20px',
-                                    height:'20px',
-                                    position:'absolute',
-                                    right:'15px'
-                                }}
-                            >
-                            </img>
-                            <img
-                                src={minusIcon}
-                                style={{
-                                    display: colorOpened? 'block': 'none',
-                                    width:'20px',
-                                    height:'20px',
-                                    position:'absolute',
-                                    right:'15px'
-                                }}
-                            >
-                            </img>
-                            </TouchableOpacity>
-                            </div>
-                            <div
-                                style={{
-                                    maxHeight:colorOpened? '400px':'0px',
-                                    overflow:'scroll',
-                                    transition: '0.25s',
-                                    transitionTimingFunction:'ease-in-out'
-                                }}
-                            >
-                            {originalSearchData.filter.color.map((color,index)=>
-                            
-                            <div
-                                style={{
-                                    display:'flex',
-                                    flexDirection:'row',
-                                    backgroundColor:'transparent',
-                                    padding:'0px'
-                                }}
-                            >
                                 <div
                                     style={{
-                                        backgroundColor:'transparent',
-                                        height:'25px',
-                                        width:'25px',
-                                        // display:'inline-block',
-                                        paddingTop:"5px",
-                                        marginTop:"5px"
-
+                                        paddingTop:'15px',
+                                        // paddingLeft:'65px',
+                                        // paddingRight:'65px'
+                                        marginBottom:'15px'
                                     }}
-                                >   
-                                 <input type="checkbox" 
+                                >
+                                    <div
+                                    
+                                    style={{
+                                    height:'1px',
+                                    width:'187px',
+                                    // border:'none',
+                                    color:'rgb(219,219,219)',
+                                    backgroundColor:'rgb(219,219,219)'
+                                    }} 
+                                
+                                    >
+                                    </div>
+                                </div>
+                                
+                                    
+                                        <div
+                                            style={{
+                                                backgroundColor:'transparent',
+                                                width:'187px',
+                                                display:'flex',
+                                                flexDirection:'row',
+                                            }}
+                                        >
+    
+                                            <Text
+                                            style={{
+                                                fontSize:'15px',
+                                                fontWeight:700
+                                            }}
+                                            >
+                                                브랜드
+                                            </Text>
+                                            <TouchableOpacity
+                                                onPress={()=>{
+                                                    setBrandOpened(!brandOpened)
+                                                }}
+                                                style={{
+                                                    position:'absolute',
+                                                    right:'0px'
+                                                }}
+                                            >
+                                            <img
+                                                src={plusIcon}
+                                                style={{
+                                                    display: brandOpened? 'none': 'block',
+                                                    width:'20px',
+                                                    height:'20px',
+                                                    position:'absolute',
+                                                    right:'15px'
+                                                }}
+                                            >
+                                            </img>
+                                            <img
+                                                src={minusIcon}
+                                                style={{
+                                                    display: brandOpened? 'block': 'none',
+                                                    width:'20px',
+                                                    height:'20px',
+                                                    position:'absolute',
+                                                    right:'15px'
+                                                }}
+                                            >
+                                            </img>
+                                            </TouchableOpacity>
+                                        </div>
+                                
+                                <div
+                                    style={{
+                                        maxHeight:brandOpened? '400px':'0px',
+                                        overflow:'scroll',
+                                        transition: '0.25s',
+                                        transitionTimingFunction:'ease-in-out'
+                                    }}
+                                >
+                                    {originalSearchData.filter.brand.map((brand,index)=>
+                                    
+                                    <div
                                         style={{
-                                            height:'20px',
-                                            width:'20px'
-                                            //flex:1,
-                                            //left:0,
-                                            
+                                            display:'flex',
+                                            flexDirection:'row',
+                                            backgroundColor:'transparent',
+                                            padding:'0px'
                                         }}
-                                        onChange={(e)=>colorCheckboxClicked(index,e,color.code_name,color.code_text)}
-                                
-                                ></input>
+                                    >
+                                        <div
+                                            style={{
+                                                backgroundColor:'transparent',
+                                                height:'25px',
+                                                width:'25px',
+                                                // display:'inline-block',
+                                                paddingTop:"5px",
+                                                marginTop:"5px"
 
+                                            }}
+                                        >   
+                                        <input type="checkbox" 
+                                                style={{
+                                                    height:'20px',
+                                                    width:'20px'
+                                                    // flex:1,
+                                                    //left:0,
+                                                    
+                                                }}
+                                                onChange={(e)=>brandCheckboxClicked(index,e,brand.code_name,brand.code_text)}
+                                        
+                                        ></input>
+
+                                        </div>
+                                    <div
+                                            style={{
+                                                backgroundColor:'transparent',
+                                                height:'30px',
+                                                width:'165px',
+                                                // display:'inline-block',
+                                                alignItems:'center',
+                                                justifyContent:'center',
+                                                textAlign:'left',
+                                                paddingTop:'11px',
+                                                paddingLeft:'5px'
+                                            }}
+                                    >
+                                        <Text
+                                            style={{
+                                                display:'inline-block',
+                                                
+                                            }}
+                                        >{brand.code_text}</Text>
+                                    </div>
+                                        
+                                    </div>
+                                    )}
                                 </div>
-                               <div
+                                <div
+                                    style={{
+                                        paddingTop:'15px',
+                                        // paddingLeft:'65px',
+                                        // paddingRight:'65px'
+                                        marginBottom:'15px'
+                                    }}
+                                >
+                                    <div
+                                    
+                                    style={{
+                                    height:'1px',
+                                    width:'187px',
+                                    // border:'none',
+                                    color:'rgb(219,219,219)',
+                                    backgroundColor:'rgb(219,219,219)'
+                                    }} 
+                                
+                                    >
+                                    </div>
+                                </div>
+                                
+
+                                <div
                                     style={{
                                         backgroundColor:'transparent',
-                                        height:'30px',
-                                        width:'165px',
-                                        // display:'inline-block',
-                                        alignItems:'center',
-                                        justifyContent:'center',
-                                        textAlign:'left',
-                                        paddingTop:'11px',
-                                        paddingLeft:'5px'
+                                        width:'187px',
+                                        display:'flex',
+                                        flexDirection:'row',
                                     }}
-                               >
-                                   <Text
-                                    style={{
-                                        display:'inline-block',
-                                        
-                                    }}
-                                >{color.code_text}</Text>
-                               </div>
-                                
-                            </div>
-                            )}
-                            </div>
-                            <div
-                                style={{
-                                    paddingTop:'15px',
-                                    // paddingLeft:'65px',
-                                    // paddingRight:'65px'
-                                    marginBottom:'15px'
-                                }}
-                            >
-                                <div
-                                
-                                style={{
-                                height:'1px',
-                                width:'187px',
-                                // border:'none',
-                                color:'rgb(219,219,219)',
-                                backgroundColor:'rgb(219,219,219)'
-                                }} 
-                            
                                 >
-                                </div>
-                            </div>
-                            <div>
-                            <div
-                                style={{
-                                    backgroundColor:'transparent',
-                                    width:'187px',
-                                    display:'flex',
-                                    flexDirection:'row',
-                                }}
-                            >
                                 <Text
                                     style={{
                                         fontSize:'15px',
                                         fontWeight:700
                                     }}
-                                >
-                                    패턴
-                                </Text>
+                                >색상</Text>
                                 <TouchableOpacity
                                     onPress={()=>{
-                                        setPatternOpened(!patternOpened)
+                                        setColorOpened(!colorOpened)
                                     }}
                                     style={{
                                         position:'absolute',
@@ -1067,7 +992,7 @@ function SearchPage(props) {
                                 <img
                                     src={plusIcon}
                                     style={{
-                                        display: patternOpened? 'none': 'block',
+                                        display: colorOpened? 'none': 'block',
                                         width:'20px',
                                         height:'20px',
                                         position:'absolute',
@@ -1078,7 +1003,7 @@ function SearchPage(props) {
                                 <img
                                     src={minusIcon}
                                     style={{
-                                        display: patternOpened? 'block': 'none',
+                                        display: colorOpened? 'block': 'none',
                                         width:'20px',
                                         height:'20px',
                                         position:'absolute',
@@ -1087,458 +1012,681 @@ function SearchPage(props) {
                                 >
                                 </img>
                                 </TouchableOpacity>
-                            </div>
+                                </div>
+                                <div
+                                    style={{
+                                        maxHeight:colorOpened? '400px':'0px',
+                                        overflow:'scroll',
+                                        transition: '0.25s',
+                                        transitionTimingFunction:'ease-in-out'
+                                    }}
+                                >
+                                {originalSearchData.filter.color.map((color,index)=>
+                                
+                                <div
+                                    style={{
+                                        display:'flex',
+                                        flexDirection:'row',
+                                        backgroundColor:'transparent',
+                                        padding:'0px'
+                                    }}
+                                >
+                                    <div
+                                        style={{
+                                            backgroundColor:'transparent',
+                                            height:'25px',
+                                            width:'25px',
+                                            // display:'inline-block',
+                                            paddingTop:"5px",
+                                            marginTop:"5px"
 
-                            </div>
-                            <div
-                                style={{
-                                    maxHeight:patternOpened? '400px':'0px',
-                                    overflow:'scroll',
-                                    transition: '0.25s',
-                                    transitionTimingFunction:'ease-in-out'
-                                }}
-                            >
-                            {originalSearchData.filter.pattern.map((pattern,index)=>
-                            
-                            <div
-                                style={{
-                                    display:'flex',
-                                    flexDirection:'row',
-                                    backgroundColor:'transparent',
-                                    padding:'0px'
-                                }}
-                            >
+                                        }}
+                                    >   
+                                    <input type="checkbox" 
+                                            style={{
+                                                height:'20px',
+                                                width:'20px'
+                                                //flex:1,
+                                                //left:0,
+                                                
+                                            }}
+                                            onChange={(e)=>colorCheckboxClicked(index,e,color.code_name,color.code_text)}
+                                    
+                                    ></input>
+
+                                    </div>
+                                <div
+                                        style={{
+                                            backgroundColor:'transparent',
+                                            height:'30px',
+                                            width:'165px',
+                                            // display:'inline-block',
+                                            alignItems:'center',
+                                            justifyContent:'center',
+                                            textAlign:'left',
+                                            paddingTop:'11px',
+                                            paddingLeft:'5px'
+                                        }}
+                                >
+                                    <Text
+                                        style={{
+                                            display:'inline-block',
+                                            
+                                        }}
+                                    >{color.code_text}</Text>
+                                </div>
+                                    
+                                </div>
+                                )}
+                                </div>
+                                <div
+                                    style={{
+                                        paddingTop:'15px',
+                                        // paddingLeft:'65px',
+                                        // paddingRight:'65px'
+                                        marginBottom:'15px'
+                                    }}
+                                >
+                                    <div
+                                    
+                                    style={{
+                                    height:'1px',
+                                    width:'187px',
+                                    // border:'none',
+                                    color:'rgb(219,219,219)',
+                                    backgroundColor:'rgb(219,219,219)'
+                                    }} 
+                                
+                                    >
+                                    </div>
+                                </div>
+                                <div>
                                 <div
                                     style={{
                                         backgroundColor:'transparent',
-                                        height:'25px',
-                                        width:'25px',
-                                        // display:'inline-block',
-                                        paddingTop:"5px",
-                                        marginTop:"5px"
-
+                                        width:'187px',
+                                        display:'flex',
+                                        flexDirection:'row',
                                     }}
-                                >   
-                                 <input type="checkbox" 
+                                >
+                                    <Text
                                         style={{
-                                            height:'20px',
-                                            width:'20px'
-                                            //flex:1,
-                                            //left:0,
-                                            
+                                            fontSize:'15px',
+                                            fontWeight:700
                                         }}
-                                        onChange={(e)=>patternCheckboxClicked(index,e,pattern.code_name,pattern.code_text)}
-                                
-                                ></input>
+                                    >
+                                        패턴
+                                    </Text>
+                                    <TouchableOpacity
+                                        onPress={()=>{
+                                            setPatternOpened(!patternOpened)
+                                        }}
+                                        style={{
+                                            position:'absolute',
+                                            right:'0px'
+                                        }}
+                                    >
+                                    <img
+                                        src={plusIcon}
+                                        style={{
+                                            display: patternOpened? 'none': 'block',
+                                            width:'20px',
+                                            height:'20px',
+                                            position:'absolute',
+                                            right:'15px'
+                                        }}
+                                    >
+                                    </img>
+                                    <img
+                                        src={minusIcon}
+                                        style={{
+                                            display: patternOpened? 'block': 'none',
+                                            width:'20px',
+                                            height:'20px',
+                                            position:'absolute',
+                                            right:'15px'
+                                        }}
+                                    >
+                                    </img>
+                                    </TouchableOpacity>
+                                </div>
 
                                 </div>
-                               <div
+                                <div
                                     style={{
-                                        backgroundColor:'transparent',
-                                        height:'30px',
-                                        width:'165px',
-                                        // display:'inline-block',
-                                        alignItems:'center',
-                                        justifyContent:'center',
-                                        textAlign:'left',
-                                        paddingTop:'11px',
-                                        paddingLeft:'5px'
+                                        maxHeight:patternOpened? '400px':'0px',
+                                        overflow:'scroll',
+                                        transition: '0.25s',
+                                        transitionTimingFunction:'ease-in-out'
                                     }}
-                               >
-                                   <Text
-                                    style={{
-                                        display:'inline-block',
-                                        
-                                    }}
-                                >{pattern.code_text}</Text>
-                               </div>
+                                >
+                                {originalSearchData.filter.pattern.map((pattern,index)=>
                                 
-                            </div>
-                             )}
-                            </div>
-                            
+                                <div
+                                    style={{
+                                        display:'flex',
+                                        flexDirection:'row',
+                                        backgroundColor:'transparent',
+                                        padding:'0px'
+                                    }}
+                                >
+                                    <div
+                                        style={{
+                                            backgroundColor:'transparent',
+                                            height:'25px',
+                                            width:'25px',
+                                            // display:'inline-block',
+                                            paddingTop:"5px",
+                                            marginTop:"5px"
+
+                                        }}
+                                    >   
+                                    <input type="checkbox" 
+                                            style={{
+                                                height:'20px',
+                                                width:'20px'
+                                                //flex:1,
+                                                //left:0,
+                                                
+                                            }}
+                                            onChange={(e)=>patternCheckboxClicked(index,e,pattern.code_name,pattern.code_text)}
+                                    
+                                    ></input>
+
+                                    </div>
+                                <div
+                                        style={{
+                                            backgroundColor:'transparent',
+                                            height:'30px',
+                                            width:'165px',
+                                            // display:'inline-block',
+                                            alignItems:'center',
+                                            justifyContent:'center',
+                                            textAlign:'left',
+                                            paddingTop:'11px',
+                                            paddingLeft:'5px'
+                                        }}
+                                >
+                                    <Text
+                                        style={{
+                                            display:'inline-block',
+                                            
+                                        }}
+                                    >{pattern.code_text}</Text>
+                                </div>
+                                    
+                                </div>
+                                )}
+                                </div>
+                                
+                            </View>
                         </View>
                     </View>
-                </View>
-                <View
-                    id="SearchResults"
-                    style={{
-                        position:'absolute',
-                        top:'100px',
-                        left:'265px',
-                        backgroundColor:'transparent',
-                        height:'100vh',
-                        // width:`calc(100vw-265px)`,
-                        width:`calc(62vw)`,
-                        textAlign:'left',
-                            // columnCount:3,
-                            
-                    }}
-
-                >
                     <View
+                        id="SearchResults"
                         style={{
-                            position:'relative',
-                            display:'flex',
-                            flexDirection:'row'
+                            position:'absolute',
+                            top:'150px',
+                            left:'265px',
+                            backgroundColor:'transparent',
+                            height:'100vh',
+                            // width:`calc(100vw-265px)`,
+                            width:`calc(62vw)`,
+                            textAlign:'left',
+                                // columnCount:3,
+                                
+                        }}
+
+                    >
+                        <View
+                            style={{
+                                position:'relative',
+                                display:'flex',
+                                flexDirection:'row'
+                            }}
+                        >
+                            <Text
+                                style={{
+                                    fontSize:'20px',
+                                    fontWeight:700
+                                }}
+                            >
+                                검색 결과
+                            </Text>
+                            <View
+                                style={{
+                                    position:'absolute',
+                                    backgroundColor:'transparent',
+                                    right:0,
+                                }}
+                            >
+                                <select name="sort_method" id="sort_method"
+                                onChange={(e)=>{
+                                    //console.log("select changed")
+                                    //console.log(e.target.options[e.target.selectedIndex].value)
+                                    //sortMethodSelected(e)
+                                    setSortMethod(e.target.options[e.target.selectedIndex].value)
+                                }}
+                                style={{
+                                    borderColor: '#fff transparent transparent transparent'
+                                }}
+                                >
+                                    <option value="RANKING">인기순</option>
+                                    <option value="m.mt_budget asc">가격 오름차순</option>
+                                    <option value="m.mt_budget desc">가격 내림차순</option>
+                                </select>
+                            </View>
+                        </View>
+                        <View
+                            style={{
+                                flexwrap:'wrap',
+                                justifyContent:'space-between',
+                                display: 'grid',
+                                gridTemplateColumns: 'auto auto auto auto',
+                            }}
+                        >
+                        
+                        {secondSearchData.resultList.map((result,index)=>
+                        <TouchableOpacity
+                        style={{
+                            backgroundColor:'transparent',
+                            height:'200px',
+                            width:'125px',
+                            // marginLeft:'auto',
+                            // marginRight:'auto',
+                            marginTop:'20px',
+                            borderRadius:10,
+                            boxShadow:'0px 0px 3px black',
+                            backgroundColor: hover==index ? 'rgba(0,0,0,0.1)':'transparent'
+                            }}
+                        onPress={()=>{  
+                            console.log('pressed material ' + result.mt_no)
+                            Linking.openURL(`/partDetail?mt_no=${result.mt_no}`)
+                        }}
+                        onMouseEnter={()=>{
+                                console.log('entered ' + index)
+                                if(localStorage.login!=undefined){
+                                    var mem_no=JSON.parse(localStorage.login).message.split('_')
+                                    console.log(mem_no)
+                                }
+                                setHover(index)
+                                console.log(secondSearchData.resultList[index])
+                            }
+                        }
+                        onMouseLeave={()=>{
+                            setHover(null)
+                            console.log('exited '+index)
+                        }}  
+                        
+                        
+                        >
+                            <div
+                                style={{
+                                    backgroundColor:'white',
+                                    width:'55px',
+                                    height:'12px',
+                                    position:'absolute',
+                                    zIndex:100,
+                                    top:'6px',
+                                    left:'6px',
+                                    borderRadius:'6px',
+                                    display:hover==index ? 'block':'none'
+                                }}
+                                onPress={()=>{  
+                                    console.log('pressed clip ' + result.mt_no)
+                                }}
+                            >
+                                <Text
+                                    style={{
+                                        transform:'translate(2px,-2px)',
+                                        position:'absolute',
+                                        top:'1px',
+                                        left:'2px',
+                                        fontWeight:50,
+                                        fontSize:'12px',
+                                        color:secondSearchData.resultList[index].mt_budget<1 ? 'rgb(219,219,219)':'black' 
+                                    }}
+                                >₩</Text>
+                            <Text
+                                    style={{
+                                        transform:'translate(2px,-2px)',
+                                        position:'absolute',
+                                        top:'1px',
+                                        left:'12px',
+                                        fontWeight:50,
+                                        fontSize:'12px',
+                                        color:secondSearchData.resultList[index].mt_budget<2 ? 'rgb(219,219,219)':'black'
+                                    }}
+                                >₩</Text>
+                                <Text
+                                    style={{
+                                        transform:'translate(2px,-2px)',
+                                        position:'absolute',
+                                        top:'1px',
+                                        left:'22px',
+                                        fontWeight:50,
+                                        fontSize:'12px',
+                                        color:secondSearchData.resultList[index].mt_budget<3 ? 'rgb(219,219,219)':'black'
+                                    }}
+                                >₩</Text>
+                                <Text
+                                    style={{
+                                        transform:'translate(2px,-2px)',
+                                        position:'absolute',
+                                        top:'1px',
+                                        left:'32px',
+                                        fontWeight:50,
+                                        fontSize:'12px',
+                                        color:secondSearchData.resultList[index].mt_budget<4 ? 'rgb(219,219,219)':'black'
+                                    }}
+                                >₩</Text>
+                                <Text
+                                    style={{
+                                        transform:'translate(2px,-2px)',
+                                        position:'absolute',
+                                        top:'1px',
+                                        left:'42px',
+                                        fontWeight:50,
+                                        fontSize:'12px',
+                                        color:secondSearchData.resultList[index].mt_budget<5 ? 'rgb(219,219,219)':'black'
+                                    }}
+                                >₩</Text>
+                            </div>
+                        
+                            <TouchableOpacity
+                                style={{
+                                    backgroundColor:'transparent',
+                                    width:'20px',
+                                    height:'20px',
+                                    position:'absolute',
+                                    zIndex:100,
+                                    top:'6px',
+                                    right:'6px',
+                                    display:hover==index ? 'block':'none'
+                                }}
+                                onPress={()=>{  
+                                    console.log('pressed clip ' + result.mt_no)
+                                    setMaterialNumber(result.mt_no)
+                                    toggleClipBoard()
+                                }}
+                            >   
+                                <Image
+                                    style={{
+                                    display:'block',
+                                    height:'20px',
+                                    width:'20px',
+                                    borderTopLeftRadius:10,
+                                    borderTopRightRadius:10,
+                                    zIndex:1,
+                                    pointerEvents:'none',
+                                    // display:result.is_clipped==false ? 'block':'none'
+                                    // transform:[{
+                                    //     translateX:'0px',
+                                    //     translateY:'0px'
+                                    // }]
+                                    }}
+                                    source={clipOff}
+
+                                    >
+                                    
+                                </Image>
+                                {/* <Image
+                                    style={{
+                                    display:'block',
+                                    height:'20px',
+                                    width:'20px',
+                                    borderTopLeftRadius:10,
+                                    borderTopRightRadius:10,
+                                    zIndex:1,
+                                    pointerEvents:'none',
+                                    display:result.is_clipped==true ? 'block':'none'
+                
+                                    }}
+                                    source={clipOn}
+
+                                    >
+                                    
+                                </Image> */}
+                            </TouchableOpacity>
+                            
+                        <Image
+                        style={{
+                        display:'block',
+                        height:'125px',
+                        width:'125px',
+                        borderTopLeftRadius:10,
+                        borderTopRightRadius:10,
+                        zIndex:1,
+                        pointerEvents:'none',
+                        filter:hover==index ? 'brightness(90%)':'brightness(100%)'
+                        // transform:[{
+                        //     translateX:'0px',
+                        //     translateY:'0px'
+                        // }]
+                        }}
+                        source={{
+                            uri:
+                                result.mt_feature_img_url
+                        }}
+
+                        >
+                        
+                        </Image>
+                        
+                        <View
+                        style ={{
+                            height:'75px',
+                            width:'125px',
+                            fontSize: '12pt',
+                            fontWeight:'500',
+                            textDecorationLine:'none',
+                            color:'white',
+                            textAlign:'center',
+                            flexDirection:'column',
+                            pointerEvents:'none',
+                            backgroundColor:'white',
+                            pointerEvents:'none',
+                            borderBottomLeftRadius:10,
+                            borderBottomRightRadius:10,
+                            padding:'10px'
+                        }}
+                        >
+                        <Text
+                            style ={{
+                                // height:'65pt',
+                                // width:'250px',
+                                fontSize: '8pt',
+                                fontWeight:'700',
+                                textDecorationLine:'none',
+                                color:'black',
+                                textAlign:'left',
+                                //alignItems:'center',
+                                //justifyContent:'center',
+                                //flexDirection:'row',
+                                //marginTop:'45pt',
+                                pointerEvents:'none',
+                                backgroundColor:'transparent',
+                                pointerEvents:'none',
+                                
+                            }}
+                        >
+                            {result.vd_name}
+                        </Text>
+                        <Text
+                                style ={{
+                                    height:'100px',
+                                    width:'120px',
+                                    fontSize: '8pt',
+                                    fontWeight:'500',
+                                    textDecorationLine:'none',
+                                    color:'black',
+                                    textAlign:'left',
+                                    alignItems:'center',
+                                    justifyContent:'center',
+                                    flexDirection:'row',
+                                    // marginLeft:'1px',
+                                    // marginTop:'1px',
+                                    pointerEvents:'none',
+                                    backgroundColor:'transparent',
+                                    pointerEvents:'none',
+                                    
+                                    
+                                }}
+                            >
+                            {result.mt_subname}
+                            
+                        </Text>
+                        <Text
+                                style ={{
+                                    height:'100px',
+                                    width:'120px',
+                                    fontSize: '8pt',
+                                    fontWeight:'500',
+                                    textDecorationLine:'none',
+                                    color:'rgb(85,85,85)',
+                                    textAlign:'left',
+                                    alignItems:'center',
+                                    justifyContent:'center',
+                                    flexDirection:'row',
+                                    // marginLeft:'1px',
+                                    // marginTop:'1px',
+                                    pointerEvents:'none',
+                                    backgroundColor:'transparent',
+                                    pointerEvents:'none',
+                                    whiteSpace:'nowrap',
+                                    textOverflow: 'ellipsis',
+                                    overflow:'hidden'
+                                }}
+                            >
+                            {result.mt_name}
+                            
+                        </Text>
+                        </View>
+                        </TouchableOpacity>
+                        )}
+                        
+                        </View>
+                        <View
+                            style={{
+                                position:'relative',
+                                display:'flex',
+                                flexDirection:'row',
+                                alignItems:'center',
+                                justifyContent:'center',
+                                backgroundColor:'transparent'
+                            }}
+                        >
+                            <Pagination currentPage={activePage} leftPageJump={leftPageJump} rightPageJump={rightPageJump} currentPageTo={currentPageTo} endPage={secondSearchData.pageInfo.totalPage}/>
+                        </View>
+                        {/* <ReactPaginate
+                            previousLabel={'previous'}
+                            nextLabel={'next'}
+                            breakLabel={'...'}
+                            breakClassName={'break-me'}
+                            pageCount={secondSearchData.pageInfo.totalCount}
+                            marginPagesDisplayed={2}
+                            pageRangeDisplayed={5}
+                            onPageChange={handlePageClick}
+                            containerClassName={'pagination'}
+                            subContainerClassName={'pages pagination'}
+                            activeClassName={'active'}
+                        /> */}
+                        {/* <Pagination
+                        activePage={activePage}
+                        itemsCountPerPage={10}
+                        totalItemsCount={450}
+                        pageRangeDisplayed={5}
+                        onChange={handlePageClick}
+                        /> */}
+                    </View>
+                </div>
+            </div>
+        );
+    }
+    else if(mode=='moodboard'){
+        return (
+            <div>
+                <div
+                    style={{
+                        display: clipBoard ? 'block':'none' 
+                    }}
+                >
+                    <ClipBoard toggleClipBoard={toggleClipBoard} material_num={materialNumber} refresh={clipBoard}/>
+                </div>
+            <Navbar />
+            <NavBarFiller/>
+            <div
+                style={{
+                    width:'100vw',
+                    height:'50px',
+                    backgroundColor:'transparent',
+                    paddingLeft:'65px',
+                    paddingRight:'65px',
+                    // paddingTop:'15px',
+                    display:'flex',
+                    flexDirection:'row'
+
+                }}
+            >
+                <TouchableOpacity
+                    onPress={() => setMode('material')}
+                >
+                    <div
+                        style={{
+                            borderRadius:'15px',
+                            backgroundColor:mode=='material'?'rgb(255,123,88)':'transparent',
+                            width:'100px',
+                            height:'30px',
+                            marginTop:'10px',
+                            border:mode=='material'?'none':'2px solid rgb(221,221,221)'
                         }}
                     >
                         <Text
                             style={{
-                                fontSize:'20px'
+                                lineHeight:'30px',
+                                color:mode=='material'?'white':'black'
                             }}
                         >
-                            검색 결과
+                            자재
                         </Text>
-                        <View
-                            style={{
-                                position:'absolute',
-                                backgroundColor:'transparent',
-                                right:0,
-                            }}
-                        >
-                            <select name="sort_method" id="sort_method"
-                            onChange={(e)=>{
-                                //console.log("select changed")
-                                //console.log(e.target.options[e.target.selectedIndex].value)
-                                //sortMethodSelected(e)
-                                setSortMethod(e.target.options[e.target.selectedIndex].value)
-                            }}
-                            style={{
-                                borderColor: '#fff transparent transparent transparent'
-                            }}
-                            >
-                                <option value="RANKING">인기순</option>
-                                <option value="m.mt_budget asc">가격 오름차순</option>
-                                <option value="m.mt_budget desc">가격 내림차순</option>
-                            </select>
-                        </View>
-                    </View>
-                    <View
+                    </div>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => setMode('moodboard')}
+                >
+                    <div
                         style={{
-                            flexwrap:'wrap',
-                            justifyContent:'space-between',
-                            display: 'grid',
-                            gridTemplateColumns: 'auto auto auto auto',
+                            borderRadius:'15px',
+                            backgroundColor:mode=='moodboard'?'rgb(255,123,88)':'transparent',
+                            width:'100px',
+                            height:'30px',
+                            marginLeft:'15px',
+                            marginTop:'10px',
+                            border:mode=='moodboard'?'none':'2px solid rgb(221,221,221)',
                         }}
                     >
-                    
-                    {secondSearchData.resultList.map((result,index)=>
-                    <TouchableOpacity
-                    style={{
-                        backgroundColor:'transparent',
-                        height:'200px',
-                        width:'125px',
-                        // marginLeft:'auto',
-                        // marginRight:'auto',
-                        marginTop:'20px',
-                        borderRadius:10,
-                        boxShadow:'0px 0px 3px black',
-                        backgroundColor: hover==index ? 'rgba(0,0,0,0.1)':'transparent'
-                        }}
-                    onPress={()=>{  
-                        console.log('pressed material ' + result.mt_no)
-                        Linking.openURL(`/partDetail?mt_no=${result.mt_no}`)
-                    }}
-                    onMouseEnter={()=>{
-                            console.log('entered ' + index)
-                            if(localStorage.login!=undefined){
-                                var mem_no=JSON.parse(localStorage.login).message.split('_')
-                                console.log(mem_no)
-                            }
-                            setHover(index)
-                            console.log(secondSearchData.resultList[index])
-                        }
-                    }
-                    onMouseLeave={()=>{
-                        setHover(null)
-                        console.log('exited '+index)
-                    }}  
-                    
-                    
-                    >
-                        <div
+                        <Text
                             style={{
-                                backgroundColor:'white',
-                                width:'55px',
-                                height:'12px',
-                                position:'absolute',
-                                zIndex:100,
-                                top:'6px',
-                                left:'6px',
-                                borderRadius:'6px',
-                                display:hover==index ? 'block':'none'
-                            }}
-                            onPress={()=>{  
-                                console.log('pressed clip ' + result.mt_no)
+                                lineHeight:'30px',
+                                color:mode=='moodboard'?'white':'black'
                             }}
                         >
-                            <Text
-                                style={{
-                                    transform:'translate(2px,-2px)',
-                                    position:'absolute',
-                                    top:'1px',
-                                    left:'2px',
-                                    fontWeight:50,
-                                    fontSize:'12px',
-                                    color:secondSearchData.resultList[index].mt_budget<1 ? 'rgb(219,219,219)':'black' 
-                                }}
-                            >₩</Text>
-                           <Text
-                                style={{
-                                    transform:'translate(2px,-2px)',
-                                    position:'absolute',
-                                    top:'1px',
-                                    left:'12px',
-                                    fontWeight:50,
-                                    fontSize:'12px',
-                                    color:secondSearchData.resultList[index].mt_budget<2 ? 'rgb(219,219,219)':'black'
-                                }}
-                            >₩</Text>
-                            <Text
-                                style={{
-                                    transform:'translate(2px,-2px)',
-                                    position:'absolute',
-                                    top:'1px',
-                                    left:'22px',
-                                    fontWeight:50,
-                                    fontSize:'12px',
-                                    color:secondSearchData.resultList[index].mt_budget<3 ? 'rgb(219,219,219)':'black'
-                                }}
-                            >₩</Text>
-                            <Text
-                                style={{
-                                    transform:'translate(2px,-2px)',
-                                    position:'absolute',
-                                    top:'1px',
-                                    left:'32px',
-                                    fontWeight:50,
-                                    fontSize:'12px',
-                                    color:secondSearchData.resultList[index].mt_budget<4 ? 'rgb(219,219,219)':'black'
-                                }}
-                            >₩</Text>
-                            <Text
-                                style={{
-                                    transform:'translate(2px,-2px)',
-                                    position:'absolute',
-                                    top:'1px',
-                                    left:'42px',
-                                    fontWeight:50,
-                                    fontSize:'12px',
-                                    color:secondSearchData.resultList[index].mt_budget<5 ? 'rgb(219,219,219)':'black'
-                                }}
-                            >₩</Text>
-                        </div>
-                    
-                        <TouchableOpacity
-                            style={{
-                                backgroundColor:'transparent',
-                                width:'20px',
-                                height:'20px',
-                                position:'absolute',
-                                zIndex:100,
-                                top:'6px',
-                                right:'6px',
-                                display:hover==index ? 'block':'none'
-                            }}
-                            onPress={()=>{  
-                                console.log('pressed clip ' + result.mt_no)
-                                setMaterialNumber(result.mt_no)
-                                toggleClipBoard()
-                            }}
-                        >   
-                            <Image
-                                style={{
-                                display:'block',
-                                height:'20px',
-                                width:'20px',
-                                borderTopLeftRadius:10,
-                                borderTopRightRadius:10,
-                                zIndex:1,
-                                pointerEvents:'none',
-                                // display:result.is_clipped==false ? 'block':'none'
-                                // transform:[{
-                                //     translateX:'0px',
-                                //     translateY:'0px'
-                                // }]
-                                }}
-                                source={clipOff}
-
-                                >
-                                
-                            </Image>
-                            {/* <Image
-                                style={{
-                                display:'block',
-                                height:'20px',
-                                width:'20px',
-                                borderTopLeftRadius:10,
-                                borderTopRightRadius:10,
-                                zIndex:1,
-                                pointerEvents:'none',
-                                display:result.is_clipped==true ? 'block':'none'
-             
-                                }}
-                                source={clipOn}
-
-                                >
-                                
-                            </Image> */}
-                        </TouchableOpacity>
-                        
-                    <Image
-                    style={{
-                    display:'block',
-                    height:'125px',
-                    width:'125px',
-                    borderTopLeftRadius:10,
-                    borderTopRightRadius:10,
-                    zIndex:1,
-                    pointerEvents:'none',
-                    filter:hover==index ? 'brightness(90%)':'brightness(100%)'
-                    // transform:[{
-                    //     translateX:'0px',
-                    //     translateY:'0px'
-                    // }]
-                    }}
-                    source={{
-                        uri:
-                            result.mt_feature_img_url
-                    }}
-
-                    >
-                    
-                    </Image>
-                    
-                    <View
-                    style ={{
-                        height:'75px',
-                        width:'125px',
-                        fontSize: '12pt',
-                        fontWeight:'500',
-                        textDecorationLine:'none',
-                        color:'white',
-                        textAlign:'center',
-                        flexDirection:'column',
-                        pointerEvents:'none',
-                        backgroundColor:'white',
-                        pointerEvents:'none',
-                        borderBottomLeftRadius:10,
-                        borderBottomRightRadius:10,
-                        padding:'10px'
-                    }}
-                    >
-                    <Text
-                        style ={{
-                            // height:'65pt',
-                            // width:'250px',
-                            fontSize: '8pt',
-                            fontWeight:'700',
-                            textDecorationLine:'none',
-                            color:'black',
-                            textAlign:'left',
-                            //alignItems:'center',
-                            //justifyContent:'center',
-                            //flexDirection:'row',
-                            //marginTop:'45pt',
-                            pointerEvents:'none',
-                            backgroundColor:'transparent',
-                            pointerEvents:'none',
-                            
-                        }}
-                    >
-                        {result.vd_name}
-                    </Text>
-                    <Text
-                            style ={{
-                                height:'100px',
-                                width:'120px',
-                                fontSize: '8pt',
-                                fontWeight:'500',
-                                textDecorationLine:'none',
-                                color:'black',
-                                textAlign:'left',
-                                alignItems:'center',
-                                justifyContent:'center',
-                                flexDirection:'row',
-                                // marginLeft:'1px',
-                                // marginTop:'1px',
-                                pointerEvents:'none',
-                                backgroundColor:'transparent',
-                                pointerEvents:'none',
-                                
-                                
-                            }}
-                        >
-                        {result.mt_subname}
-                        
-                    </Text>
-                    <Text
-                            style ={{
-                                height:'100px',
-                                width:'120px',
-                                fontSize: '8pt',
-                                fontWeight:'500',
-                                textDecorationLine:'none',
-                                color:'rgb(85,85,85)',
-                                textAlign:'left',
-                                alignItems:'center',
-                                justifyContent:'center',
-                                flexDirection:'row',
-                                // marginLeft:'1px',
-                                // marginTop:'1px',
-                                pointerEvents:'none',
-                                backgroundColor:'transparent',
-                                pointerEvents:'none',
-                                whiteSpace:'nowrap',
-                                textOverflow: 'ellipsis',
-                                overflow:'hidden'
-                            }}
-                        >
-                        {result.mt_name}
-                        
-                    </Text>
-                    </View>
-                    </TouchableOpacity>
-                    )}
-                    
-                    </View>
-                    <View
-                        style={{
-                            position:'relative',
-                            display:'flex',
-                            flexDirection:'row',
-                            alignItems:'center',
-                            justifyContent:'center',
-                            backgroundColor:'transparent'
-                        }}
-                    >
-                        <Pagination currentPage={activePage} leftPageJump={leftPageJump} rightPageJump={rightPageJump} currentPageTo={currentPageTo} endPage={secondSearchData.pageInfo.totalPage}/>
-                    </View>
-                    {/* <ReactPaginate
-                        previousLabel={'previous'}
-                        nextLabel={'next'}
-                        breakLabel={'...'}
-                        breakClassName={'break-me'}
-                        pageCount={secondSearchData.pageInfo.totalCount}
-                        marginPagesDisplayed={2}
-                        pageRangeDisplayed={5}
-                        onPageChange={handlePageClick}
-                        containerClassName={'pagination'}
-                        subContainerClassName={'pages pagination'}
-                        activeClassName={'active'}
-                    /> */}
-                    {/* <Pagination
-                    activePage={activePage}
-                    itemsCountPerPage={10}
-                    totalItemsCount={450}
-                    pageRangeDisplayed={5}
-                    onChange={handlePageClick}
-                    /> */}
-                </View>
+                            무드보드
+                        </Text>
+                    </div>
+                </TouchableOpacity>
             </div>
-        </div>
-    );
+                <div className="MainContent"
+                    style={{
+                        width:'100vw',
+                        height:'calc(100vh-100px)'
+                    }}
+                >
+                    
+                </div>
+            </div>
+        );
+    }
   }
   else{
     return(
