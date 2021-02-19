@@ -215,6 +215,7 @@ function ClipBoard(props){
             }
             console.log(temp)
             setCheckButtonChecked(temp)
+            //setRefresh(refresh+1)
         }
         
         
@@ -851,10 +852,12 @@ function ClipBoard(props){
                                 }}
                                 // checked={true}
                                 //defaultChecked={materialNumberMatch(props.material_num,clipboard)}
-                                defaultChecked={checkButtonChecked[index]}
+                                //defaultChecked={checkButtonChecked[index]}
+                                checked={checkButtonChecked[index]}
                                 onClick={(e)=>
                                     // checkboxClicked(index,e,category.code_name,category.code_text)
                                     checkboxClicked(index,e,clipboard.cb_no,clipboard.detail)
+                                    
                                     // console.log(e)
                                 }
     
@@ -887,6 +890,7 @@ function ClipBoard(props){
                     onPress={()=>{
                         console.log('make a new board')
                         setNewBoard(!newBoard)
+                        setRefresh(refresh+1)
                     }}
                 >
                     <View
