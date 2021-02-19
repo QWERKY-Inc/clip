@@ -1569,6 +1569,7 @@ function SearchPage(props) {
                                 backgroundColor:'transparent',
                                 pointerEvents:'none',
                                 
+                                
                             }}
                         >
                             {result.vd_name}
@@ -1589,7 +1590,8 @@ function SearchPage(props) {
                                     // marginTop:'1px',
                                     pointerEvents:'none',
                                     backgroundColor:'transparent',
-                                    pointerEvents:'none',
+                                    whiteSpace:'nowrap',
+                                    textOverflow: 'ellipsis',
                                     
                                     
                                 }}
