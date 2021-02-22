@@ -318,7 +318,7 @@ function SearchPage(props) {
 }
     const rightMoodboardPageJump=()=>{
         if(moodboardPage.pageInfo.totalPage<moodboardActivePage+3){
-            setMoodboardActivePage(moodboardActivePage.pageInfo.totalPage)
+            setMoodboardActivePage(moodboardPage.pageInfo.totalPage)
 
         }
         else{
@@ -332,7 +332,15 @@ function SearchPage(props) {
   useEffect(() => {
     Dimensions.addEventListener('change',onChange)
     //window.addEventListener('scroll',onScroll,{passive:true})
+    
+    // if(props.location.search.mode!=undefined){
+        
+    //     setMode(props.location.search.mode)
+    // }
     const parsed = queryString.parse(props.location.search);
+    if(parsed.mode!=undefined){
+        setMode(parsed.mode)
+    }
     var mem_no=undefined
     if(localStorage.login!=undefined){
         mem_no=JSON.parse(localStorage.login).message.split('_')[0]
@@ -1739,7 +1747,6 @@ function SearchPage(props) {
     }
     else if(mode=='moodboard'){
         if(moodboardPage!=undefined){
-            console.log(moodboardPage)
             return (
                 <div>
                     <div
