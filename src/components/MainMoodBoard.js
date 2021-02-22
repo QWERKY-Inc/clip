@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react';
 import Navbar from './Navbar';
 import NavBarFiller from './NavBarFiller';
-import {TouchableOpacity,Text,Image,View,Modal,TouchableHighlight,Dimensions} from 'react-native';
+import {TouchableOpacity,Text,Image,View,Modal,TouchableHighlight,Dimensions,Linking} from 'react-native';
 
 function MainMoodBoard() {
 
@@ -52,6 +52,36 @@ function MainMoodBoard() {
                             paddingLeft:'100px'
                         }}
                     >
+                        
+                        <TouchableOpacity
+                        onPress={()=>{  
+                            Linking.openURL('/searchpage?mode=moodboard')
+                        }}
+                        >
+                            <div
+                                style={{
+                                    position:'absolute',
+                                    right:'100px',
+                                    top:'0px',
+                                    borderRadius:10,
+                                    border:'1px solid white',
+                                    height:"30px",
+                                    width:'100px',
+                                    textAlign:'center'
+                                }}
+                            >
+                                <Text
+                                    style={{
+                                        color:'white',
+                                        lineHeight:'30px',
+
+                                    }}
+                                >
+                                    모두 둘러보기
+                                </Text>
+                            </div>
+                        </TouchableOpacity>
+
                         <Text
                             style={{
                                 fontSize: '25pt',
@@ -328,6 +358,34 @@ function MainMoodBoard() {
                             paddingLeft:'100px'
                         }}
                     >
+                        <TouchableOpacity
+                        
+                        onPress={()=>{  
+                            Linking.openURL('/searchpage?mode=moodboard')
+                        }}>
+                            <div
+                                style={{
+                                    position:'absolute',
+                                    right:'100px',
+                                    top:'0px',
+                                    borderRadius:10,
+                                    border:'1px solid white',
+                                    height:"30px",
+                                    width:'100px',
+                                    textAlign:'center'
+                                }}
+                            >
+                                <Text
+                                    style={{
+                                        color:'white',
+                                        lineHeight:'30px',
+
+                                    }}
+                                >
+                                    모두 둘러보기
+                                </Text>
+                            </div>
+                        </TouchableOpacity>
                         <Text
                             style={{
                                 fontSize: '25pt',
