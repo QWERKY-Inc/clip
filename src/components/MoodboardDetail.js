@@ -277,7 +277,8 @@ function PartDetail(props){
                     style={{
                         textAlign:'left',
                         paddingLeft:'160px',
-                        paddingRight:'160px'
+                        paddingRight:'160px',
+                        marginTop:'15px'
                     }}
                 >
                     {moodboardData.material_set.map((category,index)=>{
