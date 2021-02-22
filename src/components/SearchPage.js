@@ -55,6 +55,7 @@ function SearchPage(props) {
   const [mode,setMode]=React.useState('material')
   const [moodboardPage,setMoodboardPage]=React.useState(undefined)
   const [moodboardActivePage,setMoodboardActivePage]=React.useState(1)
+  const [moodboardHover,setMoodboardHover]=React.useState(null)
   const firstPage=(jsonObj)=>{
     console.log(jsonObj)
     fetch('/search?'+
@@ -1839,7 +1840,7 @@ function SearchPage(props) {
                             >
                                 
                             
-                        {moodboardPage.resultList.map((moodboard)=>
+                        {moodboardPage.resultList.map((moodboard,index)=>
                             <TouchableOpacity
                             style={{
                                 flexDirection:'column',
@@ -1868,6 +1869,23 @@ function SearchPage(props) {
                                 zIndex:2
                                     // backgroundColor:'red'
                                 
+                            }}
+                            onPress={()=>{
+                                Linking.openURL(`/moodboarddetail?mb_no=${moodboard.mb_no}`)
+                            }}
+                            onMouseEnter={()=>{
+                                console.log('entered ' + index)
+                                if(localStorage.login!=undefined){
+                                    var mem_no=JSON.parse(localStorage.login).message.split('_')
+                                    // console.log(mem_no)
+                                }
+                                setMoodboardHover(index)
+                                console.log(moodboard)
+                                }
+                            }
+                            onMouseLeave={()=>{
+                                setMoodboardHover(null)
+                                console.log('exited '+index)
                             }}
                         >
                         

@@ -11,6 +11,7 @@ import PrivacyPolicy from './components/PrivacyPolicy'
 import Terms from './components/Terms'
 import SearchPage from './components/SearchPage'
 import PartDetail from './components/PartDetail'
+import MoodboardDetail from './components/MoodboardDetail'
 // import {UserProvider,useUser} from './components/user-context'
 import {BrowserRouter as BrowserRouter,Router,Switch,Route,Link} from 'react-router-dom'
 
@@ -39,7 +40,7 @@ function App() {
             <Route exact path="/terms" component={Terms}/>
             <Route exact path="/searchpage" component={SearchPage}/>
             <Route exact path="/partdetail" component={PartDetail}/>
-            
+            <Route exact path="/moodboarddetail" component={MoodboardDetail}/>
           </Switch>
         </BrowserRouter>
       </div>
