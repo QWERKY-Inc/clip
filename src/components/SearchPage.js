@@ -41,6 +41,7 @@ function SearchPage(props) {
   const [colorOpened, setColorOpened]=React.useState(false)
   const [patternOpened, setPatternOpened]=React.useState(false)
   const [filter,setFilter]=React.useState({})
+  const [moodboardFilter,setMoodboardFilter]=React.useState({})
   const [checkedCategory, setCheckedCategory]=React.useState([])
   const [checkedUse,setCheckedUse]=React.useState([])
   const [checkedBrand,setCheckedBrand]=React.useState([])
@@ -52,7 +53,8 @@ function SearchPage(props) {
   const [clipBoard,setClipBoard]=React.useState(false)
   const [materialNumber,setMaterialNumber]=React.useState(undefined)
   const [mode,setMode]=React.useState('material')
-
+  const [moodboardPage,setMoodboardPage]=React.useState(undefined)
+  const [moodboardActivePage,setMoodboardActivePage]=React.useState(1)
   const firstPage=(jsonObj)=>{
     console.log(jsonObj)
     fetch('/search?'+
@@ -85,6 +87,27 @@ function SearchPage(props) {
     .then((incomingData)=>{
         console.log(incomingData)
         setSecondSearchData(incomingData)
+        //setEndPage(incomingData.pageInfo.totalPage)
+        })
+    .catch(err=>{
+        console.log(err)
+    })
+  }
+
+  const moodboardPageSearch=(jsonObj)=>{
+    console.log(jsonObj)
+    fetch('/Moodboard?'+
+    queryString.stringify({
+           pagination:true,
+        //    page:activePage,
+          ...jsonObj
+            }
+        )
+    )
+    .then(res=>res.json())
+    .then((incomingData)=>{
+        console.log(incomingData)
+        setMoodboardPage(incomingData)
         //setEndPage(incomingData.pageInfo.totalPage)
         })
     .catch(err=>{
@@ -264,12 +287,25 @@ function SearchPage(props) {
     // let page=data.selectedIndex
     setActivePage(pageNumber)
   }
+  const currentMoodboardPageTo=(pageNumber)=>{
+    // let page=data.selectedIndex
+    setMoodboardActivePage(pageNumber)
+    // setMoodboardPage(pageNumber)
+  }
   const leftPageJump=()=>{
       if(activePage-3>1){
           setActivePage(activePage-3)
       }
       else{
           setActivePage(1)
+      }
+  }
+  const leftMoodboardPageJump=()=>{
+      if(moodboardActivePage-3>1){
+          setMoodboardActivePage(moodboardActivePage-3)
+      }
+      else{
+          setMoodboardActivePage(1)
       }
   }
   const rightPageJump=()=>{
@@ -280,6 +316,16 @@ function SearchPage(props) {
         setActivePage(activePage+3)
     }
 }
+    const rightMoodboardPageJump=()=>{
+        if(moodboardPage.pageInfo.totalPage<moodboardActivePage+3){
+            setMoodboardActivePage(moodboardActivePage.pageInfo.totalPage)
+
+        }
+        else{
+            setMoodboardActivePage(moodboardActivePage+3)
+        }
+
+    }
     const toggleClipBoard=()=>{
         setClipBoard(!clipBoard)
     }
@@ -287,8 +333,8 @@ function SearchPage(props) {
     Dimensions.addEventListener('change',onChange)
     //window.addEventListener('scroll',onScroll,{passive:true})
     const parsed = queryString.parse(props.location.search);
+    var mem_no=undefined
     if(localStorage.login!=undefined){
-        var mem_no=undefined
         mem_no=JSON.parse(localStorage.login).message.split('_')[0]
         parsed.mem_no=mem_no 
     }
@@ -302,6 +348,7 @@ function SearchPage(props) {
     // secondPage(
     //     {mem_no: "63", search_target: null, search_value: null, list_color: ["GOLDSILVER","RED","BLACK"], list_pattern: ["METAL","SOLID","GEOMETRIC"], list_brand: ["62","101"], list_category: ["45"], list_use: ["56","9"], pagination: true, page: 1}
     // )
+    moodboardPageSearch({mem_no:mem_no})
   },[])
   useEffect(()=>{
     console.log(activePage)
@@ -309,6 +356,12 @@ function SearchPage(props) {
     filterQ.page=activePage
     setFilter(filterQ)
   },[activePage])
+  useEffect(()=>{
+    console.log(moodboardActivePage)
+    var moodboardFilterQ={...moodboardFilter}
+    moodboardFilterQ.page=moodboardActivePage
+    setMoodboardFilter(moodboardFilterQ)
+  },[moodboardActivePage])
 
   useEffect(()=>{
     var filterQ={...filter}
@@ -338,6 +391,23 @@ function SearchPage(props) {
     // secondPage(testObj)
     console.log(filter.page)
 },[filter])
+    useEffect(() => {
+        //console.log({...queryString.parse(props.location.search),...filter})
+        const parsed = {...moodboardFilter}
+        if(localStorage.login!=undefined){
+            var mem_no=undefined
+            mem_no=JSON.parse(localStorage.login).message.split('_')[0]
+            parsed.mem_no=mem_no 
+        }
+        else{
+            parsed.mem_no=""
+        }
+        console.log("searching page "+moodboardFilter.page)
+        moodboardPageSearch(parsed)
+        // var testObj= {mem_no: "63", keyword: "시트", search_target: null, search_value: null, list_color: ["GOLDSILVER","RED","BLACK"], list_pattern: ["METAL","SOLID","GEOMETRIC"], list_brand: ["62","101"], list_category: ["45"], list_use: ["56","9"], material_scope: "ALL", pagination: true, page: 1}
+        // secondPage(testObj)
+        console.log(moodboardFilter.page)
+    },[moodboardFilter])
   if(secondSearchData!=undefined && originalSearchData!=undefined){
     if(mode=='material'){
         return (
@@ -1668,89 +1738,285 @@ function SearchPage(props) {
         );
     }
     else if(mode=='moodboard'){
-        return (
-            <div>
+        if(moodboardPage!=undefined){
+            console.log(moodboardPage)
+            return (
+                <div>
+                    <div
+                        style={{
+                            display: clipBoard ? 'block':'none' 
+                        }}
+                    >
+                        <ClipBoard toggleClipBoard={toggleClipBoard} material_num={materialNumber} refresh={clipBoard}/>
+                    </div>
+                <Navbar />
+                <NavBarFiller/>
                 <div
                     style={{
-                        display: clipBoard ? 'block':'none' 
-                    }}
-                >
-                    <ClipBoard toggleClipBoard={toggleClipBoard} material_num={materialNumber} refresh={clipBoard}/>
-                </div>
-            <Navbar />
-            <NavBarFiller/>
-            <div
-                style={{
-                    width:'100vw',
-                    height:'50px',
-                    backgroundColor:'transparent',
-                    paddingLeft:'65px',
-                    paddingRight:'65px',
-                    // paddingTop:'15px',
-                    display:'flex',
-                    flexDirection:'row'
-
-                }}
-            >
-                <TouchableOpacity
-                    onPress={() => setMode('material')}
-                >
-                    <div
-                        style={{
-                            borderRadius:'15px',
-                            backgroundColor:mode=='material'?'rgb(255,123,88)':'transparent',
-                            width:'100px',
-                            height:'30px',
-                            marginTop:'10px',
-                            border:mode=='material'?'none':'2px solid rgb(221,221,221)'
-                        }}
-                    >
-                        <Text
-                            style={{
-                                lineHeight:'30px',
-                                color:mode=='material'?'white':'black'
-                            }}
-                        >
-                            자재
-                        </Text>
-                    </div>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() => setMode('moodboard')}
-                >
-                    <div
-                        style={{
-                            borderRadius:'15px',
-                            backgroundColor:mode=='moodboard'?'rgb(255,123,88)':'transparent',
-                            width:'100px',
-                            height:'30px',
-                            marginLeft:'15px',
-                            marginTop:'10px',
-                            border:mode=='moodboard'?'none':'2px solid rgb(221,221,221)',
-                        }}
-                    >
-                        <Text
-                            style={{
-                                lineHeight:'30px',
-                                color:mode=='moodboard'?'white':'black'
-                            }}
-                        >
-                            무드보드
-                        </Text>
-                    </div>
-                </TouchableOpacity>
-            </div>
-                <div className="MainContent"
-                    style={{
                         width:'100vw',
-                        height:'calc(100vh-100px)'
+                        height:'50px',
+                        backgroundColor:'transparent',
+                        paddingLeft:'65px',
+                        paddingRight:'65px',
+                        // paddingTop:'15px',
+                        display:'flex',
+                        flexDirection:'row'
+
                     }}
                 >
-                    
-
+                    <TouchableOpacity
+                        onPress={() => setMode('material')}
+                    >
+                        <div
+                            style={{
+                                borderRadius:'15px',
+                                backgroundColor:mode=='material'?'rgb(255,123,88)':'transparent',
+                                width:'100px',
+                                height:'30px',
+                                marginTop:'10px',
+                                border:mode=='material'?'none':'2px solid rgb(221,221,221)'
+                            }}
+                        >
+                            <Text
+                                style={{
+                                    lineHeight:'30px',
+                                    color:mode=='material'?'white':'black'
+                                }}
+                            >
+                                자재
+                            </Text>
+                        </div>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => setMode('moodboard')}
+                    >
+                        <div
+                            style={{
+                                borderRadius:'15px',
+                                backgroundColor:mode=='moodboard'?'rgb(255,123,88)':'transparent',
+                                width:'100px',
+                                height:'30px',
+                                marginLeft:'15px',
+                                marginTop:'10px',
+                                border:mode=='moodboard'?'none':'2px solid rgb(221,221,221)',
+                            }}
+                        >
+                            <Text
+                                style={{
+                                    lineHeight:'30px',
+                                    color:mode=='moodboard'?'white':'black'
+                                }}
+                            >
+                                무드보드
+                            </Text>
+                        </div>
+                    </TouchableOpacity>
                 </div>
-            </div>
-        );
+                    <div className="MainContent"
+                        style={{
+                            width:'100vw',
+                            height:'calc(100vh-100px)'
+                        }}
+                    >
+                                            <View
+                                style={{
+                                    flex: 1, 
+                                    // flexDirection: 'row',
+                                    // justifyContent: 'space-between',
+                                    flexwrap:'wrap',
+                                    display: 'grid',
+                                    gridTemplateColumns: 'auto auto auto auto',
+                                    paddingLeft: '77pt',
+                                    paddingRight: '77pt'
+                                }}
+                            >
+                                
+                            
+                        {moodboardPage.resultList.map((moodboard)=>
+                            <TouchableOpacity
+                            style={{
+                                flexDirection:'column',
+                                borderRadius:10,
+                                height:'210px',
+                                width:"150px",
+                                backgroundColor:'rgb(33,33,33)',
+                                boxShadow:'0px 0px 2px',
+                                
+                                fontSize: '25pt',
+                                fontWeight:'700',
+                                textDecorationLine:'none',
+                                // color:'white',
+                                // textShadowColor: 'rgba(0, 0, 0, 0.85)',
+                                // textShadowOffset: {width: 0, height: 0},
+                                // textShadowRadius: 2,
+                                color:'black',
+                                textAlign:'left',
+                                alignItems:'center',
+                                justifyContent:'center',
+                                flexDirection:'column',
+                                marginLeft:'25pt',
+                                marginRight:'25pt',
+                                marginTop:'25pt',
+                                padding:'auto',
+                                zIndex:2
+                                    // backgroundColor:'red'
+                                
+                            }}
+                        >
+                        
+                        <Image
+                            style={{
+                            display:'block',
+                            height:'150px',
+                            width:'150px',
+                            borderTopLeftRadius:10,
+                            borderTopRightRadius:10,
+                            zIndex:1,
+                            pointerEvents:'none',
+                            transform:[{
+                                translateX:'0px',
+                                translateY:'0px'
+                            }]
+                            }}
+                            source={{
+                                uri:
+                                    // data.listCategory[i].ct_img_url
+                                    moodboard.mb_img_url
+                            }}
+
+                        >
+                        </Image>
+                        {/* <a
+                            style={{
+                            transform:[{
+                                translateX:'100px'
+                            }]
+                            }}
+                        > */}
+                            <View
+                                style ={{
+                                    height:'60px',
+                                    width:'150px',
+                                    fontSize: '15pt',
+                                    fontWeight:'700',
+                                    textDecorationLine:'none',
+                                    // color:'white',
+                                    // textShadowColor: 'rgba(0, 0, 0, 0.85)',
+                                    // textShadowOffset: {width: 0, height: 0},
+                                    // textShadowRadius: 2,
+                                    // color:'black',
+                                    textAlign:'center',
+                                    // alignItems:'center',
+                                    // justifyContent:'center',
+                                    flexDirection:'row',
+                                    // margin:11,
+                                    // padding:'auto',
+                                    pointerEvents:'none',
+                                    // borderTopRightRadius:20,
+                                    // borderBottomRightRadius:20,
+                                    backgroundColor:'white',
+                                    // zIndex:99,
+                                    pointerEvents:'none',
+                                    borderBottomLeftRadius:10,
+                                    borderBottomRightRadius:10,
+                                    // left:0,
+                                    
+                                }}
+                            >
+                                <View
+                                    style ={{
+                                        height:'60px',
+                                        width:'140px',
+                                        fontSize: '12pt',
+                                        fontWeight:'700',
+                                        textDecorationLine:'none',
+                                        // color:'white',
+                                        // textShadowColor: 'rgba(0, 0, 0, 0.85)',
+                                        // textShadowOffset: {width: 0, height: 0},
+                                        // textShadowRadius: 2,
+                                        borderBottomLeftRadius:10,
+                                        borderBottomRightRadius:10,
+                                        color:'black',
+                                        textAlign:'center',
+                                        alignItems:'center',
+                                        justifyContent:'center',
+                                        flexDirection:'row',
+                                        marginLeft:'5pt',
+                                        // padding:'auto',
+                                        pointerEvents:'none',
+                                        backgroundColor:'white',
+                                        // zIndex:99,
+                                        // pointerEvents:'none',
+                                        whiteSpace:'nowrap',
+                                        textOverflow:'ellipsis'
+                                        
+                                    }}
+                                >
+                                    <Text
+                                        style ={{
+                                            height:'65px',
+                                            width:'150px',
+                                            fontSize: '12pt',
+                                            fontWeight:'700',
+                                            textDecorationLine:'none',
+                                            // color:'white',
+                                            // textShadowColor: 'rgba(0, 0, 0, 0.85)',
+                                            // textShadowOffset: {width: 0, height: 0},
+                                            // textShadowRadius: 2,
+                                            color:'black',
+                                            textAlign:'left',
+                                            alignItems:'center',
+                                            justifyContent:'center',
+                                            flexDirection:'row',
+                                            marginTop:'45pt',
+                                            // padding:'auto',
+                                            //pointerEvents:'none',
+                                            backgroundColor:'transparent',
+                                            // zIndex:99,
+                                            // pointerEvents:'none',
+                                            whiteSpace:'nowrap',
+                                            textOverflow:'ellipsis',
+                                            overflow:'hidden'
+                                            
+                                        }}
+                                    >
+                                        {/* {data.listCategory[i].ct_text} */}
+                                        {moodboard.mb_name}
+                                    </Text>
+                                </View>
+                            </View>
+                        {/* </a> */}
+                        </TouchableOpacity>
+                        )}
+                        
+                        
+                        </View>
+                        <View
+                            style={{
+                                position:'relative',
+                                display:'flex',
+                                flexDirection:'row',
+                                alignItems:'center',
+                                justifyContent:'center',
+                                backgroundColor:'transparent'
+                            }}
+                        >
+                            <Pagination currentPage={moodboardActivePage} leftPageJump={leftMoodboardPageJump} rightPageJump={rightMoodboardPageJump} currentPageTo={currentMoodboardPageTo} endPage={moodboardPage.pageInfo.totalPage}/>
+                        </View>
+    
+
+                    </div>
+                </div>
+            );
+        }
+        else{
+            return(
+                <div>
+                    <Navbar />
+                    <NavBarFiller/>
+                </div>
+            )
+        }
     }
   }
   else{
