@@ -3,6 +3,7 @@ import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking,Dimens
 import Navbar from './Navbar';
 import NavBarFiller from './NavBarFiller';
 import ClipBoard from './ClipBoard';
+import MoodClipBoard from './MoodClipBoard';
 import parse from 'html-react-parser';
 import { Carousel } from 'react-responsive-carousel';
 import chatIcon from '../assets/chat.png'
@@ -18,12 +19,17 @@ function PartDetail(props){
     const [hoverOne, setHoverOne]=React.useState(null)
     const [hoverTwo, setHoverTwo]=React.useState(null)
     const [clipBoard,setClipBoard]=React.useState(false)
+    const [moodClipBoard,setMoodClipBoard]=React.useState(false)
     const [moodboardClipBoard,setMoodboardClipBoard]=React.useState(false)
-    const [moodboardNumber,setMoodboardNumber]=React.useState(undefined)
+    const [moodBoardNumber,setMoodBoardNumber]=React.useState(null)
     const [refreshClipboard,setRefreshClipboard]=React.useState(0)
     const [materialNumber,setMaterialNumber]=React.useState(undefined)
+    
     const toggleClipBoard=()=>{
         setClipBoard(!clipBoard)
+    }
+    const toggleMoodClipBoard=()=>{
+        setMoodClipBoard(!moodClipBoard)
     }
     const onChange=()=>{
         setHeight(Dimensions.get('window').height)
@@ -72,12 +78,19 @@ function PartDetail(props){
       if(moodboardData!=undefined){
         return(
             <div>
-                <div
+                    <div
                         style={{
                             display: clipBoard ? 'block':'none' 
                         }}
                     >
                         <ClipBoard toggleClipBoard={toggleClipBoard} material_num={materialNumber} refresh={clipBoard}/>
+                    </div>
+                    <div
+                        style={{
+                            display: moodClipBoard ? 'block':'none' 
+                        }}
+                    >
+                        <MoodClipBoard toggleClipBoard={toggleMoodClipBoard} moodboard_num={moodBoardNumber} refresh={moodClipBoard}/>
                     </div>
                     <Navbar />
                     <NavBarFiller/>
@@ -148,11 +161,11 @@ function PartDetail(props){
                             >
                             </Image>
                             <TouchableOpacity
+                           
                             onPress={()=>{  
-                                console.log(moodboardData.mb_no)
-                                setMoodboardNumber(moodboardData.mb_no)
-                                // toggleClipBoard()
-                              //   console.log('pressed clip ' + brandData.bestproducts_brand[index].mt_no)
+                                console.log(moodboardData)
+                                setMoodBoardNumber(moodboardData.mb_no)
+                                toggleMoodClipBoard()
                             }}
                         >
                         <Image
