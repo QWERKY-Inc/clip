@@ -4,6 +4,7 @@ import Content from './Content';
 import NavBarFiller from './NavBarFiller';
 import Pagination from './Pagination'
 import ClipBoard from './ClipBoard';
+import MoodClipBoard from './MoodClipBoard';
 import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking,Dimensions} from 'react-native';
 //import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 //import { Carousel } from 'react-responsive-carousel';
@@ -51,11 +52,13 @@ function SearchPage(props) {
   const [endPage,setEndPage]=React.useState(1)
   const [hover,setHover]=React.useState(null)
   const [clipBoard,setClipBoard]=React.useState(false)
+  const [moodClipBoard,setMoodClipBoard]=React.useState(false)
   const [materialNumber,setMaterialNumber]=React.useState(undefined)
   const [mode,setMode]=React.useState('material')
   const [moodboardPage,setMoodboardPage]=React.useState(undefined)
   const [moodboardActivePage,setMoodboardActivePage]=React.useState(1)
   const [moodboardHover,setMoodboardHover]=React.useState(null)
+  const [moodBoardNumber,setMoodBoardNumber]=React.useState(null)
   const firstPage=(jsonObj)=>{
     console.log(jsonObj)
     fetch('/search?'+
@@ -330,6 +333,9 @@ function SearchPage(props) {
     const toggleClipBoard=()=>{
         setClipBoard(!clipBoard)
     }
+    const toggleMoodClipBoard=()=>{
+        setMoodClipBoard(!moodClipBoard)
+    }
   useEffect(() => {
     Dimensions.addEventListener('change',onChange)
     //window.addEventListener('scroll',onScroll,{passive:true})
@@ -428,6 +434,7 @@ function SearchPage(props) {
                 >
                     <ClipBoard toggleClipBoard={toggleClipBoard} material_num={materialNumber} refresh={clipBoard}/>
                 </div>
+                
             <Navbar />
             <NavBarFiller/>
             <div
@@ -1752,10 +1759,10 @@ function SearchPage(props) {
                 <div>
                     <div
                         style={{
-                            display: clipBoard ? 'block':'none' 
+                            display: moodClipBoard ? 'block':'none' 
                         }}
                     >
-                        <ClipBoard toggleClipBoard={toggleClipBoard} material_num={materialNumber} refresh={clipBoard}/>
+                        <MoodClipBoard toggleClipBoard={toggleMoodClipBoard} moodboard_num={moodBoardNumber} refresh={moodClipBoard}/>
                     </div>
                 <Navbar />
                 <NavBarFiller/>
@@ -1879,6 +1886,7 @@ function SearchPage(props) {
                                     var mem_no=JSON.parse(localStorage.login).message.split('_')
                                     // console.log(mem_no)
                                 }
+                                //here
                                 setMoodboardHover(index)
                                 console.log(moodboard)
                                 }
@@ -1901,16 +1909,57 @@ function SearchPage(props) {
                             transform:[{
                                 translateX:'0px',
                                 translateY:'0px'
-                            }]
+                            }],
+                            filter:moodboardHover==index ? 'brightness(90%)':'brightness(100%)'
                             }}
                             source={{
                                 uri:
                                     // data.listCategory[i].ct_img_url
                                     moodboard.mb_img_url
                             }}
+                            
 
                         >
                         </Image>
+                        <TouchableOpacity
+                                style={{
+                                    backgroundColor:'transparent',
+                                    width:'20px',
+                                    height:'20px',
+                                    position:'absolute',
+                                    zIndex:100,
+                                    top:'6px',
+                                    right:'6px',
+                                    display:moodboardHover==index ? 'block':'none'
+                                }}
+                                onPress={()=>{  
+                                    console.log(moodboard.mb_no)
+                                    setMoodBoardNumber(moodboard.mb_no)
+                                    toggleMoodClipBoard()
+                                }}
+                            >   
+                                <Image
+                                    style={{
+                                    display:'block',
+                                    height:'20px',
+                                    width:'20px',
+                                    borderTopLeftRadius:10,
+                                    borderTopRightRadius:10,
+                                    zIndex:1,
+                                    pointerEvents:'none',
+                                    // display:result.is_clipped==false ? 'block':'none'
+                                    // transform:[{
+                                    //     translateX:'0px',
+                                    //     translateY:'0px'
+                                    // }]
+                                    }}
+                                    source={clipOff}
+
+                                    >
+                                    
+                                </Image>
+                       
+                            </TouchableOpacity>
                         {/* <a
                             style={{
                             transform:[{
