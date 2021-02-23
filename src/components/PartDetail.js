@@ -16,11 +16,11 @@ function PartDetail(props){
     const [materialData,setMaterialData]=React.useState(undefined)
     const [hoverOne, setHoverOne]=React.useState(null)
     const [hoverTwo, setHoverTwo]=React.useState(null)
-    const [clipBoard,setClipBoard]=React.useState(false)
+    const [clipBoardOne,setClipBoardOne]=React.useState(false)
     const [materialNumber,setMaterialNumber]=React.useState(undefined)
     const [refreshClipboard,setRefreshClipboard]=React.useState(0)
-    const toggleClipBoard=()=>{
-        setClipBoard(!clipBoard)
+    const toggleClipBoardOne=()=>{
+        setClipBoardOne(!clipBoardOne)
     }
     const onChange=()=>{
         setHeight(Dimensions.get('window').height)
@@ -80,10 +80,10 @@ function PartDetail(props){
             <div>
                 <div
                     style={{
-                        display: clipBoard ? 'block':'none' 
+                        display: clipBoardOne ? 'block':'none' 
                     }}
                 >
-                    <ClipBoard toggleClipBoard={toggleClipBoard} material_num={materialNumber} refresh={clipBoard}/>
+                    <ClipBoard toggleClipBoard={toggleClipBoardOne} material_num={materialNumber} refresh={clipBoardOne}/>
                 </div>
                 <Navbar />
                 <NavBarFiller/>
@@ -238,7 +238,7 @@ function PartDetail(props){
                             onPress={()=>{  
                                 console.log(materialData.mt_no)
                                 setMaterialNumber(materialData.mt_no)
-                                toggleClipBoard()
+                                toggleClipBoardOne()
                               //   console.log('pressed clip ' + brandData.bestproducts_brand[index].mt_no)
                             }}
                         >
@@ -721,7 +721,7 @@ function PartDetail(props){
                       }}
                       onPress={()=>{  
                           setMaterialNumber(materialData.samebrand_list[index].mt_no)
-                          toggleClipBoard()
+                          toggleClipBoardOne()
                         //   console.log('pressed clip ' + brandData.bestproducts_brand[index].mt_no)
                       }}
                   >   
@@ -1020,7 +1020,7 @@ function PartDetail(props){
                       }}
                       onPress={()=>{  
                         setMaterialNumber(materialData.samecategory_list[index].mt_no)
-                        toggleClipBoard()
+                        toggleClipBoardOne()
                       //   console.log('pressed clip ' + brandData.bestproducts_brand[index].mt_no)
                     }}
                   >   
