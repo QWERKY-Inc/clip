@@ -6,6 +6,7 @@ import ClipBoard from './ClipBoard';
 import parse from 'html-react-parser';
 import { Carousel } from 'react-responsive-carousel';
 import chatIcon from '../assets/chat.png'
+import boxIcon from '../assets/icnBox.png'
 import clipOff from '../assets/clipOff.png'
 import clipOn from '../assets/clipOn.png'
 const queryString = require('query-string');
@@ -734,7 +735,7 @@ function PartDetail(props){
                                 borderTopRightRadius:10,
                                 zIndex:1,
                                 pointerEvents:'none',
-                                display:materialData.samebrand_list[index].is_clipped==false ? 'block':'none'
+                                // display:materialData.samebrand_list[index].is_clipped==false ? 'block':'none'
                                 // transform:[{
                                 //     translateX:'0px',
                                 //     translateY:'0px'
@@ -745,7 +746,7 @@ function PartDetail(props){
                                 >
                                 
                             </Image>
-                            <Image
+                            {/* <Image
                                 style={{
                                 display:'block',
                                 height:'20px',
@@ -764,7 +765,7 @@ function PartDetail(props){
 
                                 >
                                 
-                            </Image>
+                            </Image> */}
                   </TouchableOpacity>
                   <TouchableOpacity
                     onPress={()=>{
@@ -812,6 +813,46 @@ function PartDetail(props){
                       padding:'10px'
                     }}
                   >
+                    <TouchableOpacity
+                        style={{
+                            zIndex:100,
+                            backgroundColor:'transparent',
+                            position:'absolute',
+                            top:'7px',
+                            right:'7px',
+                            height:'30px',
+                            width:'30px',
+                            display:materialData.samebrand_list[index].mt_isdelivery=="Y"?"block":"none"
+                        }}
+                        onPress={()=>{
+                            console.log(materialData.samebrand_list[index].mt_isdelivery)
+                        }}
+                    >
+                        <View
+                        style={{
+                            backgroundColor:'transparent',
+                            display:'flex',
+                            height:'30px',
+                            width:'30px',
+                            // position:'absolute',
+                            // top:'7px',
+                            // right:'15px'
+                        }}
+                        >
+        
+                            <img
+                                src={boxIcon}
+                                style={{
+                                    //display: categoryOpened? 'none': 'block',
+                                    width:'30px',
+                                    height:'30px',
+                                    right:'15px'
+                                }}
+                            >
+                            </img>
+                        
+                        </View>
+                    </TouchableOpacity>
                     <Text
                       style ={{
                           // height:'65pt',
@@ -1033,7 +1074,7 @@ function PartDetail(props){
                                 borderTopRightRadius:10,
                                 zIndex:1,
                                 pointerEvents:'none',
-                                display:materialData.samecategory_list[index].is_clipped==false ? 'block':'none'
+                                // display:materialData.samecategory_list[index].is_clipped==false ? 'block':'none'
                                 // transform:[{
                                 //     translateX:'0px',
                                 //     translateY:'0px'
@@ -1044,7 +1085,7 @@ function PartDetail(props){
                                 >
                                 
                             </Image>
-                            <Image
+                            {/* <Image
                                 style={{
                                 display:'block',
                                 height:'20px',
@@ -1063,7 +1104,7 @@ function PartDetail(props){
 
                                 >
                                 
-                            </Image>
+                            </Image> */}
                   </TouchableOpacity>
                   <TouchableOpacity
                     onPress={()=>{
@@ -1093,7 +1134,7 @@ function PartDetail(props){
 
                   >
                   </Image>
-                 
+                  
                   <View
                     style ={{
                       height:'75px',
@@ -1112,6 +1153,46 @@ function PartDetail(props){
                       padding:'10px'
                     }}
                   >
+                      <TouchableOpacity
+                        style={{
+                            zIndex:100,
+                            backgroundColor:'transparent',
+                            position:'absolute',
+                            top:'7px',
+                            right:'7px',
+                            height:'30px',
+                            width:'30px',
+                            display:materialData.samecategory_list[index].mt_isdelivery=="Y"?"block":"none"
+                        }}
+                        onPress={()=>{
+                            console.log(materialData.samecategory_list[index].mt_isdelivery)
+                        }}
+                    >
+                        <View
+                        style={{
+                            backgroundColor:'transparent',
+                            display:'flex',
+                            height:'30px',
+                            width:'30px',
+                            // position:'absolute',
+                            // top:'7px',
+                            // right:'15px'
+                        }}
+                        >
+        
+                            <img
+                                src={boxIcon}
+                                style={{
+                                    //display: categoryOpened? 'none': 'block',
+                                    width:'30px',
+                                    height:'30px',
+                                    right:'15px'
+                                }}
+                            >
+                            </img>
+                        
+                        </View>
+                    </TouchableOpacity>
                     <Text
                       style ={{
                           // height:'65pt',
