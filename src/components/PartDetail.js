@@ -291,18 +291,24 @@ function PartDetail(props){
                                 flex:1,
                                 flexDirection:'column',
                                 backgroundColor:'transparent',
-                                width:width-'800px',
+                                width:width-800,
                                 height:'400px',
                                 justifyContent:'left',
                                 textAlign:'left',
                                 paddingLeft:'15px',
                                 paddingRight:'15px',
+                                whiteSpace:'nowrap',
+                                textOverflow:'ellipsis',
+                                // overflowY:'hidden'
                             }}
                         >
                             <Text
                                 style={{
                                     fontWeight:700,
-                                    fontSize:'24px'
+                                    fontSize:'24px',
+                                    whiteSpace:'nowrap',
+                                    textOverflow:'ellipsis'
+
                                 }}
                             >
                                 {materialData.mt_name}
@@ -312,7 +318,8 @@ function PartDetail(props){
                                     
                                     fontWeight:700,
                                     fontSize:'24px',
-                                    marginBottom:'13px'
+                                    marginBottom:'13px',
+                                    whiteSpace:'nowrap',
                                 }}
                             >
                                 {materialData.mt_subname}
@@ -366,6 +373,8 @@ function PartDetail(props){
                                             style={{
                                                 fontWeight:700,
                                                 fontSize:'18px',
+                                                whiteSpace:'nowrap',
+                                                textOverflow:'ellipsis'
                                             }}
                                         >
                                             &nbsp;
@@ -375,6 +384,7 @@ function PartDetail(props){
                                             style={{
                                                 fontWeight:700,
                                                 fontSize:'18px',
+                                                whiteSpace:'nowrap',
                                             }}
                                         >
                                             &nbsp;
@@ -389,12 +399,17 @@ function PartDetail(props){
                                     style={{
                                         fontWeight:700,
                                         fontSize:'15px',
-                                        marginBottom:'15px'
+                                        marginBottom:'15px',
+                                        whiteSpace:'nowrap',
                                     }}
                                 >
                                     자재 카테고리:&nbsp;
                                 </Text>
-                                <Text>
+                                <Text
+                                    style={{
+                                        whiteSpace:'nowrap',
+                                    }}
+                                >
                                     {materialData.mt_category}
                                 </Text>
                             </div>
@@ -403,12 +418,17 @@ function PartDetail(props){
                                     style={{
                                         fontWeight:700,
                                         fontSize:'15px',
-                                        marginBottom:'15px'
+                                        marginBottom:'15px',
+                                        whiteSpace:'nowrap',
                                     }}
                                 >
                                      콜렉션:&nbsp;
                                 </Text>
-                                <Text>
+                                <Text
+                                    style={{
+                                        whiteSpace:'nowrap',
+                                    }}
+                                >
                                     {materialData.mt_collection}
                                 </Text>
                             </div>
@@ -417,12 +437,17 @@ function PartDetail(props){
                                     style={{
                                         fontWeight:700,
                                         fontSize:'15px',
-                                        marginBottom:'15px'
+                                        marginBottom:'15px',
+                                        whiteSpace:'nowrap',
                                     }}
                                 >
                                      SKU:&nbsp;
                                 </Text>
-                                <Text>
+                                <Text
+                                    style={{
+                                        whiteSpace:'nowrap',
+                                    }}
+                                >
                                     {materialData.mt_sku}
                                 </Text>
                             </div>
@@ -431,12 +456,17 @@ function PartDetail(props){
                                     style={{
                                         fontWeight:700,
                                         fontSize:'15px',
-                                        marginBottom:'15px'
+                                        marginBottom:'15px',
+                                        whiteSpace:'nowrap',
                                     }}
                                 >
                                      샘플 사이즈:&nbsp;
                                 </Text>
-                                <Text>
+                                <Text   
+                                    style={{
+                                        whiteSpace:'nowrap',
+                                    }}
+                                >
                                     {materialData.mt_sample_width}&nbsp;mm&nbsp;x&nbsp;{materialData.mt_sample_height}&nbsp;mm
                                 </Text>
                             </div>
@@ -491,7 +521,8 @@ function PartDetail(props){
                                     style={{
                                         display:'block',
                                         height:'40px',
-                                        width:'100%',
+                                        width:(width-800)+'px',
+                                        // width:'100%',
                                         backgroundColor:'rgb(255,123,88)',
                                         color:'white',
                                         borderRadius:'10px',
