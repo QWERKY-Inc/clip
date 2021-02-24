@@ -461,7 +461,7 @@ app.get('/Moodboard',(req,res)=>{
         console.log(err)
     })
 })
-app.get('/MoodboardDetail',(req,res)=>{
+app.get('/MoodboardDetails',(req,res)=>{
     // console.log('http://clip.partners/api/mobile/Material?'+queryString.stringify(req.query))
     //console.log(queryString.stringify(req.query))
     fetch('http://clip.partners/api/mobile/Moodboard/'+req.query.mb_no+'/?'+queryString.stringify(req.query))

@@ -38,7 +38,7 @@ function PartDetail(props){
       }
     const moodboardInfo=(qStr)=>{
     // console.log(qStr)
-    fetch('/MoodboardDetail?'+qStr
+    fetch('/MoodboardDetails?'+qStr
     )
     .then(res=>res.json())
     .then((incomingData)=>{
@@ -70,7 +70,7 @@ function PartDetail(props){
         }
         console.log(parsed)
         moodboardInfo(queryString.stringify(parsed)) 
-        console.log('q = '+JSON.stringify(parsed))
+        console.log('q = '+queryString.stringify(parsed))
         
      
         
