@@ -217,12 +217,13 @@ function PartDetail(props){
                                 flex:1,
                                 flexDirection:'column',
                                 backgroundColor:'transparent',
-                                width:width-'800px',
+                                width:width-800,
                                 height:'400px',
                                 justifyContent:'left',
                                 textAlign:'left',
                                 paddingLeft:'15px',
                                 paddingRight:'15px',
+                                overflowY:'hidden'
                             }}
                         >
                             
@@ -262,7 +263,7 @@ function PartDetail(props){
                             style={{
                                 display:'block',
                                 height:'40px',
-                                width:'100%',
+                                width:width-750,
                                 backgroundColor:'rgb(255,123,88)',
                                 color:'white',
                                 borderRadius:'10px',
