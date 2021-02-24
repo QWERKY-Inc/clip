@@ -1638,6 +1638,14 @@ function SearchPage(props) {
                                 
                             </View>
                             </TouchableOpacity>
+                        <View
+                        style={{
+                            backgroundColor:'transparent',
+                            width:result.mt_isdelivery=="Y"?"78px":"100%",
+                            overflow:'hidden',
+                            
+                        }}
+                        >
                         <Text
                             style ={{
                                 // height:'65pt',
@@ -1660,9 +1668,18 @@ function SearchPage(props) {
                         >
                             {result.vd_name}
                         </Text>
+                        </View>
+                        <View
+                            style={{
+                                backgroundColor:'transparent',
+                                height:'20px',
+                                width:result.mt_isdelivery=="Y"?"78px":"100%",
+                                overflow:'hidden'
+                            }}
+                        >
                         <Text
                                 style ={{
-                                    height:'100px',
+                                    // height:'100px',
                                     width:'120px',
                                     fontSize: '8pt',
                                     fontWeight:'500',
@@ -1685,6 +1702,15 @@ function SearchPage(props) {
                             {result.mt_subname}
                             
                         </Text>
+                        </View>
+                        <View
+                            style={{
+                                backgroundColor:'transparent',
+                                height:'20px',
+                                width:"100%",
+                                overflow:'hidden'
+                            }}
+                        >
                         <Text
                                 style ={{
                                     height:'100px',
@@ -1710,6 +1736,7 @@ function SearchPage(props) {
                             {result.mt_name}
                             
                         </Text>
+                        </View>
                         </View>
                         
                         </TouchableOpacity>
