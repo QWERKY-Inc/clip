@@ -278,7 +278,8 @@ function Brands(props) {
                   textAlign:'left',
                   paddingLeft:'150px',
                   paddingRight:'150px',
-                  paddingTop:'50px'
+                  paddingTop:'50px',
+                  backgroundColor:'transparent'
                 }}
               >
               <View
@@ -295,6 +296,8 @@ function Brands(props) {
                     // width:"450px",
                     // alignItems:'center',
                     // justifyContent:'center',
+                    backgroundColor:'transparent',
+                    width:'500px',
                     textAlign:'left',
                     flex:2
                   }}
@@ -322,7 +325,12 @@ function Brands(props) {
                     {brandData.brd_intro}
                   </Text>
                   <br></br>
-                  <View>
+                  <View
+                    style={{
+                      backgroundColor:'transparent',
+                      
+                    }}
+                  >
                   <Text
                       style={{
                         fontSize: '20px',
@@ -373,52 +381,62 @@ function Brands(props) {
                     </Text>
                   </View>
                 </View>
-                <TouchableOpacity
-                  onPress={() => 
-                    // Linking.openURL(`/category?cat_num=${brandData.brd_no}`)
-                    Linking.openURL(`/searchpage?search_target=BRAND&search_value=${brandData.brd_no}`)
-                    // console.log('show material list ')
-                  }
+                <View
+                  style={{
+                    backgroundColor:'transparent',
+                    width:width-800+'px',
+                    minWidth:100
+                  }}
                 >
-                  <View
-                    style={{
-                      marginTop:'25px',
-                      marginLeft:'25px',
-                      backgroundColor:'white',
-                      width:100,
-                      // flex:1,
-                      height:40,
-                      borderRadius:10,
-                      borderColor:'black',
-                      borderStyle:'solid',
-                      borderWidth:'2px',
-                      textAlign:'center',
-                      alignItems:'center',
-                      justifyContent:'center',
-                    }}
+                  <TouchableOpacity
+                    onPress={() => 
+                      // Linking.openURL(`/category?cat_num=${brandData.brd_no}`)
+                      Linking.openURL(`/searchpage?search_target=BRAND&search_value=${brandData.brd_no}`)
+                      // console.log('show material list ')
+                    }
                   >
                     <View
                       style={{
-                        backgroundColor:'transparent',
-                        transform:[{
-                          translateX:'0px',
-                          translateY:'50px',
-                        }]
+                        marginTop:'25px',
+                        marginLeft:'25px',
+                        backgroundColor:'white',
+                        width:100,
+                        // flex:1,
+                        height:40,
+                        borderRadius:10,
+                        borderColor:'black',
+                        borderStyle:'solid',
+                        borderWidth:'2px',
+                        textAlign:'center',
+                        alignItems:'center',
+                        justifyContent:'center',
+                        position:'absolute',
+                        right:0
                       }}
                     >
-                      {/* <Text
-                        
+                      <View
+                        style={{
+                          backgroundColor:'transparent',
+                          // transform:[{
+                          //   translateX:'0px',
+                          //   translateY:'50px',
+                          // }]
+                        }}
                       >
-                        {brandData.brd_name_eng} {brandData.brd_name_kor} 자재 보기
-                      </Text> */}
-                      <Text
-                        
-                      >
-                        자재 보기
-                      </Text>
-                    </View> 
-                  </View>
-                </TouchableOpacity>
+                        {/* <Text
+                          
+                        >
+                          {brandData.brd_name_eng} {brandData.brd_name_kor} 자재 보기
+                        </Text> */}
+                        <Text
+                          
+                        >
+                          자재 보기
+                        </Text>
+                      </View> 
+                    </View>
+                  </TouchableOpacity>
+                </View>
               </View>
               <br></br>
               

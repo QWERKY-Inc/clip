@@ -95,7 +95,7 @@ function MainMaterialCategory() {
                         <TouchableOpacity
                         style={{
                             borderRadius:10,
-                            height:'65pt',
+                            height:'50pt',
                             width:"350px",
                             backgroundColor:'white',
                             boxShadow:'0px 0px 2px',
@@ -127,14 +127,14 @@ function MainMaterialCategory() {
                     <Image
                         style={{
                         display:'block',
-                        height:'65pt',
-                        width:'99pt',
+                        height:'50pt',
+                        width:'60pt',
                         borderTopLeftRadius:10,
                         borderBottomLeftRadius:10,
                         zIndex:1,
                         pointerEvents:'none',
                         transform:[{
-                            translateX:'-10px',
+                            translateX:'-35px',
                             translateY:'-100px'
                         }]
                         }}
@@ -155,7 +155,7 @@ function MainMaterialCategory() {
                     >
                         <View
                             style ={{
-                                height:'65pt',
+                                height:'50pt',
                                 width:'200px',
                                 fontSize: '15pt',
                                 fontWeight:'700',
@@ -182,8 +182,8 @@ function MainMaterialCategory() {
                         >
                             <View
                                 style ={{
-                                    height:'65pt',
-                                    width:'99px',
+                                    height:'40pt',
+                                    width:'100px',
                                     fontSize: '15pt',
                                     fontWeight:'700',
                                     textDecorationLine:'none',
@@ -202,16 +202,24 @@ function MainMaterialCategory() {
                                     backgroundColor:'white',
                                     // zIndex:99,
                                     pointerEvents:'none',
-                                    
+                                    backgroundColor:'transparent',
+                                    // transform:[{
+                                    //     translateX:'-10px',
+                                    //     translateY:'-100px'
+                                    // }],
+                                    lineHeight:'65pt',
                                 }}
                             >
                                 <Text
                                     style ={{
-                                        height:'65pt',
+                                        // position:'absolute',
+                                        // top:'0px',
+                                        height:'50pt',
                                         width:'99px',
                                         fontSize: '15pt',
                                         fontWeight:'700',
                                         textDecorationLine:'none',
+                                        
                                         // color:'white',
                                         // textShadowColor: 'rgba(0, 0, 0, 0.85)',
                                         // textShadowOffset: {width: 0, height: 0},
@@ -227,7 +235,7 @@ function MainMaterialCategory() {
                                         backgroundColor:'transparent',
                                         // zIndex:99,
                                         pointerEvents:'none',
-                                        
+                                        whiteSpace:'nowrap'
                                     }}
                                 >
                                     {/* {data.listCategory[i].ct_text} */}
@@ -328,7 +336,7 @@ function MainMaterialCategory() {
                         <TouchableOpacity
                         style={{
                             borderRadius:10,
-                            height:'65pt',
+                            height:'50pt',
                             width:"350px",
                             backgroundColor:'white',
                             boxShadow:'0px 0px 2px',
@@ -360,14 +368,14 @@ function MainMaterialCategory() {
                     <Image
                         style={{
                         display:'block',
-                        height:'65pt',
-                        width:'99pt',
+                        height:'50pt',
+                        width:'60pt',
                         borderTopLeftRadius:10,
                         borderBottomLeftRadius:10,
                         zIndex:1,
                         pointerEvents:'none',
                         transform:[{
-                            translateX:'-10px',
+                            translateX:'-35px',
                             translateY:'-100px'
                         }]
                         }}
@@ -388,7 +396,7 @@ function MainMaterialCategory() {
                     >
                         <View
                             style ={{
-                                height:'65pt',
+                                height:'50pt',
                                 width:'200px',
                                 fontSize: '15pt',
                                 fontWeight:'700',
@@ -415,7 +423,7 @@ function MainMaterialCategory() {
                         >
                             <View
                                 style ={{
-                                    height:'65pt',
+                                    height:'40pt',
                                     width:'99px',
                                     fontSize: '15pt',
                                     fontWeight:'700',
@@ -435,12 +443,12 @@ function MainMaterialCategory() {
                                     backgroundColor:'white',
                                     // zIndex:99,
                                     pointerEvents:'none',
-                                    
+                                    lineHeight:'50pt'
                                 }}
                             >
                                 <Text
                                     style ={{
-                                        height:'65pt',
+                                        height:'50pt',
                                         width:'99px',
                                         fontSize: '15pt',
                                         fontWeight:'700',
@@ -460,7 +468,7 @@ function MainMaterialCategory() {
                                         backgroundColor:'transparent',
                                         // zIndex:99,
                                         pointerEvents:'none',
-                                        
+                                        whiteSpace:'nowrap'
                                     }}
                                 >
                                     {/* {data.listCategory[i].ct_text} */}
@@ -560,7 +568,7 @@ function MainMaterialCategory() {
                         <TouchableOpacity
                         style={{
                             borderRadius:10,
-                            height:'65pt',
+                            height:'50pt',
                             width:"350px",
                             backgroundColor:'white',
                             boxShadow:'0px 0px 2px',
@@ -591,14 +599,14 @@ function MainMaterialCategory() {
                     <Image
                         style={{
                         display:'block',
-                        height:'65pt',
-                        width:'99pt',
+                        height:'50pt',
+                        width:'60pt',
                         borderTopLeftRadius:10,
                         borderBottomLeftRadius:10,
                         zIndex:1,
                         pointerEvents:'none',
                         transform:[{
-                            translateX:'-10px',
+                            translateX:'-35px',
                             translateY:'-100px'
                         }]
                         }}
@@ -619,7 +627,7 @@ function MainMaterialCategory() {
                     >
                         <View
                             style ={{
-                                height:'65pt',
+                                height:'50pt',
                                 width:'200px',
                                 fontSize: '15pt',
                                 fontWeight:'700',
@@ -646,7 +654,7 @@ function MainMaterialCategory() {
                         >
                             <View
                                 style ={{
-                                    height:'65pt',
+                                    height:'50pt',
                                     width:'99px',
                                     fontSize: '15pt',
                                     fontWeight:'700',
@@ -691,7 +699,7 @@ function MainMaterialCategory() {
                                         backgroundColor:'transparent',
                                         // zIndex:99,
                                         pointerEvents:'none',
-                                        
+                                        whiteSpace:'nowrap'
                                     }}
                                 >
                                     {/* {data.listCategory[i].ct_text} */}
