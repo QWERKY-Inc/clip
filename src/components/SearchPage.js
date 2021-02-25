@@ -1397,8 +1397,8 @@ function SearchPage(props) {
                         <TouchableOpacity
                         style={{
                             backgroundColor:'transparent',
-                            height:'200px',
-                            width:'125px',
+                            height:'240px',
+                            width:'170px',
                             // marginLeft:'auto',
                             // marginRight:'auto',
                             marginTop:'20px',
@@ -1559,8 +1559,8 @@ function SearchPage(props) {
                         <Image
                         style={{
                         display:'block',
-                        height:'125px',
-                        width:'125px',
+                        height:'170px',
+                        width:'170px',
                         borderTopLeftRadius:10,
                         borderTopRightRadius:10,
                         zIndex:1,
@@ -1582,8 +1582,8 @@ function SearchPage(props) {
                         
                         <View
                         style ={{
-                            height:'75px',
-                            width:'125px',
+                            height:'70px',
+                            width:'170px',
                             fontSize: '12pt',
                             fontWeight:'500',
                             textDecorationLine:'none',
@@ -1641,7 +1641,7 @@ function SearchPage(props) {
                         <View
                         style={{
                             backgroundColor:'transparent',
-                            width:result.mt_isdelivery=="Y"?"78px":"100%",
+                            width:result.mt_isdelivery=="Y"?"123px":"100%",
                             overflow:'hidden',
                             
                         }}
@@ -1662,7 +1662,9 @@ function SearchPage(props) {
                                 pointerEvents:'none',
                                 backgroundColor:'transparent',
                                 pointerEvents:'none',
-                                
+                                whiteSpace:'nowrap',
+                                textOverflow: 'ellipsis',
+                                overflow:'hidden'
                                 
                             }}
                         >
@@ -1673,7 +1675,7 @@ function SearchPage(props) {
                             style={{
                                 backgroundColor:'transparent',
                                 height:'20px',
-                                width:result.mt_isdelivery=="Y"?"78px":"100%",
+                                width:result.mt_isdelivery=="Y"?"123px":"100%",
                                 overflow:'hidden'
                             }}
                         >
@@ -1879,9 +1881,9 @@ function SearchPage(props) {
                             style={{
                                 flexDirection:'column',
                                 borderRadius:10,
-                                height:'210px',
-                                width:"150px",
-                                backgroundColor:'rgb(33,33,33)',
+                                height:'215px',
+                                width:"170px",
+                                backgroundColor:'transparent',
                                 boxShadow:'0px 0px 2px',
                                 
                                 fontSize: '25pt',
@@ -1927,8 +1929,8 @@ function SearchPage(props) {
                         <Image
                             style={{
                             display:'block',
-                            height:'150px',
-                            width:'150px',
+                            height:'170px',
+                            width:'170px',
                             borderTopLeftRadius:10,
                             borderTopRightRadius:10,
                             zIndex:1,
@@ -1996,8 +1998,8 @@ function SearchPage(props) {
                         > */}
                             <View
                                 style ={{
-                                    height:'60px',
-                                    width:'150px',
+                                    height:'45px',
+                                    width:'170px',
                                     fontSize: '15pt',
                                     fontWeight:'700',
                                     textDecorationLine:'none',
@@ -2026,8 +2028,8 @@ function SearchPage(props) {
                             >
                                 <View
                                     style ={{
-                                        height:'60px',
-                                        width:'140px',
+                                        height:'45px',
+                                        width:'170px',
                                         fontSize: '12pt',
                                         fontWeight:'700',
                                         textDecorationLine:'none',
@@ -2045,7 +2047,7 @@ function SearchPage(props) {
                                         marginLeft:'5pt',
                                         // padding:'auto',
                                         pointerEvents:'none',
-                                        backgroundColor:'white',
+                                        backgroundColor:'transparent',
                                         // zIndex:99,
                                         // pointerEvents:'none',
                                         whiteSpace:'nowrap',
@@ -2055,8 +2057,8 @@ function SearchPage(props) {
                                 >
                                     <Text
                                         style ={{
-                                            height:'65px',
-                                            width:'150px',
+                                            height:'45px',
+                                            width:'170px',
                                             fontSize: '12pt',
                                             fontWeight:'700',
                                             textDecorationLine:'none',
@@ -2069,7 +2071,7 @@ function SearchPage(props) {
                                             alignItems:'center',
                                             justifyContent:'center',
                                             flexDirection:'row',
-                                            marginTop:'45pt',
+                                            marginTop:'17pt',
                                             // padding:'auto',
                                             //pointerEvents:'none',
                                             backgroundColor:'transparent',

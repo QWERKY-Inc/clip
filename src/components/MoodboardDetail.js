@@ -317,7 +317,7 @@ function PartDetail(props){
                                         <div
                                             style={{
                                                 backgroundColor:'transparent',
-                                                height:"270px",
+                                                height:"300px",
                                                 width:'125px',
                                                 marginBottom:'15px'
                                             }}
@@ -339,11 +339,12 @@ function PartDetail(props){
                                         <div
                                         style={{
                                             height:'30px',
-                                            width:"125px",
+                                            width:"170px",
                                             position:'absolute',
                                             top:"30px",
                                             backgroundColor: 'transparent',
-                                            lineHeight:'30px'
+                                            lineHeight:'30px',
+                                            marginBottom:'30px',
                                         }}
                                         >
                                             <Text
@@ -395,8 +396,8 @@ function PartDetail(props){
                                         <View
                                             style={{
                                                 backgroundColor:'transparent',
-                                                height:'200px',
-                                                width:'125px',
+                                                height:'240px',
+                                                width:'170px',
                                                 // marginLeft:'auto',
                                                 // marginRight:'auto',
                                                 marginTop:'20px',
@@ -558,8 +559,8 @@ function PartDetail(props){
                                             <Image
                                                 style={{
                                                 display:'block',
-                                                height:'125px',
-                                                width:'125px',
+                                                height:'170px',
+                                                width:'170px',
                                                 borderTopLeftRadius:10,
                                                 borderTopRightRadius:10,
                                                 zIndex:1,
@@ -581,8 +582,8 @@ function PartDetail(props){
                  
                                             <View
                                                 style ={{
-                                                height:'75px',
-                                                width:'125px',
+                                                height:'70px',
+                                                width:'170px',
                                                 fontSize: '12pt',
                                                 fontWeight:'500',
                                                 textDecorationLine:'none',
@@ -796,8 +797,8 @@ function PartDetail(props){
                                         <View
                   style={{
                     backgroundColor:'transparent',
-                    height:'200px',
-                    width:'125px',
+                    height:'240px',
+                    width:'170px',
                     // marginLeft:'auto',
                     // marginRight:'auto',
                     marginTop:'20px',
@@ -958,8 +959,8 @@ function PartDetail(props){
                   <Image
                     style={{
                     display:'block',
-                    height:'125px',
-                    width:'125px',
+                    height:'170px',
+                    width:'170px',
                     borderTopLeftRadius:10,
                     borderTopRightRadius:10,
                     zIndex:1,
@@ -981,8 +982,8 @@ function PartDetail(props){
                  
                   <View
                     style ={{
-                      height:'75px',
-                      width:'125px',
+                      height:'70px',
+                      width:'170px',
                       fontSize: '12pt',
                       fontWeight:'500',
                       textDecorationLine:'none',
@@ -1193,8 +1194,8 @@ function PartDetail(props){
                                         <View
                   style={{
                     backgroundColor:'transparent',
-                    height:'200px',
-                    width:'125px',
+                    height:'240px',
+                    width:'170px',
                     // marginLeft:'auto',
                     // marginRight:'auto',
                     marginTop:'20px',
@@ -1354,8 +1355,8 @@ function PartDetail(props){
                   <Image
                     style={{
                     display:'block',
-                    height:'125px',
-                    width:'125px',
+                    height:'170px',
+                    width:'170px',
                     borderTopLeftRadius:10,
                     borderTopRightRadius:10,
                     zIndex:1,
@@ -1376,8 +1377,8 @@ function PartDetail(props){
                  
                   <View
                     style ={{
-                      height:'75px',
-                      width:'125px',
+                      height:'70px',
+                      width:'170px',
                       fontSize: '12pt',
                       fontWeight:'500',
                       textDecorationLine:'none',

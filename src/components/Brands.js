@@ -9,6 +9,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import downloadIcon from '../assets/download.png'
 import clipOff from '../assets/clipOff.png'
+import boxIcon from '../assets/icnBox.png'
 // import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 // import 'pure-react-carousel/dist/react-carousel.es.css'
 
@@ -735,6 +736,7 @@ function Brands(props) {
 
                   >
                   </Image>
+                 
                   <View
                     style ={{
                       height:'75px',
@@ -745,14 +747,15 @@ function Brands(props) {
                       color:'white',
                       textAlign:'center',
                       flexDirection:'column',
-                      pointerEvents:'none',
-                      backgroundColor:'white',
-                      pointerEvents:'none',
+                      // pointerEvents:'none',
+                      backgroundColor:'red',
+                      // pointerEvents:'none',
                       borderBottomLeftRadius:10,
                       borderBottomRightRadius:10,
                       padding:'10px'
                     }}
                   >
+                    
                     <Text
                       style ={{
                           // height:'65pt',
@@ -1312,8 +1315,8 @@ function Brands(props) {
                       <View
                         style={{
                           backgroundColor:'transparent',
-                          height:'200px',
-                          width:'125px',
+                          height:'240px',
+                          width:'170px',
                           // marginLeft:'auto',
                           // marginRight:'auto',
                           marginTop:'20px',
@@ -1450,8 +1453,8 @@ function Brands(props) {
                         <Image
                           style={{
                           display:'block',
-                          height:'125px',
-                          width:'125px',
+                          height:'170px',
+                          width:'170px',
                           borderTopLeftRadius:10,
                           borderTopRightRadius:10,
                           zIndex:1,
@@ -1471,8 +1474,8 @@ function Brands(props) {
                         </Image>
                         <View
                           style ={{
-                            height:'75px',
-                            width:'125px',
+                            height:'70px',
+                            width:'170px',
                             fontSize: '12pt',
                             fontWeight:'500',
                             textDecorationLine:'none',
@@ -1487,6 +1490,46 @@ function Brands(props) {
                             padding:'10px'
                           }}
                         >
+                           <TouchableOpacity
+                      style={{
+                          zIndex:100,
+                          backgroundColor:'transparent',
+                          position:'absolute',
+                          top:'7px',
+                          right:'7px',
+                          height:'30px',
+                          width:'30px',
+                          display:material.mt_isdelivery=="Y"?"block":"none"
+                      }}
+                      onPress={()=>{
+                          console.log(material)
+                      }}
+                  >
+                  <View
+                  style={{
+                      backgroundColor:'transparent',
+                      display:'flex',
+                      height:'30px',
+                      width:'30px',
+                      // position:'absolute',
+                      // top:'7px',
+                      // right:'15px'
+                  }}
+                  >
+                      
+                      <img
+                        src={boxIcon}
+                                  style={{
+                                      //display: categoryOpened? 'none': 'block',
+                                      width:'30px',
+                                      height:'30px',
+                                      right:'15px'
+                                  }}
+                              >
+                              </img>
+                          
+                      </View>
+                      </TouchableOpacity>
                           <Text
                             style ={{
                                 // height:'65pt',

@@ -647,8 +647,8 @@ function PartDetail(props){
                 <View
                   style={{
                     backgroundColor:'transparent',
-                    height:'200px',
-                    width:'125px',
+                    height:'240px',
+                    width:'170px',
                     // marginLeft:'auto',
                     // marginRight:'auto',
                     marginTop:'20px',
@@ -807,8 +807,8 @@ function PartDetail(props){
                   <Image
                     style={{
                     display:'block',
-                    height:'125px',
-                    width:'125px',
+                    height:'170px',
+                    width:'170px',
                     borderTopLeftRadius:10,
                     borderTopRightRadius:10,
                     zIndex:1,
@@ -828,8 +828,8 @@ function PartDetail(props){
                   </Image>
                   <View
                     style ={{
-                      height:'75px',
-                      width:'125px',
+                      height:'70px',
+                      width:'170px',
                       fontSize: '12pt',
                       fontWeight:'500',
                       textDecorationLine:'none',
