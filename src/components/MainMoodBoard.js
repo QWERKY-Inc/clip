@@ -156,10 +156,13 @@ function MainMoodBoard() {
                         >
                             
                         
-                    {data.listMoodboard.map((listMoodboard)=>
-
-                    
+                    {data.listMoodboard.map((listMoodboard)=>{
+                        // console.log(listMoodboard)
+                    return(
                         <TouchableOpacity
+                        onPress={()=>{
+                            Linking.openURL(`/moodboarddetail?mb_no=${listMoodboard.mb_no}`)
+                        }}
                         style={{
                             flexDirection:'column',
                             borderRadius:10,
@@ -308,6 +311,7 @@ function MainMoodBoard() {
                         </View>
                     {/* </a> */}
                     </TouchableOpacity>
+                    )}
                     )}
                     </View>
                    
@@ -464,6 +468,9 @@ function MainMoodBoard() {
 
                     
                         <TouchableOpacity
+                        onPress={()=>{
+                            Linking.openURL(`/moodboarddetail?mb_no=${listMoodboard.mb_no}`)
+                        }}
                         style={{
                             flexDirection:'column',
                             borderRadius:10,
@@ -738,6 +745,9 @@ function MainMoodBoard() {
 
                     
                         <TouchableOpacity
+                        onPress={()=>{
+                            Linking.openURL(`/moodboarddetail?mb_no=${listMoodboard.mb_no}`)
+                        }}
                         style={{
                             flexDirection:'column',
                             borderRadius:10,
@@ -1016,6 +1026,9 @@ function MainMoodBoard() {
 
                     
                         <TouchableOpacity
+                        onPress={()=>{
+                            Linking.openURL(`/moodboarddetail?mb_no=${listMoodboard.mb_no}`)
+                        }}
                         style={{
                             flexDirection:'column',
                             borderRadius:10,

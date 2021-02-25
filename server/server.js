@@ -85,6 +85,81 @@ app.get('/mainitem',(req,res)=>{
     })
     
 })
+
+app.get('/banner',(req,res)=>{
+    var wholeData=[]
+    // console.log(req.query)
+    fetch('http://clip.partners/api/mobile/Mainitem')
+    .then(res=>res.json())
+    .then(data=>{
+        // console.log(data.listBanner[0])
+        fetch('http://clip.partners/api/mobile/Brand/'+data.listBanner[0].banner_detail+'?'+queryString.stringify(req.query))
+        .then(res=>res.json())
+        .then((detail)=>{
+        //   console.log(oneCategory)
+        //   console.log(childrenData)
+            wholeData.push({...data.listBanner[0],detail:detail})
+            // wholeData[index]=childrenData
+            console.log(wholeData)
+        })
+        .then(()=>{
+            // if(wholeData.length==data.length){
+            //     console.log(index+'/'+data.length)
+            //     console.log('test end reached')
+            //     res.json(wholeData.sort(function(a,b){
+            //         return a.ct_text-b.ct_text
+            //     }));
+            // }
+            // else{
+            //     console.log(index+'/'+data.length)
+                
+            // }
+            res.json(wholeData)
+            
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+        // data.map((oneUse,index)=>{
+        //     fetch('http://clip.partners/api/mobile/Category?'+
+        //       queryString.stringify({
+        //         table:'CATEGORY',
+        //         ct_depth:3,
+        //         ct_parent:oneUse.ct_id
+        //       })
+        //     )
+        //     .then(res=>res.json())
+        //     .then((childrenData)=>{
+        //     //   console.log(oneCategory)
+        //     //   console.log(childrenData)
+        //       wholeData.push({...oneUse,children:childrenData})
+        //      // wholeData[index]=childrenData
+        //     })
+        //     .then(()=>{
+        //         if(wholeData.length==data.length){
+        //             console.log(index+'/'+data.length)
+        //             console.log('test end reached')
+        //             res.json(wholeData.sort(function(a,b){
+        //                 return a.ct_text-b.ct_text
+        //             }));
+        //         }
+        //         else{
+        //             console.log(index+'/'+data.length)
+                    
+        //         }
+                
+                
+        //     })
+        //     .catch(err=>{
+        //         console.log(err)
+        //     })
+        // })
+        
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
 app.post('/login',(req,res)=>{
     // console.log(queryString.stringify(Object.keys(req.body)[0]))
     fetch('http://clip.partners/api/mobile/MemberLogin',{
