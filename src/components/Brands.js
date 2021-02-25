@@ -5,6 +5,7 @@ import NavBarFiller from './NavBarFiller';
 import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking,Dimensions} from 'react-native';
 // import Carousel from '@brainhubeu/react-carousel';
 // import '@brainhubeu/react-carousel/lib/style.css';
+import ClipBoard from './ClipBoard';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import downloadIcon from '../assets/download.png'
@@ -22,6 +23,8 @@ function Brands(props) {
   const[detailView,setDetailView]=React.useState(false)
   const[brandId,setBrandId]=React.useState(null)
   const [hover,setHover]=React.useState(null)
+  const [clipBoard,setClipBoard]=React.useState(false)
+  const [materialNumber,setMaterialNumber]=React.useState(undefined)
   const [height,setHeight]=React.useState(Dimensions.get('window').height)
   const [width,setWidth]=React.useState(Dimensions.get('window').width)
   const brands=()=>{
@@ -57,6 +60,9 @@ function Brands(props) {
     setHeight(Dimensions.get('window').height)
     setWidth(Dimensions.get('window').width)
     // console.log(height+" : "+width)
+  }
+  const toggleClipBoard=()=>{
+    setClipBoard(!clipBoard)
   }
   useEffect(() => {
       
@@ -207,6 +213,13 @@ function Brands(props) {
         // console.log(brandData.bestproducts_brand)
           return(
             <div>
+              <div
+                    style={{
+                        display: clipBoard ? 'block':'none' 
+                    }}
+                >
+                    <ClipBoard toggleClipBoard={toggleClipBoard} material_num={materialNumber} refresh={clipBoard}/>
+                </div>
             <div>
               <Navbar />
               <NavBarFiller/>
@@ -579,8 +592,8 @@ function Brands(props) {
                 <View
                   style={{
                     backgroundColor:'transparent',
-                    height:'200px',
-                    width:'125px',
+                    height:'240px',
+                    width:'170px',
                     // marginLeft:'auto',
                     // marginRight:'auto',
                     marginTop:'20px',
@@ -685,6 +698,8 @@ function Brands(props) {
                       }}
                       onPress={()=>{  
                           console.log('pressed clip ' + brandData.bestproducts_brand[index].mt_no)
+                          setMaterialNumber(brandData.bestproducts_brand[index].mt_no)
+                          toggleClipBoard()
                       }}
                   >   
                       <Image
@@ -717,8 +732,8 @@ function Brands(props) {
                   <Image
                     style={{
                     display:'block',
-                    height:'125px',
-                    width:'125px',
+                    height:'170px',
+                    width:'170px',
                     borderTopLeftRadius:10,
                     borderTopRightRadius:10,
                     zIndex:1,
@@ -739,8 +754,8 @@ function Brands(props) {
                  
                   <View
                     style ={{
-                      height:'75px',
-                      width:'125px',
+                      height:'70px',
+                      width:'170px',
                       fontSize: '12pt',
                       fontWeight:'500',
                       textDecorationLine:'none',
@@ -748,14 +763,53 @@ function Brands(props) {
                       textAlign:'center',
                       flexDirection:'column',
                       // pointerEvents:'none',
-                      backgroundColor:'red',
+                      backgroundColor:'transparent',
                       // pointerEvents:'none',
                       borderBottomLeftRadius:10,
                       borderBottomRightRadius:10,
                       padding:'10px'
                     }}
                   >
-                    
+                    <TouchableOpacity
+                                style={{
+                                    zIndex:100,
+                                    backgroundColor:'transparent',
+                                    position:'absolute',
+                                    top:'7px',
+                                    right:'7px',
+                                    height:'30px',
+                                    width:'30px',
+                                    display:material.mt_isdelivery=="Y"?"block":"none"
+                                }}
+                                onPress={()=>{
+                                    console.log(material.mt_isdelivery)
+                                }}
+                            >
+                            <View
+                            style={{
+                                backgroundColor:'transparent',
+                                display:'flex',
+                                height:'30px',
+                                width:'30px',
+                                // position:'absolute',
+                                // top:'7px',
+                                // right:'15px'
+                            }}
+                            >
+                                
+                                <img
+                                        src={boxIcon}
+                                        style={{
+                                            //display: categoryOpened? 'none': 'block',
+                                            width:'30px',
+                                            height:'30px',
+                                            right:'15px'
+                                        }}
+                                    >
+                                    </img>
+                                
+                            </View>
+                            </TouchableOpacity>
                     <Text
                       style ={{
                           // height:'65pt',
@@ -1001,6 +1055,13 @@ function Brands(props) {
           // console.log(brandData.bestproducts_brand)
             return(
               <div>
+                <div
+                    style={{
+                        display: clipBoard ? 'block':'none' 
+                    }}
+                >
+                    <ClipBoard toggleClipBoard={toggleClipBoard} material_num={materialNumber} refresh={clipBoard}/>
+                </div>
               <div>
                 <Navbar />
                 <NavBarFiller/>
@@ -1421,6 +1482,8 @@ function Brands(props) {
                             }}
                             onPress={()=>{  
                                 console.log('pressed clip ' + brandData.bestproducts_brand[index].mt_no)
+                                setMaterialNumber(brandData.bestproducts_brand[index].mt_no)
+                                toggleClipBoard()
                             }}
                         >   
                             <Image
