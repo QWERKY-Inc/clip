@@ -540,6 +540,10 @@ const Navbar=() => {
                         }}
                         >
                         <img
+                          style={{
+                            height:47,
+                            width:47,
+                          }}
                           src={searchIcon}
                         >
                         </img>
@@ -890,6 +894,10 @@ const Navbar=() => {
                         }}
                         >
                         <img
+                          style={{
+                            height:47,
+                            width:47,
+                          }}
                           src={searchIcon}
                         >
                         </img>
@@ -1241,6 +1249,10 @@ const Navbar=() => {
                         }}
                         >
                         <img
+                          style={{
+                            height:47,
+                            width:47,
+                          }}
                           src={searchIcon}
                         >
                         </img>
@@ -1590,6 +1602,10 @@ const Navbar=() => {
                         }}
                         >
                         <img
+                          style={{
+                            height:47,
+                            width:47,
+                          }}
                           src={searchIcon}
                         >
                         </img>
@@ -1773,6 +1789,10 @@ const Navbar=() => {
                         }}
                         >
                         <img
+                          style={{
+                            height:47,
+                            width:47
+                          }}
                           src={searchIcon}
                         >
                         </img>
