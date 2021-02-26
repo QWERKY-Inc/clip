@@ -4,7 +4,8 @@ import './navbar.css';
 import {TouchableOpacity,Text,View,Modal,TouchableHighlight,Dimensions,TextInput,Picker,Linking,ScrollView,FlatList} from 'react-native';
 import Logo from '../assets/header_logo.png'
 import { nativeTouchData } from 'react-dom/test-utils';
-import searchIcon from '../assets/icnSearch.png'
+// import searchIcon from '../assets/icnSearch.png'
+import searchIcon from '../assets/searchIcon.png'
 import userIcon from '../assets/icnUser.png'
 import boxIcon from '../assets/icnBox.png'
 import xIcon from '../assets/x.png'
@@ -34,6 +35,8 @@ const Navbar=() => {
   const [categoryDropDown,setCategoryDropDown]=React.useState(false)
   const [useDropDown,setUseDropDown]=React.useState(false)
   const [brandsDropDownDisplay,setBrandsDropDownDisplay]=React.useState('none')
+  const [inputValue,setInputValue]=React.useState("")
+  const [searchTermEnable,setSearchTermEnable]=React.useState(false)
   const handleScroll=() => {
     const offset=window.scrollY;
     if(offset > 200 ){
@@ -105,6 +108,7 @@ const Navbar=() => {
         console.log(err)
     })
 
+    
 
     // fetch('http://clip.partners/api/mobile/MemberLogin',{
     //     method: 'post',
@@ -142,6 +146,17 @@ const Navbar=() => {
     setWidth(Dimensions.get('window').width)
     // console.log(height+" : "+width)
   }
+  const updateInputValue=(e)=>{
+    setInputValue(e.target.value)
+    if(e.target.value!=""){
+      // setMakeButtonEnable(true)
+      setSearchTermEnable(true)
+  }
+  else{
+      // setMakeButtonEnable(false)
+      setSearchTermEnable(false)
+  }
+}
   const brands=()=>{
     fetch('/brandslist')
     .then(res=>res.json())
@@ -248,7 +263,7 @@ const Navbar=() => {
     x.push('scrolled');
   }
   if(loggedOn==true){
-    if(width>1051){
+    if(width>1271){
       if(brandsDropDown){
         return (    
           <header className={x.join(" ")}>
@@ -474,29 +489,63 @@ const Navbar=() => {
                       </a>
                   </TouchableOpacity>
                   <BrandsDropDown toggleBrandsDropDown={toggleBrandsDropDown}/>
-                  <TouchableOpacity
-                    onPress={() => 
-                      Linking.openURL(`/searchpage`)
-                    }
-                    style={{
-                      position:'fixed',
-                      height:47,
-                      width:47,
-                      top:'29px',
-                      right:'173pt',
-                      backgroundColor:'transparent',
-                      zIndex:1
-                  }}
-                  >
-                 
-      
-    
-                    <img
-                      src={searchIcon}
-                    >
-                    </img>
-                  </TouchableOpacity>
-                  <TouchableOpacity
+                  <View
+            style={{
+              backgroundColor:'white',
+              border:"1px solid #ccc",
+              width:252,
+              height:49,
+              borderRadius:'24px',
+              position:'fixed',
+              top:28,
+              right:230,
+            }}
+          >
+                    <input 
+                            style={{
+                                overflow:'hidden', 
+                                width:'200px',
+                                height:'49px',
+                                padding:'12px 20px',
+                                margin:"8px 0",
+                                // border:"1px solid #ccc",
+                                borderRadius:'24px',
+                                boxSizing:'border-box',
+                                position:'fixed',
+                                top:20,
+                                right:280
+                            }}
+                            value={inputValue} 
+                            onChange={updateInputValue}
+                            placeholder={'검색'}
+
+                        />
+                        <TouchableOpacity
+                          onPress={() => {
+                            if(searchTermEnable==true){
+                              Linking.openURL(`/searchpage?keyword=`+inputValue)
+                            }
+                            else{
+                              Linking.openURL(`/searchpage`)
+                            }
+                          }}
+                          style={{
+                            position:'fixed',
+                            height:47,
+                            width:47,
+                            top:'29px',
+                            right:'173pt',
+                            backgroundColor:'transparent',
+                            zIndex:1
+                        }}
+                        >
+                        <img
+                          src={searchIcon}
+                        >
+                        </img>
+                      </TouchableOpacity>
+                    </View>
+                   <TouchableOpacity
                     style={{
                       position:'fixed',
                       height:47,
@@ -790,25 +839,62 @@ const Navbar=() => {
                         </Text>
                       </a>
                   </TouchableOpacity>
-                  <TouchableOpacity
-                    onPress={() => 
-                      Linking.openURL(`/searchpage`)
-                    }
-                    style={{
-                      position:'fixed',
-                      height:47,
-                      width:47,
-                      top:'29px',
-                      right:'173pt',
-                      backgroundColor:'transparent',
-                      zIndex:1
-                  }}
-                  >
-                    <img
-                      src={searchIcon}
-                    >
-                    </img>
-                  </TouchableOpacity>
+                  <View
+            style={{
+              backgroundColor:'white',
+              border:"1px solid #ccc",
+              width:252,
+              height:49,
+              borderRadius:'24px',
+              position:'fixed',
+              top:28,
+              right:230,
+            }}
+          >
+                    <input 
+                            style={{
+                                overflow:'hidden', 
+                                width:'200px',
+                                height:'49px',
+                                padding:'12px 20px',
+                                margin:"8px 0",
+                                // border:"1px solid #ccc",
+                                borderRadius:'24px',
+                                boxSizing:'border-box',
+                                position:'fixed',
+                                top:20,
+                                right:280
+                            }}
+                            value={inputValue} 
+                            onChange={updateInputValue}
+                            placeholder={'검색'}
+
+                        />
+                        <TouchableOpacity
+                          onPress={() => {
+                            if(searchTermEnable==true){
+                              Linking.openURL(`/searchpage?keyword=`+inputValue)
+                            }
+                            else{
+                              Linking.openURL(`/searchpage`)
+                            }
+                          }}
+                          style={{
+                            position:'fixed',
+                            height:47,
+                            width:47,
+                            top:'29px',
+                            right:'173pt',
+                            backgroundColor:'transparent',
+                            zIndex:1
+                        }}
+                        >
+                        <img
+                          src={searchIcon}
+                        >
+                        </img>
+                      </TouchableOpacity>
+                    </View>
                   <TouchableOpacity
                     style={{
                       position:'fixed',
@@ -1104,25 +1190,62 @@ const Navbar=() => {
                         </Text>
                       </a>
                   </TouchableOpacity>
-                  <TouchableOpacity
-                    onPress={() => 
-                      Linking.openURL(`/searchpage`)
-                    }
-                    style={{
-                      position:'fixed',
-                      height:47,
-                      width:47,
-                      top:'29px',
-                      right:'173pt',
-                      backgroundColor:'transparent',
-                      zIndex:1
-                  }}
-                  >
-                    <img
-                      src={searchIcon}
-                    >
-                    </img>
-                  </TouchableOpacity>
+                  <View
+            style={{
+              backgroundColor:'white',
+              border:"1px solid #ccc",
+              width:252,
+              height:49,
+              borderRadius:'24px',
+              position:'fixed',
+              top:28,
+              right:230,
+            }}
+          >
+                    <input 
+                            style={{
+                                overflow:'hidden', 
+                                width:'200px',
+                                height:'49px',
+                                padding:'12px 20px',
+                                margin:"8px 0",
+                                // border:"1px solid #ccc",
+                                borderRadius:'24px',
+                                boxSizing:'border-box',
+                                position:'fixed',
+                                top:20,
+                                right:280
+                            }}
+                            value={inputValue} 
+                            onChange={updateInputValue}
+                            placeholder={'검색'}
+
+                        />
+                        <TouchableOpacity
+                          onPress={() => {
+                            if(searchTermEnable==true){
+                              Linking.openURL(`/searchpage?keyword=`+inputValue)
+                            }
+                            else{
+                              Linking.openURL(`/searchpage`)
+                            }
+                          }}
+                          style={{
+                            position:'fixed',
+                            height:47,
+                            width:47,
+                            top:'29px',
+                            right:'173pt',
+                            backgroundColor:'transparent',
+                            zIndex:1
+                        }}
+                        >
+                        <img
+                          src={searchIcon}
+                        >
+                        </img>
+                      </TouchableOpacity>
+                    </View>
                   <TouchableOpacity
                     style={{
                       position:'fixed',
@@ -1415,25 +1538,63 @@ const Navbar=() => {
                         </Text>
                       </a>
                   </TouchableOpacity>
-                  <TouchableOpacity
-                    onPress={() => 
-                      Linking.openURL(`/searchpage`)
-                    }
-                    style={{
-                      position:'fixed',
-                      height:47,
-                      width:47,
-                      top:'29px',
-                      right:'173pt',
-                      backgroundColor:'transparent',
-                      zIndex:1
-                  }}
-                  >
-                    <img
-                      src={searchIcon}
-                    >
-                    </img>
-                  </TouchableOpacity>
+                  
+                  <View
+            style={{
+              backgroundColor:'white',
+              border:"1px solid #ccc",
+              width:252,
+              height:49,
+              borderRadius:'24px',
+              position:'fixed',
+              top:28,
+              right:230,
+            }}
+          >
+                    <input 
+                            style={{
+                                overflow:'hidden', 
+                                width:'200px',
+                                height:'49px',
+                                padding:'12px 20px',
+                                margin:"8px 0",
+                                // border:"1px solid #ccc",
+                                borderRadius:'24px',
+                                boxSizing:'border-box',
+                                position:'fixed',
+                                top:20,
+                                right:280
+                            }}
+                            value={inputValue} 
+                            onChange={updateInputValue}
+                            placeholder={'검색'}
+
+                        />
+                        <TouchableOpacity
+                          onPress={() => {
+                            if(searchTermEnable==true){
+                              Linking.openURL(`/searchpage?keyword=`+inputValue)
+                            }
+                            else{
+                              Linking.openURL(`/searchpage`)
+                            }
+                          }}
+                          style={{
+                            position:'fixed',
+                            height:47,
+                            width:47,
+                            top:'29px',
+                            right:'173pt',
+                            backgroundColor:'transparent',
+                            zIndex:1
+                        }}
+                        >
+                        <img
+                          src={searchIcon}
+                        >
+                        </img>
+                      </TouchableOpacity>
+                    </View>
                   <TouchableOpacity
                     style={{
                       position:'fixed',
@@ -1500,7 +1661,7 @@ const Navbar=() => {
         )       
       }
     }
-    else if(width>449 && width<=1051){
+    else if(width>636 && width<=1271){
       return(
         <header className={x.join(" ")}>
         <Modal
@@ -1561,25 +1722,62 @@ const Navbar=() => {
             </a>
           </div>
 
-              <TouchableOpacity
-                onPress={() => 
-                  Linking.openURL(`/searchpage`)
-                }
-                style={{
-                  position:'fixed',
-                  height:47,
-                  width:47,
-                  top:'29px',
-                  right:'173pt',
-                  backgroundColor:'transparent',
-                  zIndex:1
-              }}
-              >
-                <img
-                  src={searchIcon}
-                >
-                </img>
-              </TouchableOpacity>
+          <View
+            style={{
+              backgroundColor:'white',
+              border:"1px solid #ccc",
+              width:252,
+              height:49,
+              borderRadius:'24px',
+              position:'fixed',
+              top:28,
+              right:230,
+            }}
+          >
+                    <input 
+                            style={{
+                                overflow:'hidden', 
+                                width:'200px',
+                                height:'49px',
+                                padding:'12px 20px',
+                                margin:"8px 0",
+                                // border:"1px solid #ccc",
+                                borderRadius:'24px',
+                                boxSizing:'border-box',
+                                position:'fixed',
+                                top:20,
+                                right:280
+                            }}
+                            value={inputValue} 
+                            onChange={updateInputValue}
+                            placeholder={'검색'}
+
+                        />
+                        <TouchableOpacity
+                          onPress={() => {
+                            if(searchTermEnable==true){
+                              Linking.openURL(`/searchpage?keyword=`+inputValue)
+                            }
+                            else{
+                              Linking.openURL(`/searchpage`)
+                            }
+                          }}
+                          style={{
+                            position:'fixed',
+                            height:47,
+                            width:47,
+                            top:'29px',
+                            right:'173pt',
+                            backgroundColor:'transparent',
+                            zIndex:1
+                        }}
+                        >
+                        <img
+                          src={searchIcon}
+                        >
+                        </img>
+                      </TouchableOpacity>
+                    </View>
               <TouchableOpacity
                 style={{
                   position:'fixed',

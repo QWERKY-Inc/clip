@@ -222,3 +222,17 @@
     width:42px;
     transform:translate(2px,-4px);
   }
+  input:focus { 
+    outline: none !important;
+    border-color: transparent;
+    box-shadow: 0 0 0px transparent;
+    background-color: transparent;
+    border:none;
+}
+textarea:focus { 
+    outline: none !important;
+    border-color: transparent;
+    box-shadow: 0 0 0px transparent;
+    background-color:transparent;
+    border:none;
+}
