@@ -3645,7 +3645,7 @@ const Navbar=() => {
                               Linking.openURL(`/searchpage?keyword=`+inputValue)
                             }
                             else{
-                              Linking.openURL(`/searchpage`)
+                              Linking.openURL(`/searchpage?mem_no=`)
                             }
                           }}
                           style={{
@@ -5580,10 +5580,10 @@ const Navbar=() => {
                         <TouchableOpacity
                           onPress={() => {
                             if(searchTermEnable==true){
-                              Linking.openURL(`/searchpage?keyword=`+inputValue)
+                              Linking.openURL(`/searchpage?keyword=`+inputValue+'&mem_no=')
                             }
                             else{
-                              Linking.openURL(`/searchpage`)
+                              Linking.openURL("/searchpage?mem_no=")
                             }
                           }}
                           style={{

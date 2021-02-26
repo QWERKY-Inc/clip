@@ -78,6 +78,7 @@ function SearchPage(props) {
   }
   const secondPage=(jsonObj)=>{
     console.log(jsonObj)
+   
     fetch('/detailedsearch?'+
     queryString.stringify({
            pagination:true,
@@ -349,9 +350,15 @@ function SearchPage(props) {
         setMode(parsed.mode)
     }
     var mem_no=undefined
+    
     if(localStorage.login!=undefined){
+       if(JSON.parse(localStorage.login).result!="FAILURE"){
         mem_no=JSON.parse(localStorage.login).message.split('_')[0]
         parsed.mem_no=mem_no 
+       }
+       else{
+        parsed.mem_no=""
+       }
     }
     else{
         parsed.mem_no=""
@@ -393,14 +400,29 @@ function SearchPage(props) {
   useEffect(() => {
     //console.log({...queryString.parse(props.location.search),...filter})
     const parsed = {...queryString.parse(props.location.search),...filter}
+    // if(localStorage.login!=undefined){
+    //     var mem_no=undefined
+    //     mem_no=JSON.parse(localStorage.login).message.split('_')[0]
+    //     parsed.mem_no=mem_no 
+    // }
+    // else{
+    //     parsed.mem_no=""
+    // }
+
+
     if(localStorage.login!=undefined){
-        var mem_no=undefined
-        mem_no=JSON.parse(localStorage.login).message.split('_')[0]
-        parsed.mem_no=mem_no 
-    }
-    else{
-        parsed.mem_no=""
-    }
+        if(JSON.parse(localStorage.login).result!="FAILURE"){
+            var mem_no=undefined
+            mem_no=JSON.parse(localStorage.login).message.split('_')[0]
+            parsed.mem_no=mem_no 
+        }
+        else{
+            parsed.mem_no=""
+        }
+     }
+     else{
+         parsed.mem_no=""
+     }
     secondPage(parsed)
     // var testObj= {mem_no: "63", keyword: "시트", search_target: null, search_value: null, list_color: ["GOLDSILVER","RED","BLACK"], list_pattern: ["METAL","SOLID","GEOMETRIC"], list_brand: ["62","101"], list_category: ["45"], list_use: ["56","9"], material_scope: "ALL", pagination: true, page: 1}
     // secondPage(testObj)
