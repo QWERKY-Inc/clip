@@ -3,6 +3,7 @@ import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking,Dimens
 import Navbar from './Navbar';
 import NavBarFiller from './NavBarFiller';
 import ClipBoard from './ClipBoard';
+import AddToShoppingCart from './AddToShoppingCart';
 import parse from 'html-react-parser';
 import { Carousel } from 'react-responsive-carousel';
 import chatIcon from '../assets/chat.png'
@@ -20,8 +21,12 @@ function PartDetail(props){
     const [clipBoardOne,setClipBoardOne]=React.useState(false)
     const [materialNumber,setMaterialNumber]=React.useState(undefined)
     const [refreshClipboard,setRefreshClipboard]=React.useState(0)
+    const [addToShoppingCart,setAddToShoppingCart]=React.useState(false)
     const toggleClipBoardOne=()=>{
         setClipBoardOne(!clipBoardOne)
+    }
+    const toggleAddToShoppingCart=()=>{
+        setAddToShoppingCart(!addToShoppingCart)
     }
     const onChange=()=>{
         setHeight(Dimensions.get('window').height)
@@ -85,6 +90,13 @@ function PartDetail(props){
                     }}
                 >
                     <ClipBoard toggleClipBoard={toggleClipBoardOne} material_num={materialNumber} refresh={clipBoardOne}/>
+                </div>
+                <div
+                    style={{
+                        display: addToShoppingCart ? 'block':'none' 
+                    }}
+                >
+                    <AddToShoppingCart toggleShoppingCart={toggleAddToShoppingCart} material_data={materialData}/>
                 </div>
                 <Navbar />
                 <NavBarFiller/>
@@ -533,6 +545,10 @@ function PartDetail(props){
                                         lineHeight:'40px',
                                         
 
+                                    }}
+                                    onPress={()=>{
+                                        console.log(materialData)
+                                        toggleAddToShoppingCart()
                                     }}
                                 >
                   
