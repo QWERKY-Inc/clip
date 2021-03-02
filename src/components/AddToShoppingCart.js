@@ -855,7 +855,8 @@ function AddToShoppingCart(props){
                         <div
                                 style={{
                                     height:'25px',
-                                    width:'90%',
+                                    // marginRight:'15px',
+                                    width:'100%',
                                     backgroundColor:'transparent'
 
                                 }}
@@ -874,6 +875,7 @@ function AddToShoppingCart(props){
                                 // paddingBottom:'5px',
                                 display:'flex',
                                 verticalAlign:'top',
+                                marginRight:'15px'
                                 
                             }}
                         >
