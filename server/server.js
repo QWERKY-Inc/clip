@@ -510,7 +510,7 @@ app.get('/clipboardInfo',(req,res)=>{
         console.log(err)
     })
 })
-app.get('clipboardDetailInfo',(req,res)=>{
+app.get('/clipboardDetailInfo',(req,res)=>{
     console.log(req.query)
     fetch('http://clip.partners/api/mobile/Clipboard/'+req.query.cb_no)
     .then(res=>res.json())
@@ -522,7 +522,56 @@ app.get('clipboardDetailInfo',(req,res)=>{
         console.log(err)
     })
 })
-
+app.get('/projectGeneral',(req,res)=>{
+    console.log("Project?"+req.query)
+    fetch('http://clip.partners/api/mobile/Project?'+queryString.stringify(req.query))
+    .then(res=>res.json())
+    .then(data=>{
+        console.log(data)
+        res.json(data);
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
+app.get('/projectInfo',(req,res)=>{
+    var wholeData=[]
+    fetch('http://clip.partners/api/mobile/Project?'+queryString.stringify(req.query))
+    .then(res=>res.json())
+    .then(data=>{
+ 
+        data.map((oneProject,index)=>{
+            fetch('http://clip.partners/api/mobile/Project/'+oneProject.prj_no
+            )
+            .then(res=>res.json())
+            .then((detailData)=>{
+              wholeData.push({...oneProject,detail:detailData})
+            })
+            .then(()=>{
+                if(wholeData.length==data.length){
+                    console.log(index+'/'+data.length)
+                    console.log(' end reached')
+                    res.json(wholeData.sort(function(a,b){
+                        return a.ct_text-b.ct_text
+                    }));
+                }
+                else{
+                    console.log(index+'/'+data.length)
+                    
+                }
+                
+                
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+        })
+        
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
 app.get('/Moodboard',(req,res)=>{
     // console.log('http://clip.partners/api/mobile/Material?'+queryString.stringify(req.query))
     //console.log(queryString.stringify(req.query))
