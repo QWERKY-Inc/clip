@@ -425,7 +425,7 @@ function AddToShoppingCart(props){
                 borderRadius:'10px',
                 backgroundColor:'white',
                 width:'100%',
-                height:'300px',
+                height:'400px',
                 paddingTop:'15px',
                 // columnCount:3,
                 // flexwrap:'wrap',
@@ -484,8 +484,8 @@ function AddToShoppingCart(props){
                 
                     <View
                     style={{
-                        backgroundColor:'white',
-                        height:'298px',
+                        backgroundColor:'transparent',
+                        height:'395px',
                         width:'100%',
                         borderBottomLeftRadius:'10px',
                         borderBottomRightRadius:'10px'
@@ -563,7 +563,7 @@ function AddToShoppingCart(props){
                         paddingLeft:'15px',
                         paddingRight:'15px',
                         overflowY:'scroll',
-                        overflowX:'hidden',
+                        overflowX:'scroll',
                         backgroundColor:'transparent'
                     }} 
                     >
@@ -787,12 +787,23 @@ function AddToShoppingCart(props){
                          */}
                         </div>
                         <div
+                            style={{
+                                display:'flex',
+                                flexDirection:'row',
+                                textAlign:'left',
+                                justifyContent:'space-between',
+                                backgroundColor:'transparent',
+                                width:'100%'
+                            }}
+                        >
+                        <div
                         style={{
                             transform:'translate(15px,3px)',
                             display:'flex',
                             flexDirection:'column',
                             textAlign:'left',
-
+                            backgroundColor:'transparent',
+                            width:'300px'
                         }}
                     >
                         <Text
@@ -831,16 +842,42 @@ function AddToShoppingCart(props){
                            프로젝트 규모: {oneProject.prj_size}
                         </Text>
                     </div>
+                    <div
+                        style={{
+                            width:'100%',
+                            backgroundColor:'transparent',
+                            alignItems:'center',
+                            // justifyContent:'center',
+                            flexDirection:'row',
+                            display:'flex'
+                        }}
+                    >
+                        <div
+                                style={{
+                                    height:'25px',
+                                    width:'90%',
+                                    backgroundColor:'transparent'
+
+                                }}
+                            >
+                        </div>
                         <div
                             style={{
-                                position:'fixed',
-                                right:'100px',
-                                height:'29px',
-                                width:'29px',
+                                position:'relative',
+                                // right:width-400+"px",
+                                height:'25px',
+                                width:'28px',
                                 alignItems:'center',
                                 justifyContent:'center',
+                                backgroundColor:'transparent',
+                                // paddingRight:'5px',
+                                // paddingBottom:'5px',
+                                display:'flex',
+                                verticalAlign:'top',
+                                
                             }}
                         >
+                            
                             <RadioButton
                                 
                                 value={oneProject.prj_no}
@@ -853,11 +890,23 @@ function AddToShoppingCart(props){
                                 }}
                                 color="rgb(255,123,88)"
                             />
+                            
+                        </div>
+                        </div>
                         </div>
                     </div>
                     )
                     })}
-                    
+                    <div
+                    style={{
+                        height:'50px',
+                        width:'100%',
+                        backgroundColor:'transparent',
+                        zIndex:99
+                    }}
+                    >
+                        
+                    </div>
                     </div>
                     <div>
                     <TouchableOpacity
@@ -875,6 +924,7 @@ function AddToShoppingCart(props){
                             console.log('confirm')
                             setNewBoard(!newBoard)
                             setRefresh(refresh+1)
+                            setProjectListShow(false)
                         }}
                     >
                         <View
