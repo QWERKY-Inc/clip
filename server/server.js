@@ -395,10 +395,62 @@ app.get('/search',(req,res)=>{
         console.log(err)
     })
 })
+app.get('/AddToCart',(req,res)=>{
+    // console.log(req.query)
+    var newObj={}
+    newObj.mem_no=req.query.mem_no
+    newObj.list_material=[]
+    for(var j =0; j<req.query.list_material.length/5; j++){
+        newObj.list_material.push({})
+        newObj.list_material[j].mt_no=req.query.list_material[0+j*5]
+        newObj.list_material[j].vd_no=req.query.list_material[1+j*5]
+        newObj.list_material[j].brd_no=req.query.list_material[2+j*5]
+        newObj.list_material[j].prj_no=req.query.list_material[3+j*5]
+        newObj.list_material[j].mt_shipfrom=req.query.list_material[4+j*5]
+        // newObj.list_material[j]=JSON.stringify(newObj.list_material[j])
+    }
+    console.log(JSON.stringify(newObj))
+    // data = Object.keys(newObj).map(key=>encodeURIComponent(key)+'='+encodeURIComponent(newObj[key])).join('&')
+    // console.log(encodeURIComponent(JSON.stringify(newObj)))
+    fetch('http://clip.partners/api/mobile/Cart',{
+        method: 'post',
+        mode:'same-origin',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify(newObj)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        console.log(data)
+        res.json(data);
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
+app.post('/AddToCart',(req,res)=>{
+   
+    console.log(JSON.stringify(req.body))
+    // fetch('http://clip.partners/api/mobile/Cart',{
+    //     method: 'post',
+    //     headers: {'Content-Type':'application/x-www-form-urlencoded'},
+    //     body:JSON.stringify(req.body)
+    // })
+    // .then(res=>res.json())
+    // .then(data=>{
+    //     res.json(data);
+    // })
+    // .catch(err=>{
+    //     console.log(err)
+    // })
+})
 app.get('/detailedsearch',(req,res)=>{
     // console.log('http://clip.partners/api/mobile/Material?'+queryString.stringify(req.query))
     //console.log(queryString.stringify(req.query))
     var a = {...req.query}
+    console.log(req.query.list_category)
     delete a['list_category']
     delete a['list_use']
     delete a['list_brand']

@@ -13,6 +13,7 @@ import {BrowserRouter as Router,Switch,Route,Link} from 'react-router-dom'
 import BrandsDropDown from './BrandsDropDown'
 import CategoryDropDown from './CategoryDropDown';
 import UseDropDown from './UseDropDown'
+import LogOut from './LogOut'
 // import Popup from 'reactjs-popup';
 // import 'reactjs-popup/dist/index.css';
 // import {UserProvider,useUser} from './user-context'
@@ -37,6 +38,7 @@ const Navbar=() => {
   const [brandsDropDownDisplay,setBrandsDropDownDisplay]=React.useState('none')
   const [inputValue,setInputValue]=React.useState("")
   const [searchTermEnable,setSearchTermEnable]=React.useState(false)
+  const [logOutShow,setLogOutShow]=React.useState(false)
   const handleScroll=() => {
     const offset=window.scrollY;
     if(offset > 200 ){
@@ -134,7 +136,7 @@ const Navbar=() => {
     // })
 
   }
-  const logout=()=>{
+  const logOutFunction=()=>{
     setLoginInfo(null)
     setLoggedOn(false)
     console.log("_______")
@@ -184,6 +186,9 @@ const Navbar=() => {
     setBrandsDropDown(false)
     setCategoryDropDown(false)
     setUseDropDown(!useDropDown)
+  }
+  const toggleLogOutShow=()=>{
+    setLogOutShow(!logOutShow)
   }
   const brandRenderRow=(brand,index,separators)=>{
     return(
@@ -288,7 +293,7 @@ const Navbar=() => {
                   </View>
                 </View>
               </Modal>
-            <Modal
+            {/* <Modal
                 animationType="fade"
                 transparent={false}
                 visible={userModalVisible}
@@ -312,7 +317,14 @@ const Navbar=() => {
                     </TouchableHighlight>
                   </View>
                 </View>
-              </Modal>
+              </Modal> */}
+              <div
+                    style={{
+                        display: logOutShow ? 'block':'none' 
+                    }}
+                >
+                    <LogOut toggleLogOutShow={toggleLogOutShow} logOutFunction={logOutFunction}/>
+                </div>
             <div className="headerContainer">
             
               <div className="logo">
@@ -580,7 +592,8 @@ const Navbar=() => {
                       zIndex:1,
                   }}
                   onPress={() => {
-                    toggleUserModal()
+                    // toggleUserModal()
+                    toggleLogOutShow()
                   }}
                   >
                     <img
@@ -638,7 +651,7 @@ const Navbar=() => {
                   </View>
                 </View>
               </Modal>
-            <Modal
+            {/* <Modal
                 animationType="fade"
                 transparent={false}
                 visible={userModalVisible}
@@ -662,8 +675,14 @@ const Navbar=() => {
                     </TouchableHighlight>
                   </View>
                 </View>
-              </Modal>
-              
+              </Modal> */}
+               <div
+                    style={{
+                        display: logOutShow ? 'block':'none' 
+                    }}
+                >
+                    <LogOut toggleLogOutShow={toggleLogOutShow} logOutFunction={logOutFunction}/>
+                </div>
             <div className="headerContainer">
             
               <div className="logo">
@@ -934,7 +953,8 @@ const Navbar=() => {
                       zIndex:1,
                   }}
                   onPress={() => {
-                    toggleUserModal()
+                    // toggleUserModal()
+                    toggleLogOutShow()
                   }}
                   >
                     <img
@@ -992,7 +1012,7 @@ const Navbar=() => {
                   </View>
                 </View>
               </Modal>
-            <Modal
+            {/* <Modal
                 animationType="fade"
                 transparent={false}
                 visible={userModalVisible}
@@ -1004,7 +1024,7 @@ const Navbar=() => {
                   <View>
                     <TouchableHighlight
                       onPress={() => {
-                        logout()
+                        logOutFunction()
                       }}>
                       <Text>로그아웃</Text>
                     </TouchableHighlight>
@@ -1016,7 +1036,14 @@ const Navbar=() => {
                     </TouchableHighlight>
                   </View>
                 </View>
-              </Modal>
+              </Modal> */}
+             <div
+                style={{
+                    display: logOutShow ? 'block':'none' 
+                }}
+            >
+                <LogOut toggleLogOutShow={toggleLogOutShow} logOutFunction={logOutFunction}/>
+            </div>
               
             <div className="headerContainer">
             
@@ -1289,7 +1316,8 @@ const Navbar=() => {
                       zIndex:1,
                   }}
                   onPress={() => {
-                    toggleUserModal()
+                    // toggleUserModal()
+                    toggleLogOutShow()
                   }}
                   >
                     <img
@@ -1347,7 +1375,7 @@ const Navbar=() => {
                   </View>
                 </View>
               </Modal>
-            <Modal
+            {/* <Modal
                 animationType="fade"
                 transparent={false}
                 visible={userModalVisible}
@@ -1359,7 +1387,7 @@ const Navbar=() => {
                   <View>
                     <TouchableHighlight
                       onPress={() => {
-                        logout()
+                        logOutFunction()
                       }}>
                       <Text>로그아웃</Text>
                     </TouchableHighlight>
@@ -1372,7 +1400,14 @@ const Navbar=() => {
                   </View>
                 </View>
               </Modal>
-              
+               */}
+                <div
+                    style={{
+                        display: logOutShow ? 'block':'none' 
+                    }}
+                >
+                    <LogOut toggleLogOutShow={toggleLogOutShow} logOutFunction={logOutFunction}/>
+                </div>
             <div className="headerContainer">
             
               <div className="logo">
@@ -1466,6 +1501,8 @@ const Navbar=() => {
                         activeOpacity={0.5}
                         onPress={()=>{
                           toggleUseDropDown()
+                          
+                         
                         }}
                     >
                       <a 
@@ -1642,7 +1679,8 @@ const Navbar=() => {
                       zIndex:1,
                   }}
                   onPress={() => {
-                    toggleUserModal()
+                    // toggleUserModal()
+                    toggleLogOutShow()
                   }}
                   >
                     <img
@@ -1701,7 +1739,7 @@ const Navbar=() => {
               </View>
             </View>
           </Modal>
-        <Modal
+        {/* <Modal
             animationType="fade"
             transparent={false}
             visible={userModalVisible}
@@ -1714,7 +1752,7 @@ const Navbar=() => {
               
                 <TouchableHighlight
                   onPress={() => {
-                    logout()
+                    logOutFunction()
                   }}>
                   <Text>로그아웃</Text>
                 </TouchableHighlight>
@@ -1727,7 +1765,14 @@ const Navbar=() => {
 
               </View>
             </View>
-          </Modal>
+          </Modal> */}
+           <div
+              style={{
+                  display: logOutShow ? 'block':'none' 
+              }}
+          >
+              <LogOut toggleLogOutShow={toggleLogOutShow} logOutFunction={logOutFunction}/>
+          </div>
         <div className="headerContainer">
         
           <div className="logo">
@@ -1829,7 +1874,8 @@ const Navbar=() => {
                   zIndex:1,
               }}
               onPress={() => {
-                toggleUserModal()
+                // toggleUserModal()
+                toggleLogOutShow()
               }}
               >
                 <img
@@ -1887,7 +1933,7 @@ const Navbar=() => {
                 </View>
               </View>
             </Modal>
-          <Modal
+          {/* <Modal
               animationType="fade"
               transparent={false}
               visible={userModalVisible}
@@ -1899,7 +1945,7 @@ const Navbar=() => {
                 <View>
                   <TouchableHighlight
                     onPress={() => {
-                      logout()
+                      logOutFunction()
                     }}>
                     <Text>로그아웃</Text>
                   </TouchableHighlight>
@@ -1911,7 +1957,14 @@ const Navbar=() => {
                   </TouchableHighlight>
                 </View>
               </View>
-            </Modal>
+            </Modal> */}
+             <div
+                style={{
+                    display: logOutShow ? 'block':'none' 
+                }}
+              >
+                  <LogOut toggleLogOutShow={toggleLogOutShow} logOutFunction={logOutFunction}/>
+              </div>
           <div className="headerContainer">
           
             <div className="logo">
@@ -1977,7 +2030,8 @@ const Navbar=() => {
                     zIndex:1,
                 }}
                 onPress={() => {
-                  toggleUserModal()
+                  // toggleUserModal()
+                  toggleLogOutShow()
                 }}
                 >
                   <img
@@ -3197,7 +3251,7 @@ const Navbar=() => {
                     <View>
                       <TouchableHighlight
                         onPress={() => {
-                          logout()
+                          logOutFunction()
                         }}>
                         <Text>로그아웃</Text>
                       </TouchableHighlight>

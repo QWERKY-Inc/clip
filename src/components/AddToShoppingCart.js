@@ -44,9 +44,34 @@ function AddToShoppingCart(props){
             })
         .catch(err=>{
             console.log(err)
-        })
-        
+        })  
     }
+    const AddToCart=(qStr)=>{
+        console.log(qStr)
+        fetch('/AddToCart?'+qStr
+        )
+        .then(res=>res.json())
+        .then((incomingData)=>{
+            console.log(incomingData)
+            })
+        .catch(err=>{
+            console.log(err)
+        })  
+    }
+    // const AddToCart=(jsonObj)=>{
+    //     fetch('http://clip.partners/api/mobile/AddToCart',{
+    //     method: 'post',
+    //     headers: {'Content-Type':'application/json'},
+    //     body:JSON.stringify(jsonObj)
+    //     })
+    //     .then(res=>res.json())
+    //     .then(data=>{
+    //         console.log(data)
+    //     })
+    //     .catch(err=>{
+    //         console.log(err)
+    //     })
+    // }
     useEffect(()=>{
         console.log('hello world')
         console.log(props.material_data)
@@ -354,7 +379,42 @@ function AddToShoppingCart(props){
                                 console.log('make a new board')
                                 setNewBoard(!newBoard)
                                 setRefresh(refresh+1)
-                            }}
+                                const parsed = {};
+                                var mem_no=undefined
+                                if(localStorage.login!=undefined){
+                                    if(JSON.parse(localStorage.login).result!="FAILURE"){
+                                        mem_no=JSON.parse(localStorage.login).message.split('_')[0]
+                                        parsed.mem_no=mem_no 
+                                    
+                                    }
+                                    else{
+                                        parsed.mem_no=""
+                                    }
+                                }
+                                else{
+                                    parsed.mem_no=""
+                                }
+                                // parsed.list_material=[
+                                //     {
+                                //         vd_no:props.material_data.vd_no,
+                                //         brd_no:props.material_data.brd_no,
+                                //         mt_no:props.material_data.mt_no,
+                                //         prj_no:selectedProject,
+                                //         mt_shipfrom:props.material_data.mt_shipfrom
+                                //     }
+                                // ]
+                                parsed.list_material=[
+                                    
+                                        [props.material_data.vd_no],
+                                        [props.material_data.brd_no],
+                                        [props.material_data.mt_no],
+                                        [selectedProject],
+                                        [props.material_data.mt_shipfrom]
+                                ]
+                                console.log(parsed)
+                                AddToCart(queryString.stringify(parsed))
+                                // AddToCart(parsed)
+                                }}
                         >
                             <View
                                 style={{
@@ -926,6 +986,7 @@ function AddToShoppingCart(props){
                             console.log('confirm')
                             setNewBoard(!newBoard)
                             setRefresh(refresh+1)
+                            
                             setProjectListShow(false)
                         }}
                     >
