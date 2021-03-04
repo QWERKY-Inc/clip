@@ -164,7 +164,18 @@ function LogOut(props){
                     height:'100%'
                 }} 
                 >
-                   
+                    <Text>
+                        filler info
+                    </Text>
+                   <TouchableHighlight
+                        onPress={()=>{
+                            props.logOutFunction()
+                        }}
+                    >
+                        <Text>
+                            로그아웃
+                        </Text>
+                    </TouchableHighlight>
                 </div>
                
                 </View>

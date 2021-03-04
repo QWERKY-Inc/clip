@@ -2235,13 +2235,18 @@ const Navbar=() => {
                               zIndex:1
                           }}
                           activeOpacity={0.5}
+                          onPress={()=>{
+                            console.log('toggle')
+                            toggleUseDropDown()
+                          }}
                       >
                         <a 
                           style={
                             {
                               textDecorationLine:'none',
                             }} 
-                            href="/constructionpart">
+                            // href="/constructionpart"
+                            >
                         <Text
                         selectable={false} 
                         style ={{
@@ -3239,7 +3244,7 @@ const Navbar=() => {
                     </View>
                   </View>
                 </Modal>
-              <Modal
+                <Modal
                   animationType="fade"
                   transparent={false}
                   visible={userModalVisible}
@@ -3249,12 +3254,44 @@ const Navbar=() => {
                   }}>
                   <View style={{marginTop: 22}}>
                     <View>
+                    <Text>전화번호</Text>
+                      {/* <TextInput 
+                        onChangeText={text=>setUser(text)}
+                        value={user}
+                      ></TextInput> */}
+                      <TextInput 
+                        onChangeText={
+                          text=>{
+                            setUserPhoneNumber(text)
+                            onPhoneNumberChange()
+                          }
+                        }
+                        // onBlur={
+                        //   onPhoneNumberChange()
+                        // }
+                        value={userPhoneNumber}
+                      ></TextInput>
+                      <Text>비밀번호</Text>
+                      <TextInput
+                        onChangeText={
+                          text=>{setPassword(text)
+                          onPasswordChange()
+                          }
+                        }
+                        // onBlur={
+                        //   onPasswordChange()
+                        // }
+                        secureTextEntry={true}
+                        value={password}
+                      ></TextInput>
+                      
                       <TouchableHighlight
                         onPress={() => {
-                          logOutFunction()
+                          login()
                         }}>
-                        <Text>로그아웃</Text>
+                        <Text>로그인</Text>
                       </TouchableHighlight>
+                      
                       <TouchableHighlight
                         onPress={() => {
                           toggleUserModal()
