@@ -646,7 +646,7 @@ function AddToShoppingCart(props){
                                 // border:'2px solid black',
                             }}
                         >
-                          <Image
+                          {/* <Image
                             style={{
                                 display:'block',
                                 height:'50px',
@@ -672,7 +672,7 @@ function AddToShoppingCart(props){
                             }}
 
                             >
-                            </Image>
+                            </Image> */}
                             {/* <div
                             style={{
                                 borderRadius:'10px',
