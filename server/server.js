@@ -8,6 +8,7 @@ const proxy = require("http-proxy-middleware");
 const fetch = require('node-fetch')
 const queryString =require('query-string');
 var bodyParser = require('body-parser');
+var stringify = require('qs-stringify')
 
 module.exports = function(app) {
   app.use(
@@ -226,6 +227,7 @@ app.get('/login',(req,res)=>{
         console.log(err)
     })
 })
+
 app.get('/ScrapClipboard',(req,res)=>{
     fetch('http://clip.partners/api/mobile/ScrapClipboard',{
         method: 'post',
@@ -409,21 +411,36 @@ app.get('/AddToCart',(req,res)=>{
         newObj.list_material[j].mt_shipfrom=req.query.list_material[4+j*5]
         // newObj.list_material[j]=JSON.stringify(newObj.list_material[j])
     }
-    console.log(JSON.stringify(newObj))
+    console.log(stringify(newObj))
     // data = Object.keys(newObj).map(key=>encodeURIComponent(key)+'='+encodeURIComponent(newObj[key])).join('&')
     // console.log(encodeURIComponent(JSON.stringify(newObj)))
     fetch('http://clip.partners/api/mobile/Cart',{
         method: 'post',
         mode:'same-origin',
         headers: {
-            'Accept': 'application/json',
-            'Content-Type':'application/json'
+            'Accept': 'application/x-www-form-urlencoded',
+            'Content-Type':'application/x-www-form-urlencoded'
         },
-        body:JSON.stringify(newObj)
+        body:stringify(newObj)
     })
     .then(res=>res.json())
     .then(data=>{
         console.log(data)
+        res.json(data);
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
+app.get('/AddProject',(req,res)=>{
+    console.log(req.query)
+    fetch('http://clip.partners/api/mobile/Project',{
+        method: 'post',
+        headers: {'Content-Type':'application/x-www-form-urlencoded'},
+        body:queryString.stringify(req.query)
+    })
+    .then(res=>res.json())
+    .then(data=>{
         res.json(data);
     })
     .catch(err=>{
@@ -495,6 +512,20 @@ app.get('/materialDetail',(req,res)=>{
     //console.log(queryString.stringify(req.query))
     console.log(req.query)
     fetch('http://clip.partners/api/mobile/Material/'+req.query.mt_no+'/?'+queryString.stringify(req.query))
+    .then(res=>res.json())
+    .then(data=>{
+        // console.log(data)
+        res.json(data);
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
+app.get('/getProjectCategoryList',(req,res)=>{
+    // console.log('http://clip.partners/api/mobile/Material?'+queryString.stringify(req.query))
+    //console.log(queryString.stringify(req.query))
+    console.log(req.query)
+    fetch('http://clip.partners/api/mobile/Project/?type=CATEGORY')
     .then(res=>res.json())
     .then(data=>{
         // console.log(data)
