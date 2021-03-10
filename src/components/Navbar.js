@@ -15,6 +15,7 @@ import CategoryDropDown from './CategoryDropDown';
 import UseDropDown from './UseDropDown'
 import LogOut from './LogOut'
 import LogIn from './LogIn'
+import WrongLogIn from './WrongLogIn'
 // import Popup from 'reactjs-popup';
 // import 'reactjs-popup/dist/index.css';
 // import {UserProvider,useUser} from './user-context'
@@ -40,6 +41,8 @@ const Navbar=() => {
   const [inputValue,setInputValue]=React.useState("")
   const [searchTermEnable,setSearchTermEnable]=React.useState(false)
   const [logOutShow,setLogOutShow]=React.useState(false)
+  const [logInShow,setLogInShow]=React.useState(false)
+  const [wrongLogInShow,setWrongLogInShow]=React.useState(false)
   const handleScroll=() => {
     const offset=window.scrollY;
     if(offset > 200 ){
@@ -137,6 +140,58 @@ const Navbar=() => {
     // })
 
   }
+  const logInFunction=(obj)=>{
+    fetch('/login?'+
+      queryString.stringify(obj)
+    )
+    .then(res=>res.json())
+    .then((incomingData)=>{
+      setLoginInfo(incomingData)
+      console.log("_______")
+      console.log(incomingData)
+      window.localStorage.setItem('login',JSON.stringify(incomingData))
+      if(incomingData.result=='SUCCESS'){
+        setWrongLogInShow(false)
+        setLoggedOn(true)
+        setEntryCorrect(true)
+      }
+      else{
+        setWrongLogInShow(true)
+        setLoggedOn(false)
+        setEntryCorrect(false)
+      }
+      // console.log(loggedOn)
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+
+    
+
+    // fetch('http://clip.partners/api/mobile/MemberLogin',{
+    //     method: 'post',
+    //     headers: {'Content-Type':'application/x-www-form-urlencoded'},
+    //     body:queryString.stringify({
+    //         mem_jointype:'MOBILE',
+    //         mem_password:password,
+    //         mem_token:null,
+    //         mem_mobile:userPhoneNumber
+    //     })
+
+    // })
+    // .then(res=>res.json())
+    // .then((incomingData)=>{
+    //   setLoginInfo(incomingData)
+    //   console.log("!_______!")
+    //   console.log(loginInfo)
+    //   // console.log('data read : ' , data.listCategory[0].ct_img_url);
+    //   window.localStorage.setItem('login',JSON.stringify(loginInfo))
+    // })
+    // .catch(err=>{
+    //     console.log(err)
+    // })
+
+  }
   const logOutFunction=()=>{
     setLoginInfo(null)
     setLoggedOn(false)
@@ -190,6 +245,12 @@ const Navbar=() => {
   }
   const toggleLogOutShow=()=>{
     setLogOutShow(!logOutShow)
+  }
+  const toggleLogInShow=()=>{
+    setLogInShow(!logInShow)
+  }
+  const toggleWrongLogInShow=()=>{
+    setWrongLogInShow(!logInShow)
   }
   const brandRenderRow=(brand,index,separators)=>{
     return(
@@ -1059,12 +1120,19 @@ const Navbar=() => {
                 </View>
               </Modal>
                */}
+               <div
+                    style={{
+                        display: wrongLogInShow ? 'block':'none' 
+                    }}
+                >
+                    <WrongLogIn toggleWrongLogInShow={toggleWrongLogInShow} />
+                </div>
                 <div
                     style={{
                         display: logInShow ? 'block':'none' 
                     }}
                 >
-                    <LogIn toggleLogInShow={toggleLogInShow} logOutFunction={logInFunction}/>
+                    <LogIn toggleLogInShow={toggleLogInShow} logInFunction={logInFunction} setUserPhoneNumber={setUserPhoneNumber} onPhoneNumberChange={onPhoneNumberChange} userPhoneNumber={userPhoneNumber} setPassword={setPassword} onPasswordChange={onPasswordChange} password={password}/>
                 </div>
                 <div
                   style={{
@@ -1418,65 +1486,20 @@ const Navbar=() => {
               </View>
             </View>
           </Modal>
-        <Modal
-            animationType="fade"
-            transparent={false}
-            visible={userModalVisible}
-            onDismiss={() => {
-              // alert('Modal has been closed.');
-              console.log("user modal has been closed")
-            }}>
-            <View style={{marginTop: 22}}>
-              <View>
-              <Text>전화번호</Text>
-              {/* <TextInput 
-                onChangeText={
-                  text=>setUser(text)
-                }
-                value={user}
-              ></TextInput> */}
-              <TextInput 
-                onChangeText={
-                  text=>{
-                    setUserPhoneNumber(text)
-                    onPhoneNumberChange()
-                  }
-                }
-                // onBlur={
-                //   onPhoneNumberChange()
-                // }
-                value={userPhoneNumber}
-              ></TextInput>
-              <Text>비밀번호</Text>
-              <TextInput
-                onChangeText={
-                  text=>{setPassword(text)
-                  onPasswordChange()
-                  }
-                }
-                // onBlur={
-                //   onPasswordChange()
-                // }
-                secureTextEntry={true}
-                value={password}
-              ></TextInput>
-                <TouchableHighlight
-                  onPress={() => {
-                    login()
-                  }}>
-                  <Text>로그인</Text>
-                </TouchableHighlight>
-                
-                <TouchableHighlight
-                  onPress={() => {
-                    toggleUserModal()
-                  }}>
-                  <Text>x</Text>
-                </TouchableHighlight>
-
-              </View>
-            </View>
-          </Modal>
+          <div
+              style={{
+                  display: wrongLogInShow ? 'block':'none' 
+              }}
+          >
+              <WrongLogIn toggleWrongLogInShow={toggleWrongLogInShow} />
+          </div>
+          <div
+              style={{
+                  display: logInShow ? 'block':'none' 
+              }}
+          >
+              <LogIn toggleLogInShow={toggleLogInShow} logInFunction={logInFunction} setUserPhoneNumber={setUserPhoneNumber} onPhoneNumberChange={onPhoneNumberChange} userPhoneNumber={userPhoneNumber} setPassword={setPassword} onPasswordChange={onPasswordChange} password={password}/>
+          </div>
         <div className="headerContainer">
         
           <div className="logo">
@@ -1578,7 +1601,8 @@ const Navbar=() => {
                   zIndex:1,
               }}
               onPress={() => {
-                toggleUserModal()
+                // toggleUserModal()
+                toggleLogInShow()
               }}
               >
                 <img
@@ -1636,59 +1660,20 @@ const Navbar=() => {
                   </View>
                 </View>
               </Modal>
-            <Modal
-                animationType="fade"
-                transparent={false}
-                visible={userModalVisible}
-                onDismiss={() => {
-                  // alert('Modal has been closed.');
-                  console.log("user modal has been closed")
-                }}>
-                <View style={{marginTop: 22}}>
-                  <View>
-                    <Text>전화번호</Text>
-                    <TextInput 
-                      onChangeText={
-                        text=>{
-                          setUserPhoneNumber(text)
-                          onPhoneNumberChange()
-                        }
-                      }
-                      // onBlur={
-                      //   onPhoneNumberChange()
-                      // }
-                      value={userPhoneNumber}
-                    ></TextInput>
-                    <Text>비밀번호</Text>
-                    <TextInput
-                      onChangeText={
-                        text=>{setPassword(text)
-                        onPasswordChange()
-                        }
-                      }
-                      // onBlur={
-                      //   onPasswordChange()
-                      // }
-                      secureTextEntry={true}
-                      
-                      value={password}
-                    ></TextInput>
-                    <TouchableHighlight
-                      onPress={() => {
-                        login()
-                      }}>
-                      <Text>로그인</Text>
-                    </TouchableHighlight>
-                    
-                    <TouchableHighlight
-                      onPress={() => {
-                        toggleUserModal()
-                      }}>
-                      <Text>x</Text>
-                    </TouchableHighlight>
-                  </View>
-                </View>
-              </Modal>
+              <div
+                    style={{
+                        display: wrongLogInShow ? 'block':'none' 
+                    }}
+                >
+                    <WrongLogIn toggleWrongLogInShow={toggleWrongLogInShow} />
+                </div>
+              <div
+                  style={{
+                      display: logInShow ? 'block':'none' 
+                  }}
+              >
+                  <LogIn toggleLogInShow={toggleLogInShow} logInFunction={logInFunction} setUserPhoneNumber={setUserPhoneNumber} onPhoneNumberChange={onPhoneNumberChange} userPhoneNumber={userPhoneNumber} setPassword={setPassword} onPasswordChange={onPasswordChange} password={password}/>
+              </div>
             <div className="headerContainer">
             
               <div className="logo">
@@ -1750,7 +1735,8 @@ const Navbar=() => {
                       zIndex:1,
                   }}
                   onPress={() => {
-                    toggleUserModal()
+                    //toggleUserModal()
+                    toggleLogInShow()
                   }}
                   >
                     <img
@@ -1836,12 +1822,26 @@ const Navbar=() => {
                 </View>
               </Modal>
                */}
-                <div
+                {/* <div
                     style={{
                         display: logOutShow ? 'block':'none' 
                     }}
                 >
                     <LogOut toggleLogOutShow={toggleLogOutShow} logOutFunction={logOutFunction}/>
+                </div> */}
+                <div
+                    style={{
+                        display: wrongLogInShow ? 'block':'none' 
+                    }}
+                >
+                    <WrongLogIn toggleWrongLogInShow={toggleWrongLogInShow} />
+                </div>
+                <div
+                    style={{
+                        display: logInShow ? 'block':'none' 
+                    }}
+                >
+                    <LogIn toggleLogInShow={toggleLogInShow} logInFunction={logInFunction} setUserPhoneNumber={setUserPhoneNumber} onPhoneNumberChange={onPhoneNumberChange} userPhoneNumber={userPhoneNumber} setPassword={setPassword} onPasswordChange={onPasswordChange} password={password}/>
                 </div>
                 <div
                   style={{
@@ -2137,7 +2137,8 @@ const Navbar=() => {
                   }}
                   onPress={() => {
                     // toggleUserModal()
-                    toggleLogOutShow()
+                    // toggleLogOutShow()
+                    toggleLogInShow()
                   }}
                   >
                     <img
@@ -2195,66 +2196,20 @@ const Navbar=() => {
               </View>
             </View>
           </Modal>
-        <Modal
-            animationType="fade"
-            transparent={false}
-            visible={userModalVisible}
-            onDismiss={() => {
-              // alert('Modal has been closed.');
-              console.log("user modal has been closed")
-            }}>
-            <View style={{marginTop: 22}}>
-              <View>
-              <Text>로그인에 실패했습니다. 비밀번호를 다시 확인해 주세요</Text>
-              <Text>전화번호</Text>
-              {/* <TextInput 
-                onChangeText={
-                  text=>setUser(text)
-                }
-                value={user}
-              ></TextInput> */}
-              <TextInput 
-                onChangeText={
-                  text=>{
-                    setUserPhoneNumber(text)
-                    onPhoneNumberChange()
-                  }
-                }
-                // onBlur={
-                //   onPhoneNumberChange()
-                // }
-                value={userPhoneNumber}
-              ></TextInput>
-              <Text>비밀번호</Text>
-              <TextInput
-                onChangeText={
-                  text=>{setPassword(text)
-                  onPasswordChange()
-                  }
-                }
-                // onBlur={
-                //   onPasswordChange()
-                // }
-                secureTextEntry={true}
-                value={password}
-              ></TextInput>
-                <TouchableHighlight
-                  onPress={() => {
-                    login()
-                  }}>
-                  <Text>로그인</Text>
-                </TouchableHighlight>
-                
-                <TouchableHighlight
-                  onPress={() => {
-                    toggleUserModal()
-                  }}>
-                  <Text>x</Text>
-                </TouchableHighlight>
-
-              </View>
-            </View>
-          </Modal>
+          <div
+              style={{
+                  display: wrongLogInShow ? 'block':'none' 
+              }}
+          >
+              <WrongLogIn toggleWrongLogInShow={toggleWrongLogInShow} />
+          </div>
+          <div
+              style={{
+                  display: logInShow ? 'block':'none' 
+              }}
+          >
+              <LogIn toggleLogInShow={toggleLogInShow} logInFunction={logInFunction} setUserPhoneNumber={setUserPhoneNumber} onPhoneNumberChange={onPhoneNumberChange} userPhoneNumber={userPhoneNumber} setPassword={setPassword} onPasswordChange={onPasswordChange} password={password}/>
+          </div>
         <div className="headerContainer">
         
           <div className="logo">
@@ -2356,7 +2311,8 @@ const Navbar=() => {
                   zIndex:1
               }}
               onPress={() => {
-                toggleUserModal()
+                //toggleUserModal()
+                toggleLogInShow()
               }}
               >
                 <img
@@ -2414,60 +2370,20 @@ const Navbar=() => {
                   </View>
                 </View>
               </Modal>
-            <Modal
-                animationType="fade"
-                transparent={false}
-                visible={userModalVisible}
-                onDismiss={() => {
-                  // alert('Modal has been closed.');
-                  console.log("user modal has been closed")
-                }}>
-                <View style={{marginTop: 22}}>
-                  <View>
-                    <Text>로그인에 실패했습니다. 비밀번호를 다시 확인해 주세요</Text>
-                    <Text>전화번호</Text>
-                    <TextInput 
-                      onChangeText={
-                        text=>{
-                          setUserPhoneNumber(text)
-                          onPhoneNumberChange()
-                        }
-                      }
-                      // onBlur={
-                      //   onPhoneNumberChange()
-                      // }
-                      value={userPhoneNumber}
-                    ></TextInput>
-                    <Text>비밀번호</Text>
-                    <TextInput
-                      onChangeText={
-                        text=>{setPassword(text)
-                        onPasswordChange()
-                        }
-                      }
-                      // onBlur={
-                      //   onPasswordChange()
-                      // }
-                      secureTextEntry={true}
-                      
-                      value={password}
-                    ></TextInput>
-                    <TouchableHighlight
-                      onPress={() => {
-                        login()
-                      }}>
-                      <Text>로그인</Text>
-                    </TouchableHighlight>
-                    
-                    <TouchableHighlight
-                      onPress={() => {
-                        toggleUserModal()
-                      }}>
-                      <Text>x</Text>
-                    </TouchableHighlight>
-                  </View>
-                </View>
-              </Modal>
+              <div
+                  style={{
+                      display: wrongLogInShow ? 'block':'none' 
+                  }}
+              >
+                  <WrongLogIn toggleWrongLogInShow={toggleWrongLogInShow} />
+              </div>
+              <div
+                    style={{
+                        display: logInShow ? 'block':'none' 
+                    }}
+                >
+                    <LogIn toggleLogInShow={toggleLogInShow} logInFunction={logInFunction} setUserPhoneNumber={setUserPhoneNumber} onPhoneNumberChange={onPhoneNumberChange} userPhoneNumber={userPhoneNumber} setPassword={setPassword} onPasswordChange={onPasswordChange} password={password}/>
+                </div>
             <div className="headerContainer">
             
               <div className="logo">
@@ -2533,7 +2449,8 @@ const Navbar=() => {
                       zIndex:1
                   }}
                   onPress={() => {
-                    toggleUserModal()
+                    //toggleUserModal()
+                    toggleLogInShow()
                   }}
                   >
                     <img
