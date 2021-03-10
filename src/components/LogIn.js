@@ -5,13 +5,15 @@ import NavBarFiller from './NavBarFiller';
 import Pagination from './Pagination';
 import {TouchableOpacity,Text,View,Modal,Image,Linking,Dimensions,TextInput} from 'react-native';
 import xIcon from '../assets/x.png';
+import eyeIcon from '../assets/eye-solid.svg'
+import eyeSlashIcon from '../assets/eye-slash-solid.svg'
 import './Login.css'
 const queryString = require('query-string');
 
 function LogIn(props){
     const [height,setHeight]=React.useState(Dimensions.get('window').height)
     const [width,setWidth]=React.useState(Dimensions.get('window').width)
-
+    const [passwordVisible,setPasswordVisible]=React.useState(false)
     const onChange=()=>{
         setHeight(Dimensions.get('window').height)
         setWidth(Dimensions.get('window').width)
@@ -33,6 +35,9 @@ function LogIn(props){
     .catch(err=>{
         console.log(err)
     })
+    }
+    const togglePasswordVisible=()=>{
+        setPasswordVisible(!passwordVisible)
     }
 
     
@@ -88,7 +93,7 @@ function LogIn(props){
             borderRadius:'10px',
             backgroundColor:'white',
             width:'100%',
-            height:'500px',
+            height:'475px',
             paddingTop:'15px',
             // columnCount:3,
             // flexwrap:'wrap',
@@ -129,7 +134,7 @@ function LogIn(props){
                 <View
                 style={{
                     backgroundColor:'white',
-                    height:'498px',
+                    height:'473px',
                     width:'100%',
                     borderBottomLeftRadius:'10px',
                     borderBottomRightRadius:'10px'
@@ -159,7 +164,9 @@ function LogIn(props){
                     style={{
                     display: 'block',
                     textAlign:'left',
-                    padding:'15px',
+                    paddingLeft:'15px',
+                    paddingRight:'15px',
+                    paddingTop:'15px',
                     overflowY:'scroll',
                     backgroundColor:'white',
                     height:'100%'
@@ -182,25 +189,66 @@ function LogIn(props){
                         value={props.userPhoneNumber}
                     ></TextInput>
                     <Text>비밀번호</Text>
+                    <div
+                        style={{
+                            border:"1px solid black",
+                            borderRadius:'0px',
+                            marginBottom:'15px',
+                            flexDirection:'row',
+                            display:'flex',
+                            alignItems:'center',
+                            justifyContent:'space-between',
+                            paddingRight:'8px'
+                        }}
+                    >
                     <TextInput
                         onChangeText={
                         text=>{props.setPassword(text)
-                        props.onPasswordChange()
+                        // props.onPasswordChange()
                         }
                         }
                         // onBlur={
                         //   onPasswordChange()
                         // }
                         style={{
-                            border:"1px solid black",
-                            borderRadius:'0px',
-                            marginBottom:'15px',
+                            
 
                         }}
                         placeholder="영문,숫자 포함 8-16자"
-                        secureTextEntry={true}
+                        secureTextEntry={passwordVisible}
                         value={props.password}
                     ></TextInput>
+                    <TouchableOpacity
+                        onPress={()=>{
+                            togglePasswordVisible()
+                        }}
+                    >
+                        <div
+                            style={{
+                                display:passwordVisible?'none':'block'
+                            }}
+                        >
+                            <img src={eyeIcon} 
+                            style={{
+                                height:'25px',
+                                width:'25px'
+                            }} />
+                        </div>
+                        <div
+                            style={{
+                                display:passwordVisible?'block':'none'
+                            }}
+                        >
+                            <img src={eyeSlashIcon} 
+                            style={{
+                                height:'25px',
+                                width:'25px'
+                            }} />
+                        </div>
+                        
+                        
+                    </TouchableOpacity>
+                    </div>
                     <TouchableOpacity>
                         <Text>
                             비밀번호를 잊으셨나요?
