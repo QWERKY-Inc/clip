@@ -13,7 +13,8 @@ const queryString = require('query-string');
 function LogIn(props){
     const [height,setHeight]=React.useState(Dimensions.get('window').height)
     const [width,setWidth]=React.useState(Dimensions.get('window').width)
-    const [passwordVisible,setPasswordVisible]=React.useState(false)
+    const [passwordVisible,setPasswordVisible]=React.useState(true)
+    const [emailLogIn,setEmailLogIn]=React.useState(false)
     const onChange=()=>{
         setHeight(Dimensions.get('window').height)
         setWidth(Dimensions.get('window').width)
@@ -39,7 +40,9 @@ function LogIn(props){
     const togglePasswordVisible=()=>{
         setPasswordVisible(!passwordVisible)
     }
-
+    const toggleEmailLogIn=()=>{
+        setEmailLogIn(!emailLogIn)
+    }
     
     useEffect(() => {
         Dimensions.addEventListener('change',onChange)
@@ -50,8 +53,9 @@ function LogIn(props){
 
    
 
-   
+    
         return (
+        <div>
             <div
             style={{
             position:'fixed',
@@ -172,13 +176,18 @@ function LogIn(props){
                     height:'100%'
                 }} 
                 >
+                    <div
+                        style={{
+                            display:emailLogIn?'none':'block'
+                        }}
+                    >
                     <Text>휴대폰번호</Text>
                     
                     <TextInput 
                         onChangeText={
                         text=>{
                             props.setUserPhoneNumber(text)
-                            props.onPhoneNumberChange()
+                            // props.onPhoneNumberChange()
                         }
                         }
                         style={{
@@ -188,6 +197,29 @@ function LogIn(props){
                         placeholder="'-' 없이 입력"
                         value={props.userPhoneNumber}
                     ></TextInput>
+                    </div>
+                    <div
+                        style={{
+                            display:emailLogIn?'block':'none'
+                        }}
+                    >
+                    <Text>이메일 주소</Text>
+                    
+                    <TextInput 
+                        onChangeText={
+                        text=>{
+                            props.setUserEmail(text)
+                            // props.onPhoneNumberChange()
+                        }
+                        }
+                        style={{
+                            border:"1px solid black",
+                            borderRadius:'0px',
+                        }}
+                        placeholder="이메일 주소 입력"
+                        value={props.userEmail}
+                    ></TextInput>
+                    </div>
                     <Text>비밀번호</Text>
                     <div
                         style={{
@@ -255,6 +287,11 @@ function LogIn(props){
                         </Text>
                     </TouchableOpacity>
                    <hr></hr>
+                   <div
+                        style={{
+                            display:emailLogIn?'none':'block'
+                        }}
+                    >
                    <TouchableOpacity
                         style={{
                             border:"1px solid black",
@@ -265,7 +302,7 @@ function LogIn(props){
                             marginBottom:'15px'
                         }}
                         onPress={()=>{
-                            
+                            toggleEmailLogIn()
                         }}
                     >
                         <Text
@@ -276,6 +313,34 @@ function LogIn(props){
                             이메일로 로그인
                         </Text>
                     </TouchableOpacity>
+                    </div>
+                    <div
+                        style={{
+                            display:emailLogIn?'block':'none'
+                        }}
+                    >
+                        <TouchableOpacity
+                        style={{
+                            border:"1px solid black",
+                            borderRadius:"10px",
+                            height:'40px',
+                            textAlign:'center',
+                            justifyContent:'center',
+                            marginBottom:'15px'
+                        }}
+                        onPress={()=>{
+                            toggleEmailLogIn()
+                        }}
+                    >
+                        <Text
+                            style={{
+                                color:'black'
+                            }}
+                        >
+                            휴대폰 번호로 로그인
+                        </Text>
+                    </TouchableOpacity>
+                    </div>
                     <TouchableOpacity
                         style={{
                             border:"1px solid black",
@@ -355,7 +420,7 @@ function LogIn(props){
                 </div>
                 <div
                         style={{
-                            
+                            display: emailLogIn ? 'none':'block',
                             borderTop:'1px solid rgb(221,221,221)',
                             paddingLeft:'15px',
                             paddingRight:'15px',
@@ -391,11 +456,51 @@ function LogIn(props){
                         </Text>
                     </TouchableOpacity>
                     </div>
+                    <div
+                        style={{
+                            display:emailLogIn?'block':'none',
+                            borderTop:'1px solid rgb(221,221,221)',
+                            paddingLeft:'15px',
+                            paddingRight:'15px',
+                            paddingBottom:'15px'
+                        }}
+                    >
+                   <TouchableOpacity
+                        style={{
+                            marginTop:'15px',
+                            backgroundColor:'rgb(255,123,88)',
+                            borderRadius:"10px",
+                            height:'40px',
+                            textAlign:'center',
+                            justifyContent:'center'
+                        }}
+                        onPress={()=>{
+                            props.logInFunction(
+                                {
+                                    mem_jointype:'MOBILE',
+                                    mem_password:props.password,
+                                    mem_token:null,
+                                    mem_email:props.userEmail
+                                }
+                            )
+                        }}
+                    >
+                        <Text
+                            style={{
+                                color:'white'
+                            }}
+                        >
+                            로그인
+                        </Text>
+                    </TouchableOpacity>
+                    </div>
                 </View>
                 {/* <Text>{props.material_num}</Text> */}
             </div>
         </div>
     </div>
+   
+        </div>    
         );
     
 
