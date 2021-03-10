@@ -1,7 +1,9 @@
 import KakaoLogin from "react-kakao-login";
 import { useState } from "react";
-import { token } from "./Secrets";
+import {TouchableOpacity,Text,View,Modal,Image,Linking,Dimensions,TextInput} from 'react-native';
+// import { token } from "./Secrets";
 // Secrets.js is gitignored until i find a way to handle secrets
+// cafe24 doesn't have ENV interface. hardcoding it in.
 
 const KakaoAuth = () => {
   const [profile, setProfile] = useState(null);
@@ -24,12 +26,34 @@ const KakaoAuth = () => {
   return (
     <div>
       <KakaoLogin
-        token={token}
+        // token={token}
+        token='8c08c2009696a8de772e1b1990dc4521'
         onSuccess={responseKaKao}
         onFail={console.error}
-        onLogout={console.info}
+        onLogout={console.log}
         getProfile={true}
-      />
+        style={{
+          height:'40px',
+          width:'100%',
+          alignItems:'center',
+          justifyContent:'center',
+          textAlign:'center',
+          backgroundColor:'white',
+          borderRadius:'10px',
+          border:"1px solid black",
+          marginBottom:'15px'
+        }}
+      >
+        <div style={{
+          height:'40px',
+          width:'100%',
+          lineHeight:'40px'
+        }}>
+          <Text>
+            카카오로 시작하기
+          </Text>
+        </div>
+      </KakaoLogin>
     </div>
   );
 };

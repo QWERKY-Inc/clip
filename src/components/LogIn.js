@@ -1,8 +1,5 @@
 import React,{useEffect} from 'react';
-import Navbar from './Navbar';
-import Content from './Content';
-import NavBarFiller from './NavBarFiller';
-import Pagination from './Pagination';
+import KakaoAuth from './KakaoAuth';
 import {TouchableOpacity,Text,View,Modal,Image,Linking,Dimensions,TextInput} from 'react-native';
 import xIcon from '../assets/x.png';
 import eyeIcon from '../assets/eye-solid.svg'
@@ -341,7 +338,7 @@ function LogIn(props){
                         </Text>
                     </TouchableOpacity>
                     </div>
-                    <TouchableOpacity
+                    {/* <TouchableOpacity
                         style={{
                             border:"1px solid black",
                             borderRadius:"10px",
@@ -361,7 +358,8 @@ function LogIn(props){
                         >
                             카카오로 시작하기
                         </Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
+                    <KakaoAuth/>
                     <TouchableOpacity
                         style={{
                             border:"1px solid black",
