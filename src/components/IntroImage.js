@@ -191,6 +191,7 @@ const IntroImage=() => {
 								color:'white',
 								fontSize:'20px',
 								fontWeight:700,
+								textShadow:'1px 1px black'
 							}}
 						>
 							{data[0].detail.brd_name_eng}
@@ -200,6 +201,7 @@ const IntroImage=() => {
 								color:'white',
 								fontSize:'18px',
 								fontWeight:700,
+								textShadow:'1px 1px black'
 							}}
 						>
 							{data[0].detail.brd_name_kor}

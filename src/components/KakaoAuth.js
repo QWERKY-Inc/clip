@@ -5,7 +5,7 @@ import {TouchableOpacity,Text,View,Modal,Image,Linking,Dimensions,TextInput} fro
 // Secrets.js is gitignored until i find a way to handle secrets
 // cafe24 doesn't have ENV interface. hardcoding it in.
 
-const KakaoAuth = () => {
+const KakaoAuth = (props) => {
   const [profile, setProfile] = useState(null);
 
   // Does this need to be async? or even useState?
@@ -21,6 +21,7 @@ const KakaoAuth = () => {
     };
 
     console.log(loginBody);
+    props.logInFunction(loginBody)
   };
 
   return (

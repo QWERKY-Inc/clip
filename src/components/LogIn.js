@@ -359,7 +359,7 @@ function LogIn(props){
                             카카오로 시작하기
                         </Text>
                     </TouchableOpacity> */}
-                    <KakaoAuth/>
+                    <KakaoAuth logInFunction={props.logInFunction}/>
                     <TouchableOpacity
                         style={{
                             border:"1px solid black",
