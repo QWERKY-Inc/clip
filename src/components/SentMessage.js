@@ -140,7 +140,7 @@ function SentMessage(props){
                     height:'100%'
                 }} 
                 >
-                    <Text>귀하의 카카오톡으로 임시번호를 보냈습니다.</Text>
+                    <Text>등록된 번호로 비밀번호 변경 안내 메시지가 발송되었습니다. 카카오톡 메시지를 확인해 주세요.</Text>
                     
                     
                     

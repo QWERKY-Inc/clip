@@ -140,7 +140,7 @@ function NoExistMember(props){
                     height:'100%'
                 }} 
                 >
-                    <Text>회원 중에 존재하지 않는 번호입니다.</Text>
+                    <Text>가입되지 않은 번호입니다. 휴대폰 번호를 확인해주세요</Text>
                     
                     
                     
