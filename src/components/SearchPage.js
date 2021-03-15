@@ -352,7 +352,7 @@ function SearchPage(props) {
     var mem_no=undefined
     
     if(localStorage.login!=undefined){
-       if(JSON.parse(localStorage.login).result!="FAILURE"){
+       if(JSON.parse(localStorage.login).result=="SUCCESS"){
         mem_no=JSON.parse(localStorage.login).message.split('_')[0]
         parsed.mem_no=mem_no 
        }
@@ -411,7 +411,7 @@ function SearchPage(props) {
 
 
     if(localStorage.login!=undefined){
-        if(JSON.parse(localStorage.login).result!="FAILURE"){
+        if(JSON.parse(localStorage.login).result=="SUCCESS"){
             var mem_no=undefined
             mem_no=JSON.parse(localStorage.login).message.split('_')[0]
             parsed.mem_no=mem_no 
@@ -431,14 +431,28 @@ function SearchPage(props) {
     useEffect(() => {
         //console.log({...queryString.parse(props.location.search),...filter})
         const parsed = {...moodboardFilter}
+        console.log(localStorage.login)
+        // if(localStorage.login!=undefined){
+        //     var mem_no=undefined
+        //     mem_no=JSON.parse(localStorage.login).message.split('_')[0]
+        //     parsed.mem_no=mem_no 
+        // }
+        // else{
+        //     parsed.mem_no=""
+        // }
         if(localStorage.login!=undefined){
-            var mem_no=undefined
-            mem_no=JSON.parse(localStorage.login).message.split('_')[0]
-            parsed.mem_no=mem_no 
-        }
-        else{
-            parsed.mem_no=""
-        }
+            if(JSON.parse(localStorage.login).result=="SUCCESS"){
+                var mem_no=undefined
+                mem_no=JSON.parse(localStorage.login).message.split('_')[0]
+                parsed.mem_no=mem_no 
+            }
+            else{
+                parsed.mem_no=""
+            }
+         }
+         else{
+             parsed.mem_no=""
+         }
         console.log("searching page "+moodboardFilter.page)
         moodboardPageSearch(parsed)
         // var testObj= {mem_no: "63", keyword: "시트", search_target: null, search_value: null, list_color: ["GOLDSILVER","RED","BLACK"], list_pattern: ["METAL","SOLID","GEOMETRIC"], list_brand: ["62","101"], list_category: ["45"], list_use: ["56","9"], material_scope: "ALL", pagination: true, page: 1}

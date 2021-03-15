@@ -534,6 +534,7 @@ function PartDetail(props){
                                         display:'block',
                                         height:'40px',
                                         width:(width-800)+'px',
+                                        minWidth:"150px",
                                         // width:'100%',
                                         backgroundColor:'rgb(255,123,88)',
                                         color:'white',

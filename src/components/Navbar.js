@@ -166,7 +166,7 @@ const Navbar=() => {
     .catch(err=>{
         console.log(err)
     })
-
+    
     
 
     // fetch('http://clip.partners/api/mobile/MemberLogin',{
