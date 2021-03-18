@@ -31,6 +31,7 @@
     "react-dom": "^17.0.1",
     "react-js-pagination": "^3.0.3",
     "react-kakao-login": "^2.1.0",
+    "react-native-confirmation-code-field": "^6.5.1",
     "react-native-paper": "^4.7.1",
     "react-native-web": "^0.14.10",
     "react-responsive-carousel": "^3.2.11",

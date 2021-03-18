@@ -44,6 +44,11 @@ const Navbar=() => {
   const [logOutShow,setLogOutShow]=React.useState(false)
   const [logInShow,setLogInShow]=React.useState(false)
   const [wrongLogInShow,setWrongLogInShow]=React.useState(false)
+  const [userName,setUserName]=React.useState('')
+  const [userCompanyName,setUserCompanyName]=React.useState('')
+  const [userCompanyWebSite,setUserCompanyWebSite]=React.useState('')
+  const [passwordCheck,setPasswordCheck]=React.useState('')
+
   const handleScroll=() => {
     const offset=window.scrollY;
     if(offset > 200 ){
@@ -1499,7 +1504,26 @@ const Navbar=() => {
                   display: logInShow ? 'block':'none' 
               }}
           >
-              <LogIn toggleLogInShow={toggleLogInShow} logInFunction={logInFunction} setUserPhoneNumber={setUserPhoneNumber} onPhoneNumberChange={onPhoneNumberChange} userPhoneNumber={userPhoneNumber} setPassword={setPassword} onPasswordChange={onPasswordChange} password={password} setUserEmail={setUserEmail} userEmail={userEmail}/>
+              <LogIn toggleLogInShow={toggleLogInShow} 
+                      logInFunction={logInFunction} 
+                      setUserPhoneNumber={setUserPhoneNumber} 
+                      onPhoneNumberChange={onPhoneNumberChange} 
+                      userPhoneNumber={userPhoneNumber} 
+                      setPassword={setPassword} 
+                      onPasswordChange={onPasswordChange} 
+                      password={password} 
+                      setUserEmail={setUserEmail} 
+                      userEmail={userEmail}
+
+                      setUserName={setUserName}
+                      userName={userName}
+                      userCompanyName={userCompanyName}
+                      setUserCompanyName={setUserCompanyName}
+                      userCompanyWebSite={userCompanyWebSite}
+                      setUserCompanyWebSite={setUserCompanyWebSite}
+                      passwordCheck={passwordCheck}
+                      setPasswordCheck={setPasswordCheck}
+                      />
           </div>
         <div className="headerContainer">
         
