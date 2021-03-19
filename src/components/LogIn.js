@@ -4,6 +4,8 @@ import NoExistMember from './NoExistMember';
 import WrongPinCode from './WrongPinCode'
 import SentMessage from './SentMessage';
 import AlreadyMemberMessage from './AlreadyMemberMessage'
+import TermsOfServicePopUp from './TermsOfServicePopUp'
+import PrivacyPolicyPopUp from './PrivacyPolicyPopUp'
 import {TouchableOpacity,Text,View,Modal,Image,Linking,Dimensions,TextInput,StyleSheet} from 'react-native';
 import xIcon from '../assets/x.png';
 import eyeIcon from '../assets/eye-solid.svg'
@@ -32,6 +34,10 @@ function LogIn(props){
     const [pincodeAnswer,setPincodeAnswer]=React.useState('')
     const [alreadyMemberMessageShow,setAlreadyMemberMessageShow]=React.useState(false)
     const [wrongPinCodeShow,setWrongPinCodeShow]=React.useState(false)
+    const [checked,setChecked]=React.useState(false)
+    const [membershipButtonDisabled,setMembershipButtonDisabled]=React.useState(true)
+    const [privacyPolicyPopUpShow,setPrivacyPolicyPopUpShow]=React.useState(false)
+    const [termsOfServicePopUpShow,setTermsOfServicePopUpShow]=React.useState(false)
     const ref = useBlurOnFulfill({pincodeValue,cellCount:6})
     const [codeFileProps,getCellOnLayoutHandler]=useClearByFocusCell({
         pincodeValue,setPincodeValue
@@ -114,6 +120,20 @@ function LogIn(props){
     const toggleAlreadyMemberMessageShow=()=>{
         setAlreadyMemberMessageShow(!alreadyMemberMessageShow)
     }
+    const toggleTermsOfServicePopUpShow=()=>{
+        setTermsOfServicePopUpShow(!termsOfServicePopUpShow)
+    }
+    const togglePrivacyPolicyPopUpShow=()=>{
+        setPrivacyPolicyPopUpShow(!privacyPolicyPopUpShow)
+    }
+    const checkboxClicked=(e)=>{
+        if(e.target.checked==true){
+            setChecked(true)
+        }
+        else if(e.target.checked==false){
+            setChecked(false)
+        }
+      }
     const styles = StyleSheet.create({
         root: {flex: 1, padding: 20},
         title: {textAlign: 'center', fontSize: 30},
@@ -132,6 +152,47 @@ function LogIn(props){
           borderColor: '#000',
         },
       });
+    useEffect(()=>{
+        // if(props.userName!=''){
+        //     if(props.userEmail!=''){
+        //         if(props.userCompanyName!=''){
+        //             if(props.userCompanyWebSite!=''){
+        //                 if(props.password!=''){
+        //                     if(props.passwordCheck!=''){
+        //                         if(checked==true){
+        //                             setMembershipButtonDisabled(false)
+        //                         }
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
+        if(
+        props.userName!='' && 
+        props.userEmail!='' && 
+        props.userCompanyName!='' && 
+        props.userCompanyWebSite!='' &&
+        props.password!='' &&
+        props.passwordCheck!='' &&
+        checked==true
+        ){
+            setMembershipButtonDisabled(false)
+        }
+        else{
+            setMembershipButtonDisabled(true)
+        }
+
+        
+    },[
+        props.username,
+        props.userEmail,
+        props.userCompanyName,
+        props.userCompanyWebSite,
+        props.password,
+        props.passwordCheck,
+        checked
+    ])
     useEffect(() => {
         Dimensions.addEventListener('change',onChange)
        
@@ -142,6 +203,7 @@ function LogIn(props){
         console.log(registrationScreen)
     },[registrationScreen])
 
+    
     if(findPassWord){
         return(
             <div>
@@ -1020,12 +1082,12 @@ function LogIn(props){
                                 //     mem_mobile:props.userPhoneNumber
                                 // })
                                 console.log("'"+pincodeValue.toString()+"'")
-                                console.log(pincodeAnswer)
+                                // console.log(pincodeAnswer)
                                 var temp = pincodeAnswer.slice()
                                 if(pincodeValue.toString()!=''){
-                                    console.log('in')
+                                    //console.log('in')
                                     if("'"+pincodeValue.toString()+"'"==pincodeAnswer){
-                                        console.log('next')
+                                        //console.log('next')
                                         setRegistrationScreen(3)
                                     }
                                     else{
@@ -1056,7 +1118,20 @@ function LogIn(props){
         else if (registrationScreen==3){
             return(
                 <div>
-               
+                <div
+                    style={{
+                        display: termsOfServicePopUpShow? "block":'none'
+                    }}
+                >
+                    <TermsOfServicePopUp toggleTermsOfServicePopUpShow={toggleTermsOfServicePopUpShow}/>
+                </div>
+                <div
+                    style={{
+                        display: privacyPolicyPopUpShow? "block":'none'
+                    }}
+                >
+                    <PrivacyPolicyPopUp togglePrivacyPolicyPopUpShow={togglePrivacyPolicyPopUpShow}/>
+                </div>
                 <div
                 style={{
                 position:'fixed',
@@ -1259,6 +1334,7 @@ function LogIn(props){
                             >
                                 이름
                             </Text>
+                            
                             <TextInput 
                                 onChangeText={
                                 text=>{
@@ -1311,6 +1387,7 @@ function LogIn(props){
                                 placeholder="이메일 입력"
                                 value={props.userEmail}
                             ></TextInput>
+                           
                             </div>
                             <div
                                 style={{
@@ -1345,6 +1422,7 @@ function LogIn(props){
                                 placeholder="회사명 입력"
                                 value={props.userCompanyName}
                             ></TextInput>
+                             
                             </div>
                             <div
                                 style={{
@@ -1379,6 +1457,7 @@ function LogIn(props){
                                 placeholder="회사 웹사이트 또는 블로그 주소 입력"
                                 value={props.userCompanyWebSite}
                             ></TextInput>
+                            
                             </div>
                             <div
                                 style={{
@@ -1424,6 +1503,7 @@ function LogIn(props){
                         placeholder="영문,숫자 포함 8-16자"
                         secureTextEntry={passwordVisible}
                         value={props.password}
+                        
                     ></TextInput>
                     <TouchableOpacity
                         onPress={()=>{
@@ -1513,7 +1593,7 @@ function LogIn(props){
                             >
                             <Text
                                 style={{
-                                    marginTop:'5px',
+                                    // marginTop:'5px',
                                     
                                     lineHeight:'30px'
                                 }}
@@ -1550,6 +1630,7 @@ function LogIn(props){
                                 secureTextEntry={passwordCheckVisible}
                                 value={props.passwordCheck}
                             ></TextInput>
+                            
                             <TouchableOpacity
                                 onPress={()=>{
                                     togglePasswordCheckVisible()
@@ -1580,6 +1661,100 @@ function LogIn(props){
                                 
                                 
                             </TouchableOpacity>
+                            
+
+                            </div>
+                            <div
+                                style={{
+                                    display:'flex',
+                                    flexDirection:'column'
+                                }}
+                            >
+                                <Text
+                                    style={{
+                                        fontWeight:700,
+                                        marginBottom:'8px',
+                                        marginTop:'8px'
+                                    }}
+                                >
+                                    약관동의
+                                </Text>
+                                <Text
+                                    style={{
+                                        color:'rgb(119,119,119)',
+                                        marginBottom:'8px'
+                                    }}
+                                >
+                                    서비스 이용을 위해서 약관을 확인해 주세요.
+                                </Text>
+                                <div
+                                    style={{
+                                        display:'flex',
+                                        flexDirection:'row',
+                                        marginBottom:'8px'
+                                    }}
+                                >
+                                    <TouchableOpacity
+                                        onPress={()=>{
+                                            toggleTermsOfServicePopUpShow()
+                                        }}
+                                    >
+                                        <Text
+                                            style={{
+                                                textDecoration:'underline'
+                                            }}
+                                        >
+                                            서비스 이용 약관,
+                                        </Text>
+                                    </TouchableOpacity>
+                                    <Text>
+                                        &nbsp;
+                                    </Text>
+                                    <TouchableOpacity
+                                        onPress={()=>{
+                                            togglePrivacyPolicyPopUpShow()
+                                        }}
+                                    >
+                                        <Text
+                                            style={{
+                                                textDecoration:'underline'
+                                            }}
+                                        >
+                                           개인정보 취급 방침
+                                        </Text>
+                                    </TouchableOpacity>
+                                    <Text>
+                                        에 동의하시겠습니까?
+                                    </Text>
+                                </div>
+                                <div
+                                    style={{
+                                        display:'flex',
+                                        flexDirection:'row',
+                                        justifyContent:'start',
+                                        marginTop:'4px',
+                                        marginBottom:'8px'
+                                    }}
+                                >
+                                <input 
+                                    type="checkbox" 
+                                    style={{
+                                        width:'18px',
+                                        height:'18px',
+                                        marginRight:'8px'
+                                    }}
+                                    onChange={(e)=>
+                                        checkboxClicked(e)
+                                        // categoryCheckboxClicked(index,e,category.code_name,category.code_text)
+                                    } />
+                                <Text
+                                    style={{
+                                        lineHeight:'18px'
+                                    }}
+                                >
+                                    약관을 확인했으며, 동의합니다
+                                </Text>
+                                </div>
                             </div>
                             </div>
                             {/* <div
@@ -1632,12 +1807,13 @@ function LogIn(props){
                     <TouchableOpacity
                             style={{
                                 marginTop:'15px',
-                                backgroundColor:'rgb(255,123,88)',
+                                backgroundColor:membershipButtonDisabled?'rgb(170,170,170)':'rgb(255,123,88)',
                                 borderRadius:"10px",
                                 height:'40px',
                                 textAlign:'center',
                                 justifyContent:'center'
                             }}
+                            disabled={membershipButtonDisabled}
                             onPress={()=>{
                                 // props.logInFunction(
                                 //     {

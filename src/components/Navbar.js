@@ -1138,7 +1138,27 @@ const Navbar=() => {
                         display: logInShow ? 'block':'none' 
                     }}
                 >
-                    <LogIn toggleLogInShow={toggleLogInShow} logInFunction={logInFunction} setUserPhoneNumber={setUserPhoneNumber} onPhoneNumberChange={onPhoneNumberChange} userPhoneNumber={userPhoneNumber} setPassword={setPassword} onPasswordChange={onPasswordChange} password={password} setUserEmail={setUserEmail} userEmail={userEmail}/>
+                    {/* <LogIn toggleLogInShow={toggleLogInShow} logInFunction={logInFunction} setUserPhoneNumber={setUserPhoneNumber} onPhoneNumberChange={onPhoneNumberChange} userPhoneNumber={userPhoneNumber} setPassword={setPassword} onPasswordChange={onPasswordChange} password={password} setUserEmail={setUserEmail} userEmail={userEmail}/> */}
+                    <LogIn toggleLogInShow={toggleLogInShow} 
+                      logInFunction={logInFunction} 
+                      setUserPhoneNumber={setUserPhoneNumber} 
+                      onPhoneNumberChange={onPhoneNumberChange} 
+                      userPhoneNumber={userPhoneNumber} 
+                      setPassword={setPassword} 
+                      onPasswordChange={onPasswordChange} 
+                      password={password} 
+                      setUserEmail={setUserEmail} 
+                      userEmail={userEmail}
+
+                      setUserName={setUserName}
+                      userName={userName}
+                      userCompanyName={userCompanyName}
+                      setUserCompanyName={setUserCompanyName}
+                      userCompanyWebSite={userCompanyWebSite}
+                      setUserCompanyWebSite={setUserCompanyWebSite}
+                      passwordCheck={passwordCheck}
+                      setPasswordCheck={setPasswordCheck}
+                      />
                 </div>
                 <div
                   style={{
@@ -1697,7 +1717,27 @@ const Navbar=() => {
                       display: logInShow ? 'block':'none' 
                   }}
               >
-                  <LogIn toggleLogInShow={toggleLogInShow} logInFunction={logInFunction} setUserPhoneNumber={setUserPhoneNumber} onPhoneNumberChange={onPhoneNumberChange} userPhoneNumber={userPhoneNumber} setPassword={setPassword} onPasswordChange={onPasswordChange} password={password} setUserEmail={setUserEmail} userEmail={userEmail}/>
+                  {/* <LogIn toggleLogInShow={toggleLogInShow} logInFunction={logInFunction} setUserPhoneNumber={setUserPhoneNumber} onPhoneNumberChange={onPhoneNumberChange} userPhoneNumber={userPhoneNumber} setPassword={setPassword} onPasswordChange={onPasswordChange} password={password} setUserEmail={setUserEmail} userEmail={userEmail}/> */}
+                  <LogIn toggleLogInShow={toggleLogInShow} 
+                      logInFunction={logInFunction} 
+                      setUserPhoneNumber={setUserPhoneNumber} 
+                      onPhoneNumberChange={onPhoneNumberChange} 
+                      userPhoneNumber={userPhoneNumber} 
+                      setPassword={setPassword} 
+                      onPasswordChange={onPasswordChange} 
+                      password={password} 
+                      setUserEmail={setUserEmail} 
+                      userEmail={userEmail}
+
+                      setUserName={setUserName}
+                      userName={userName}
+                      userCompanyName={userCompanyName}
+                      setUserCompanyName={setUserCompanyName}
+                      userCompanyWebSite={userCompanyWebSite}
+                      setUserCompanyWebSite={setUserCompanyWebSite}
+                      passwordCheck={passwordCheck}
+                      setPasswordCheck={setPasswordCheck}
+                      />
               </div>
             <div className="headerContainer">
             
@@ -1866,7 +1906,27 @@ const Navbar=() => {
                         display: logInShow ? 'block':'none' 
                     }}
                 >
-                    <LogIn toggleLogInShow={toggleLogInShow} logInFunction={logInFunction} setUserPhoneNumber={setUserPhoneNumber} onPhoneNumberChange={onPhoneNumberChange} userPhoneNumber={userPhoneNumber} setPassword={setPassword} onPasswordChange={onPasswordChange} password={password} setUserEmail={setUserEmail} userEmail={userEmail}/>
+                    {/* <LogIn toggleLogInShow={toggleLogInShow} logInFunction={logInFunction} setUserPhoneNumber={setUserPhoneNumber} onPhoneNumberChange={onPhoneNumberChange} userPhoneNumber={userPhoneNumber} setPassword={setPassword} onPasswordChange={onPasswordChange} password={password} setUserEmail={setUserEmail} userEmail={userEmail}/> */}
+                    <LogIn toggleLogInShow={toggleLogInShow} 
+                      logInFunction={logInFunction} 
+                      setUserPhoneNumber={setUserPhoneNumber} 
+                      onPhoneNumberChange={onPhoneNumberChange} 
+                      userPhoneNumber={userPhoneNumber} 
+                      setPassword={setPassword} 
+                      onPasswordChange={onPasswordChange} 
+                      password={password} 
+                      setUserEmail={setUserEmail} 
+                      userEmail={userEmail}
+
+                      setUserName={setUserName}
+                      userName={userName}
+                      userCompanyName={userCompanyName}
+                      setUserCompanyName={setUserCompanyName}
+                      userCompanyWebSite={userCompanyWebSite}
+                      setUserCompanyWebSite={setUserCompanyWebSite}
+                      passwordCheck={passwordCheck}
+                      setPasswordCheck={setPasswordCheck}
+                      />
                 </div>
                 <div
                   style={{
@@ -2233,8 +2293,28 @@ const Navbar=() => {
                   display: logInShow ? 'block':'none' 
               }}
           >
-              <LogIn toggleLogInShow={toggleLogInShow} logInFunction={logInFunction} setUserPhoneNumber={setUserPhoneNumber} onPhoneNumberChange={onPhoneNumberChange} userPhoneNumber={userPhoneNumber} setPassword={setPassword} onPasswordChange={onPasswordChange} password={password} setUserEmail={setUserEmail} userEmail={userEmail}/>
-          </div>
+              {/* <LogIn toggleLogInShow={toggleLogInShow} logInFunction={logInFunction} setUserPhoneNumber={setUserPhoneNumber} onPhoneNumberChange={onPhoneNumberChange} userPhoneNumber={userPhoneNumber} setPassword={setPassword} onPasswordChange={onPasswordChange} password={password} setUserEmail={setUserEmail} userEmail={userEmail}/> */}
+              <LogIn toggleLogInShow={toggleLogInShow} 
+                      logInFunction={logInFunction} 
+                      setUserPhoneNumber={setUserPhoneNumber} 
+                      onPhoneNumberChange={onPhoneNumberChange} 
+                      userPhoneNumber={userPhoneNumber} 
+                      setPassword={setPassword} 
+                      onPasswordChange={onPasswordChange} 
+                      password={password} 
+                      setUserEmail={setUserEmail} 
+                      userEmail={userEmail}
+
+                      setUserName={setUserName}
+                      userName={userName}
+                      userCompanyName={userCompanyName}
+                      setUserCompanyName={setUserCompanyName}
+                      userCompanyWebSite={userCompanyWebSite}
+                      setUserCompanyWebSite={setUserCompanyWebSite}
+                      passwordCheck={passwordCheck}
+                      setPasswordCheck={setPasswordCheck}
+                      />
+         </div>
         <div className="headerContainer">
         
           <div className="logo">
@@ -2407,7 +2487,27 @@ const Navbar=() => {
                         display: logInShow ? 'block':'none' 
                     }}
                 >
-                    <LogIn toggleLogInShow={toggleLogInShow} logInFunction={logInFunction} setUserPhoneNumber={setUserPhoneNumber} onPhoneNumberChange={onPhoneNumberChange} userPhoneNumber={userPhoneNumber} setPassword={setPassword} onPasswordChange={onPasswordChange} password={password} setUserEmail={setUserEmail} userEmail={userEmail}/>
+                    {/* <LogIn toggleLogInShow={toggleLogInShow} logInFunction={logInFunction} setUserPhoneNumber={setUserPhoneNumber} onPhoneNumberChange={onPhoneNumberChange} userPhoneNumber={userPhoneNumber} setPassword={setPassword} onPasswordChange={onPasswordChange} password={password} setUserEmail={setUserEmail} userEmail={userEmail}/> */}
+                    <LogIn toggleLogInShow={toggleLogInShow} 
+                      logInFunction={logInFunction} 
+                      setUserPhoneNumber={setUserPhoneNumber} 
+                      onPhoneNumberChange={onPhoneNumberChange} 
+                      userPhoneNumber={userPhoneNumber} 
+                      setPassword={setPassword} 
+                      onPasswordChange={onPasswordChange} 
+                      password={password} 
+                      setUserEmail={setUserEmail} 
+                      userEmail={userEmail}
+
+                      setUserName={setUserName}
+                      userName={userName}
+                      userCompanyName={userCompanyName}
+                      setUserCompanyName={setUserCompanyName}
+                      userCompanyWebSite={userCompanyWebSite}
+                      setUserCompanyWebSite={setUserCompanyWebSite}
+                      passwordCheck={passwordCheck}
+                      setPasswordCheck={setPasswordCheck}
+                      />
                 </div>
             <div className="headerContainer">
             
