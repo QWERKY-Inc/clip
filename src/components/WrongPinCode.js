@@ -8,7 +8,7 @@ import xIcon from '../assets/x.png';
 import './Login.css'
 const queryString = require('query-string');
 
-function WrongLogIn(props){
+function WrongPinCode(props){
     const [height,setHeight]=React.useState(Dimensions.get('window').height)
     const [width,setWidth]=React.useState(Dimensions.get('window').width)
 
@@ -87,7 +87,7 @@ function WrongLogIn(props){
             >
                 <TouchableOpacity
                 onPress={()=>{
-                    props.toggleWrongLogInShow()
+                    props.toggleWrongPinCodeShow()
                 }}
                 >
                 <img
@@ -127,7 +127,7 @@ function WrongLogIn(props){
                         style={{
                             fontWeight:700,
                         }}
-                    >로그인</Text>
+                    >인증번호가 틀렸습니다</Text>
                     </View>
 
                 <div
@@ -140,7 +140,7 @@ function WrongLogIn(props){
                     height:'100%'
                 }} 
                 >
-                    <Text>로그인에 실패했습니다. 비밀번호를 다시 확인해 주세요.</Text>
+                    <Text>인증번호가 틀렸습니다. 인증번호 확인 후 다시 입력해주세요</Text>
                     
                     
                     
@@ -165,7 +165,7 @@ function WrongLogIn(props){
                             justifyContent:'center'
                         }}
                         onPress={()=>{
-                            props.toggleWrongLogInShow()
+                            props.toggleWrongPinCodeShow()
                         }}
                     >
                         <Text
@@ -186,4 +186,4 @@ function WrongLogIn(props){
     
 
 }
-export default WrongLogIn
+export default WrongPinCode

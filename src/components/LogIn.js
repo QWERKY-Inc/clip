@@ -1,7 +1,9 @@
 import React,{useEffect} from 'react';
 import KakaoAuth from './KakaoAuth';
 import NoExistMember from './NoExistMember';
+import WrongPinCode from './WrongPinCode'
 import SentMessage from './SentMessage';
+import AlreadyMemberMessage from './AlreadyMemberMessage'
 import {TouchableOpacity,Text,View,Modal,Image,Linking,Dimensions,TextInput,StyleSheet} from 'react-native';
 import xIcon from '../assets/x.png';
 import eyeIcon from '../assets/eye-solid.svg'
@@ -28,6 +30,8 @@ function LogIn(props){
     const [registrationScreen,setRegistrationScreen]=React.useState(0)
     const [pincodeValue,setPincodeValue]=React.useState('')
     const [pincodeAnswer,setPincodeAnswer]=React.useState('')
+    const [alreadyMemberMessageShow,setAlreadyMemberMessageShow]=React.useState(false)
+    const [wrongPinCodeShow,setWrongPinCodeShow]=React.useState(false)
     const ref = useBlurOnFulfill({pincodeValue,cellCount:6})
     const [codeFileProps,getCellOnLayoutHandler]=useClearByFocusCell({
         pincodeValue,setPincodeValue
@@ -75,7 +79,20 @@ function LogIn(props){
         .catch(err=>{
             console.log(err)
         })
-        }
+    }
+    const checkExistMemberFunction=(obj)=>{
+        // console.log(qStr)
+        fetch('/CheckExistMember?'+queryString.stringify(obj)
+        )
+        .then(res=>res.json())
+        .then((incomingData)=>{
+            console.log(incomingData)
+            
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+    }
     const togglePasswordVisible=()=>{
         setPasswordVisible(!passwordVisible)
     }
@@ -90,6 +107,12 @@ function LogIn(props){
     }
     const togglePasswordCheckVisible=()=>{
         setPasswordCheckVisible(!passwordCheckVisible)
+    }
+    const toggleWrongPinCodeShow=()=>{
+        setWrongPinCodeShow(!wrongPinCodeShow)
+    }
+    const toggleAlreadyMemberMessageShow=()=>{
+        setAlreadyMemberMessageShow(!alreadyMemberMessageShow)
     }
     const styles = StyleSheet.create({
         root: {flex: 1, padding: 20},
@@ -392,6 +415,13 @@ function LogIn(props){
                 </div>
                 <div
                 style={{
+                    display: alreadyMemberMessageShow ? 'block':'none' 
+                }}
+                >
+                <AlreadyMemberMessage toggleAlreadyMemberMessageShow={toggleAlreadyMemberMessageShow} />
+                </div>
+                <div
+                style={{
                 position:'fixed',
                 height:'100vh',
                 width:'100vw',
@@ -632,12 +662,37 @@ function LogIn(props){
                             }}
                             onPress={()=>{
                                 
-                                sendPincodeFunction({
-                                    mem_mobile:props.userPhoneNumber
+                                fetch('/CheckExistMember?'+queryString.stringify({
+                                        mem_mobile:props.userPhoneNumber
+                                    })
+                                )
+                                .then(res=>res.json())
+                                .then((incomingData)=>{
+                                    console.log(incomingData)
+                                    if(incomingData.result=="SUCCESS"){
+                                        sendPincodeFunction({
+                                            mem_mobile:props.userPhoneNumber
+                                        })
+                                        setRegistrationScreen(2)
+                                    }
+                                    else{
+                                        console.log("Already a member")
+                                        //setRegistrationScreen(0)
+                                        setAlreadyMemberMessageShow(true)
+                                        
+                                    }
+                                    // setRegistrationScreen(3)
                                 })
-                                setRegistrationScreen(2)
+                                .catch(err=>{
+                                    console.log(err)
+                                })
 
-                                //setRegistrationScreen(3)
+                                // sendPincodeFunction({
+                                //     mem_mobile:props.userPhoneNumber
+                                // })
+                                // setRegistrationScreen(2)
+
+                                // setRegistrationScreen(3)
                             }}
                         >
                             <Text
@@ -660,7 +715,22 @@ function LogIn(props){
         else if(registrationScreen==2){
             return(
                 <div>
-               
+                    <div
+                        style={{
+                            display:wrongPinCodeShow ? "block":"none"
+                        }}
+                    >
+                        <WrongPinCode
+                            toggleWrongPinCodeShow={toggleWrongPinCodeShow}
+                        />
+                    </div>
+                    <div
+                        style={{
+                            display: sentMessageShow ? 'block':'none' 
+                        }}
+                        >
+                        <SentMessage toggleSentMessageShow={toggleSentMessageShow} />
+                    </div>
                 <div
                 style={{
                 position:'fixed',
@@ -957,6 +1027,9 @@ function LogIn(props){
                                     if("'"+pincodeValue.toString()+"'"==pincodeAnswer){
                                         console.log('next')
                                         setRegistrationScreen(3)
+                                    }
+                                    else{
+                                        setWrongPinCodeShow(true)
                                     }
                                 }
                                 

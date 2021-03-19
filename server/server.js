@@ -706,6 +706,18 @@ app.get('/SendPincode',(req,res)=>{
     })
 })
 
+app.get('/CheckExistMember',(req,res)=>{
+    fetch('http://clip.partners/api/mobile/CheckExistMember/?'+queryString.stringify(req.query))
+    .then(res=>res.json())
+    .then(data=>{
+        res.json(data);
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
+
+
 app.listen(port,()=>{
     console.log('server is up on port ' + port);
 })
