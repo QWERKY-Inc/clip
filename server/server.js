@@ -534,6 +534,18 @@ app.get('/FindPassword',(req,res)=>{
         console.log(err)
     })
 })
+app.get('/FindEmail',(req,res)=>{
+    console.log(req.query)
+    fetch('http://clip.partners/api/mobile/FindEmail?'+queryString.stringify(req.query))
+    .then(res=>res.json())
+    .then(data=>{
+        // console.log(data)
+        res.json(data);
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
 app.get('/materialDetail',(req,res)=>{
     // console.log('http://clip.partners/api/mobile/Material?'+queryString.stringify(req.query))
     //console.log(queryString.stringify(req.query))
