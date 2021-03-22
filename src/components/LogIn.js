@@ -589,7 +589,7 @@ function LogIn(props){
                 <TouchableOpacity
                     onPress={()=>{
                         //console.log('close project list')
-                        setFindPassWord(false)
+                        setFindEmail(false)
                     }}
                 >
                     <View
