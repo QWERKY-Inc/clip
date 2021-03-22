@@ -33,7 +33,7 @@ function TermsOfServicePopUp(props){
             width:'100vw',
             top:0,
             left:0,
-            backgroundColor:'rgba(0,0,0,0.5)',
+            backgroundColor:'rgba(0,0,0,0)',
             display:'block',
         //   padding:'160px',
             zIndex:103

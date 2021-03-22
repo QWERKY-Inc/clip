@@ -6,6 +6,8 @@ import SentMessage from './SentMessage';
 import AlreadyMemberMessage from './AlreadyMemberMessage'
 import TermsOfServicePopUp from './TermsOfServicePopUp'
 import PrivacyPolicyPopUp from './PrivacyPolicyPopUp'
+import RegistrationSuccess from './RegistrationSuccess'
+import EmailAlreadyExists from './EmailAlreadyExists'
 import {TouchableOpacity,Text,View,Modal,Image,Linking,Dimensions,TextInput,StyleSheet} from 'react-native';
 import xIcon from '../assets/x.png';
 import eyeIcon from '../assets/eye-solid.svg'
@@ -38,6 +40,9 @@ function LogIn(props){
     const [membershipButtonDisabled,setMembershipButtonDisabled]=React.useState(true)
     const [privacyPolicyPopUpShow,setPrivacyPolicyPopUpShow]=React.useState(false)
     const [termsOfServicePopUpShow,setTermsOfServicePopUpShow]=React.useState(false)
+    const [showRegistrationSuccessScreen,setShowRegistrationSuccessScreen]=React.useState(false)
+    const [emailAlreadyExistsScreen,setEmailAlreadyExistsScreen]=React.useState(false)
+    const [showDuplicateEmailScreen,setShowDuplicateEmailScreen]=React.useState(false)
     const ref = useBlurOnFulfill({pincodeValue,cellCount:6})
     const [codeFileProps,getCellOnLayoutHandler]=useClearByFocusCell({
         pincodeValue,setPincodeValue
@@ -86,6 +91,26 @@ function LogIn(props){
             console.log(err)
         })
     }
+    const memberRegistrationFunction=(obj)=>{
+        fetch('/Member?'+queryString.stringify(obj)
+        )
+        .then(res=>res.json())
+        .then((incomingData)=>{
+            console.log(incomingData)
+            if(incomingData.result=="SUCCESS"){
+                setRegistrationScreen(0)
+                setShowRegistrationSuccessScreen(true)
+            }
+            else if (incomingData.message=="ALREADY_EMAIL"){
+                setEmailLogIn(true)
+                setRegistrationScreen(0)
+                setEmailAlreadyExistsScreen(true)
+            }
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+    }
     const checkExistMemberFunction=(obj)=>{
         // console.log(qStr)
         fetch('/CheckExistMember?'+queryString.stringify(obj)
@@ -126,6 +151,12 @@ function LogIn(props){
     const togglePrivacyPolicyPopUpShow=()=>{
         setPrivacyPolicyPopUpShow(!privacyPolicyPopUpShow)
     }
+    const toggleShowRegistrationSuccessScreen=()=>{
+        setShowRegistrationSuccessScreen(!showRegistrationSuccessScreen)
+    }
+    const toggleEmailAlreadyExistsScreen=()=>{
+        setEmailAlreadyExistsScreen(!emailAlreadyExistsScreen)
+    }
     const checkboxClicked=(e)=>{
         if(e.target.checked==true){
             setChecked(true)
@@ -153,29 +184,14 @@ function LogIn(props){
         },
       });
     useEffect(()=>{
-        // if(props.userName!=''){
-        //     if(props.userEmail!=''){
-        //         if(props.userCompanyName!=''){
-        //             if(props.userCompanyWebSite!=''){
-        //                 if(props.password!=''){
-        //                     if(props.passwordCheck!=''){
-        //                         if(checked==true){
-        //                             setMembershipButtonDisabled(false)
-        //                         }
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
         if(
-        props.userName!='' && 
-        props.userEmail!='' && 
-        props.userCompanyName!='' && 
-        props.userCompanyWebSite!='' &&
-        props.password!='' &&
-        props.passwordCheck!='' &&
-        checked==true
+            props.userName!='' && 
+            props.userEmail!='' && 
+            props.userCompanyName!='' && 
+            props.userCompanyWebSite!='' &&
+            props.password!='' &&
+            props.passwordCheck!='' &&
+            checked==true
         ){
             setMembershipButtonDisabled(false)
         }
@@ -406,6 +422,7 @@ function LogIn(props){
                             }}
                             placeholder="'-' 없이 입력"
                             value={props.userPhoneNumber}
+                            
                         ></TextInput>
                     </div>
                     <div
@@ -482,6 +499,7 @@ function LogIn(props){
                 >
                 <AlreadyMemberMessage toggleAlreadyMemberMessageShow={toggleAlreadyMemberMessageShow} />
                 </div>
+                
                 <div
                 style={{
                 position:'fixed',
@@ -1836,8 +1854,19 @@ function LogIn(props){
                                 //         setRegistrationScreen(3)
                                 //     }
                                 // }
-                                
-                                
+                                var memberObj =
+                                {
+                                    mem_name:props.userName,
+                                    mem_email:props.userEmail,
+                                    mem_mobile:props.userPhoneNumber,
+                                    mem_jointype:'MOBILE',
+                                    mem_level:'NORMAL',
+                                    mem_password:props.password,
+                                    mem_company_name:props.userCompanyName,
+                                    mem_company_url:props.userCompanyWebSite,
+                                }
+                                memberRegistrationFunction(memberObj)
+                                // setRegistrationScreen(1)
                             }}
                         >
                             <Text
@@ -1875,6 +1904,20 @@ function LogIn(props){
               }}
             >
               <SentMessage toggleSentMessageShow={toggleSentMessageShow} />
+            </div>
+            <div
+                style={{
+                    display: showRegistrationSuccessScreen ? 'block':'none' 
+                }}
+            >
+                <RegistrationSuccess toggleShowRegistrationSuccessScreen={toggleShowRegistrationSuccessScreen} />
+            </div>
+            <div
+                style={{
+                    display: emailAlreadyExistsScreen ? 'block':'none' 
+                }}
+            >
+                <EmailAlreadyExists toggleEmailAlreadyExistsScreen={toggleEmailAlreadyExistsScreen} />
             </div>
             <div
             style={{

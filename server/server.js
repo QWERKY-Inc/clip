@@ -228,6 +228,22 @@ app.get('/login',(req,res)=>{
     })
 })
 
+app.get('/Member',(req,res)=>{
+    console.log(req.query)
+    fetch('http://clip.partners/api/mobile/Member',{
+        method: 'post',
+        headers: {'Content-Type':'application/x-www-form-urlencoded'},
+        body:queryString.stringify(req.query)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        res.json(data);
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
+
 app.get('/ScrapClipboard',(req,res)=>{
     fetch('http://clip.partners/api/mobile/ScrapClipboard',{
         method: 'post',
