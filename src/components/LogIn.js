@@ -116,7 +116,7 @@ function LogIn(props){
         )
         .then(res=>res.json())
         .then((incomingData)=>{
-            console.log(incomingData)
+            // console.log(incomingData)
             setPincodeAnswer(incomingData.message)
         })
         .catch(err=>{
