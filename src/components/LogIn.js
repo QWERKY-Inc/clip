@@ -117,7 +117,8 @@ function LogIn(props){
         .then(res=>res.json())
         .then((incomingData)=>{
             // console.log(incomingData)
-            setPincodeAnswer(incomingData.message)
+            //setPincodeAnswer(incomingData.message)
+            props.setPincodeAnswer(incomingData.message)
         })
         .catch(err=>{
             console.log(err)
@@ -130,12 +131,18 @@ function LogIn(props){
         .then((incomingData)=>{
             console.log(incomingData)
             if(incomingData.result=="SUCCESS"){
-                setRegistrationScreen(0)
+                //setRegistrationScreen(0)
+                props.setRegistrationScreen(0)
+                props.setJoinType('MOBILE')
+                props.setSNSID(null)
                 setShowRegistrationSuccessScreen(true)
             }
             else if (incomingData.message=="ALREADY_EMAIL"){
                 setEmailLogIn(true)
-                setRegistrationScreen(0)
+                //setRegistrationScreen(0)
+                props.setRegistrationScreen(0)
+                props.setJoinType('MOBILE')
+                props.setSNSID(null)
                 setEmailAlreadyExistsScreen(true)
             }
         })
@@ -763,8 +770,10 @@ function LogIn(props){
             </div>
         )
     }
-    else if(registrationScreen!=0){
-        if(registrationScreen==1){
+    // else if(registrationScreen!=0){
+    //     if(registrationScreen==1){
+    else if(props.registrationScreen!=0){
+        if(props.registrationScreen==1){
             return(
                 <div>
                 <div
@@ -853,7 +862,10 @@ function LogIn(props){
                         onPress={()=>{
                             //console.log('close project list')
                             setFindPassWord(false)
-                            setRegistrationScreen(0)
+                            // setRegistrationScreen(0)
+                            props.setRegistrationScreen(0)
+                            props.setJoinType('MOBILE')
+                            props.setSNSID(null)
                         }}
                     >
                         <View
@@ -1004,7 +1016,10 @@ function LogIn(props){
                                         marginLeft:'5px',
                                     }}
                                     onPress={()=>{
-                                        setRegistrationScreen(0)
+                                        // setRegistrationScreen(0)
+                                        props.setRegistrationScreen(0)
+                                        props.setJoinType('MOBILE')
+                                        props.setSNSID(null)
                                     }}
                                 >
                                     로그인
@@ -1042,7 +1057,8 @@ function LogIn(props){
                                         sendPincodeFunction({
                                             mem_mobile:props.userPhoneNumber
                                         })
-                                        setRegistrationScreen(2)
+                                        //setRegistrationScreen(2)
+                                        props.setRegistrationScreen(2)
                                     }
                                     else{
                                         console.log("Already a member")
@@ -1081,7 +1097,8 @@ function LogIn(props){
                 </div>
             )
         }
-        else if(registrationScreen==2){
+        // else if(registrationScreen==2){
+        else if(props.registrationScreen==2){
             return(
                 <div>
                     <div
@@ -1164,7 +1181,10 @@ function LogIn(props){
                         onPress={()=>{
                             //console.log('close project list')
                             setFindPassWord(false)
-                            setRegistrationScreen(0)
+                            //setRegistrationScreen(0)
+                            props.setRegistrationScreen(0)
+                            props.setJoinType('MOBILE')
+                            props.setSNSID(null)
                         }}
                     >
                         <View
@@ -1351,7 +1371,8 @@ function LogIn(props){
                                         marginLeft:'5px',
                                     }}
                                     onPress={()=>{
-                                        setRegistrationScreen(1)
+                                        //setRegistrationScreen(1)
+                                        props.setRegistrationScreen(1)
                                     }}
                                 >
                                     다시 받아보기
@@ -1390,12 +1411,15 @@ function LogIn(props){
                                 // })
                                 console.log("'"+pincodeValue.toString()+"'")
                                 // console.log(pincodeAnswer)
-                                var temp = pincodeAnswer.slice()
+                                // var temp = pincodeAnswer.slice()
+                                var temp = props.pincodeAnswer.slice()
                                 if(pincodeValue.toString()!=''){
                                     //console.log('in')
-                                    if("'"+pincodeValue.toString()+"'"==pincodeAnswer){
+                                    //if("'"+pincodeValue.toString()+"'"==pincodeAnswer){
+                                    if("'"+pincodeValue.toString()+"'"==props.pincodeAnswer){
                                         //console.log('next')
-                                        setRegistrationScreen(3)
+                                        // setRegistrationScreen(3)
+                                        props.setRegistrationScreen(3)
                                     }
                                     else{
                                         setWrongPinCodeShow(true)
@@ -1422,7 +1446,8 @@ function LogIn(props){
                 </div>
             )
         }
-        else if (registrationScreen==3){
+        //else if (registrationScreen==3){
+        else if (props.registrationScreen==3){
             return(
                 <div>
                 <div
@@ -1503,7 +1528,10 @@ function LogIn(props){
                         onPress={()=>{
                             //console.log('close project list')
                             setFindPassWord(false)
-                            setRegistrationScreen(0)
+                            // setRegistrationScreen(0)
+                            props.setRegistrationScreen(0)
+                            props.setJoinType('MOBILE')
+                            props.setSNSID(null)
                         }}
                     >
                         <View
@@ -2148,12 +2176,18 @@ function LogIn(props){
                                     mem_name:props.userName,
                                     mem_email:props.userEmail,
                                     mem_mobile:props.userPhoneNumber,
-                                    mem_jointype:'MOBILE',
+                                    // mem_jointype:'MOBILE',
+                                    mem_jointype:props.joinType,
                                     mem_level:'NORMAL',
                                     mem_password:props.password,
                                     mem_company_name:props.userCompanyName,
                                     mem_company_url:props.userCompanyWebSite,
+                                    mem_snsid:props.SNSID
                                 }
+                                if(props.SNSID==null){
+                                   delete memberObj.mem_snsid
+                                }
+                                
                                 memberRegistrationFunction(memberObj)
                                 // setRegistrationScreen(1)
                             }}
@@ -2547,7 +2581,11 @@ function LogIn(props){
                         </Text>
                     </TouchableOpacity> */}
                     <TouchableOpacity>
-                        <KakaoAuth logInFunction={props.logInFunction}/>
+                        <KakaoAuth 
+                            logInFunction={props.logInFunction}
+                            setUserEmail={props.setUserEmail}
+                            setSNSID={props.setSNSID}
+                        />
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={{
@@ -2589,7 +2627,9 @@ function LogIn(props){
                         }}
                         onPress={()=>{
                             console.log('registration 1')
-                            setRegistrationScreen(1)
+                            
+                            // setRegistrationScreen(1)
+                            props.setRegistrationScreen(1)
                         }}
                     >
                         <Text

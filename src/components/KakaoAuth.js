@@ -12,7 +12,8 @@ const KakaoAuth = (props) => {
   const responseKaKao = (res) => {
     // setProfile({data: res});
     // const data = res;
-
+    props.setUserEmail(res.profile.kakao_account.email)
+    props.setSNSID(res.profile.id)
     const loginBody = {
       mem_jointype: "KAKAO",
       mem_email: res.profile.kakao_account.email,

@@ -48,7 +48,10 @@ const Navbar=() => {
   const [userCompanyName,setUserCompanyName]=React.useState('')
   const [userCompanyWebSite,setUserCompanyWebSite]=React.useState('')
   const [passwordCheck,setPasswordCheck]=React.useState('')
-
+  const [registrationScreen,setRegistrationScreen]=React.useState(0)
+  const [pincodeAnswer,setPincodeAnswer]=React.useState('')
+  const [joinType,setJoinType]=React.useState('MOBILE')
+  const [SNSID,setSNSID]=React.useState(null)
   const handleScroll=() => {
     const offset=window.scrollY;
     if(offset > 200 ){
@@ -161,10 +164,25 @@ const Navbar=() => {
         setLoggedOn(true)
         setEntryCorrect(true)
       }
-      else{
-        setWrongLogInShow(true)
+      else if(incomingData.result=='NEED_JOIN'){ 
+        console.log("jointype:"+obj.mem_jointype)
+        console.log("SNSID"+obj.mem_snsid)
+        setSNSID(obj.mem_snsid)
+        setJoinType(obj.mem_jointype)
         setLoggedOn(false)
-        setEntryCorrect(false)
+        setRegistrationScreen(1)
+        console.log('how do i direct users to join using kakao page')
+      }
+      else{
+        if(incomingData.message="JOIN_KAKAO"){
+          console.log('gotta show log in using kakao popup')
+        }
+        else{
+          setWrongLogInShow(true)
+          setLoggedOn(false)
+          setEntryCorrect(false)
+        }
+        
       }
       // console.log(loggedOn)
     })
@@ -1149,7 +1167,6 @@ const Navbar=() => {
                       password={password} 
                       setUserEmail={setUserEmail} 
                       userEmail={userEmail}
-
                       setUserName={setUserName}
                       userName={userName}
                       userCompanyName={userCompanyName}
@@ -1158,6 +1175,14 @@ const Navbar=() => {
                       setUserCompanyWebSite={setUserCompanyWebSite}
                       passwordCheck={passwordCheck}
                       setPasswordCheck={setPasswordCheck}
+                      setRegistrationScreen={setRegistrationScreen}
+                      registrationScreen={registrationScreen}
+                      pincodeAnswer={pincodeAnswer}
+                      setPincodeAnswer={setPincodeAnswer}
+                      setSNSID={setSNSID}
+                      SNSID={SNSID}
+                      setJoinType={setJoinType}
+                      joinType={joinType}
                       />
                 </div>
                 <div
@@ -1543,6 +1568,14 @@ const Navbar=() => {
                       setUserCompanyWebSite={setUserCompanyWebSite}
                       passwordCheck={passwordCheck}
                       setPasswordCheck={setPasswordCheck}
+                      setRegistrationScreen={setRegistrationScreen}
+                      registrationScreen={registrationScreen}
+                      pincodeAnswer={pincodeAnswer}
+                      setPincodeAnswer={setPincodeAnswer}
+                      setSNSID={setSNSID}
+                      SNSID={SNSID}
+                      setJoinType={setJoinType}
+                      joinType={joinType}
                       />
           </div>
         <div className="headerContainer">
@@ -1737,6 +1770,14 @@ const Navbar=() => {
                       setUserCompanyWebSite={setUserCompanyWebSite}
                       passwordCheck={passwordCheck}
                       setPasswordCheck={setPasswordCheck}
+                      setRegistrationScreen={setRegistrationScreen}
+                      registrationScreen={registrationScreen}
+                      pincodeAnswer={pincodeAnswer}
+                      setPincodeAnswer={setPincodeAnswer}
+                      setSNSID={setSNSID}
+                      SNSID={SNSID}
+                      setJoinType={setJoinType}
+                      joinType={joinType}
                       />
               </div>
             <div className="headerContainer">
@@ -1926,6 +1967,14 @@ const Navbar=() => {
                       setUserCompanyWebSite={setUserCompanyWebSite}
                       passwordCheck={passwordCheck}
                       setPasswordCheck={setPasswordCheck}
+                      setRegistrationScreen={setRegistrationScreen}
+                      registrationScreen={registrationScreen}
+                      pincodeAnswer={pincodeAnswer}
+                      setPincodeAnswer={setPincodeAnswer}
+                      setSNSID={setSNSID}
+                      SNSID={SNSID}
+                      setJoinType={setJoinType}
+                      joinType={joinType}
                       />
                 </div>
                 <div
@@ -2313,6 +2362,14 @@ const Navbar=() => {
                       setUserCompanyWebSite={setUserCompanyWebSite}
                       passwordCheck={passwordCheck}
                       setPasswordCheck={setPasswordCheck}
+                      setRegistrationScreen={setRegistrationScreen}
+                      registrationScreen={registrationScreen}
+                      pincodeAnswer={pincodeAnswer}
+                      setPincodeAnswer={setPincodeAnswer}
+                      setSNSID={setSNSID}
+                      SNSID={SNSID}
+                      setJoinType={setJoinType}
+                      joinType={joinType}
                       />
          </div>
         <div className="headerContainer">
@@ -2507,6 +2564,14 @@ const Navbar=() => {
                       setUserCompanyWebSite={setUserCompanyWebSite}
                       passwordCheck={passwordCheck}
                       setPasswordCheck={setPasswordCheck}
+                      setRegistrationScreen={setRegistrationScreen}
+                      registrationScreen={registrationScreen}
+                      pincodeAnswer={pincodeAnswer}
+                      setPincodeAnswer={setPincodeAnswer}
+                      setSNSID={setSNSID}
+                      SNSID={SNSID}
+                      setJoinType={setJoinType}
+                      joinType={joinType}
                       />
                 </div>
             <div className="headerContainer">
