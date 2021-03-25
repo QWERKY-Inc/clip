@@ -111,6 +111,7 @@ const IntroImage=() => {
 	// )
 	if(data!=undefined){
 		// console.log(data)
+		if(width>650){
 		return (
 			<div className="introImageContainer"
 				style={{
@@ -271,6 +272,169 @@ const IntroImage=() => {
 
 			</div>
 		)
+		}
+		else{
+			return (
+				<div className="introImageContainer"
+					style={{
+						backgroundColor:'transparent',
+						// height:'300pt'
+						margin:0,
+						height:'auto'
+					}}
+				>
+					{/* {filler} */}
+					{/* {introImage} */}
+					<div className="introImage">
+				{/* <a
+					href="/brands"
+				> */}
+				<div id="introImageDiv"
+				style={{
+					backgroundColor:'transparent',
+					alignItems:'center',
+					justifyContent:'center'
+				}}
+				>
+					 {/* <img id="introImage" src={IntroImg} alt="Logo" title="Logo" >
+					</img> */}
+					<TouchableOpacity
+							style={{
+								// borderRadius:10,
+								// height:'65pt',
+								// width:"350px",
+								// backgroundColor:'white',
+								// boxShadow:'0px 0px 2px',
+								
+								//     fontSize: '25pt',
+								//     fontWeight:'700',
+								//     textDecorationLine:'none',
+								//     // color:'white',
+								//     // textShadowColor: 'rgba(0, 0, 0, 0.85)',
+								//     // textShadowOffset: {width: 0, height: 0},
+								//     // textShadowRadius: 2,
+								//     color:'black',
+									textAlign:'left',
+									alignItems:'center',
+									justifyContent:'center',
+									flexDirection:'row',
+								//     marginLeft:'auto',
+								//     marginRight:'auto',
+								//     marginTop:'25pt',
+								//     padding:'auto',
+								//     zIndex:2
+									// backgroundColor:'red'
+								
+							}}
+							onPress={() => {
+								// console.log(data[0].banner_detail)
+								Linking.openURL(`/brands?ct_id=${data[0].banner_detail}`)
+							}}
+						>
+					<View
+						style={{
+							backgroundColor:'transparent',
+							height:'300px',
+							width:width-30+'px',
+							marginBottom:'30px'
+						}}
+					>
+						<View
+							style={{
+								position:'absolute',
+								bottom:'15px',
+								left:'15px',
+								backgroundColor:'transparent',
+								zIndex:100,
+	
+							}}
+						>
+							<Text
+								style={{
+									color:'white',
+									fontSize:'20px',
+									fontWeight:700,
+									textShadow:'1px 1px black'
+								}}
+							>
+								{data[0].detail.brd_name_eng}
+							</Text>
+							<Text
+								style={{
+									color:'white',
+									fontSize:'18px',
+									fontWeight:700,
+									textShadow:'1px 1px black'
+								}}
+							>
+								{data[0].detail.brd_name_kor}
+							</Text>
+						</View>
+						<Image
+						  style={{
+						  display:'block',
+						  height:'300px',
+						  width:'auto',
+						  // borderTopLeftRadius:10,
+						  // borderTopRightRadius:10,
+						  borderRadius:'10px',
+						  zIndex:99,
+						//   pointerEvents:'none',
+						//   marginLeft:'auto',
+						//   marginRight:'auto'
+						  // transform:[{
+						  //     translateX:'0px',
+						  //     translateY:'0px'
+						  // }]
+						  }}
+						  source={{
+							  uri:
+								  data[0].detail.brd_feature_img_url
+						  }}
+	
+					  >
+				  </Image>
+					{/* <img id="introImage" 
+						src={data[0].detail.brd_feature_img_url} 
+						alt="banner" 
+						title="banner" 
+						style={{
+							height:'300px',
+							width:width-330+'px'
+						}}
+					>
+					</img> */}
+						
+					</View>
+					{/* <img id="introImage" 
+						src={data.listBanner[0].banner_img_url} 
+						alt="Logo" 
+						title="Logo" 
+						style={{
+							height:'300px',
+							width:'auto'
+						}}
+					>
+					</img> */}
+					{/* <img id="introImage" 
+						src={brandData.brd_feature_img_url} 
+						alt="Logo" 
+						title="Logo" 
+						style={{
+							height:'300px',
+							width:'auto'
+						}}
+					>
+					</img> */}
+					</TouchableOpacity>
+	
+				</div>
+				{/* </a> */}
+			</div>
+	
+				</div>
+			)
+		}
 	}
 	else{
 		return(
