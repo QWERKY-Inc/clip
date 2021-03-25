@@ -16,6 +16,7 @@ import UseDropDown from './UseDropDown'
 import LogOut from './LogOut'
 import LogIn from './LogIn'
 import WrongLogIn from './WrongLogIn'
+import AlreadyKakaoMember from './AlreadyKakaoMember'
 // import Popup from 'reactjs-popup';
 // import 'reactjs-popup/dist/index.css';
 // import {UserProvider,useUser} from './user-context'
@@ -52,6 +53,7 @@ const Navbar=() => {
   const [pincodeAnswer,setPincodeAnswer]=React.useState('')
   const [joinType,setJoinType]=React.useState('MOBILE')
   const [SNSID,setSNSID]=React.useState(null)
+  const [alreadyKakaoMemberShow,setAlreadyKakaoMemberShow]=React.useState()
   const handleScroll=() => {
     const offset=window.scrollY;
     if(offset > 200 ){
@@ -171,13 +173,14 @@ const Navbar=() => {
         setJoinType(obj.mem_jointype)
         setLoggedOn(false)
         setRegistrationScreen(1)
-        console.log('how do i direct users to join using kakao page')
+        // console.log('how do i direct users to join using kakao page')
       }
       else{
-        if(incomingData.message="JOIN_KAKAO"){
+        if(incomingData.message=="JOIN_KAKAO"){
+          setAlreadyKakaoMemberShow(true)
           console.log('gotta show log in using kakao popup')
         }
-        else{
+        else if(incomingData.message=="NO_EXIST_MEMBER"){
           setWrongLogInShow(true)
           setLoggedOn(false)
           setEntryCorrect(false)
@@ -275,6 +278,9 @@ const Navbar=() => {
   }
   const toggleWrongLogInShow=()=>{
     setWrongLogInShow(!logInShow)
+  }
+  const toggleAlreadyKakaoMemberShow=()=>{
+    setAlreadyKakaoMemberShow(!alreadyKakaoMemberShow)
   }
   const brandRenderRow=(brand,index,separators)=>{
     return(
@@ -1152,6 +1158,13 @@ const Navbar=() => {
                     <WrongLogIn toggleWrongLogInShow={toggleWrongLogInShow} />
                 </div>
                 <div
+                  style={{
+                    display:alreadyKakaoMemberShow ? 'block':'none'
+                  }}
+                >
+                   <AlreadyKakaoMember toggleAlreadyKakaoMemberShow={toggleAlreadyKakaoMemberShow}/>
+                </div>
+                <div
                     style={{
                         display: logInShow ? 'block':'none' 
                     }}
@@ -1545,6 +1558,13 @@ const Navbar=() => {
               <WrongLogIn toggleWrongLogInShow={toggleWrongLogInShow} />
           </div>
           <div
+            style={{
+              display:alreadyKakaoMemberShow ? 'block':'none'
+            }}
+          >
+              <AlreadyKakaoMember toggleAlreadyKakaoMemberShow={toggleAlreadyKakaoMemberShow}/>
+          </div>
+          <div
               style={{
                   display: logInShow ? 'block':'none' 
               }}
@@ -1745,6 +1765,13 @@ const Navbar=() => {
                 >
                     <WrongLogIn toggleWrongLogInShow={toggleWrongLogInShow} />
                 </div>
+                <div
+                  style={{
+                    display:alreadyKakaoMemberShow ? 'block':'none'
+                  }}
+                >
+                    <AlreadyKakaoMember toggleAlreadyKakaoMemberShow={toggleAlreadyKakaoMemberShow}/>
+                </div>
               <div
                   style={{
                       display: logInShow ? 'block':'none' 
@@ -1806,6 +1833,10 @@ const Navbar=() => {
                   }}
                   >
                     <img
+                      style={{
+                        height:47,
+                        width:47,
+                      }}
                       src={searchIcon}
                     >
                     </img>
@@ -1941,6 +1972,13 @@ const Navbar=() => {
                     }}
                 >
                     <WrongLogIn toggleWrongLogInShow={toggleWrongLogInShow} />
+                </div>
+                <div
+                  style={{
+                    display:alreadyKakaoMemberShow ? 'block':'none'
+                  }}
+                >
+                    <AlreadyKakaoMember toggleAlreadyKakaoMemberShow={toggleAlreadyKakaoMemberShow}/>
                 </div>
                 <div
                     style={{
@@ -2338,6 +2376,13 @@ const Navbar=() => {
               <WrongLogIn toggleWrongLogInShow={toggleWrongLogInShow} />
           </div>
           <div
+                  style={{
+                    display:alreadyKakaoMemberShow ? 'block':'none'
+                  }}
+                >
+                    <AlreadyKakaoMember toggleAlreadyKakaoMemberShow={toggleAlreadyKakaoMemberShow}/>
+                </div>
+          <div
               style={{
                   display: logInShow ? 'block':'none' 
               }}
@@ -2538,6 +2583,13 @@ const Navbar=() => {
                   }}
               >
                   <WrongLogIn toggleWrongLogInShow={toggleWrongLogInShow} />
+              </div>
+              <div
+                  style={{
+                    display:alreadyKakaoMemberShow ? 'block':'none'
+                  }}
+                >
+                  <AlreadyKakaoMember toggleAlreadyKakaoMemberShow={toggleAlreadyKakaoMemberShow}/>
               </div>
               <div
                     style={{

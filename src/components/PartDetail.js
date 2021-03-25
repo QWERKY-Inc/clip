@@ -350,9 +350,16 @@ function PartDetail(props){
                                     height:'24px',
                                     width:'100%',
                                     backgroundColor:'transparent',
-                                    marginBottom:'10px'                                }}
+                                    marginBottom:'10px'                                
+                                }}
                                     
                                 >
+                                    <TouchableOpacity
+                                        onPress={()=>{
+                                            Linking.openURL('/brands?ct_id='+materialData.brd_no)
+                                        }}
+                                    
+                                    >
                                     <Image
                                     style={{
                                         height:'24px',
@@ -365,6 +372,7 @@ function PartDetail(props){
                                             materialData.brd_logo_img_url
                                     }} 
                                 ></Image>
+                                </TouchableOpacity>
 
                                     <div
                                     style={{
@@ -644,341 +652,350 @@ function PartDetail(props){
                                 fontSize: '15px',
                                 fontWeight:'700',
                                 marginTop:'25px',
-                                marginBottom:'15px'
+                                marginBottom:'30px'
                             }}
                         >
                             {materialData.brd_name_kor}&nbsp;다른 제품보기 
                         </Text>
-
-                        <View
+                        <div
                             style={{
-                                flexwrap:'wrap',
-                                justifyContent:'space-between',
-                                display: 'grid',
-                                gridTemplateColumns: 'auto auto auto auto auto',
+                                backgroundColor:'transparent',
+                                overflowX:'scroll'
+                                
                             }}
                         >
-                        {materialData.samebrand_list.map((material,index)=>
-                
-                
-                <View
-                  style={{
-                    backgroundColor:'transparent',
-                    height:'240px',
-                    width:'170px',
-                    // marginLeft:'auto',
-                    // marginRight:'auto',
-                    marginTop:'20px',
-                    borderRadius:10,
-                    boxShadow:'0px 0px 3px black'
-                  }}
-                  onMouseEnter={()=>{
-                    console.log(materialData.samebrand_list[index])
-                    // var mem_no=JSON.parse(localStorage.login).message.split('_')
-                    // console.log(mem_no)
-                    setHoverOne(index)
-                    // console.log(brandData)
-                  }
-                  }
-                  onMouseLeave={()=>{
-                      setHoverOne(null)
-                      console.log('exited '+index)
-                  }} 
-                >
-                <div
-                      style={{
-                          backgroundColor:'white',
-                          width:'55px',
-                          height:'12px',
-                          position:'absolute',
-                          zIndex:100,
-                          top:'6px',
-                          left:'6px',
-                          borderRadius:'6px',
-                          display:hoverOne==index ? 'block':'none'
-                      }}
-                      onPress={()=>{  
-                          console.log('pressed clip ')
-                      }}
-                  >
-                      <Text
-                          style={{
-                              transform:'translate(2px,-2px)',
-                              position:'absolute',
-                              top:'1px',
-                              left:'2px',
-                              fontWeight:50,
-                              fontSize:'12px',
-                              color:materialData.samebrand_list[index].mt_budget<1 ? 'rgb(219,219,219)':'black' 
-                          }}
-                      >₩</Text>
-                     <Text
-                          style={{
-                              transform:'translate(2px,-2px)',
-                              position:'absolute',
-                              top:'1px',
-                              left:'12px',
-                              fontWeight:50,
-                              fontSize:'12px',
-                              color:materialData.samebrand_list[index].mt_budget<2 ? 'rgb(219,219,219)':'black'
-                          }}
-                      >₩</Text>
-                      <Text
-                          style={{
-                              transform:'translate(2px,-2px)',
-                              position:'absolute',
-                              top:'1px',
-                              left:'22px',
-                              fontWeight:50,
-                              fontSize:'12px',
-                              color:materialData.samebrand_list[index].mt_budget<3 ? 'rgb(219,219,219)':'black'
-                          }}
-                      >₩</Text>
-                      <Text
-                          style={{
-                              transform:'translate(2px,-2px)',
-                              position:'absolute',
-                              top:'1px',
-                              left:'32px',
-                              fontWeight:50,
-                              fontSize:'12px',
-                              color:materialData.samebrand_list[index].mt_budget<4 ? 'rgb(219,219,219)':'black'
-                          }}
-                      >₩</Text>
-                      <Text
-                          style={{
-                              transform:'translate(2px,-2px)',
-                              position:'absolute',
-                              top:'1px',
-                              left:'42px',
-                              fontWeight:50,
-                              fontSize:'12px',
-                              color:materialData.samebrand_list[index].mt_budget<5 ? 'rgb(219,219,219)':'black'
-                          }}
-                      >₩</Text>
-                  </div>
-                  <TouchableOpacity
-                      style={{
-                          backgroundColor:'transparent',
-                          width:'20px',
-                          height:'20px',
-                          position:'absolute',
-                          zIndex:100,
-                          top:'6px',
-                          right:'6px',
-                          display:hoverOne==index ? 'block':'none'
-                      }}
-                      onPress={()=>{  
-                          setMaterialNumber(materialData.samebrand_list[index].mt_no)
-                          toggleClipBoardOne()
-                        //   console.log('pressed clip ' + brandData.bestproducts_brand[index].mt_no)
-                      }}
-                  >   
-                      <Image
+                            <View
                                 style={{
-                                display:'block',
-                                height:'20px',
-                                width:'20px',
-                                borderTopLeftRadius:10,
-                                borderTopRightRadius:10,
-                                zIndex:1,
-                                pointerEvents:'none',
-                                // display:materialData.samebrand_list[index].is_clipped==false ? 'block':'none'
-                                // transform:[{
-                                //     translateX:'0px',
-                                //     translateY:'0px'
-                                // }]
-                                }}
-                                source={clipOff}
-
-                                >
-                                
-                            </Image>
-                            {/* <Image
-                                style={{
-                                display:'block',
-                                height:'20px',
-                                width:'20px',
-                                borderTopLeftRadius:10,
-                                borderTopRightRadius:10,
-                                zIndex:1,
-                                pointerEvents:'none',
-                                display:materialData.samebrand_list[index].is_clipped==true ? 'block':'none'
-                                // transform:[{
-                                //     translateX:'0px',
-                                //     translateY:'0px'
-                                // }]
-                                }}
-                                source={clipOn}
-
-                                >
-                                
-                            </Image> */}
-                  </TouchableOpacity>
-                  <TouchableOpacity
-                    onPress={()=>{
-                        console.log(materialData.samebrand_list[index].mt_no)
-                        Linking.openURL('/partDetail?mt_no='+materialData.samebrand_list[index].mt_no)
-                    }}
-                  >
-                  <Image
-                    style={{
-                    display:'block',
-                    height:'170px',
-                    width:'170px',
-                    borderTopLeftRadius:10,
-                    borderTopRightRadius:10,
-                    zIndex:1,
-                    pointerEvents:'none',
-                    filter:hoverOne==index ? 'brightness(90%)':'brightness(100%)'
-                    // transform:[{
-                    //     translateX:'0px',
-                    //     translateY:'0px'
-                    // }]
-                    }}
-                    source={{
-                        uri:
-                            material.mt_feature_img_url
-                    }}
-
-                  >
-                  </Image>
-                  <View
-                    style ={{
-                      height:'70px',
-                      width:'170px',
-                      fontSize: '12pt',
-                      fontWeight:'500',
-                      textDecorationLine:'none',
-                      color:'white',
-                      textAlign:'center',
-                      flexDirection:'column',
-                      pointerEvents:'none',
-                      backgroundColor:'white',
-                      pointerEvents:'none',
-                      borderBottomLeftRadius:10,
-                      borderBottomRightRadius:10,
-                      padding:'10px'
-                    }}
-                  >
-                    <TouchableOpacity
-                        style={{
-                            zIndex:100,
-                            backgroundColor:'transparent',
-                            position:'absolute',
-                            top:'7px',
-                            right:'7px',
-                            height:'30px',
-                            width:'30px',
-                            display:materialData.samebrand_list[index].mt_isdelivery=="Y"?"block":"none"
-                        }}
-                        onPress={()=>{
-                            console.log(materialData.samebrand_list[index].mt_isdelivery)
-                        }}
-                    >
-                        <View
-                        style={{
-                            backgroundColor:'transparent',
-                            display:'flex',
-                            height:'30px',
-                            width:'30px',
-                            // position:'absolute',
-                            // top:'7px',
-                            // right:'15px'
-                        }}
-                        >
-        
-                            <img
-                                src={boxIcon}
-                                style={{
-                                    //display: categoryOpened? 'none': 'block',
-                                    width:'30px',
-                                    height:'30px',
-                                    right:'15px'
+                                    flexwrap:'wrap',
+                                    justifyContent:'space-between',
+                                    // display: 'grid',
+                                    // gridTemplateColumns: 'auto auto auto auto auto',
+                                    flexDirection:'row'
                                 }}
                             >
-                            </img>
-                        
-                        </View>
-                    </TouchableOpacity>
-                    <Text
-                      style ={{
-                          // height:'65pt',
-                          // width:'250px',
-                          fontSize: '8pt',
-                          fontWeight:'700',
-                          textDecorationLine:'none',
-                          color:'black',
-                          textAlign:'left',
-                          //alignItems:'center',
-                          //justifyContent:'center',
-                          //flexDirection:'row',
-                          //marginTop:'45pt',
-                          pointerEvents:'none',
-                          backgroundColor:'transparent',
-                          pointerEvents:'none',
-                          
-                      }}
-                  >
-                      {material.vd_name}
-                  </Text>
-                    <Text
-                          style ={{
-                              height:'100px',
-                              width:'120px',
-                              fontSize: '8pt',
-                              fontWeight:'500',
-                              textDecorationLine:'none',
-                              color:'black',
-                              textAlign:'left',
-                              alignItems:'center',
-                              justifyContent:'center',
-                              flexDirection:'row',
-                              // marginLeft:'1px',
-                              // marginTop:'1px',
-                              pointerEvents:'none',
-                              backgroundColor:'transparent',
-                              pointerEvents:'none',
-                              
-                              
-                          }}
-                      >
-                      {material.mt_subname}
-                      
-                    </Text>
-                    <Text
-                      style ={{
-                          height:'100px',
-                          width:'120px',
-                          fontSize: '8pt',
-                          fontWeight:'500',
-                          textDecorationLine:'none',
-                          color:'rgb(85,85,85)',
-                          textAlign:'left',
-                          alignItems:'center',
-                          justifyContent:'center',
-                          flexDirection:'row',
-                          // marginLeft:'1px',
-                          // marginTop:'1px',
-                          pointerEvents:'none',
-                          backgroundColor:'transparent',
-                          pointerEvents:'none',
-                          whiteSpace:'nowrap',
-                          textOverflow: 'ellipsis',
-                          overflow:'hidden'
-                      }}
-                  >
-                  {material.mt_name}
-                  
-              </Text>
+                            {materialData.samebrand_list.map((material,index)=>
                     
-          </View>
-          </TouchableOpacity>
-        </View>
-      
+                    
+                    <View
+                    style={{
+                        backgroundColor:'transparent',
+                        height:'240px',
+                        width:'170px',
+                        marginLeft:'7px',
+                        marginRight:'7px',
+                        marginTop:'20px',
+                        marginBottom:'20px',
+                        borderRadius:10,
+                        boxShadow:'0px 0px 3px black'
+                    }}
+                    onMouseEnter={()=>{
+                        console.log(materialData.samebrand_list[index])
+                        // var mem_no=JSON.parse(localStorage.login).message.split('_')
+                        // console.log(mem_no)
+                        setHoverOne(index)
+                        // console.log(brandData)
+                    }
+                    }
+                    onMouseLeave={()=>{
+                        setHoverOne(null)
+                        console.log('exited '+index)
+                    }} 
+                    >
+                    <div
+                        style={{
+                            backgroundColor:'white',
+                            width:'55px',
+                            height:'12px',
+                            position:'absolute',
+                            zIndex:100,
+                            top:'6px',
+                            left:'6px',
+                            borderRadius:'6px',
+                            display:hoverOne==index ? 'block':'none'
+                        }}
+                        onPress={()=>{  
+                            console.log('pressed clip ')
+                        }}
+                    >
+                        <Text
+                            style={{
+                                transform:'translate(2px,-2px)',
+                                position:'absolute',
+                                top:'1px',
+                                left:'2px',
+                                fontWeight:50,
+                                fontSize:'12px',
+                                color:materialData.samebrand_list[index].mt_budget<1 ? 'rgb(219,219,219)':'black' 
+                            }}
+                        >₩</Text>
+                        <Text
+                            style={{
+                                transform:'translate(2px,-2px)',
+                                position:'absolute',
+                                top:'1px',
+                                left:'12px',
+                                fontWeight:50,
+                                fontSize:'12px',
+                                color:materialData.samebrand_list[index].mt_budget<2 ? 'rgb(219,219,219)':'black'
+                            }}
+                        >₩</Text>
+                        <Text
+                            style={{
+                                transform:'translate(2px,-2px)',
+                                position:'absolute',
+                                top:'1px',
+                                left:'22px',
+                                fontWeight:50,
+                                fontSize:'12px',
+                                color:materialData.samebrand_list[index].mt_budget<3 ? 'rgb(219,219,219)':'black'
+                            }}
+                        >₩</Text>
+                        <Text
+                            style={{
+                                transform:'translate(2px,-2px)',
+                                position:'absolute',
+                                top:'1px',
+                                left:'32px',
+                                fontWeight:50,
+                                fontSize:'12px',
+                                color:materialData.samebrand_list[index].mt_budget<4 ? 'rgb(219,219,219)':'black'
+                            }}
+                        >₩</Text>
+                        <Text
+                            style={{
+                                transform:'translate(2px,-2px)',
+                                position:'absolute',
+                                top:'1px',
+                                left:'42px',
+                                fontWeight:50,
+                                fontSize:'12px',
+                                color:materialData.samebrand_list[index].mt_budget<5 ? 'rgb(219,219,219)':'black'
+                            }}
+                        >₩</Text>
+                    </div>
+                    <TouchableOpacity
+                        style={{
+                            backgroundColor:'transparent',
+                            width:'20px',
+                            height:'20px',
+                            position:'absolute',
+                            zIndex:100,
+                            top:'6px',
+                            right:'6px',
+                            display:hoverOne==index ? 'block':'none'
+                        }}
+                        onPress={()=>{  
+                            setMaterialNumber(materialData.samebrand_list[index].mt_no)
+                            toggleClipBoardOne()
+                            //   console.log('pressed clip ' + brandData.bestproducts_brand[index].mt_no)
+                        }}
+                    >   
+                        <Image
+                                    style={{
+                                    display:'block',
+                                    height:'20px',
+                                    width:'20px',
+                                    borderTopLeftRadius:10,
+                                    borderTopRightRadius:10,
+                                    zIndex:1,
+                                    pointerEvents:'none',
+                                    // display:materialData.samebrand_list[index].is_clipped==false ? 'block':'none'
+                                    // transform:[{
+                                    //     translateX:'0px',
+                                    //     translateY:'0px'
+                                    // }]
+                                    }}
+                                    source={clipOff}
+
+                                    >
+                                    
+                                </Image>
+                                {/* <Image
+                                    style={{
+                                    display:'block',
+                                    height:'20px',
+                                    width:'20px',
+                                    borderTopLeftRadius:10,
+                                    borderTopRightRadius:10,
+                                    zIndex:1,
+                                    pointerEvents:'none',
+                                    display:materialData.samebrand_list[index].is_clipped==true ? 'block':'none'
+                                    // transform:[{
+                                    //     translateX:'0px',
+                                    //     translateY:'0px'
+                                    // }]
+                                    }}
+                                    source={clipOn}
+
+                                    >
+                                    
+                                </Image> */}
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={()=>{
+                            console.log(materialData.samebrand_list[index].mt_no)
+                            Linking.openURL('/partDetail?mt_no='+materialData.samebrand_list[index].mt_no)
+                        }}
+                    >
+                    <Image
+                        style={{
+                        display:'block',
+                        height:'170px',
+                        width:'170px',
+                        borderTopLeftRadius:10,
+                        borderTopRightRadius:10,
+                        zIndex:1,
+                        pointerEvents:'none',
+                        filter:hoverOne==index ? 'brightness(90%)':'brightness(100%)'
+                        // transform:[{
+                        //     translateX:'0px',
+                        //     translateY:'0px'
+                        // }]
+                        }}
+                        source={{
+                            uri:
+                                material.mt_feature_img_url
+                        }}
+
+                    >
+                    </Image>
+                    <View
+                        style ={{
+                        height:'70px',
+                        width:'170px',
+                        fontSize: '12pt',
+                        fontWeight:'500',
+                        textDecorationLine:'none',
+                        color:'white',
+                        textAlign:'center',
+                        flexDirection:'column',
+                        pointerEvents:'none',
+                        backgroundColor:'white',
+                        pointerEvents:'none',
+                        borderBottomLeftRadius:10,
+                        borderBottomRightRadius:10,
+                        padding:'10px'
+                        }}
+                    >
+                        <TouchableOpacity
+                            style={{
+                                zIndex:100,
+                                backgroundColor:'transparent',
+                                position:'absolute',
+                                top:'7px',
+                                right:'7px',
+                                height:'30px',
+                                width:'30px',
+                                display:materialData.samebrand_list[index].mt_isdelivery=="Y"?"block":"none"
+                            }}
+                            onPress={()=>{
+                                console.log(materialData.samebrand_list[index].mt_isdelivery)
+                            }}
+                        >
+                            <View
+                            style={{
+                                backgroundColor:'transparent',
+                                display:'flex',
+                                height:'30px',
+                                width:'30px',
+                                // position:'absolute',
+                                // top:'7px',
+                                // right:'15px'
+                            }}
+                            >
+            
+                                <img
+                                    src={boxIcon}
+                                    style={{
+                                        //display: categoryOpened? 'none': 'block',
+                                        width:'30px',
+                                        height:'30px',
+                                        right:'15px'
+                                    }}
+                                >
+                                </img>
+                            
+                            </View>
+                        </TouchableOpacity>
+                        <Text
+                        style ={{
+                            // height:'65pt',
+                            // width:'250px',
+                            fontSize: '8pt',
+                            fontWeight:'700',
+                            textDecorationLine:'none',
+                            color:'black',
+                            textAlign:'left',
+                            //alignItems:'center',
+                            //justifyContent:'center',
+                            //flexDirection:'row',
+                            //marginTop:'45pt',
+                            pointerEvents:'none',
+                            backgroundColor:'transparent',
+                            pointerEvents:'none',
+                            
+                        }}
+                    >
+                        {material.vd_name}
+                    </Text>
+                        <Text
+                            style ={{
+                                height:'100px',
+                                width:'120px',
+                                fontSize: '8pt',
+                                fontWeight:'500',
+                                textDecorationLine:'none',
+                                color:'black',
+                                textAlign:'left',
+                                alignItems:'center',
+                                justifyContent:'center',
+                                flexDirection:'row',
+                                // marginLeft:'1px',
+                                // marginTop:'1px',
+                                pointerEvents:'none',
+                                backgroundColor:'transparent',
+                                pointerEvents:'none',
+                                
+                                
+                            }}
+                        >
+                        {material.mt_subname}
+                        
+                        </Text>
+                        <Text
+                        style ={{
+                            height:'100px',
+                            width:'120px',
+                            fontSize: '8pt',
+                            fontWeight:'500',
+                            textDecorationLine:'none',
+                            color:'rgb(85,85,85)',
+                            textAlign:'left',
+                            alignItems:'center',
+                            justifyContent:'center',
+                            flexDirection:'row',
+                            // marginLeft:'1px',
+                            // marginTop:'1px',
+                            pointerEvents:'none',
+                            backgroundColor:'transparent',
+                            pointerEvents:'none',
+                            whiteSpace:'nowrap',
+                            textOverflow: 'ellipsis',
+                            overflow:'hidden'
+                        }}
+                    >
+                    {material.mt_name}
+                    
+                </Text>
+                        
+            </View>
+            </TouchableOpacity>
+            </View>
         
-          )}
-                        </View>
+            
+            )}
+                            </View>
+                        </div>
                         <Text
                             style={{
                                 fontSize: '15px',
@@ -989,12 +1006,28 @@ function PartDetail(props){
                         >
                             {materialData.mt_first_large_category}&nbsp;카테고리:유사상품
                         </Text>
+                        <div
+                            style={{
+                                backgroundColor:'transparent',
+                                overflowX:'scroll'
+                                
+                            }}
+                        >
                         <View
                             style={{
+                                // flexwrap:'wrap',
+                                // justifyContent:'space-between',
+                                // display: 'grid',
+                                // gridTemplateColumns: 'auto auto auto auto auto',
+                                // display:'flex',
+                                // flexDirectioin:'row',
+                                // backgroundColor:'red'
                                 flexwrap:'wrap',
                                 justifyContent:'space-between',
-                                display: 'grid',
-                                gridTemplateColumns: 'auto auto auto auto auto',
+                                // display: 'grid',
+                                // gridTemplateColumns: 'auto auto auto auto auto',
+                                flexDirection:'row'
+
                             }}
                         >
                         {materialData.samecategory_list.map((material,index)=>
@@ -1005,9 +1038,10 @@ function PartDetail(props){
                     backgroundColor:'transparent',
                     height:'240px',
                     width:'170px',
-                    // marginLeft:'auto',
-                    // marginRight:'auto',
+                    marginLeft:'7px',
+                    marginRight:'7px',
                     marginTop:'20px',
+                    marginBottom:'20px',
                     borderRadius:10,
                     boxShadow:'0px 0px 3px black'
                   }}
@@ -1320,6 +1354,7 @@ function PartDetail(props){
           )}
           
                         </View>
+                        </div>    
                             <div
                                 style={{
                                     backgroundColor:'transparent',
