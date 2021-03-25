@@ -567,21 +567,30 @@ function Brands(props) {
               </div>
               <div
                 style={{
-                  padding:'auto'
+                  // padding:'auto'
                 }}
               >
 
-            
+              <div
+                style={{
+                  overflowX:'scroll'
+                }}
+              >
                 <div
                   style={{
                     // columnCount:3,
-                    flexwrap:'wrap',
-                    justifyContent:'space-between',
-                    display: 'grid',
-                    gridTemplateColumns: 'auto auto auto auto auto',
+                    // flexwrap:'wrap',
+                    // justifyContent:'space-between',
+                    // display: 'grid',
+                    // gridTemplateColumns: 'auto auto auto auto auto',
                     marginLeft:'150px',
                     marginRight:'150px',
                     backgroundColor:'transparent',
+                    flexwrap:'wrap',
+                    justifyContent:'space-between',
+                    // display: 'grid',
+                    // gridTemplateColumns: 'auto auto auto auto auto',
+                    flexDirection:'row'
                     
                   }}
                 >
@@ -594,9 +603,10 @@ function Brands(props) {
                     backgroundColor:'transparent',
                     height:'240px',
                     width:'170px',
-                    // marginLeft:'auto',
-                    // marginRight:'auto',
+                    marginLeft:'7px',
+                    marginRight:'7px',
                     marginTop:'20px',
+                    marginBottom:'20px',
                     borderRadius:10,
                     boxShadow:'0px 0px 3px black'
                   }}
@@ -889,6 +899,7 @@ function Brands(props) {
           )}
             
             </div>
+              </div>
             </div>
             <div
                 style={{
@@ -1351,22 +1362,35 @@ function Brands(props) {
                 </div>
                 <div
                   style={{
-                    padding:'auto'
+                    paddingLeft:'150px',
+                    paddingRight:'150px',
+                    backgroundColor:'transparent'
                   }}
                 >
   
-              
+                <div
+                  style={{
+                    overflowX:'scroll'
+                  }}
+                >
                   <div
                     style={{
                       // columnCount:3,
-                      flexwrap:'wrap',
-                      justifyContent:'space-between',
-                      display: 'grid',
-                      gridTemplateColumns: 'auto auto auto auto auto',
-                      marginLeft:'150px',
-                      marginRight:'150px',
-                      backgroundColor:'transparent',
+                      // flexwrap:'wrap',
+                      // justifyContent:'space-between',
+                      // flexDirection:'row',
+                      // display: 'grid',
+                      // gridTemplateColumns: 'auto auto auto auto auto',
+                      // marginLeft:'150px',
+                      // marginRight:'150px',
+                      // backgroundColor:'transparent',
                       
+                      // flexwrap:'wrap',
+                      // justifyContent:'space-between',
+                      // display: 'grid',
+                      // gridTemplateColumns: 'auto auto auto auto auto',
+                      display:'flex',
+                      flexDirection:'row'
                     }}
                   >
                     
@@ -1378,9 +1402,10 @@ function Brands(props) {
                           backgroundColor:'transparent',
                           height:'240px',
                           width:'170px',
-                          // marginLeft:'auto',
-                          // marginRight:'auto',
+                          marginLeft:'7px',
+                          marginRight:'7px',
                           marginTop:'20px',
+                          marginBottom:'20px',
                           borderRadius:10,
                           boxShadow:'0px 0px 3px black'
                         }}
@@ -1671,6 +1696,7 @@ function Brands(props) {
               
                 )}
               
+              </div>
               </div>
               </div>
               <div
