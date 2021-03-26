@@ -180,8 +180,8 @@ const IntroImage=() => {
 					<View
 						style={{
 							position:'absolute',
-							bottom:'15px',
-							left:'15px',
+							bottom:'40px',
+							left:'40px',
 							backgroundColor:'transparent',
 							zIndex:100,
 
@@ -190,7 +190,7 @@ const IntroImage=() => {
 						<Text
 							style={{
 								color:'white',
-								fontSize:'20px',
+								fontSize:'30px',
 								fontWeight:700,
 								textShadow:'1px 1px black'
 							}}
@@ -200,7 +200,7 @@ const IntroImage=() => {
 						<Text
 							style={{
 								color:'white',
-								fontSize:'18px',
+								fontSize:'30px',
 								fontWeight:700,
 								textShadow:'1px 1px black'
 							}}
@@ -342,8 +342,8 @@ const IntroImage=() => {
 						<View
 							style={{
 								position:'absolute',
-								bottom:'15px',
-								left:'15px',
+								bottom:'40px',
+								left:'40px',
 								backgroundColor:'transparent',
 								zIndex:100,
 	
@@ -352,7 +352,7 @@ const IntroImage=() => {
 							<Text
 								style={{
 									color:'white',
-									fontSize:'20px',
+									fontSize:'30px',
 									fontWeight:700,
 									textShadow:'1px 1px black'
 								}}
@@ -362,7 +362,7 @@ const IntroImage=() => {
 							<Text
 								style={{
 									color:'white',
-									fontSize:'18px',
+									fontSize:'30px',
 									fontWeight:700,
 									textShadow:'1px 1px black'
 								}}

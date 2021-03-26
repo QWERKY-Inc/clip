@@ -502,7 +502,8 @@ function SearchPage(props) {
                         <Text
                             style={{
                                 lineHeight:'30px',
-                                color:mode=='material'?'white':'black'
+                                color:mode=='material'?'white':'black',
+                                fontSize:'18px'
                             }}
                         >
                             자재
@@ -526,7 +527,8 @@ function SearchPage(props) {
                         <Text
                             style={{
                                 lineHeight:'30px',
-                                color:mode=='moodboard'?'white':'black'
+                                color:mode=='moodboard'?'white':'black',
+                                fontSize:'18px'
                             }}
                         >
                             무드보드
@@ -557,11 +559,16 @@ function SearchPage(props) {
                                     setActivePage(1)
                                 }}
                                 style={{
-                                    width:'150px',
+                                    width:'157px',
                                     textAlign:'left'
                                 }}
                             >
-                                <Text>
+                                <Text
+                                    style={{
+                                        fontSize:'15px',
+                                        fontWeight:700
+                                    }}
+                                >
                                     모든 품목 보기  
                                 </Text>
                             </TouchableOpacity>
@@ -594,11 +601,16 @@ function SearchPage(props) {
                                     setActivePage(1)
                                 }}
                                 style={{
-                                    width:'150px',
+                                    width:'157px',
                                     textAlign:'left'
                                 }}
                             >
-                                <Text>
+                                <Text
+                                    style={{
+                                        fontSize:'15px',
+                                        fontWeight:700
+                                    }}
+                                >
                                     샘플 주문 가능한 품목
                                 </Text>
                             </TouchableOpacity>
@@ -633,11 +645,16 @@ function SearchPage(props) {
                                     setActivePage(1)
                                 }}
                                 style={{
-                                    width:'150px',
+                                    width:'157px',
                                     textAlign:'left'
                                 }}
                             >
-                                <Text>
+                                <Text
+                                    style={{
+                                        fontSize:'15px',
+                                        fontWeight:700
+                                    }}
+                                >
                                     클립 당일 묵음발송 품목
                                 </Text>
                             </TouchableOpacity>
@@ -1370,7 +1387,7 @@ function SearchPage(props) {
                         style={{
                             position:'absolute',
                             top:'150px',
-                            left:'265px',
+                            left:'350px',
                             backgroundColor:'transparent',
                             height:'100vh',
                             // width:`calc(100vw-265px)`,
@@ -1860,7 +1877,8 @@ function SearchPage(props) {
                             <Text
                                 style={{
                                     lineHeight:'30px',
-                                    color:mode=='material'?'white':'black'
+                                    color:mode=='material'?'white':'black',
+                                    fontSize:'18px'
                                 }}
                             >
                                 자재
@@ -1884,7 +1902,8 @@ function SearchPage(props) {
                             <Text
                                 style={{
                                     lineHeight:'30px',
-                                    color:mode=='moodboard'?'white':'black'
+                                    color:mode=='moodboard'?'white':'black',
+                                    fontSize:'18px'
                                 }}
                             >
                                 무드보드

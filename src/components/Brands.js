@@ -319,7 +319,7 @@ function Brands(props) {
                 >
                   <Text
                     style={{
-                      fontSize: '15px',
+                      fontSize: '20px',
                       fontWeight:'500',
                       textDecorationLine:'none',
                       // color:'white',
@@ -334,7 +334,8 @@ function Brands(props) {
                       // margin:11,
                       marginTop:'25px',
                       padding:'auto',
-                      pointerEvents:'none'
+                      pointerEvents:'none',
+                      lineHeight:28
                     }}
                   >
                     {brandData.brd_intro}
@@ -450,7 +451,7 @@ function Brands(props) {
                         </Text> */}
                         <Text
                           style={{
-                            fontSize:'21px'
+                            fontSize:'18px'
                           }}
                         >
                           자재 보기
@@ -1176,7 +1177,7 @@ function Brands(props) {
                   >
                     <Text
                       style={{
-                        fontSize: '18px',
+                        fontSize: '20px',
                         fontWeight:'500',
                         textDecorationLine:'none',
                         // color:'white',
@@ -1192,7 +1193,7 @@ function Brands(props) {
                         marginTop:'25px',
                         padding:'auto',
                         pointerEvents:'none',
-                        lineHeight:24
+                        lineHeight:28
                       }}
                     >
                       {brandData.brd_intro}
@@ -1290,7 +1291,7 @@ function Brands(props) {
 
                         <Text
                           style={{
-                            fontSize:'21px'
+                            fontSize:'18px'
                           }}
                         >
                           자재 보기

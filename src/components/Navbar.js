@@ -644,7 +644,8 @@ const Navbar=() => {
                                 boxSizing:'border-box',
                                 position:'fixed',
                                 top:20,
-                                right:280
+                                right:280,
+                                fontSize:'18px'
                             }}
                             value={inputValue} 
                             onChange={updateInputValue}
@@ -839,7 +840,8 @@ const Navbar=() => {
                                 boxSizing:'border-box',
                                 position:'fixed',
                                 top:20,
-                                right:280
+                                right:280,
+                                fontSize:'18px'
                             }}
                             value={inputValue} 
                             onChange={updateInputValue}
@@ -1424,7 +1426,8 @@ const Navbar=() => {
                                 boxSizing:'border-box',
                                 position:'fixed',
                                 top:20,
-                                right:280
+                                right:280,
+                                fontSize:'18px'
                             }}
                             value={inputValue} 
                             onChange={updateInputValue}
@@ -1632,7 +1635,8 @@ const Navbar=() => {
                                 boxSizing:'border-box',
                                 position:'fixed',
                                 top:20,
-                                right:280
+                                right:280,
+                                fontSize:'18px'
                             }}
                             value={inputValue} 
                             onChange={updateInputValue}
@@ -2241,7 +2245,8 @@ const Navbar=() => {
                                 boxSizing:'border-box',
                                 position:'fixed',
                                 top:20,
-                                right:280
+                                right:280,
+                                fontSize:"18px"
                             }}
                             value={inputValue} 
                             onChange={updateInputValue}
@@ -2451,7 +2456,8 @@ const Navbar=() => {
                                 boxSizing:'border-box',
                                 position:'fixed',
                                 top:20,
-                                right:280
+                                right:280,
+                                fontSize:'18px'
                             }}
                             value={inputValue} 
                             onChange={updateInputValue}

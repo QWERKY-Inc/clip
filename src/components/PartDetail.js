@@ -531,7 +531,7 @@ function PartDetail(props){
                             <View
                                 style={{
                                     position:'absolute',
-                                    bottom:0,
+                                    bottom:"5px",
                                     backgroundColor:'transparent',
                                     height:'40px',
                                     width:'100%',
@@ -548,8 +548,8 @@ function PartDetail(props){
                                     <Image
                                     style={{
                                     display:'block',
-                                    height:'40px',
-                                    width:'40px',
+                                    height:'50px',
+                                    width:'50px',
                                     // borderTopLeftRadius:10,
                                     // borderTopRightRadius:10,
                                     zIndex:1,
@@ -571,16 +571,16 @@ function PartDetail(props){
                                         width:'250px',
                                         justifyContent:'center',
                                         alignItems:'center',
-                                        height:'40px',
+                                        height:'50px',
                                         paddingLeft:'15px',
                                     }}
                                 >
                                 <TouchableOpacity
                                     style={{
                                         display:'block',
-                                        height:'40px',
+                                        height:'50px',
                                         width:(width-800)+'px',
-                                        minWidth:"150px",
+                                        minWidth:"250px",
                                         // width:'100%',
                                         backgroundColor:'rgb(255,123,88)',
                                         color:'white',
@@ -589,7 +589,7 @@ function PartDetail(props){
                                         justifyContent:'center',
                                         textAlign:'center',
                                         verticalAlign:'middle',
-                                        lineHeight:'40px',
+                                        lineHeight:'50px',
                                         
 
                                     }}
@@ -602,7 +602,7 @@ function PartDetail(props){
                                         <Text
                                             style={{
                                                 color:'white',
-                                                
+                                                fontSize:'18px'
                                             }}
                                         >
                                             장바구니에 샘플 담기
