@@ -1176,7 +1176,7 @@ function Brands(props) {
                   >
                     <Text
                       style={{
-                        fontSize: '15px',
+                        fontSize: '18px',
                         fontWeight:'500',
                         textDecorationLine:'none',
                         // color:'white',
@@ -1191,7 +1191,8 @@ function Brands(props) {
                         // margin:11,
                         marginTop:'25px',
                         padding:'auto',
-                        pointerEvents:'none'
+                        pointerEvents:'none',
+                        lineHeight:24
                       }}
                     >
                       {brandData.brd_intro}
