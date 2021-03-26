@@ -56,6 +56,7 @@ function Brands(props) {
       })
     
   }
+ 
   const onChange=()=>{
     setHeight(Dimensions.get('window').height)
     setWidth(Dimensions.get('window').width)
@@ -390,7 +391,12 @@ function Brands(props) {
                       {brandData.brd_name_kor}
                     </Text>
                     <br></br>
-                    <Text>
+                    <Text
+                      style={{
+                        fontSize:'21px',
+                        lineHeight:28
+                      }}
+                    >
                       {brandData.brd_description}
                     </Text>
                   </View>
@@ -443,7 +449,9 @@ function Brands(props) {
                           {brandData.brd_name_eng} {brandData.brd_name_kor} 자재 보기
                         </Text> */}
                         <Text
-                          
+                          style={{
+                            fontSize:'21px'
+                          }}
                         >
                           자재 보기
                         </Text>
@@ -1192,7 +1200,7 @@ function Brands(props) {
                     <View>
                     <Text
                         style={{
-                          fontSize: '20px',
+                          fontSize: '30px',
                           fontWeight:'700',
                           textDecorationLine:'none',
                           // color:'white',
@@ -1214,7 +1222,7 @@ function Brands(props) {
                       </Text>
                       <Text
                       style={{
-                        fontSize: '20px',
+                        fontSize: '30px',
                         fontWeight:'700',
                         textDecorationLine:'none',
                         // color:'white',
@@ -1235,7 +1243,12 @@ function Brands(props) {
                         {brandData.brd_name_kor}
                       </Text>
                       <br></br>
-                      <Text>
+                      <Text
+                        style={{
+                          fontSize:'21px',
+                          lineHeight:28
+                        }}
+                      >
                         {brandData.brd_description}
                       </Text>
                     </View>
@@ -1275,7 +1288,9 @@ function Brands(props) {
                       >
 
                         <Text
-                          
+                          style={{
+                            fontSize:'21px'
+                          }}
                         >
                           자재 보기
                         </Text>

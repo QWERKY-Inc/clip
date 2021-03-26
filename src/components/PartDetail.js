@@ -582,7 +582,7 @@ function PartDetail(props){
                         style={{
                                     
                             fontWeight:700,
-                            fontSize:'24px',
+                            fontSize:'30px',
                             marginBottom:'12px',
                             marginTop:'12px'
                             
@@ -594,7 +594,7 @@ function PartDetail(props){
                         style={{
                                     
                             fontWeight:700,
-                            fontSize:'24px',
+                            fontSize:'30px',
                             marginBottom:'24px'
                             
                         }}
@@ -603,12 +603,11 @@ function PartDetail(props){
                         </Text>
                         <Text
                         style={{
-                                    
                             fontWeight:400,
-                            fontSize:'12px',
+                            fontSize:'21px',
+                            lineHeight:28,
                             marginBottom:'12px',
-                            
-                        }}
+                          }}
                         >
                             {materialData.brd_description}
                         </Text>
