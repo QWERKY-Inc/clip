@@ -317,7 +317,7 @@ function PartDetail(props){
                             <Text
                                 style={{
                                     fontWeight:700,
-                                    fontSize:'24px',
+                                    fontSize:'30px',
                                     whiteSpace:'nowrap',
                                     textOverflow:'ellipsis'
 
@@ -329,7 +329,7 @@ function PartDetail(props){
                                 style={{
                                     
                                     fontWeight:700,
-                                    fontSize:'24px',
+                                    fontSize:'30px',
                                     marginBottom:'13px',
                                     whiteSpace:'nowrap',
                                 }}
@@ -392,7 +392,7 @@ function PartDetail(props){
                                         <Text
                                             style={{
                                                 fontWeight:700,
-                                                fontSize:'18px',
+                                                fontSize:'21px',
                                                 whiteSpace:'nowrap',
                                                 textOverflow:'ellipsis'
                                             }}
@@ -403,7 +403,7 @@ function PartDetail(props){
                                         <Text 
                                             style={{
                                                 fontWeight:700,
-                                                fontSize:'18px',
+                                                fontSize:'21px',
                                                 whiteSpace:'nowrap',
                                             }}
                                         >
@@ -414,13 +414,40 @@ function PartDetail(props){
                                 </View>
                                 
                             </div>
+                            <div
+                                style={{
+                                    display:materialData.mt_shipfrom=="CLIP"?"block":"none"
+                                }}
+                            >
+                                <img
+                                    src={boxIcon}
+                                    style={{
+                                        //display: categoryOpened? 'none': 'block',
+                                        width:'18px',
+                                        height:'18px'
+                                    }}
+                                >
+                                </img>
+                                <Text
+                                    style={{
+                                        fontWeight:700,
+                                        fontSize:'18px',
+                                        marginBottom:'15px',
+                                        whiteSpace:'nowrap',
+                                        lineHeight:24
+                                    }}
+                                >
+                                    &nbsp;클립 당일 묶음발송 품목
+                                </Text>
+                            </div>
                             <div>
                                 <Text
                                     style={{
                                         fontWeight:700,
-                                        fontSize:'15px',
+                                        fontSize:'18px',
                                         marginBottom:'15px',
                                         whiteSpace:'nowrap',
+                                        lineHeight:24
                                     }}
                                 >
                                     자재 카테고리:&nbsp;
@@ -428,6 +455,8 @@ function PartDetail(props){
                                 <Text
                                     style={{
                                         whiteSpace:'nowrap',
+                                        fontSize:'18px',
+                                        lineHeight:24
                                     }}
                                 >
                                     {materialData.mt_category}
@@ -437,9 +466,10 @@ function PartDetail(props){
                                 <Text
                                     style={{
                                         fontWeight:700,
-                                        fontSize:'15px',
+                                        fontSize:'18px',
                                         marginBottom:'15px',
                                         whiteSpace:'nowrap',
+                                        lineHeight:24
                                     }}
                                 >
                                      콜렉션:&nbsp;
@@ -447,6 +477,8 @@ function PartDetail(props){
                                 <Text
                                     style={{
                                         whiteSpace:'nowrap',
+                                        fontSize:'18px',
+                                        lineHeight:24
                                     }}
                                 >
                                     {materialData.mt_collection}
@@ -456,9 +488,10 @@ function PartDetail(props){
                                 <Text
                                     style={{
                                         fontWeight:700,
-                                        fontSize:'15px',
+                                        fontSize:'18px',
                                         marginBottom:'15px',
                                         whiteSpace:'nowrap',
+                                        lineHeight:24
                                     }}
                                 >
                                      SKU:&nbsp;
@@ -466,6 +499,8 @@ function PartDetail(props){
                                 <Text
                                     style={{
                                         whiteSpace:'nowrap',
+                                        fontSize:'18px',
+                                        lineHeight:24
                                     }}
                                 >
                                     {materialData.mt_sku}
@@ -475,16 +510,19 @@ function PartDetail(props){
                                 <Text
                                     style={{
                                         fontWeight:700,
-                                        fontSize:'15px',
+                                        fontSize:'18px',
                                         marginBottom:'15px',
                                         whiteSpace:'nowrap',
+                                        lineHeight:24
                                     }}
                                 >
                                      샘플 사이즈:&nbsp;
                                 </Text>
                                 <Text   
                                     style={{
+                                        fontSize:'18px',
                                         whiteSpace:'nowrap',
+                                        lineHeight:24
                                     }}
                                 >
                                     {materialData.mt_sample_width}&nbsp;mm&nbsp;x&nbsp;{materialData.mt_sample_height}&nbsp;mm
@@ -648,10 +686,11 @@ function PartDetail(props){
                         </Carousel>
                         <Text
                             style={{
-                                fontSize: '15px',
+                                fontSize: '21px',
                                 fontWeight:'700',
                                 marginTop:'25px',
-                                marginBottom:'30px'
+                                marginBottom:'30px',
+
                             }}
                         >
                             {materialData.brd_name_kor}&nbsp;다른 제품보기 
@@ -997,7 +1036,7 @@ function PartDetail(props){
                         </div>
                         <Text
                             style={{
-                                fontSize: '15px',
+                                fontSize: '21px',
                                 fontWeight:'700',
                                 marginTop:'25px',
                                 marginBottom:'15px'
