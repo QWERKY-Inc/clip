@@ -29,7 +29,7 @@ function MainMoodBoard() {
             })
       },[])
     
-    if(width>940){
+    if(width>814){
 
         if(data!=undefined){
             return (
@@ -149,7 +149,7 @@ function MainMoodBoard() {
                                 // justifyContent: 'space-between',
                                 flexwrap:'wrap',
                                 display: 'grid',
-                                gridTemplateColumns: 'auto auto auto',
+                                gridTemplateColumns: 'auto auto auto auto',
                                 paddingLeft: '77pt',
                                 paddingRight: '77pt'
                             }}
@@ -338,7 +338,7 @@ function MainMoodBoard() {
         }
     
     }
-    else if(width > 760 && width<=940){
+    else if(width > 600 && width<=814){
 
         if(data!=undefined){
             return (
@@ -457,7 +457,7 @@ function MainMoodBoard() {
                                 // justifyContent: 'space-between',
                                 flexwrap:'wrap',
                                 display: 'grid',
-                                gridTemplateColumns: 'auto auto',
+                                gridTemplateColumns: 'auto auto auto',
                                 paddingLeft: '77pt',
                                 paddingRight: '77pt'
                             }}
@@ -644,7 +644,7 @@ function MainMoodBoard() {
         }
     
     }
-    else if(width > 512 && width<=760){
+    else if(width > 351 && width<=600){
 
         if(data!=undefined){
             return (
@@ -734,7 +734,7 @@ function MainMoodBoard() {
                                 // justifyContent: 'space-between',
                                 flexwrap:'wrap',
                                 display: 'grid',
-                                gridTemplateColumns: 'auto',
+                                gridTemplateColumns: 'auto auto',
                                 paddingLeft: '77pt',
                                 paddingRight: '77pt'
                             }}
