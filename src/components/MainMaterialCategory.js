@@ -84,7 +84,12 @@ function MainMaterialCategory() {
                                 flexwrap:'wrap',
                                 display: 'grid',
                                 gridTemplateColumns: 'auto auto auto',
+                                // paddingTop:"10px",
+                                // paddingLeft:"165px",
+                                // paddingRight:"165px",
                                 padding: '10px'
+                               
+
                             }}
                         >
                             
