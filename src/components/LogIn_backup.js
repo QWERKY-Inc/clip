@@ -295,8 +295,8 @@ function LogIn(props){
         <div
         style={{
             paddingTop:'100px',
-            // paddingLeft:'65px',
-            // paddingRight:'65px'
+            paddingLeft:'65px',
+            paddingRight:'65px'
         }}
         >
             <div
@@ -313,55 +313,14 @@ function LogIn(props){
             
             
             </div>
-            
             <div
-            style={{
-            borderRadius:'10px',
-            backgroundColor:'white',
-            width:'500px',
-            height:'300px',
-            paddingTop:'15px',
-            // columnCount:3,
-            // flexwrap:'wrap',
-            // flexDirection:'column',
-            // display: 'grid',
-            // gridTemplateColumns: 'auto auto',
-            // // padding:'100px',
-            overflowY: 'scroll',
-            marginLeft:'auto',
-            marginRight:'auto'
-            }}
-            >
-                <View
-                style={{
-                    backgroundColor:'white',
-                    height:'298px',
-                    width:'100%',
-                    borderBottomLeftRadius:'10px',
-                    borderBottomRightRadius:'10px'
-
-                }}
-                >
-                    <View
-                        style={{
-                            position:'relative',
-                            top:0,
-                            height:'30px',
-                            width:'100%',
-                            backgroundColor:'white',
-                            borderTopLeftRadius:'10px',
-                            borderTopRightRadius:'10px',
-                            borderBottom:'1px solid rgb(221,221,221)'
-                        }}
-                    >
-                    <div
                 style={{
                 height:'25px',
                 width:'25px',
                 backgroundColor:'transparent',
-                position: 'relative',
-                top:'15px',
-                left:'15px',
+                position: 'absolute',
+                top:'110px',
+                left:'75px',
                 zIndex:102,
                 }}
             >
@@ -398,7 +357,7 @@ function LogIn(props){
                             lineHeight:'25px',
                             padding:'15px',
                             alignItems:'center',
-                            transform:'translate(0px,-23px)'
+                            transform:'translate(0px,-5px)'
                         }}
                     >
                     
@@ -414,10 +373,47 @@ function LogIn(props){
                 </TouchableOpacity>
             </div>
 
+            <div
+            style={{
+            borderRadius:'10px',
+            backgroundColor:'white',
+            width:'100%',
+            height:'300px',
+            paddingTop:'15px',
+            // columnCount:3,
+            // flexwrap:'wrap',
+            // flexDirection:'column',
+            // display: 'grid',
+            // gridTemplateColumns: 'auto auto',
+            // // padding:'100px',
+            overflowY: 'scroll',
+            }}
+            >
+                <View
+                style={{
+                    backgroundColor:'white',
+                    height:'298px',
+                    width:'100%',
+                    borderBottomLeftRadius:'10px',
+                    borderBottomRightRadius:'10px'
+
+                }}
+                >
+                    <View
+                        style={{
+                            position:'relative',
+                            top:0,
+                            height:'30px',
+                            width:'100%',
+                            backgroundColor:'white',
+                            borderTopLeftRadius:'10px',
+                            borderTopRightRadius:'10px',
+                            borderBottom:'1px solid rgb(221,221,221)'
+                        }}
+                    >
                     <Text
                         style={{
                             fontWeight:700,
-                            transform:'translate(0px,-23px)'
                         }}
                     >비밀번호 찾기</Text>
                     </View>
@@ -553,8 +549,8 @@ function LogIn(props){
         <div
         style={{
             paddingTop:'100px',
-            //paddingLeft:'65px',
-            //paddingRight:'65px'
+            paddingLeft:'65px',
+            paddingRight:'65px'
         }}
         >
             <div
@@ -571,55 +567,14 @@ function LogIn(props){
             
             
             </div>
-           
             <div
-            style={{
-            borderRadius:'10px',
-            backgroundColor:'white',
-            width:'500px',
-            height:'250px',
-            paddingTop:'15px',
-            // columnCount:3,
-            // flexwrap:'wrap',
-            // flexDirection:'column',
-            // display: 'grid',
-            // gridTemplateColumns: 'auto auto',
-            // // padding:'100px',
-            overflowY: 'scroll',
-            marginLeft:'auto',
-            marginRight:'auto'
-            }}
-            >
-                <View
-                style={{
-                    backgroundColor:'white',
-                    height:'248px',
-                    width:'100%',
-                    borderBottomLeftRadius:'10px',
-                    borderBottomRightRadius:'10px'
-
-                }}
-                >
-                    <View
-                        style={{
-                            position:'relative',
-                            top:0,
-                            height:'30px',
-                            width:'100%',
-                            backgroundColor:'white',
-                            borderTopLeftRadius:'10px',
-                            borderTopRightRadius:'10px',
-                            borderBottom:'1px solid rgb(221,221,221)'
-                        }}
-                    >
-                     <div
                 style={{
                 height:'25px',
                 width:'25px',
                 backgroundColor:'transparent',
-                position: 'relative',
-                top:'15px',
-                left:'15px',
+                position: 'absolute',
+                top:'110px',
+                left:'75px',
                 zIndex:102,
                 }}
             >
@@ -656,7 +611,7 @@ function LogIn(props){
                             lineHeight:'25px',
                             padding:'15px',
                             alignItems:'center',
-                            transform:'translate(0px,-23px)'
+                            transform:'translate(0px,-5px)'
                         }}
                     >
                     
@@ -664,7 +619,6 @@ function LogIn(props){
                         style={{
                             // position:'fixed',
                             // right:'100px'
-                            
                         }}
                     >
                         &lt;
@@ -673,10 +627,47 @@ function LogIn(props){
                 </TouchableOpacity>
             </div>
 
+            <div
+            style={{
+            borderRadius:'10px',
+            backgroundColor:'white',
+            width:'100%',
+            height:'250px',
+            paddingTop:'15px',
+            // columnCount:3,
+            // flexwrap:'wrap',
+            // flexDirection:'column',
+            // display: 'grid',
+            // gridTemplateColumns: 'auto auto',
+            // // padding:'100px',
+            overflowY: 'scroll',
+            }}
+            >
+                <View
+                style={{
+                    backgroundColor:'white',
+                    height:'248px',
+                    width:'100%',
+                    borderBottomLeftRadius:'10px',
+                    borderBottomRightRadius:'10px'
+
+                }}
+                >
+                    <View
+                        style={{
+                            position:'relative',
+                            top:0,
+                            height:'30px',
+                            width:'100%',
+                            backgroundColor:'white',
+                            borderTopLeftRadius:'10px',
+                            borderTopRightRadius:'10px',
+                            borderBottom:'1px solid rgb(221,221,221)'
+                        }}
+                    >
                     <Text
                         style={{
                             fontWeight:700,
-                            transform:'translate(0px,-23px)'
                         }}
                     >이메일 찾기</Text>
                     </View>
@@ -823,8 +814,8 @@ function LogIn(props){
             <div
             style={{
                 paddingTop:'100px',
-                // paddingLeft:'65px',
-                // paddingRight:'65px'
+                paddingLeft:'65px',
+                paddingRight:'65px'
             }}
             >
                 <div
@@ -841,55 +832,14 @@ function LogIn(props){
                 
                 
                 </div>
-                
                 <div
-                style={{
-                borderRadius:'10px',
-                backgroundColor:'white',
-                width:'500px',
-                height:'260px',
-                paddingTop:'15px',
-                // columnCount:3,
-                // flexwrap:'wrap',
-                // flexDirection:'column',
-                // display: 'grid',
-                // gridTemplateColumns: 'auto auto',
-                // // padding:'100px',
-                overflowY: 'scroll',
-                marginLeft:'auto',
-                marginRight:'auto'
-                }}
-                >
-                    <View
-                    style={{
-                        backgroundColor:'white',
-                        height:'258px',
-                        width:'100%',
-                        borderBottomLeftRadius:'10px',
-                        borderBottomRightRadius:'10px'
-
-                    }}
-                    >
-                        <View
-                            style={{
-                                position:'relative',
-                                top:0,
-                                height:'30px',
-                                width:'100%',
-                                backgroundColor:'white',
-                                borderTopLeftRadius:'10px',
-                                borderTopRightRadius:'10px',
-                                borderBottom:'1px solid rgb(221,221,221)'
-                            }}
-                        >
-                        <div
                     style={{
                     height:'25px',
                     width:'25px',
                     backgroundColor:'transparent',
-                    position: 'relative',
-                    top:'15px',
-                    left:'15px',
+                    position: 'absolute',
+                    top:'110px',
+                    left:'75px',
                     zIndex:102,
                     }}
                 >
@@ -930,7 +880,7 @@ function LogIn(props){
                                 lineHeight:'25px',
                                 padding:'15px',
                                 alignItems:'center',
-                                transform:'translate(0px,-23px)'
+                                transform:'translate(0px,-5px)'
                             }}
                         >
                         
@@ -946,10 +896,47 @@ function LogIn(props){
                     </TouchableOpacity>
                 </div>
 
+                <div
+                style={{
+                borderRadius:'10px',
+                backgroundColor:'white',
+                width:'100%',
+                height:'260px',
+                paddingTop:'15px',
+                // columnCount:3,
+                // flexwrap:'wrap',
+                // flexDirection:'column',
+                // display: 'grid',
+                // gridTemplateColumns: 'auto auto',
+                // // padding:'100px',
+                overflowY: 'scroll',
+                }}
+                >
+                    <View
+                    style={{
+                        backgroundColor:'white',
+                        height:'258px',
+                        width:'100%',
+                        borderBottomLeftRadius:'10px',
+                        borderBottomRightRadius:'10px'
+
+                    }}
+                    >
+                        <View
+                            style={{
+                                position:'relative',
+                                top:0,
+                                height:'30px',
+                                width:'100%',
+                                backgroundColor:'white',
+                                borderTopLeftRadius:'10px',
+                                borderTopRightRadius:'10px',
+                                borderBottom:'1px solid rgb(221,221,221)'
+                            }}
+                        >
                         <Text
                             style={{
                                 fontWeight:700,
-                                transform:'translate(0px,-23px)'
                             }}
                         >회원가입</Text>
                         </View>
@@ -1146,8 +1133,8 @@ function LogIn(props){
             <div
             style={{
                 paddingTop:'100px',
-                // paddingLeft:'65px',
-                // paddingRight:'65px'
+                paddingLeft:'65px',
+                paddingRight:'65px'
             }}
             >
                 <div
@@ -1164,58 +1151,15 @@ function LogIn(props){
                 
                 
                 </div>
-               
-
                 <div
-                style={{
-                borderRadius:'10px',
-                backgroundColor:'white',
-                width:'500px',
-                height:'300px',
-                paddingTop:'15px',
-                // columnCount:3,
-                // flexwrap:'wrap',
-                // flexDirection:'column',
-                // display: 'grid',
-                // gridTemplateColumns: 'auto auto',
-                // // padding:'100px',
-                overflowY: 'scroll',
-                marginLeft:'auto',
-                marginRight:'auto'
-                }}
-                >
-                    <View
-                    style={{
-                        backgroundColor:'white',
-                        height:'298px',
-                        width:'100%',
-                        borderBottomLeftRadius:'10px',
-                        borderBottomRightRadius:'10px'
-
-                    }}
-                    >
-                        <View
-                            style={{
-                                position:'relative',
-                                top:0,
-                                height:'30px',
-                                width:'100%',
-                                backgroundColor:'white',
-                                borderTopLeftRadius:'10px',
-                                borderTopRightRadius:'10px',
-                                borderBottom:'1px solid rgb(221,221,221)'
-                            }}
-                        >
-                             <div
                     style={{
                     height:'25px',
                     width:'25px',
                     backgroundColor:'transparent',
-                    position: 'relative',
-                    top:'15px',
-                    left:'15px',
+                    position: 'absolute',
+                    top:'110px',
+                    left:'75px',
                     zIndex:102,
-                    transform:'translate(0px,-20px)'
                     }}
                 >
                     {/* <TouchableOpacity
@@ -1270,10 +1214,48 @@ function LogIn(props){
                         </View>
                     </TouchableOpacity>
                 </div>
+
+                <div
+                style={{
+                borderRadius:'10px',
+                backgroundColor:'white',
+                width:'100%',
+                height:'300px',
+                paddingTop:'15px',
+                // columnCount:3,
+                // flexwrap:'wrap',
+                // flexDirection:'column',
+                // display: 'grid',
+                // gridTemplateColumns: 'auto auto',
+                // // padding:'100px',
+                overflowY: 'scroll',
+                }}
+                >
+                    <View
+                    style={{
+                        backgroundColor:'white',
+                        height:'298px',
+                        width:'100%',
+                        borderBottomLeftRadius:'10px',
+                        borderBottomRightRadius:'10px'
+
+                    }}
+                    >
+                        <View
+                            style={{
+                                position:'relative',
+                                top:0,
+                                height:'30px',
+                                width:'100%',
+                                backgroundColor:'white',
+                                borderTopLeftRadius:'10px',
+                                borderTopRightRadius:'10px',
+                                borderBottom:'1px solid rgb(221,221,221)'
+                            }}
+                        >
                         <Text
                             style={{
                                 fontWeight:700,
-                                transform:'translate(0px,-23px)'
                             }}
                         >회원가입</Text>
                         </View>
@@ -1498,8 +1480,8 @@ function LogIn(props){
             <div
             style={{
                 paddingTop:'100px',
-                // paddingLeft:'65px',
-                // paddingRight:'65px'
+                paddingLeft:'65px',
+                paddingRight:'65px'
             }}
             >
                 <div
@@ -1516,59 +1498,17 @@ function LogIn(props){
                 
                 
                 </div>
-               
-
                 <div
-                style={{
-                borderRadius:'10px',
-                backgroundColor:'white',
-                width:'500px',
-                height:'500px',
-                paddingTop:'15px',
-                // columnCount:3,
-                // flexwrap:'wrap',
-                // flexDirection:'column',
-                // display: 'grid',
-                // gridTemplateColumns: 'auto auto',
-                // // padding:'100px',
-                overflowY: 'scroll',
-                marginLeft:'auto',
-                marginRight:'auto'
-                }}
-                >
-                    <View
                     style={{
-                        backgroundColor:'white',
-                        height:'498px',
-                        width:'100%',
-                        borderBottomLeftRadius:'10px',
-                        borderBottomRightRadius:'10px'
-
+                    height:'25px',
+                    width:'25px',
+                    backgroundColor:'transparent',
+                    position: 'absolute',
+                    top:'110px',
+                    left:'75px',
+                    zIndex:102,
                     }}
-                    >
-                        <View
-                            style={{
-                                position:'relative',
-                                top:0,
-                                height:'30px',
-                                width:'100%',
-                                backgroundColor:'white',
-                                borderTopLeftRadius:'10px',
-                                borderTopRightRadius:'10px',
-                                borderBottom:'1px solid rgb(221,221,221)'
-                            }}
-                        >
-                         <div
-                            style={{
-                            height:'25px',
-                            width:'25px',
-                            backgroundColor:'transparent',
-                            position: 'relative',
-                            top:'15px',
-                            left:'15px',
-                            zIndex:102,
-                            }}
-                        >
+                >
                     {/* <TouchableOpacity
                     onPress={()=>{
                         setFindPassWord(false)
@@ -1606,7 +1546,7 @@ function LogIn(props){
                                 lineHeight:'25px',
                                 padding:'15px',
                                 alignItems:'center',
-                                transform:'translate(0px,-23px)'
+                                transform:'translate(0px,-5px)'
                             }}
                         >
                         
@@ -1621,10 +1561,48 @@ function LogIn(props){
                         </View>
                     </TouchableOpacity>
                 </div>
+
+                <div
+                style={{
+                borderRadius:'10px',
+                backgroundColor:'white',
+                width:'100%',
+                height:'500px',
+                paddingTop:'15px',
+                // columnCount:3,
+                // flexwrap:'wrap',
+                // flexDirection:'column',
+                // display: 'grid',
+                // gridTemplateColumns: 'auto auto',
+                // // padding:'100px',
+                overflowY: 'scroll',
+                }}
+                >
+                    <View
+                    style={{
+                        backgroundColor:'white',
+                        height:'498px',
+                        width:'100%',
+                        borderBottomLeftRadius:'10px',
+                        borderBottomRightRadius:'10px'
+
+                    }}
+                    >
+                        <View
+                            style={{
+                                position:'relative',
+                                top:0,
+                                height:'30px',
+                                width:'100%',
+                                backgroundColor:'white',
+                                borderTopLeftRadius:'10px',
+                                borderTopRightRadius:'10px',
+                                borderBottom:'1px solid rgb(221,221,221)'
+                            }}
+                        >
                         <Text
                             style={{
                                 fontWeight:700,
-                                transform:'translate(0px,-23px)',
                             }}
                         >회원가입</Text>
                         </View>
@@ -2287,8 +2265,8 @@ function LogIn(props){
         <div
         style={{
             paddingTop:'100px',
-            // paddingLeft:'65px',
-            // paddingRight:'65px'
+            paddingLeft:'65px',
+            paddingRight:'65px'
         }}
         >
             <div
@@ -2311,8 +2289,7 @@ function LogIn(props){
             style={{
             borderRadius:'10px',
             backgroundColor:'white',
-            // width:'100%',
-            width:'500px',
+            width:'100%',
             height:emailLogIn?'490px':'475px',
             paddingTop:'15px',
             // columnCount:3,
@@ -2322,11 +2299,34 @@ function LogIn(props){
             // gridTemplateColumns: 'auto auto',
             // // padding:'100px',
             overflowY: 'scroll',
-            marginLeft:'auto',
-            marginRight:'auto'
             }}
             >
-                
+                <div
+                style={{
+                height:'25px',
+                width:'25px',
+                backgroundColor:'transparent',
+                position: 'absolute',
+                top:'110px',
+                left:'75px',
+                zIndex:102,
+                }}
+            >
+                <TouchableOpacity
+                onPress={()=>{
+                    props.toggleLogInShow()
+                }}
+                >
+                <img
+                src={xIcon}
+                style={{
+                    height:'25px',
+                    width:'25px',
+                }}
+                >
+                </img>
+                </TouchableOpacity>
+            </div>
             
                 <View
                 style={{
@@ -2338,7 +2338,6 @@ function LogIn(props){
 
                 }}
                 >
-                    
                     <View
                         style={{
                             position:'relative',
@@ -2351,37 +2350,9 @@ function LogIn(props){
                             borderBottom:'1px solid rgb(221,221,221)'
                         }}
                     >
-                        <div
-                    style={{
-                    height:'25px',
-                    width:'25px',
-                    backgroundColor:'transparent',
-                    position: 'relative',
-                    top:'15px',
-                    left:'15px',
-                    zIndex:102,
-                    transform:'translate(0px,-18px)'
-                    }}
-                >
-                    <TouchableOpacity
-                    onPress={()=>{
-                        props.toggleLogInShow()
-                    }}
-                    >
-                        <img
-                        src={xIcon}
-                        style={{
-                            height:'25px',
-                            width:'25px',
-                        }}
-                        >
-                        </img>
-                    </TouchableOpacity>
-                </div>
                     <Text
                         style={{
                             fontWeight:700,
-                            transform:'translate(0px,-25px)'
                         }}
                     >로그인</Text>
                     </View>

@@ -42,8 +42,8 @@ function AlreadyKakaoMember(props){
         <div
         style={{
             paddingTop:'100px',
-            paddingLeft:'100px',
-            paddingRight:'100px'
+            // paddingLeft:'100px',
+            // paddingRight:'100px'
         }}
         >
             <div
@@ -62,7 +62,7 @@ function AlreadyKakaoMember(props){
             style={{
             borderRadius:'10px',
             backgroundColor:'white',
-            width:'100%',
+            width:'500px',
             height:'200px',
             paddingTop:'15px',
             // columnCount:3,
@@ -72,34 +72,11 @@ function AlreadyKakaoMember(props){
             // gridTemplateColumns: 'auto auto',
             // // padding:'100px',
             overflowY: 'scroll',
+            marginLeft:'auto',
+            marginRight:'auto'
             }}
             >
-                <div
-                style={{
-                height:'25px',
-                width:'25px',
-                backgroundColor:'transparent',
-                position: 'absolute',
-                top:'110px',
-                left:'110px',
-                zIndex:102,
-                }}
-            >
-                <TouchableOpacity
-                onPress={()=>{
-                    props.toggleAlreadyKakaoMemberShow()
-                }}
-                >
-                <img
-                src={xIcon}
-                style={{
-                    height:'25px',
-                    width:'25px',
-                }}
-                >
-                </img>
-                </TouchableOpacity>
-            </div>
+                
             
                 <View
                 style={{
@@ -123,9 +100,37 @@ function AlreadyKakaoMember(props){
                             borderBottom:'1px solid rgb(221,221,221)'
                         }}
                     >
+                    <div
+                        style={{
+                        height:'25px',
+                        width:'25px',
+                        backgroundColor:'transparent',
+                        position: 'relative',
+                        top:'15px',
+                        left:'15px',
+                        zIndex:102,
+                        transform:'translate(0px,-20px)',
+                        }}
+                    >
+                        <TouchableOpacity
+                        onPress={()=>{
+                            props.toggleAlreadyKakaoMemberShow()
+                        }}
+                        >
+                        <img
+                        src={xIcon}
+                        style={{
+                            height:'25px',
+                            width:'25px',
+                        }}
+                        >
+                        </img>
+                        </TouchableOpacity>
+                    </div>
                     <Text
                         style={{
                             fontWeight:700,
+                            transform:'translate(0px,-23px)',
                         }}
                     >가입된 휴대폰번호</Text>
                     </View>
