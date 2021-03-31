@@ -11,8 +11,8 @@ function Home() {
       <div className="Home">
           <Navbar />
           <NavBarFiller/>
-          <IntroImage/>
-          {/* <IntroImagePure/> */}
+          {/* <IntroImage/> */}
+          <IntroImagePure/>
           <MainMaterialCategory/>
           <MainMoodBoard/>
           <Footer/>

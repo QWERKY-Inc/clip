@@ -29,6 +29,7 @@
     "react-collapsible": "^2.8.3",
     "react-date-picker": "^8.0.7",
     "react-dom": "^17.0.1",
+    "react-font": "^1.2.1",
     "react-js-pagination": "^3.0.3",
     "react-kakao-login": "^2.1.0",
     "react-native-confirmation-code-field": "^6.5.1",

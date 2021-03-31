@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 
 import NavBarFiller from './NavBarFiller';
 import {TouchableOpacity,Text,Image,View,Modal,TouchableHighlight,Dimensions,Linking} from 'react-native';
-import Font from 'react-font'
+
 function MainMaterialCategory() {
 
     const[data,setData]=React.useState(undefined)
@@ -35,16 +35,25 @@ function MainMaterialCategory() {
 
         if(data!=undefined){
             return (
-                <Font family='Noto Sans KR'>
                 <div className="MainContent"
                     style={{
                         display:'block',
                         height:'auto',
-                        textAlign:'left',
+
                     }}
                 >
-                 
-                    <span
+                <div
+                    style={{
+                        display:'block',
+                        height:'50px',
+                        backgroundColor:'transparent',
+                        topMargin:'77pt',
+                        flexDirection:'column',
+                        textAlign:'left',
+                        paddingLeft:'100px'
+                    }}
+                >
+                    <Text
                         style={{
                             fontSize: '25px',
                             fontWeight:'700',
@@ -59,15 +68,15 @@ function MainMaterialCategory() {
                             justifyContent:'center',
                             flexDirection:'row',
                             margin:11,
-                            marginLeft:'100px',
                             padding:'auto',
-                            zIndex:2,
+                            zIndex:2
                             // backgroundColor:'red'
                         }}
                     > 
                     자재 카테고리
-                    </span> 
-                        <div
+                    </Text> 
+                </div>   
+                        <View
                             style={{
                                 flex: 1, 
                                 // flexDirection: 'row',
@@ -75,7 +84,12 @@ function MainMaterialCategory() {
                                 flexwrap:'wrap',
                                 display: 'grid',
                                 gridTemplateColumns: 'auto auto auto',
+                                // paddingTop:"10px",
+                                // paddingLeft:"165px",
+                                // paddingRight:"165px",
                                 padding: '10px'
+                               
+
                             }}
                         >
                             
@@ -83,14 +97,14 @@ function MainMaterialCategory() {
                     {data.listCategory.map((listCategory)=>
 
                     
-                        <a
+                        <TouchableOpacity
                         style={{
                             borderRadius:10,
                             height:'50pt',
                             width:"350px",
                             backgroundColor:'white',
                             boxShadow:'0px 0px 2px',
-                            display:'flex',
+                            
                                 fontSize: '25pt',
                                 fontWeight:'700',
                                 textDecorationLine:'none',
@@ -107,51 +121,44 @@ function MainMaterialCategory() {
                                 marginRight:'auto',
                                 marginTop:'25pt',
                                 padding:'auto',
-                                zIndex:2,
-                                backgroundColor:'white',
-                                
+                                zIndex:2
+                                // backgroundColor:'red'
                             
                         }}
                         //onPress={() => Linking.openURL(`/category?cat_num=${listCategory.ct_id}`)}
-                        // onPress={() => Linking.openURL(`/searchPage?search_target=CATEGORY_DEPTH1&search_value=${listCategory.ct_id}`)}
-                        href={`/searchPage?search_target=CATEGORY_DEPTH1&search_value=${listCategory.ct_id}`}
+                        onPress={() => Linking.openURL(`/searchPage?search_target=CATEGORY_DEPTH1&search_value=${listCategory.ct_id}`)}
                     >
-                    <div
+                    
+                    <Image
                         style={{
-                            transform:'translate(-36px,0px)'
+                        display:'block',
+                        height:'50pt',
+                        width:'60pt',
+                        borderTopLeftRadius:10,
+                        borderBottomLeftRadius:10,
+                        zIndex:1,
+                        pointerEvents:'none',
+                        transform:[{
+                            translateX:'-35px',
+                            translateY:'-100px'
+                        }]
                         }}
-                    >
-                        <img
-                            style={{
-                            display:'block',
-                            height:'50pt',
-                            width:'60pt',
-                            borderTopLeftRadius:10,
-                            borderBottomLeftRadius:10,
-                            zIndex:1,
-                            pointerEvents:'none',
-                            // transform:[{
-                            //     translateX:'-35px',
-                            //     translateY:'-100px'
-                            // }]
-                            }}
-                            // source={{
-                            //     uri:
-                            //         // data.listCategory[i].ct_img_url
-                            //         listCategory.ct_img_url
-                            // }}
-                            src={listCategory.ct_img_url}
+                        source={{
+                            uri:
+                                // data.listCategory[i].ct_img_url
+                                listCategory.ct_img_url
+                        }}
 
-                        >
-                        </img>
-                    </div>
+                    >
+                    </Image>
                     <a
                         style={{
-                        transform:"translate(-15px,0px)",
-                        backgroundColor:'transparent'
+                        transform:[{
+                            translateX:'100px'
+                        }]
                         }}
                     >
-                        <div
+                        <View
                             style ={{
                                 height:'50pt',
                                 width:'200px',
@@ -172,16 +179,16 @@ function MainMaterialCategory() {
                                 pointerEvents:'none',
                                 borderTopRightRadius:10,
                                 borderBottomRightRadius:10,
-                                backgroundColor:'transparent',
+                                backgroundColor:'white',
                                 // zIndex:99,
                                 pointerEvents:'none',
                                 
                             }}
                         >
-                            <div
+                            <View
                                 style ={{
                                     height:'40pt',
-                                    width:'99px',
+                                    width:'100px',
                                     fontSize: '15pt',
                                     fontWeight:'700',
                                     textDecorationLine:'none',
@@ -190,33 +197,40 @@ function MainMaterialCategory() {
                                     // textShadowOffset: {width: 0, height: 0},
                                     // textShadowRadius: 2,
                                     color:'black',
-                                    // textAlign:'center',
+                                    textAlign:'center',
                                     alignItems:'center',
                                     justifyContent:'center',
                                     flexDirection:'row',
                                     marginLeft:'5pt',
                                     // padding:'auto',
                                     pointerEvents:'none',
-                                    backgroundColor:'transparent',
+                                    backgroundColor:'white',
                                     // zIndex:99,
                                     pointerEvents:'none',
-                                    lineHeight:'50pt',
-                                    textAlign:'left',
+                                    backgroundColor:'transparent',
+                                    // transform:[{
+                                    //     translateX:'-10px',
+                                    //     translateY:'-100px'
+                                    // }],
+                                    lineHeight:'65pt',
                                 }}
                             >
-                                <span
+                                <Text
                                     style ={{
+                                        // position:'absolute',
+                                        // top:'0px',
                                         height:'50pt',
                                         width:'99px',
                                         fontSize: '15pt',
                                         fontWeight:'700',
                                         textDecorationLine:'none',
+                                        
                                         // color:'white',
                                         // textShadowColor: 'rgba(0, 0, 0, 0.85)',
                                         // textShadowOffset: {width: 0, height: 0},
                                         // textShadowRadius: 2,
                                         color:'black',
-                                        // textAlign:'left',
+                                        textAlign:'left',
                                         alignItems:'center',
                                         justifyContent:'center',
                                         flexDirection:'row',
@@ -231,14 +245,14 @@ function MainMaterialCategory() {
                                 >
                                     {/* {data.listCategory[i].ct_text} */}
                                     {listCategory.ct_text}
-                                </span>
-                            </div>
-                        </div>
+                                </Text>
+                            </View>
+                        </View>
                     </a>
-                    </a>
+                    </TouchableOpacity>
                     )}
-                    </div>
-                    {/* <span> */}
+                    </View>
+                    {/* <Text> */}
                     {/* {data.listCategory[0].ct_img_url} */}
                     {/* construction */}
                     {/* <img 
@@ -249,31 +263,28 @@ function MainMaterialCategory() {
                     /> */}
                     
                     
-                    {/* </span> */}
+                    {/* </Text> */}
                     {/* <Content/> */}
                     
                     
                 
                 </div>
-                </Font>
             );
         }
         else{
             return (
-                <Font family='Noto Sans KR'>
                 <div className="MainContent">
                 
                     <Navbar />
                     <NavBarFiller/>
-                    <span>
+                    <Text>
                     로딩중 ...
-                    </span>
+                    </Text>
                     {/* <Content/> */}
                     
                     
                 
                 </div>
-                </Font>
             );
         }
     
@@ -281,16 +292,15 @@ function MainMaterialCategory() {
     else if(width>803 && width<=1000){
         if(data!=undefined){
             return (
-                <Font family='Noto Sans KR'>
                 <div className="MainContent"
                     style={{
                         display:'block',
                         height:'auto',
-                        textAlign:'left',
+
                     }}
                 >
-                 
-                    <span
+                    
+                    <Text
                         style={{
                             fontSize: '25px',
                             fontWeight:'700',
@@ -305,15 +315,14 @@ function MainMaterialCategory() {
                             justifyContent:'center',
                             flexDirection:'row',
                             margin:11,
-                            marginLeft:'100px',
                             padding:'auto',
-                            zIndex:2,
+                            zIndex:2
                             // backgroundColor:'red'
                         }}
                     > 
                     자재 카테고리
-                    </span> 
-                        <div
+                    </Text> 
+                        <View
                             style={{
                                 flex: 1, 
                                 // flexDirection: 'row',
@@ -329,14 +338,14 @@ function MainMaterialCategory() {
                     {data.listCategory.map((listCategory)=>
 
                     
-                        <a
+                        <TouchableOpacity
                         style={{
                             borderRadius:10,
                             height:'50pt',
                             width:"350px",
                             backgroundColor:'white',
                             boxShadow:'0px 0px 2px',
-                            display:'flex',
+                            
                                 fontSize: '25pt',
                                 fontWeight:'700',
                                 textDecorationLine:'none',
@@ -353,51 +362,44 @@ function MainMaterialCategory() {
                                 marginRight:'auto',
                                 marginTop:'25pt',
                                 padding:'auto',
-                                zIndex:2,
-                                backgroundColor:'white',
-                                
+                                zIndex:2
+                                // backgroundColor:'red'
                             
                         }}
                         //onPress={() => Linking.openURL(`/category?cat_num=${listCategory.ct_id}`)}
-                        // onPress={() => Linking.openURL(`/searchPage?search_target=CATEGORY_DEPTH1&search_value=${listCategory.ct_id}`)}
-                        href={`/searchPage?search_target=CATEGORY_DEPTH1&search_value=${listCategory.ct_id}`}
+                        onPress={() => Linking.openURL(`/searchPage?search_target=CATEGORY_DEPTH1&search_value=${listCategory.ct_id}`)}
                     >
-                    <div
+                    
+                    <Image
                         style={{
-                            transform:'translate(-36px,0px)'
+                        display:'block',
+                        height:'50pt',
+                        width:'60pt',
+                        borderTopLeftRadius:10,
+                        borderBottomLeftRadius:10,
+                        zIndex:1,
+                        pointerEvents:'none',
+                        transform:[{
+                            translateX:'-35px',
+                            translateY:'-100px'
+                        }]
                         }}
-                    >
-                        <img
-                            style={{
-                            display:'block',
-                            height:'50pt',
-                            width:'60pt',
-                            borderTopLeftRadius:10,
-                            borderBottomLeftRadius:10,
-                            zIndex:1,
-                            pointerEvents:'none',
-                            // transform:[{
-                            //     translateX:'-35px',
-                            //     translateY:'-100px'
-                            // }]
-                            }}
-                            // source={{
-                            //     uri:
-                            //         // data.listCategory[i].ct_img_url
-                            //         listCategory.ct_img_url
-                            // }}
-                            src={listCategory.ct_img_url}
+                        source={{
+                            uri:
+                                // data.listCategory[i].ct_img_url
+                                listCategory.ct_img_url
+                        }}
 
-                        >
-                        </img>
-                    </div>
+                    >
+                    </Image>
                     <a
                         style={{
-                        transform:"translate(-15px,0px)",
-                        backgroundColor:'transparent'
+                        transform:[{
+                            translateX:'100px'
+                        }]
                         }}
                     >
-                        <div
+                        <View
                             style ={{
                                 height:'50pt',
                                 width:'200px',
@@ -418,13 +420,13 @@ function MainMaterialCategory() {
                                 pointerEvents:'none',
                                 borderTopRightRadius:10,
                                 borderBottomRightRadius:10,
-                                backgroundColor:'transparent',
+                                backgroundColor:'white',
                                 // zIndex:99,
                                 pointerEvents:'none',
                                 
                             }}
                         >
-                            <div
+                            <View
                                 style ={{
                                     height:'40pt',
                                     width:'99px',
@@ -436,21 +438,20 @@ function MainMaterialCategory() {
                                     // textShadowOffset: {width: 0, height: 0},
                                     // textShadowRadius: 2,
                                     color:'black',
-                                    // textAlign:'center',
+                                    textAlign:'center',
                                     alignItems:'center',
                                     justifyContent:'center',
                                     flexDirection:'row',
                                     marginLeft:'5pt',
                                     // padding:'auto',
                                     pointerEvents:'none',
-                                    backgroundColor:'transparent',
+                                    backgroundColor:'white',
                                     // zIndex:99,
                                     pointerEvents:'none',
-                                    lineHeight:'50pt',
-                                    textAlign:'left',
+                                    lineHeight:'50pt'
                                 }}
                             >
-                                <span
+                                <Text
                                     style ={{
                                         height:'50pt',
                                         width:'99px',
@@ -462,7 +463,7 @@ function MainMaterialCategory() {
                                         // textShadowOffset: {width: 0, height: 0},
                                         // textShadowRadius: 2,
                                         color:'black',
-                                        // textAlign:'left',
+                                        textAlign:'left',
                                         alignItems:'center',
                                         justifyContent:'center',
                                         flexDirection:'row',
@@ -477,14 +478,14 @@ function MainMaterialCategory() {
                                 >
                                     {/* {data.listCategory[i].ct_text} */}
                                     {listCategory.ct_text}
-                                </span>
-                            </div>
-                        </div>
+                                </Text>
+                            </View>
+                        </View>
                     </a>
-                    </a>
+                    </TouchableOpacity>
                     )}
-                    </div>
-                    {/* <span> */}
+                    </View>
+                    {/* <Text> */}
                     {/* {data.listCategory[0].ct_img_url} */}
                     {/* construction */}
                     {/* <img 
@@ -495,48 +496,43 @@ function MainMaterialCategory() {
                     /> */}
                     
                     
-                    {/* </span> */}
+                    {/* </Text> */}
                     {/* <Content/> */}
                     
                     
                 
                 </div>
-                </Font>
             );
         }
         else{
             return (
-                <Font family='Noto Sans KR'>
                 <div className="MainContent">
                 
                     <Navbar />
                     <NavBarFiller/>
-                    <span>
+                    <Text>
                     로딩중 ...
-                    </span>
+                    </Text>
                     {/* <Content/> */}
                     
                     
                 
                 </div>
-                </Font>
             );
         }
     }
     else{
         if(data!=undefined){
             return (
-                <Font family='Noto Sans KR'>
                 <div className="MainContent"
                     style={{
                         display:'block',
                         height:'auto',
-                        textAlign:'center',
+
                     }}
                 >
-                   
-
-                    <span
+                    
+                    <Text
                         style={{
                             fontSize: '25px',
                             fontWeight:'700',
@@ -550,18 +546,15 @@ function MainMaterialCategory() {
                             alignItems:'center',
                             justifyContent:'center',
                             flexDirection:'row',
-                            // margin:11,
-                            marginLeft:'auto',
-                            marginRight:'auto',
+                            margin:11,
                             padding:'auto',
-                            zIndex:2,
+                            zIndex:2
                             // backgroundColor:'red'
                         }}
                     > 
                     자재 카테고리
-                    </span> 
-                   
-                        <div
+                    </Text> 
+                        <View
                             style={{
                                 flex: 1, 
                                 // flexDirection: 'row',
@@ -577,14 +570,14 @@ function MainMaterialCategory() {
                     {data.listCategory.map((listCategory)=>
 
                     
-                        <a
+                        <TouchableOpacity
                         style={{
                             borderRadius:10,
                             height:'50pt',
                             width:"350px",
                             backgroundColor:'white',
                             boxShadow:'0px 0px 2px',
-                            display:'flex',
+                            
                                 fontSize: '25pt',
                                 fontWeight:'700',
                                 textDecorationLine:'none',
@@ -601,51 +594,43 @@ function MainMaterialCategory() {
                                 marginRight:'auto',
                                 marginTop:'25pt',
                                 padding:'auto',
-                                zIndex:2,
-                                backgroundColor:'white',
-                                
-                            
+                                zIndex:2
+                                // backgroundColor:'red'
                         }}
-                        //onPress={() => Linking.openURL(`/category?cat_num=${listCategory.ct_id}`)}
-                        // onPress={() => Linking.openURL(`/searchPage?search_target=CATEGORY_DEPTH1&search_value=${listCategory.ct_id}`)}
-                        href={`/searchPage?search_target=CATEGORY_DEPTH1&search_value=${listCategory.ct_id}`}
+                        // onPress={() => Linking.openURL(`/category:${listCategory.ct_id}`)}
+                        onPress={() => Linking.openURL(`/searchPage?search_target=CATEGORY_DEPTH1&search_value=${listCategory.ct_id}`)}
                     >
-                    <div
+                    
+                    <Image
                         style={{
-                            transform:'translate(-36px,0px)'
+                        display:'block',
+                        height:'50pt',
+                        width:'60pt',
+                        borderTopLeftRadius:10,
+                        borderBottomLeftRadius:10,
+                        zIndex:1,
+                        pointerEvents:'none',
+                        transform:[{
+                            translateX:'-35px',
+                            translateY:'-100px'
+                        }]
                         }}
-                    >
-                        <img
-                            style={{
-                            display:'block',
-                            height:'50pt',
-                            width:'60pt',
-                            borderTopLeftRadius:10,
-                            borderBottomLeftRadius:10,
-                            zIndex:1,
-                            pointerEvents:'none',
-                            // transform:[{
-                            //     translateX:'-35px',
-                            //     translateY:'-100px'
-                            // }]
-                            }}
-                            // source={{
-                            //     uri:
-                            //         // data.listCategory[i].ct_img_url
-                            //         listCategory.ct_img_url
-                            // }}
-                            src={listCategory.ct_img_url}
+                        source={{
+                            uri:
+                                // data.listCategory[i].ct_img_url
+                                listCategory.ct_img_url
+                        }}
 
-                        >
-                        </img>
-                    </div>
+                    >
+                    </Image>
                     <a
                         style={{
-                        transform:"translate(-15px,0px)",
-                        backgroundColor:'transparent'
+                        transform:[{
+                            translateX:'100px'
+                        }]
                         }}
                     >
-                        <div
+                        <View
                             style ={{
                                 height:'50pt',
                                 width:'200px',
@@ -666,15 +651,15 @@ function MainMaterialCategory() {
                                 pointerEvents:'none',
                                 borderTopRightRadius:10,
                                 borderBottomRightRadius:10,
-                                backgroundColor:'transparent',
+                                backgroundColor:'white',
                                 // zIndex:99,
                                 pointerEvents:'none',
                                 
                             }}
                         >
-                            <div
+                            <View
                                 style ={{
-                                    height:'40pt',
+                                    height:'50pt',
                                     width:'99px',
                                     fontSize: '15pt',
                                     fontWeight:'700',
@@ -684,23 +669,22 @@ function MainMaterialCategory() {
                                     // textShadowOffset: {width: 0, height: 0},
                                     // textShadowRadius: 2,
                                     color:'black',
-                                    // textAlign:'center',
+                                    textAlign:'center',
                                     alignItems:'center',
                                     justifyContent:'center',
                                     flexDirection:'row',
                                     marginLeft:'5pt',
                                     // padding:'auto',
                                     pointerEvents:'none',
-                                    backgroundColor:'transparent',
+                                    backgroundColor:'white',
                                     // zIndex:99,
                                     pointerEvents:'none',
-                                    lineHeight:'50pt',
-                                    textAlign:'left',
+                                    
                                 }}
                             >
-                                <span
+                                <Text
                                     style ={{
-                                        height:'50pt',
+                                        height:'65pt',
                                         width:'99px',
                                         fontSize: '15pt',
                                         fontWeight:'700',
@@ -710,7 +694,7 @@ function MainMaterialCategory() {
                                         // textShadowOffset: {width: 0, height: 0},
                                         // textShadowRadius: 2,
                                         color:'black',
-                                        // textAlign:'left',
+                                        textAlign:'left',
                                         alignItems:'center',
                                         justifyContent:'center',
                                         flexDirection:'row',
@@ -725,14 +709,14 @@ function MainMaterialCategory() {
                                 >
                                     {/* {data.listCategory[i].ct_text} */}
                                     {listCategory.ct_text}
-                                </span>
-                            </div>
-                        </div>
+                                </Text>
+                            </View>
+                        </View>
                     </a>
-                    </a>
+                    </TouchableOpacity>
                     )}
-                    </div>
-                    {/* <span> */}
+                    </View>
+                    {/* <Text> */}
                     {/* {data.listCategory[0].ct_img_url} */}
                     {/* construction */}
                     {/* <img 
@@ -743,31 +727,28 @@ function MainMaterialCategory() {
                     /> */}
                     
                     
-                    {/* </span> */}
+                    {/* </Text> */}
                     {/* <Content/> */}
                     
                     
                 
                 </div>
-                </Font>
             );
         }
         else{
             return (
-                <Font family='Noto Sans KR'>
                 <div className="MainContent">
                 
                     <Navbar />
                     <NavBarFiller/>
-                    <span>
+                    <Text>
                     로딩중 ...
-                    </span>
+                    </Text>
                     {/* <Content/> */}
                     
                     
                 
                 </div>
-                </Font>
             );
         }
     }
