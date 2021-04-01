@@ -1,13 +1,13 @@
-import React,{useEffect} from 'react';
+import React,{useEffect,useState} from 'react';
 import Navbar from './Navbar';
-
 import NavBarFiller from './NavBarFiller';
 import Font from 'react-font'
+import './MainMaterialCategory.css'
 function MainMaterialCategory() {
 
-    const[data,setData]=React.useState(undefined)
-    const [height,setHeight]=React.useState(window.innerHeight)
-  	const [width,setWidth]=React.useState(window.innerWidth)
+    const[data,setData]=useState(undefined)
+    const [height,setHeight]=useState(window.innerHeight)
+  	const [width,setWidth]=useState(window.innerWidth)
       const handleResize = (e)=>{
 		setHeight(window.innerHeight)
 		setWidth(window.innerWidth)
@@ -34,69 +34,14 @@ function MainMaterialCategory() {
         if(data!=undefined){
             return (
                 <Font family='Noto Sans KR'>
-                    <div className="MainContent"
-                        style={{
-                            display:'block',
-                            height:'auto',
-                            textAlign:'left',
-                        }}
-                    >
-                    
-                        <span
-                            style={{
-                                fontSize: '25px',
-                                fontWeight:'700',
-                                textDecorationLine:'none',
-                                color:'black',
-                                textAlign:'left',
-                                alignItems:'center',
-                                justifyContent:'center',
-                                flexDirection:'row',
-                                margin:11,
-                                marginLeft:'100px',
-                                padding:'auto',
-                                zIndex:2,
-                            }}
-                        > 
+                    <div className="MainContent">
+                        <span className="Title"> 
                         자재 카테고리
                         </span> 
-                        <div
-                            style={{
-                                flex: 1, 
-                                flexwrap:'wrap',
-                                display: 'grid',
-                                gridTemplateColumns: 'auto auto auto',
-                                padding: '10px'
-                            }}
-                        >   
-
+                        <div className="Grid3">   
                             {data.listCategory.map((listCategory)=>
-
-                                <a
-                                    style={{
-                                        borderRadius:10,
-                                        height:'50pt',
-                                        width:"350px",
-                                        backgroundColor:'white',
-                                        boxShadow:'0px 0px 2px',
-                                        display:'flex',
-                                        fontSize: '25pt',
-                                        fontWeight:'700',
-                                        textDecorationLine:'none',
-                                        color:'black',
-                                        textAlign:'left',
-                                        alignItems:'center',
-                                        justifyContent:'center',
-                                        flexDirection:'row',
-                                        marginLeft:'auto',
-                                        marginRight:'auto',
-                                        marginTop:'25pt',
-                                        padding:'auto',
-                                        zIndex:2,
-                                        backgroundColor:'white',
-                                            
-                                        
-                                    }}
+                                <a 
+                                    className="CategoryBox"
                                     href={`/searchPage?search_target=CATEGORY_DEPTH1&search_value=${listCategory.ct_id}`}
                                 >
                                     <div
@@ -105,86 +50,25 @@ function MainMaterialCategory() {
                                         }}
                                     >
                                         <img
-                                            style={{
-                                            display:'block',
-                                            height:'50pt',
-                                            width:'60pt',
-                                            borderTopLeftRadius:10,
-                                            borderBottomLeftRadius:10,
-                                            zIndex:1,
-                                            pointerEvents:'none',
-                                            }}
+                                            className="CategoryImage"
                                             src={listCategory.ct_img_url}
-
                                         >
                                         </img>
                                     </div>
-                                    <a
+                                    <div
                                         style={{
                                         transform:"translate(-15px,0px)",
                                         backgroundColor:'transparent'
                                         }}
                                     >
-                                        <div
-                                            style ={{
-                                                height:'50pt',
-                                                width:'200px',
-                                                fontSize: '15pt',
-                                                fontWeight:'700',
-                                                textDecorationLine:'none',
-                                                color:'black',
-                                                textAlign:'center',
-                                                flexDirection:'row',
-                                                pointerEvents:'none',
-                                                borderTopRightRadius:10,
-                                                borderBottomRightRadius:10,
-                                                backgroundColor:'transparent',
-                                                pointerEvents:'none',
-                                                
-                                            }}
-                                        >
-                                            <div
-                                                style ={{
-                                                    height:'40pt',
-                                                    width:'99px',
-                                                    fontSize: '15pt',
-                                                    fontWeight:'700',
-                                                    textDecorationLine:'none',
-                                                    color:'black',
-                                                    alignItems:'center',
-                                                    justifyContent:'center',
-                                                    flexDirection:'row',
-                                                    marginLeft:'5pt',
-                                                    pointerEvents:'none',
-                                                    backgroundColor:'transparent',
-                                                    pointerEvents:'none',
-                                                    lineHeight:'50pt',
-                                                    textAlign:'left',
-                                                }}
-                                            >
-                                                <span
-                                                    style ={{
-                                                        height:'50pt',
-                                                        width:'99px',
-                                                        fontSize: '15pt',
-                                                        fontWeight:'700',
-                                                        textDecorationLine:'none',
-                                                        color:'black',
-                                                        alignItems:'center',
-                                                        justifyContent:'center',
-                                                        flexDirection:'row',
-                                                        marginTop:'45pt',
-                                                        pointerEvents:'none',
-                                                        backgroundColor:'transparent',
-                                                        pointerEvents:'none',
-                                                        whiteSpace:'nowrap'
-                                                    }}
-                                                >
+                                        <div className="CategoryTextDivOne">
+                                            <div className="CategoryTextDivTwo">
+                                                <span className="CategoryText">
                                                     {listCategory.ct_text}
                                                 </span>
                                             </div>
                                         </div>
-                                    </a>
+                                    </div>
                                 </a>
                             )}
                         </div>                
@@ -216,69 +100,14 @@ function MainMaterialCategory() {
         if(data!=undefined){
             return (
                 <Font family='Noto Sans KR'>
-                    <div className="MainContent"
-                        style={{
-                            display:'block',
-                            height:'auto',
-                            textAlign:'left',
-                        }}
-                    >
-                    
-                        <span
-                            style={{
-                                fontSize: '25px',
-                                fontWeight:'700',
-                                textDecorationLine:'none',
-                                color:'black',
-                                textAlign:'left',
-                                alignItems:'center',
-                                justifyContent:'center',
-                                flexDirection:'row',
-                                margin:11,
-                                marginLeft:'100px',
-                                padding:'auto',
-                                zIndex:2,
-                            }}
-                        > 
+                    <div className="MainContent">
+                        <span className="Title"> 
                         자재 카테고리
                         </span> 
-                        <div
-                            style={{
-                                flex: 1, 
-                                flexwrap:'wrap',
-                                display: 'grid',
-                                gridTemplateColumns: 'auto auto',
-                                padding: '10px'
-                            }}
-                        >
-                                
-                            
+                        <div className="Grid2">   
                             {data.listCategory.map((listCategory)=>
-
-                        
-                                <a
-                                    style={{
-                                        borderRadius:10,
-                                        height:'50pt',
-                                        width:"350px",
-                                        backgroundColor:'white',
-                                        boxShadow:'0px 0px 2px',
-                                        display:'flex',
-                                        fontSize: '25pt',
-                                        fontWeight:'700',
-                                        textDecorationLine:'none',
-                                        color:'black',
-                                        textAlign:'left',
-                                        alignItems:'center',
-                                        justifyContent:'center',
-                                        flexDirection:'row',
-                                        marginLeft:'auto',
-                                        marginRight:'auto',
-                                        marginTop:'25pt',
-                                        padding:'auto',
-                                        zIndex:2,
-                                        backgroundColor:'white',
-                                    }}
+                                <a 
+                                    className="CategoryBox"
                                     href={`/searchPage?search_target=CATEGORY_DEPTH1&search_value=${listCategory.ct_id}`}
                                 >
                                     <div
@@ -287,90 +116,30 @@ function MainMaterialCategory() {
                                         }}
                                     >
                                         <img
-                                            style={{
-                                                display:'block',
-                                                height:'50pt',
-                                                width:'60pt',
-                                                borderTopLeftRadius:10,
-                                                borderBottomLeftRadius:10,
-                                                zIndex:1,
-                                                pointerEvents:'none',
-                                            }}
+                                            className="CategoryImage"
                                             src={listCategory.ct_img_url}
                                         >
                                         </img>
                                     </div>
-                                    <a
+                                    <div
                                         style={{
-                                            transform:"translate(-15px,0px)",
-                                            backgroundColor:'transparent'
+                                        transform:"translate(-15px,0px)",
+                                        backgroundColor:'transparent'
                                         }}
                                     >
-                                        <div
-                                            style ={{
-                                                height:'50pt',
-                                                width:'200px',
-                                                fontSize: '15pt',
-                                                fontWeight:'700',
-                                                textDecorationLine:'none',
-                                                color:'black',
-                                                textAlign:'center',
-                                                flexDirection:'row',
-                                                pointerEvents:'none',
-                                                borderTopRightRadius:10,
-                                                borderBottomRightRadius:10,
-                                                backgroundColor:'transparent',
-                                                pointerEvents:'none',
-                                                
-                                            }}
-                                        >
-                                            <div
-                                                style ={{
-                                                    height:'40pt',
-                                                    width:'99px',
-                                                    fontSize: '15pt',
-                                                    fontWeight:'700',
-                                                    textDecorationLine:'none',
-                                                    color:'black',
-                                                    alignItems:'center',
-                                                    justifyContent:'center',
-                                                    flexDirection:'row',
-                                                    marginLeft:'5pt',
-                                                    pointerEvents:'none',
-                                                    backgroundColor:'transparent',
-                                                    pointerEvents:'none',
-                                                    lineHeight:'50pt',
-                                                    textAlign:'left',
-                                                }}
-                                            >
-                                                <span
-                                                    style ={{
-                                                        height:'50pt',
-                                                        width:'99px',
-                                                        fontSize: '15pt',
-                                                        fontWeight:'700',
-                                                        textDecorationLine:'none',
-                                                        color:'black',
-                                                        alignItems:'center',
-                                                        justifyContent:'center',
-                                                        flexDirection:'row',
-                                                        marginTop:'45pt',
-                                                        pointerEvents:'none',
-                                                        backgroundColor:'transparent',
-                                                        pointerEvents:'none',
-                                                        whiteSpace:'nowrap'
-                                                    }}
-                                                >
+                                        <div className="CategoryTextDivOne">
+                                            <div className="CategoryTextDivTwo">
+                                                <span className="CategoryText">
                                                     {listCategory.ct_text}
                                                 </span>
                                             </div>
                                         </div>
-                                    </a>
+                                    </div>
                                 </a>
                             )}
                         </div>                
                     </div>
-                </Font>
+                </Font>    
             );
         }
         else{
@@ -391,69 +160,14 @@ function MainMaterialCategory() {
         if(data!=undefined){
             return (
                 <Font family='Noto Sans KR'>
-                    <div className="MainContent"
-                        style={{
-                            display:'block',
-                            height:'auto',
-                            textAlign:'center',
-                        }}
-                    >
-                        <span
-                            style={{
-                                fontSize: '25px',
-                                fontWeight:'700',
-                                textDecorationLine:'none',
-                                color:'black',
-                                textAlign:'left',
-                                alignItems:'center',
-                                justifyContent:'center',
-                                flexDirection:'row',
-                                marginLeft:'auto',
-                                marginRight:'auto',
-                                padding:'auto',
-                                zIndex:2,
-                            }}
-                        > 
+                    <div className="MainContent">
+                        <span className="Title"> 
                         자재 카테고리
                         </span> 
-                    
-                        <div
-                            style={{
-                                flex: 1, 
-                                flexwrap:'wrap',
-                                display: 'grid',
-                                gridTemplateColumns: 'auto',
-                                padding: '10px'
-                            }}
-                        >
-                            
-                        
+                        <div className="Grid1">   
                             {data.listCategory.map((listCategory)=>
-
-                    
-                                <a
-                                    style={{
-                                        borderRadius:10,
-                                        height:'50pt',
-                                        width:"350px",
-                                        backgroundColor:'white',
-                                        boxShadow:'0px 0px 2px',
-                                        display:'flex',
-                                        fontSize: '25pt',
-                                        fontWeight:'700',
-                                        textDecorationLine:'none',
-                                        color:'black',
-                                        textAlign:'left',
-                                        alignItems:'center',
-                                        justifyContent:'center',
-                                        flexDirection:'row',
-                                        marginLeft:'auto',
-                                        marginRight:'auto',
-                                        marginTop:'25pt',
-                                        padding:'auto',
-                                        zIndex:2,
-                                        backgroundColor:'white',
-                                    }}
+                                <a 
+                                    className="CategoryBox"
                                     href={`/searchPage?search_target=CATEGORY_DEPTH1&search_value=${listCategory.ct_id}`}
                                 >
                                     <div
@@ -462,91 +176,30 @@ function MainMaterialCategory() {
                                         }}
                                     >
                                         <img
-                                            style={{
-                                                display:'block',
-                                                height:'50pt',
-                                                width:'60pt',
-                                                borderTopLeftRadius:10,
-                                                borderBottomLeftRadius:10,
-                                                zIndex:1,
-                                                pointerEvents:'none',
-                                            }}
+                                            className="CategoryImage"
                                             src={listCategory.ct_img_url}
-
                                         >
                                         </img>
                                     </div>
-                                    <a
+                                    <div
                                         style={{
-                                            transform:"translate(-15px,0px)",
-                                            backgroundColor:'transparent'
+                                        transform:"translate(-15px,0px)",
+                                        backgroundColor:'transparent'
                                         }}
                                     >
-                                        <div
-                                            style ={{
-                                                height:'50pt',
-                                                width:'200px',
-                                                fontSize: '15pt',
-                                                fontWeight:'700',
-                                                textDecorationLine:'none',
-                                                color:'black',
-                                                textAlign:'center',
-                                                flexDirection:'row',
-                                                pointerEvents:'none',
-                                                borderTopRightRadius:10,
-                                                borderBottomRightRadius:10,
-                                                backgroundColor:'transparent',
-                                                pointerEvents:'none',
-                                            }}
-                                        >
-                                            <div
-                                                style ={{
-                                                    height:'40pt',
-                                                    width:'99px',
-                                                    fontSize: '15pt',
-                                                    fontWeight:'700',
-                                                    textDecorationLine:'none',
-                                                    color:'black',
-                                                    alignItems:'center',
-                                                    justifyContent:'center',
-                                                    flexDirection:'row',
-                                                    marginLeft:'5pt',
-                                                    pointerEvents:'none',
-                                                    backgroundColor:'transparent',
-                                                    pointerEvents:'none',
-                                                    lineHeight:'50pt',
-                                                    textAlign:'left',
-                                                }}
-                                            >
-                                                <span
-                                                    style ={{
-                                                        height:'50pt',
-                                                        width:'99px',
-                                                        fontSize: '15pt',
-                                                        fontWeight:'700',
-                                                        textDecorationLine:'none',
-                                                        color:'black',
-                                                        alignItems:'center',
-                                                        justifyContent:'center',
-                                                        flexDirection:'row',
-                                                        marginTop:'45pt',
-                                                        pointerEvents:'none',
-                                                        backgroundColor:'transparent',
-                                                        pointerEvents:'none',
-                                                        whiteSpace:'nowrap'
-                                                    }}
-                                                >
+                                        <div className="CategoryTextDivOne">
+                                            <div className="CategoryTextDivTwo">
+                                                <span className="CategoryText">
                                                     {listCategory.ct_text}
                                                 </span>
                                             </div>
                                         </div>
-                                    </a>
+                                    </div>
                                 </a>
                             )}
-                        </div>    
+                        </div>                
                     </div>
-                </Font>
-            );
+                </Font>);
         }
         else{
             return (

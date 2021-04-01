@@ -1,0 +1,115 @@
+.MainContent{
+    display:block;
+    height:auto;
+    text-align:left;
+}
+.Title{
+    font-size: 25px;
+    font-weight:700;
+    text-decoration-line:none;
+    color:black;
+    text-align:left;
+    align-items:center;
+    justify-content:center;
+    flex-direction:row;
+    margin:11;
+    margin-left:100px;
+    padding:auto;
+    z-index:2;
+}
+.Grid1{
+    flex: 1; 
+    display: grid;
+    grid-template-columns: auto;
+    padding: 10px
+}
+.Grid2{
+    flex: 1; 
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px
+}
+.Grid3{
+    flex: 1; 
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px
+}
+.CategoryBox{
+    border-radius:10px;
+    height:50pt;
+    width:350px;
+    box-shadow:0px 0px 2px;
+    display:flex;
+    font-size: 25pt;
+    font-weight:700;
+    text-decoration-line:none;
+    color:black;
+    text-align:left;
+    align-items:center;
+    justify-content:center;
+    flex-direction:row;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:25pt;
+    padding:auto;
+    z-index:2;
+    background-color:white; 
+}
+.CategoryImage{
+    display:block;
+    height:50pt;
+    width:60pt;
+    border-top-left-radius:10px;
+    border-bottom-left-radius:10px;
+    z-index:1;
+    pointer-events:none;
+}
+.CategoryTextDivOne{
+    height:50pt;
+    width:200px;
+    font-size: 15pt;
+    font-weight:700;
+    text-decoration-line:none;
+    color:black;
+    text-align:center;
+    flex-direction:row;
+    pointer-events:none;
+    border-top-right-radius:10px;
+    border-bottom-right-radius:10px;
+    background-color:transparent;
+    pointer-events:none;
+}
+.CategoryTextDivTwo{
+    height:40pt;
+    width:99px;
+    font-size: 15pt;
+    font-weight:700;
+    text-decoration-line:none;
+    color:black;
+    align-items:center;
+    justify-content:center;
+    flex-direction:row;
+    margin-left:5pt;
+    pointer-events:none;
+    background-color:transparent;
+    pointer-events:none;
+    line-height:50pt;
+    text-align:left;
+}
+.CategoryText{
+    height:50pt;
+    width:99px;
+    font-size: 15pt;
+    font-weight:700;
+    text-decoration-line:none;
+    color:black;
+    align-items:center;
+    justify-content:center;
+    flex-direction:row;
+    margin-top:45pt;
+    pointer-events:none;
+    background-color:transparent;
+    pointer-events:none;
+    white-space:nowrap;
+}
