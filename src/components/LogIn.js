@@ -1,5 +1,6 @@
 import React,{useEffect} from 'react';
 import KakaoAuth from './KakaoAuth';
+import AppleAuth from './AppleAuth'
 import NoExistMember from './NoExistMember';
 import WrongPinCode from './WrongPinCode'
 import SentMessage from './SentMessage';
@@ -13,6 +14,7 @@ import {TouchableOpacity,Text,View,Modal,Image,Linking,Dimensions,TextInput,Styl
 import xIcon from '../assets/x.png';
 import eyeIcon from '../assets/eye-solid.svg'
 import eyeSlashIcon from '../assets/eye-slash-solid.svg'
+import ImageUploader from 'react-images-upload'
 import {
     CodeField,
     Cursor,
@@ -20,6 +22,7 @@ import {
     useClearByFocusCell,
   } from 'react-native-confirmation-code-field';  
 import './Login.css'
+import fetch from 'node-fetch';
 const queryString = require('query-string');
 
 function LogIn(props){
@@ -47,6 +50,8 @@ function LogIn(props){
     const [showRegistrationSuccessScreen,setShowRegistrationSuccessScreen]=React.useState(false)
     const [emailAlreadyExistsScreen,setEmailAlreadyExistsScreen]=React.useState(false)
     const [showDuplicateEmailScreen,setShowDuplicateEmailScreen]=React.useState(false)
+    const [imageUploaded,setImageUploaded]=React.useState(false)
+    const [picture,setPicture]=React.useState('')
     const ref = useBlurOnFulfill({pincodeValue,cellCount:6})
     const [codeFileProps,getCellOnLayoutHandler]=useClearByFocusCell({
         pincodeValue,setPincodeValue
@@ -56,6 +61,11 @@ function LogIn(props){
         setWidth(Dimensions.get('window').width)
         // console.log(height+" : "+width)
       }
+    const onDrop=(picture)=>{
+        console.log(picture)
+        setImageUploaded(true)
+        setPicture(picture)
+    }
     const findPasswordFunction=(obj)=>{
     // console.log(qStr)
     fetch('/FindPassword?'+queryString.stringify(obj)
@@ -136,6 +146,23 @@ function LogIn(props){
                 props.setJoinType('MOBILE')
                 props.setSNSID(null)
                 setShowRegistrationSuccessScreen(true)
+                // var imageUploadOBJ={
+                //     ap_dbtable:'MEMBER',
+                //     pic_ownder:incomingData.message.split('_')[0],
+                //     imagecolumn:'mem_company_img',
+                //     multiupload:'true',
+                //     // mem_company_img:[picture]
+                // }
+                // fetch('/Picture?'+queryString.stringify(imageUploadOBJ)
+                // )
+                // .then(res=>res.json())
+                // .then((incomingDataTwo)=>{
+                //     console.log(imageUploadOBJ)
+                //     console.log(incomingDataTwo)
+                // })
+                // .catch(err=>{
+                //     console.log(err)
+                // })
             }
             else if (incomingData.message=="ALREADY_EMAIL"){
                 setEmailLogIn(true)
@@ -233,7 +260,9 @@ function LogIn(props){
             props.userCompanyWebSite!='' &&
             props.password!='' &&
             props.passwordCheck!='' &&
-            checked==true
+            checked==true 
+            // &&
+            // imageUploaded==true
         ){
             setMembershipButtonDisabled(false)
         }
@@ -2021,6 +2050,15 @@ function LogIn(props){
                             
 
                             </div>
+                            {/* <Text>사업자등록증 및 명함 업로드</Text>
+                            <ImageUploader
+                                withIcon={true}
+                                buttonText='이미지 업로드'
+                                onChange={onDrop}
+                                imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                                maxFileSize={5242880}
+                            /> */}
+                            
                             <div
                                 style={{
                                     display:'flex',
@@ -2200,7 +2238,8 @@ function LogIn(props){
                                     mem_mobile:props.userPhoneNumber,
                                     // mem_jointype:'MOBILE',
                                     mem_jointype:props.joinType,
-                                    mem_level:'NORMAL',
+                                    // mem_level:'NORMAL',
+                                     mem_level:'EXPERT',
                                     mem_password:props.password,
                                     mem_company_name:props.userCompanyName,
                                     mem_company_url:props.userCompanyWebSite,
@@ -2637,6 +2676,9 @@ function LogIn(props){
                             Apple 계정으로 계속하기
                         </Text>
                     </TouchableOpacity>
+                    {/* <TouchableOpacity>
+                        <AppleAuth/>
+                    </TouchableOpacity> */}
                     <div
                         style={{
                             display:'flex',

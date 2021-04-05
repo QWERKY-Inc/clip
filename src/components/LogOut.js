@@ -62,8 +62,8 @@ function LogOut(props){
         <div
         style={{
             paddingTop:'100px',
-            paddingLeft:'65px',
-            paddingRight:'65px'
+            // paddingLeft:'65px',
+            // paddingRight:'65px'
         }}
         >
             <div
@@ -86,7 +86,7 @@ function LogOut(props){
             style={{
             borderRadius:'10px',
             backgroundColor:'white',
-            width:'100%',
+            width:'500px',
             height:'300px',
             paddingTop:'15px',
             // columnCount:3,
@@ -96,17 +96,45 @@ function LogOut(props){
             // gridTemplateColumns: 'auto auto',
             // // padding:'100px',
             overflowY: 'scroll',
+            marginLeft:'auto',
+            marginRight:'auto'
             }}
             >
-                <div
+                
+            
+                <View
+                style={{
+                    backgroundColor:'white',
+                    height:'298px',
+                    width:'500px',
+                    borderBottomLeftRadius:'10px',
+                    borderBottomRightRadius:'10px'
+
+                }}
+                >
+                    
+                    <View
+                        style={{
+                            position:'relative',
+                            top:0,
+                            height:'30px',
+                            width:'100%',
+                            backgroundColor:'white',
+                            borderTopLeftRadius:'10px',
+                            borderTopRightRadius:'10px',
+                            borderBottom:'1px solid rgb(221,221,221)'
+                        }}
+                    >
+                    <div
                 style={{
                 height:'25px',
                 width:'25px',
                 backgroundColor:'transparent',
-                position: 'absolute',
-                top:'110px',
-                left:'75px',
+                position: 'relative',
+                top:'15px',
+                left:'15px',
                 zIndex:102,
+                transform:'translate(0px,-20px)'
                 }}
             >
                 <TouchableOpacity
@@ -124,32 +152,10 @@ function LogOut(props){
                 </img>
                 </TouchableOpacity>
             </div>
-            
-                <View
-                style={{
-                    backgroundColor:'white',
-                    height:'298px',
-                    width:'100%',
-                    borderBottomLeftRadius:'10px',
-                    borderBottomRightRadius:'10px'
-
-                }}
-                >
-                    <View
-                        style={{
-                            position:'relative',
-                            top:0,
-                            height:'30px',
-                            width:'100%',
-                            backgroundColor:'white',
-                            borderTopLeftRadius:'10px',
-                            borderTopRightRadius:'10px',
-                            borderBottom:'1px solid rgb(221,221,221)'
-                        }}
-                    >
                     <Text
                         style={{
                             fontWeight:700,
+                            transform:'translate(0px,-23px)'
                         }}
                     >마이페이지</Text>
                     </View>

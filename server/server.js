@@ -161,6 +161,20 @@ app.get('/banner',(req,res)=>{
         console.log(err)
     })
 })
+app.get('/Picture',(req,res)=>{
+    fetch('http://clip.partners/api/mobile/Picture',{
+        method:'post',
+        headers: {'Content-Type':'application/x-www-form-urlencoded'},
+        body:queryString.stringify(req.query)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        res.json(data);
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
 app.post('/login',(req,res)=>{
     // console.log(queryString.stringify(Object.keys(req.body)[0]))
     fetch('http://clip.partners/api/mobile/MemberLogin',{
