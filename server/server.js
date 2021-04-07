@@ -164,7 +164,7 @@ app.get('/banner',(req,res)=>{
 app.get('/Picture',(req,res)=>{
     fetch('http://clip.partners/api/mobile/Picture',{
         method:'post',
-        headers: {'Content-Type':'application/x-www-form-urlencoded'},
+        headers: {'Content-Type':"multipart/form-data"},
         body:queryString.stringify(req.query)
     })
     .then(res=>res.json())

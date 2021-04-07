@@ -1,15 +1,18 @@
 import React,{useEffect} from 'react';
 import IntroImg from '../assets/introImage.png';
 import './content.css';
-import {TouchableOpacity,Text,Linking,Dimensions,View,Image} from 'react-native';
+import Font from 'react-font'
+// import {TouchableOpacity,Text,Linking,Dimensions,View,Image} from 'react-native';
 const queryString = require('query-string');
 
 const IntroImage=() => {
 	const[data,setData]=React.useState(undefined)
 	const[banner,setBanner]=React.useState(undefined)
 	const[bannerData,setBannerData]=React.useState(undefined)
-	const [height,setHeight]=React.useState(Dimensions.get('window').height)
-  	const [width,setWidth]=React.useState(Dimensions.get('window').width)
+	// const [height,setHeight]=React.useState(Dimensions.get('window').height)
+	// const [width,setWidth]=React.useState(Dimensions.get('window').width)
+	const [height,setHeight]=React.useState(window.innerHeight)
+  	const [width,setWidth]=React.useState(window.innerWidth)
 	const oneBanner=(jsonObj)=>{
 		console.log(jsonObj)
 		  fetch('/banner?'+
@@ -28,13 +31,18 @@ const IntroImage=() => {
 		  })
 		
 	  }
-	const onChange=()=>{
-		setHeight(Dimensions.get('window').height)
-		setWidth(Dimensions.get('window').width)
-		// console.log(height+" : "+width)
+	// const onChange=()=>{
+	// 	setHeight(Dimensions.get('window').height)
+	// 	setWidth(Dimensions.get('window').width)
+	// 	// console.log(height+" : "+width)
+	// }
+	const handleResize = (e)=>{
+		setHeight(window.innerHeight)
+		setWidth(window.innerWidth)
 	}
 	useEffect(() => {
-		Dimensions.addEventListener('change',onChange)
+		// Dimensions.addEventListener('change',onChange)
+		window.addEventListener("resize",handleResize)
 		const parsed = {}
 		if(localStorage.login!=undefined){
 			var mem_no=undefined
@@ -131,12 +139,14 @@ const IntroImage=() => {
 			style={{
 				backgroundColor:'transparent',
 				alignItems:'center',
-				justifyContent:'center'
+				justifyContent:'center',
+				paddingLeft:'auto',
+				paddingRight:'auto'
 			}}
 			>
 				 {/* <img id="introImage" src={IntroImg} alt="Logo" title="Logo" >
 				</img> */}
-				<TouchableOpacity
+				<a
                         style={{
                             // borderRadius:10,
                             // height:'65pt',
@@ -164,51 +174,76 @@ const IntroImage=() => {
                                 // backgroundColor:'red'
                             
                         }}
-						onPress={() => {
-							// console.log(data[0].banner_detail)
-							Linking.openURL(`/brands?ct_id=${data[0].banner_detail}`)
-						}}
+						// onPress={() => {
+						// 	// console.log(data[0].banner_detail)
+						// 	Linking.openURL(`/brands?ct_id=${data[0].banner_detail}`)
+						// }}
+						href={`/brands?ct_id=${data[0].banner_detail}`}
                     >
-				<View
+				<div
 					style={{
 						backgroundColor:'transparent',
 						height:'300px',
-						width:width-330+'px',
-						marginBottom:'30px'
+						// width:width-330+'px',
+						width:'100%',
+						marginBottom:'30px',
+						position:'relative',
+						paddingLeft:'auto',
+						paddingRight:'auto',
+
 					}}
 				>
-					<View
+					
+					<div
+						style={{
+							position:'relative',
+							backgroundColor:'transparent',
+							minWidth:'250px',
+							minHeight:'300px',
+							display:'table',
+							marginLeft:'auto',
+							marginRight:'auto'
+						}}
+					>
+					<Font family='Noto Sans KR'>
+					<div
 						style={{
 							position:'absolute',
-							bottom:'40px',
-							left:'40px',
+							bottom:'15px',
+							left:'15px',
 							backgroundColor:'transparent',
-							zIndex:100,
+							zIndex:0,
+							display:'flex',
+							flexDirection:'column'
 
 						}}
 					>
-						<Text
-							style={{
-								color:'white',
-								fontSize:'30px',
-								fontWeight:700,
-								textShadow:'1px 1px black'
-							}}
-						>
-							{data[0].detail.brd_name_eng}
-						</Text>
-						<Text
-							style={{
-								color:'white',
-								fontSize:'30px',
-								fontWeight:700,
-								textShadow:'1px 1px black'
-							}}
-						>
-							{data[0].detail.brd_name_kor}
-						</Text>
-					</View>
-					<Image
+						
+							<a
+								style={{
+									color:'white',
+									fontSize:'20px',
+									fontWeight:700,
+									textShadow:'1px 1px black'
+								}}
+							>
+								{data[0].detail.brd_name_eng}
+							</a>
+							<a
+								style={{
+									color:'white',
+									fontSize:'18px',
+									fontWeight:700,
+									textShadow:'1px 1px black',
+									zIndex:0,
+								}}
+							>
+								{data[0].detail.brd_name_kor}
+							</a>
+						
+					</div> 
+					</Font>
+					<img
                       style={{
                       display:'block',
                       height:'300px',
@@ -216,7 +251,10 @@ const IntroImage=() => {
                       // borderTopLeftRadius:10,
                       // borderTopRightRadius:10,
 					  borderRadius:'10px',
-					  zIndex:99,
+					  zIndex:0,
+					  marginLeft:'auto',
+					  marginRight:'auto',
+					//   width:width-330+'px',
                     //   pointerEvents:'none',
                     //   marginLeft:'auto',
                     //   marginRight:'auto'
@@ -225,13 +263,15 @@ const IntroImage=() => {
                       //     translateY:'0px'
                       // }]
                       }}
-                      source={{
-                          uri:
-						  	data[0].detail.brd_feature_img_url
-                      }}
+                    //   source={{
+                    //       uri:
+					// 	  	data[0].detail.brd_feature_img_url
+                    //   }}
+                      src={data[0].detail.brd_feature_img_url}
 
                   >
-              </Image>
+					</img>
+					</div>
 				{/* <img id="introImage" 
 					src={data[0].detail.brd_feature_img_url} 
 					alt="banner" 
@@ -243,7 +283,7 @@ const IntroImage=() => {
 				>
 				</img> */}
 					
-				</View>
+				</div>
 				{/* <img id="introImage" 
 					src={data.listBanner[0].banner_img_url} 
 					alt="Logo" 
@@ -264,7 +304,7 @@ const IntroImage=() => {
 					}}
 				>
 				</img> */}
-				</TouchableOpacity>
+				</a>
 
 			</div>
 			{/* </a> */}
@@ -293,12 +333,14 @@ const IntroImage=() => {
 				style={{
 					backgroundColor:'transparent',
 					alignItems:'center',
-					justifyContent:'center'
+					justifyContent:'center',
+					paddingLeft:'auto',
+					paddingRight:'auto'
 				}}
 				>
 					 {/* <img id="introImage" src={IntroImg} alt="Logo" title="Logo" >
 					</img> */}
-					<TouchableOpacity
+					<a
 							style={{
 								// borderRadius:10,
 								// height:'65pt',
@@ -326,51 +368,76 @@ const IntroImage=() => {
 									// backgroundColor:'red'
 								
 							}}
-							onPress={() => {
-								// console.log(data[0].banner_detail)
-								Linking.openURL(`/brands?ct_id=${data[0].banner_detail}`)
-							}}
+							// onPress={() => {
+							// 	// console.log(data[0].banner_detail)
+							// 	Linking.openURL(`/brands?ct_id=${data[0].banner_detail}`)
+							// }}
+							href={`/brands?ct_id=${data[0].banner_detail}`}
 						>
-					<View
+					<div
 						style={{
 							backgroundColor:'transparent',
 							height:'300px',
-							width:width-30+'px',
-							marginBottom:'30px'
+							// width:width-330+'px',
+							width:'100%',
+							marginBottom:'30px',
+							position:'relative',
+							paddingLeft:'auto',
+							paddingRight:'auto',
+	
 						}}
 					>
-						<View
+						
+						<div
+							style={{
+								position:'relative',
+								backgroundColor:'transparent',
+								minWidth:'250px',
+								minHeight:'300px',
+								display:'table',
+								marginLeft:'auto',
+								marginRight:'auto'
+							}}
+						>
+						<Font family='Noto Sans KR'>
+						<div
 							style={{
 								position:'absolute',
-								bottom:'40px',
-								left:'40px',
+								bottom:'15px',
+								left:'15px',
 								backgroundColor:'transparent',
-								zIndex:100,
+								zIndex:0,
+								display:'flex',
+								flexDirection:'column'
 	
 							}}
 						>
-							<Text
-								style={{
-									color:'white',
-									fontSize:'30px',
-									fontWeight:700,
-									textShadow:'1px 1px black'
-								}}
-							>
-								{data[0].detail.brd_name_eng}
-							</Text>
-							<Text
-								style={{
-									color:'white',
-									fontSize:'30px',
-									fontWeight:700,
-									textShadow:'1px 1px black'
-								}}
-							>
-								{data[0].detail.brd_name_kor}
-							</Text>
-						</View>
-						<Image
+							
+								<a
+									style={{
+										color:'white',
+										fontSize:'20px',
+										fontWeight:700,
+										textShadow:'1px 1px black'
+									}}
+								>
+									{data[0].detail.brd_name_eng}
+								</a>
+								<a
+									style={{
+										color:'white',
+										fontSize:'18px',
+										fontWeight:700,
+										textShadow:'1px 1px black',
+										zIndex:101,
+									}}
+								>
+									{data[0].detail.brd_name_kor}
+								</a>
+							
+						</div> 
+						</Font>
+						<img
 						  style={{
 						  display:'block',
 						  height:'300px',
@@ -378,7 +445,10 @@ const IntroImage=() => {
 						  // borderTopLeftRadius:10,
 						  // borderTopRightRadius:10,
 						  borderRadius:'10px',
-						  zIndex:99,
+						  zIndex:0,
+						  marginLeft:'auto',
+						  marginRight:'auto',
+						//   width:width-330+'px',
 						//   pointerEvents:'none',
 						//   marginLeft:'auto',
 						//   marginRight:'auto'
@@ -387,13 +457,15 @@ const IntroImage=() => {
 						  //     translateY:'0px'
 						  // }]
 						  }}
-						  source={{
-							  uri:
-								  data[0].detail.brd_feature_img_url
-						  }}
+						//   source={{
+						//       uri:
+						// 	  	data[0].detail.brd_feature_img_url
+						//   }}
+						  src={data[0].detail.brd_feature_img_url}
 	
 					  >
-				  </Image>
+						</img>
+						</div>
 					{/* <img id="introImage" 
 						src={data[0].detail.brd_feature_img_url} 
 						alt="banner" 
@@ -405,7 +477,7 @@ const IntroImage=() => {
 					>
 					</img> */}
 						
-					</View>
+					</div>
 					{/* <img id="introImage" 
 						src={data.listBanner[0].banner_img_url} 
 						alt="Logo" 
@@ -426,7 +498,7 @@ const IntroImage=() => {
 						}}
 					>
 					</img> */}
-					</TouchableOpacity>
+					</a>
 	
 				</div>
 				{/* </a> */}
@@ -439,9 +511,11 @@ const IntroImage=() => {
 	else{
 		return(
 			<div>
-				<Text>
-				로딩중 ...
-				</Text>
+				<Font family='Noto Sans KR'>
+					<a>
+					로딩중 ...
+					</a>
+				</Font>
 			</div>
 		)
 	}

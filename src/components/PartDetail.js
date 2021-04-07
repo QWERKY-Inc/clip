@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react';
-import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking,Dimensions} from 'react-native';
+import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking,TextInput,Dimensions} from 'react-native';
 import Navbar from './Navbar';
 import NavBarFiller from './NavBarFiller';
 import ClipBoard from './ClipBoard';
@@ -611,10 +611,381 @@ function PartDetail(props){
                                 </TouchableOpacity>
                                 </div>
                             </View>
+                            
                         </View>
                         
                     </View>
-                    {parse(materialData.mt_description)}
+                    <View
+                        style={{
+                            display:'flex',
+                            flexDirection:'row'
+                        }}
+                    >
+                        <View
+                            style={{
+                                width:"50%",
+                                backgroundColor:'transparent'
+                            }}
+                        >
+                            {parse(materialData.mt_description)}
+                        </View>
+                        <View
+                            style={{
+                                width:"50%",
+                                height:'1000px',
+                                backgroundColor:'transparent',
+                                display:'flex',
+                                flexDirection:'column',
+                                paddingTop:'20px'
+                            }}
+                        >
+                            <View
+                            style={{
+                                textAlign:'left',
+                                display:'flex',
+                                flexDirection:'row',
+                                paddingTop:'10px',
+                                paddingLeft:'10px',
+                                paddingRight:'10px',
+                                paddingBottom:'10px'
+                            }}
+                            >
+                                <Text
+                                    style={{
+                                        fontSize:"24px"
+                                    }}
+                                >
+                                    14200원/&#13217;
+                                </Text>
+                                <Text>
+                                    &nbsp;
+                                </Text>
+                                <Text
+                                    style={{
+                                        marginTop:"6px",
+                                        fontSize:'18px',
+                                        color:'rgb(168,168,168)',
+                                        textDecoration:"line-through",
+
+                                    }}
+                                >
+                                    23000원/&#13217;
+                                </Text>
+                                <Text>
+                                    &nbsp;
+                                </Text>
+                                <Text
+                                    style={{
+                                        marginTop:"6px",
+                                        fontSize:'18px',
+                                        color:'rgb(246,75,82)',
+                                        textDecoration:"line-through",
+
+                                    }}
+                                >
+                                   38% 할인
+                                </Text>
+                            </View>
+                            <View
+                                style={{
+                                    height:"1px",
+                                    width:'100%',
+                                    backgroundColor:"rgb(205,205,205)",
+                                    // marginTop:'10px',
+                                    // marginBottom:'10px'
+                                }}
+                            >
+                            </View>
+                            <View
+                                style={{
+                                    display:'flex',
+                                    flexDirection:'row',
+                                    paddingTop:'10px',
+                                    paddingLeft:'10px',
+                                    paddingRight:'10px',
+                                    paddingBottom:'10px'
+                                }}
+                            >
+                            <Text
+                             style={{
+                                 fontSize:'24px'
+                             }}
+                            >
+                                납품기간 (Lead Time)
+                            
+                            </Text>
+                            <Text>
+                                &nbsp;
+                            </Text>
+                            <TouchableOpacity>
+                                <Text
+                                    style={{
+                                        fontSize:'24px'
+                                    }}
+                                >
+                                    &gt;
+                                </Text>
+                            </TouchableOpacity>
+                            </View>
+                            <View
+                                style={{
+                                    height:"1px",
+                                    width:'100%',
+                                    backgroundColor:"rgb(205,205,205)",
+                                    
+                                }}
+                            >
+                            </View>
+                            <View
+                                style={{
+                                    paddingTop:'10px',
+                                    paddingLeft:'10px',
+                                    paddingRight:'10px',
+                                    paddingBottom:'10px',
+                                    backgroundColor:'rgb(246,246,246)'
+                                }}
+                            >
+                                <Text
+                                    style={{
+                                        fontWeight:700
+                                    }}
+                                >
+                                    주문수량 계산기
+                                </Text>
+                                <View
+                                    style={{
+                                        marginTop:'10px',
+                                        textAlign:'left',
+                                        display:'flex',
+                                        flexDirection:'row'
+                                    }}
+                                >
+                                    
+                                    <TextInput
+                                        onChangeText={(text) => {
+                                        //props.setUserPhoneNumber(text);
+                                        // props.onPhoneNumberChange()
+                                        }}
+                                        style={{
+                                        // marginTop: "10px",
+                                        border: "1px solid rgb(140,140,140)",
+                                        borderRadius: "4px",
+                                        width:'60px',
+                                        height:"30px",
+                                        backgroundColor:'white'
+                                        }}
+                                        
+                                        // value={props.userPhoneNumber}
+                                    ></TextInput>
+                                    <View
+                                        style={{
+                                            backgroundColor:'transparent',
+                                            height:"30px",
+                                            lineHeight:'30px'
+                                        }}
+                                    >
+                                    <Text
+                                        style={{
+                                            fontSize:"24px"
+                                        }}
+                                    >
+                                        &nbsp;&#13217;&nbsp;
+                                    </Text>
+                                    
+                                    </View>
+                                    <View
+                                        style={{
+                                            height:'30px',
+                                            lineHeight:"30px",
+                                            backgroundColor:'transparent',
+
+                                        }}
+                                    >
+                                        <Text
+                                            style={{
+                                                fontSize:"12px",
+                                                color:'rgb(95,95,95)',
+                                                marginTop:'6px'
+                                            }}
+                                        >
+                                            &nbsp;&#9658;&nbsp;
+                                        </Text>
+                                    </View>
+                                    <TextInput
+                                        onChangeText={(text) => {
+                                        //props.setUserPhoneNumber(text);
+                                        // props.onPhoneNumberChange()
+                                        }}
+                                        placeholder=" 좌측에 필요 수량을 입력하세요"
+                                        style={{
+                                        // marginTop: "10px",
+                                        border: "1px solid rgb(140,140,140)",
+                                        borderRadius: "4px",
+                                        width:'240px',
+                                        height:"30px",
+                                        backgroundColor:'white'
+                                        }}
+                                        
+                                        // value={props.userPhoneNumber}
+                                    ></TextInput>
+                                </View>
+                                <Text
+                                    style={{
+                                        color:"rgb(29,29,29)",
+                                        fontSize:'12px'
+                                    }}
+                                >
+                                    하단의 면적 계산기를 통해 필요한 수량을 계산해 보세요.
+                                </Text>
+                                <View
+                                    style={{
+                                        marginTop:'10px'
+                                    }}
+                                >
+                                    <View
+                                        style={{
+                                            display:'flex',
+                                            flexDirection:'row',
+                                            transform:"translate(23px,0px)",
+                                            marginTop:"10px"
+                                        }}
+                                    >
+                                        <Text
+                                            style={{
+                                                fontSize:"20px",
+                                                color:"rgb(71,71,71)"
+                                            }}
+                                        >
+                                            정상 판매가 :
+                                        </Text>
+                                        <Text>
+                                            &nbsp;
+                                        </Text>
+                                        <Text
+                                            style={{
+                                                fontSize:"20px",
+                                                color:"rgb(71,71,71)",
+                                                textDecoration:"line-through"
+                                            }}
+                                        >
+                                            0원
+                                        </Text>
+                                    </View>
+                                    <View
+                                        style={{
+                                            display:'flex',
+                                            flexDirection:'row',
+                                            marginTop:"10px"
+                                        }}
+                                    >
+                                        <Text
+                                            style={{
+                                                fontSize:"20px",
+                                                color:"rgb(71,71,71)"
+                                            }}
+                                        >
+                                            주문 예상 금액 :
+                                        </Text>
+                                        <Text>
+                                            &nbsp;
+                                        </Text>
+                                        <Text
+                                            style={{
+                                                fontSize:"20px",
+                                                color:"rgb(160,22,7)",
+                                                fontWeight:700
+                                            }}
+                                        >
+                                            0원
+                                        </Text>
+                                    </View>
+                                    <View
+                                        style={{
+                                            display:'flex',
+                                            flexDirection:'row',
+                                            transform:"translate(40px,0px)",
+                                            marginTop:"10px"
+                                        }}
+                                    >
+                                        <Text
+                                            style={{
+                                                fontSize:"20px",
+                                                color:"rgb(71,71,71)"
+                                            }}
+                                        >
+                                            할인 금액 :
+                                        </Text>
+                                        <Text>
+                                            &nbsp;
+                                        </Text>
+                                        <Text
+                                            style={{
+                                                fontSize:"20px",
+                                                color:"rgb(160,22,7)"
+                                            }}
+                                        >
+                                            0원
+                                        </Text>
+                                        <Text>
+                                            &nbsp;
+                                        </Text>
+                                        <Text
+                                            style={{
+                                                fontSize:"20px",
+                                                color:"rgb(160,22,7)"
+                                            }}
+                                        >
+                                            (0%)
+                                        </Text>
+                                    </View>
+                                    <Text
+                                        style={{
+                                            fontSize:"12px",
+                                            color:"rgb(160,22,7)",
+                                            transform:"translate(132px,0px)",
+                                            textDecoration:"underline"
+                                        }}
+                                    >
+                                        ※표기된 가격은 공급가(VAT 불포함) 입니다.
+                                    </Text>
+                                    <TouchableOpacity
+                                        style={{
+                                            display:'block',
+                                            height:'50px',
+                                            // width:(width-800)+'px',
+                                            minWidth:"250px",
+                                            // width:'100%',
+                                            backgroundColor:'rgb(78,78,78)',
+                                            color:'white',
+                                            borderRadius:'10px',
+                                            alignItems:'center',
+                                            justifyContent:'center',
+                                            textAlign:'center',
+                                            verticalAlign:'middle',
+                                            lineHeight:'50px',
+                                            marginTop:'10px'
+
+                                        }}
+                                        onPress={()=>{
+                                            console.log(materialData)
+                                            // toggleAddToShoppingCart()
+                                        }}
+                                    >
+                    
+                                            <Text
+                                                style={{
+                                                    color:'white',
+                                                    fontSize:'18px'
+                                                }}
+                                            >
+                                                구매 또는 문의하기
+                                            </Text>
+                                        
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        </View>
+                    </View>
                     <View>
                         <Text
                         style={{

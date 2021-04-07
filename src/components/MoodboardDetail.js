@@ -11,7 +11,7 @@ import boxIcon from '../assets/icnBox.png'
 import clipOff from '../assets/clipOff.png'
 import clipOn from '../assets/clipOn.png'
 const queryString = require('query-string');
-function PartDetail(props){
+function MoodboardDetail(props){
     const [height,setHeight]=React.useState(Dimensions.get('window').height)
     const [width,setWidth]=React.useState(Dimensions.get('window').width)
     const [q,setQ]=React.useState(undefined)
@@ -272,8 +272,6 @@ function PartDetail(props){
                                 textAlign:'center',
                                 verticalAlign:'middle',
                                 lineHeight:'40px',
-                               
-
                             }}
                         >
             
@@ -1534,4 +1532,4 @@ function PartDetail(props){
       }
       
 }
-export default PartDetail
+export default MoodboardDetail

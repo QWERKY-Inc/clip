@@ -98,9 +98,9 @@ function LogIn(props) {
     setPicture(picture);
   };
   const handleImagePreview = (e) => {
-    let image_as_base64 = URL.createObjectURL(e.target.files[0]);
-    var binaryString = window.atob(image_as_base64);
-    var binaryLen = binaryString.length;
+    // let image_as_base64 = URL.createObjectURL(e.target.files[0]);
+    // var binaryString = window.atob(image_as_base64);
+    // var binaryLen = binaryString.length;
     const data = new FormData();
     let image_as_files = e.target.files[0];
     data.append("inputname", image_as_files);
@@ -192,7 +192,7 @@ function LogIn(props) {
             imagecolumn: "mem_company_img",
             multiupload: "true",
             // mem_company_img:[picture]
-            mem_company_img: imageFile,
+            mem_company_img: [imageFile],
           };
           fetch("/Picture?" + queryString.stringify(imageUploadOBJ))
             .then((res) => res.json())
@@ -2037,7 +2037,7 @@ function LogIn(props) {
                           </div>
                         </TouchableOpacity>
                       </div>
-                      <Text>사업자등록증 및 명함 업로드</Text>
+                      {/* <Text>사업자등록증 및 명함 업로드</Text> */}
                       {/* <ImageUploader
                         withIcon={true}
                         buttonText="이미지 업로드"
@@ -2046,7 +2046,7 @@ function LogIn(props) {
                         maxFileSize={5242880}
                       /> */}
                       {/* <label>이미지 업로드</label> */}
-                      <input type="file" onChange={handleImagePreview} />
+                      {/* <input type="file" onChange={handleImagePreview} /> */}
 
                       {/* <input type="submit" onClick={handleSubmitFile} value="Submit"/> */}
 
