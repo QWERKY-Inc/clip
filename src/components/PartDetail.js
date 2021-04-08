@@ -22,6 +22,7 @@ function PartDetail(props){
     const [materialNumber,setMaterialNumber]=React.useState(undefined)
     const [refreshClipboard,setRefreshClipboard]=React.useState(0)
     const [addToShoppingCart,setAddToShoppingCart]=React.useState(false)
+    const [selectedMeasure,setSelectedMeasure]=React.useState("m2")
     const toggleClipBoardOne=()=>{
         setClipBoardOne(!clipBoardOne)
     }
@@ -647,44 +648,142 @@ function PartDetail(props){
                                 paddingTop:'10px',
                                 paddingLeft:'10px',
                                 paddingRight:'10px',
-                                paddingBottom:'10px'
+                                paddingBottom:'10px',
+                                position:'relative'
+                                
                             }}
                             >
                                 <Text
                                     style={{
-                                        fontSize:"24px"
+                                        display:selectedMeasure=="m2"?'flex':"none",
+                                        fontSize:"21px",
+                                        fontWeight:700,
+                                        lineHeight:'30px'
                                     }}
                                 >
                                     14200원/&#13217;
                                 </Text>
+                                <Text
+                                    style={{
+                                        display:selectedMeasure=="py"?'flex':"none",
+                                        fontSize:"21px",
+                                        fontWeight:700,
+                                        lineHeight:'30px'
+                                    }}
+                                >
+                                    46860원/평
+                                </Text>
+                                <View
+                                    style={{
+                                        borderRadius:'15px',
+                                        height:"30px",
+                                        width:"120px",
+                                        backgroundColor:'transparent',
+                                        position:'absolute',
+                                        right:'0px',
+                                        border: "1px solid rgb(140,140,140)",
+                                        display:'flex',
+                                        flexDirection:'row'
+                                    }}
+                                >
+                                    <TouchableOpacity
+                                        style={{
+                                            height:'28px',
+                                            width:'58px',
+                                            backgroundColor:selectedMeasure=="m2"?'rgb(108,108,108)':'rgb(245,245,245)',
+                                            borderTopLeftRadius:'15px',
+                                            borderBottomLeftRadius:'15px',
+                                            textAlign:'center'
+                                        }}
+                                        onPress={()=>{
+                                            setSelectedMeasure('m2')
+                                        }}
+                                    >
+                                        <Text
+                                            style={{
+                                                fontSize:'18px',
+                                                lineHeight:'28px',
+                                                color:selectedMeasure=="m2"?'white':'rgb(135,135,135)',
+                                            }}
+                                        >
+                                            &#13217;
+                                        </Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity
+                                        style={{
+                                            height:'28px',
+                                            width:'59px',
+                                            backgroundColor:selectedMeasure=="py"?'rgb(108,108,108)':'rgb(245,245,245)',
+                                            borderTopRightRadius:'15px',
+                                            borderBottomRightRadius:'15px',
+                                            textAlign:'center'
+                                        }}
+                                        onPress={()=>{
+                                            setSelectedMeasure('py')
+                                        }}
+                                    >
+                                        <Text
+                                            style={{
+                                                fontSize:'18px',
+                                                lineHeight:'28px',
+                                                color:selectedMeasure=="py"?'white':'rgb(135,135,135)',
+                                            }}
+                                        >
+                                            평
+                                        </Text>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                            <View
+                            style={{
+                                textAlign:'left',
+                                display:'flex',
+                                flexDirection:'row',
+                                paddingTop:'10px',
+                                paddingLeft:'10px',
+                                paddingRight:'10px',
+                                paddingBottom:'10px'
+                            }}
+                            >
+                                <Text
+                                        style={{
+                                            fontSize:"14px",
+                                            
+                                        }}
+                                    >
+                                        20448원/상자
+                                </Text>
                                 <Text>
                                     &nbsp;
                                 </Text>
-                                <Text
+                                <div
                                     style={{
-                                        marginTop:"6px",
-                                        fontSize:'18px',
-                                        color:'rgb(168,168,168)',
-                                        textDecoration:"line-through",
-
+                                        display:selectedMeasure=="m2"?'flex':"none"
                                     }}
                                 >
-                                    23000원/&#13217;
-                                </Text>
-                                <Text>
-                                    &nbsp;
-                                </Text>
-                                <Text
+                                    <Text
+                                            style={{
+                                                // marginTop:'4px',
+                                                fontSize:"14px"
+                                            }}
+                                        >
+                                            (1상자 = 1.44&#13217;)
+                                    </Text>
+                                </div>
+                                <div
                                     style={{
-                                        marginTop:"6px",
-                                        fontSize:'18px',
-                                        color:'rgb(246,75,82)',
-                                        textDecoration:"line-through",
-
+                                        display:selectedMeasure=="py"?'flex':"none"
                                     }}
                                 >
-                                   38% 할인
-                                </Text>
+                                    <Text
+                                            style={{
+                                                // marginTop:'4px',
+                                                fontSize:"14px"
+                                            }}
+                                        >
+                                            (1상자 = 0.44평)
+                                    </Text>
+                                </div>
                             </View>
                             <View
                                 style={{
@@ -708,7 +807,7 @@ function PartDetail(props){
                             >
                             <Text
                              style={{
-                                 fontSize:'24px'
+                                 fontSize:'21px'
                              }}
                             >
                                 납품기간 (Lead Time)
@@ -720,7 +819,7 @@ function PartDetail(props){
                             <TouchableOpacity>
                                 <Text
                                     style={{
-                                        fontSize:'24px'
+                                        fontSize:'21px'
                                     }}
                                 >
                                     &gt;
@@ -784,14 +883,47 @@ function PartDetail(props){
                                             lineHeight:'30px'
                                         }}
                                     >
-                                    <Text
+                                    {/* <Text
                                         style={{
                                             fontSize:"24px"
                                         }}
                                     >
                                         &nbsp;&#13217;&nbsp;
                                     </Text>
-                                    
+                                     */}
+                                     <select 
+                                        value={selectedMeasure}
+                                        onChange={(e)=>{
+                                            console.log(e.target.value)
+                                            setSelectedMeasure(e.target.value)
+                                        }}
+                                        style={{
+                                           
+                                            padding:'5px 12px',
+                                            // border: '1px solid black',
+                                            border: "1px solid rgb(140,140,140)",
+                                            borderRadius: "4px",
+                                            width:'70px',
+                                            height:"30px",
+                                            // appearance:'none'
+                                        }}
+                                    >
+                                        <option key='m2' value='m2' 
+                                            style={{
+                                                color: 'grey'
+                                            }}
+                                        >
+                                            &#13217;
+                                        </option>
+                                        <option key='py' value='py' 
+                                            style={{
+                                                color: 'grey'
+                                            }}
+                                        >
+                                           평
+                                        </option>
+
+                                    </select>
                                     </View>
                                     <View
                                         style={{
@@ -842,7 +974,7 @@ function PartDetail(props){
                                         marginTop:'10px'
                                     }}
                                 >
-                                    <View
+                                    {/* <View
                                         style={{
                                             display:'flex',
                                             flexDirection:'row',
@@ -870,7 +1002,7 @@ function PartDetail(props){
                                         >
                                             0원
                                         </Text>
-                                    </View>
+                                    </View> */}
                                     <View
                                         style={{
                                             display:'flex',
@@ -899,7 +1031,7 @@ function PartDetail(props){
                                             0원
                                         </Text>
                                     </View>
-                                    <View
+                                    {/* <View
                                         style={{
                                             display:'flex',
                                             flexDirection:'row',
@@ -937,8 +1069,8 @@ function PartDetail(props){
                                         >
                                             (0%)
                                         </Text>
-                                    </View>
-                                    <Text
+                                    </View> */}
+                                    {/* <Text
                                         style={{
                                             fontSize:"12px",
                                             color:"rgb(160,22,7)",
@@ -947,7 +1079,7 @@ function PartDetail(props){
                                         }}
                                     >
                                         ※표기된 가격은 공급가(VAT 불포함) 입니다.
-                                    </Text>
+                                    </Text> */}
                                     <TouchableOpacity
                                         style={{
                                             display:'block',
@@ -984,7 +1116,9 @@ function PartDetail(props){
                                     </TouchableOpacity>
                                 </View>
                             </View>
+                            
                         </View>
+
                     </View>
                     <View>
                         <Text
