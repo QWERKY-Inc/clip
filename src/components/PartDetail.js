@@ -105,7 +105,7 @@ function PartDetail(props){
       },[])
     useEffect(()=>{
         updateAreaData()
-    },[lossPercentage])
+    },[lossPercentage,areaCalc])
       if(materialData!=undefined){
         return(
             <div>
