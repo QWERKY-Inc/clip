@@ -23,6 +23,7 @@ function PartDetail(props){
     const [refreshClipboard,setRefreshClipboard]=React.useState(0)
     const [addToShoppingCart,setAddToShoppingCart]=React.useState(false)
     const [selectedMeasure,setSelectedMeasure]=React.useState("m2")
+    const [areaCalc,setAreaCalc]=React.useState([[0,0]])
     const toggleClipBoardOne=()=>{
         setClipBoardOne(!clipBoardOne)
     }
@@ -69,7 +70,7 @@ function PartDetail(props){
         console.log(parsed)
         materialInfo(queryString.stringify(parsed)) 
         console.log('q = '+JSON.stringify(parsed))
-        
+        console.log(materialData.mt_description.replaceAll("font-size: 13px;","font-size: 18px;"))
         // console.log(parsed.ct_id==undefined)
         // if(parsed.ct_id==undefined){
         //   brands()
@@ -628,7 +629,8 @@ function PartDetail(props){
                                 backgroundColor:'transparent'
                             }}
                         >
-                            {parse(materialData.mt_description)}
+                            {/* {parse(materialData.mt_description)} */}
+                            {parse(materialData.mt_description.replaceAll("font-size: 13px;","font-size: 18px;"))}
                         </View>
                         <View
                             style={{
@@ -1114,6 +1116,369 @@ function PartDetail(props){
                                             </Text>
                                         
                                     </TouchableOpacity>
+                                </View>
+                            </View>
+                            {/* <View
+                                style={{
+                                    height:"1px",
+                                    width:'100%',
+                                    backgroundColor:"rgb(205,205,205)",
+                                    
+                                }}
+                            >
+                            </View> */}
+                            <View
+                                style={{
+                                    marginTop:'10px',
+                                    paddingTop:'10px',
+                                    paddingLeft:'10px',
+                                    paddingRight:'10px',
+                                    paddingBottom:'10px',
+                                    backgroundColor:'rgb(246,246,246)'
+                                }}
+                            >
+                                <View
+                                    style={{
+                                        display:'flex',
+
+                                    }}
+                                >
+                                <Text
+                                    style={{
+                                        fontWeight:700
+                                    }}
+                                >
+                                    면적 계산기
+                                </Text>
+                                <TouchableOpacity
+                                    onPress={()=>{
+                                        var temp=areaCalc.slice()
+                                        temp.push([0,0])
+                                        setAreaCalc(temp)
+                                    }}
+                                >
+                                    <Text>
+                                        면적 추가
+                                    </Text>
+                                </TouchableOpacity>
+                                </View>
+                                 <View
+                                    style={{
+                                        height:"1px",
+                                        width:'100%',
+                                        backgroundColor:"rgb(205,205,205)",
+                                        
+                                    }}
+                                >
+                                </View>
+                                {areaCalc.map((oneArea,index)=>{
+                                    // console.log("YO "+ oneArea[0]+" "+oneArea[1])
+                                return(
+
+                                
+                                
+                                <View
+                                    style={{
+                                        marginTop:'10px',
+                                        textAlign:'left',
+                                        display:'flex',
+                                        flexDirection:'row'
+                                    }}
+                                >
+                                    
+                                    <TextInput
+                                        onChangeText={(text) => {
+                                        //props.setUserPhoneNumber(text);
+                                        // props.onPhoneNumberChange()
+                                            var temp=areaCalc.slice()
+                                            temp[index][0]=text
+                                            setAreaCalc(temp)
+                                        }}
+                                        // keyboardType="numeric"
+                                        style={{
+                                        // marginTop: "10px",
+                                        border: "1px solid rgb(140,140,140)",
+                                        borderRadius: "4px",
+                                        width:'60px',
+                                        height:"30px",
+                                        backgroundColor:'white'
+                                        }}
+                                        // placeholder="0"
+                                        value={oneArea[0]}
+                                    ></TextInput>
+                                    <View
+                                        style={{
+                                            backgroundColor:'transparent',
+                                            height:"30px",
+                                            lineHeight:'30px'
+                                        }}
+                                    >
+                                    <Text
+                                        style={{
+                                            fontSize:"24px"
+                                        }}
+                                    >
+                                        &nbsp;m&nbsp;
+                                    </Text>
+                                    
+                                     
+                                    </View>
+                                    <View
+                                        style={{
+                                            height:'30px',
+                                            lineHeight:"30px",
+                                            backgroundColor:'transparent',
+
+                                        }}
+                                    >
+                                        <Text
+                                            style={{
+                                                fontSize:"12px",
+                                                color:'rgb(95,95,95)',
+                                                marginTop:'6px'
+                                            }}
+                                        >
+                                            &nbsp;X&nbsp;
+                                        </Text>
+                                    </View>
+                                    <TextInput
+                                        onChangeText={(text) => {
+                                        //props.setUserPhoneNumber(text);
+                                        // props.onPhoneNumberChange()
+                                        var temp=areaCalc.slice()
+                                            temp[index][1]=text
+                                            setAreaCalc(temp)
+                                        }}
+                                        style={{
+                                        // marginTop: "10px",
+                                        border: "1px solid rgb(140,140,140)",
+                                        borderRadius: "4px",
+                                        width:'60px',
+                                        height:"30px",
+                                        backgroundColor:'white'
+                                        }}
+                                        
+                                        value={oneArea[1]}
+                                    ></TextInput>
+                                    <View
+                                        style={{
+                                            backgroundColor:'transparent',
+                                            height:"30px",
+                                            lineHeight:'30px'
+                                        }}
+                                    >
+                                    <Text
+                                        style={{
+                                            fontSize:"24px"
+                                        }}
+                                    >
+                                        &nbsp;m&nbsp;
+                                    </Text>
+                                    
+                                     
+                                    </View>
+                                    <View
+                                        style={{
+                                            height:'30px',
+                                            lineHeight:"30px",
+                                            backgroundColor:'transparent',
+
+                                        }}
+                                    >
+                                        <Text
+                                            style={{
+                                                fontSize:"12px",
+                                                color:'rgb(95,95,95)',
+                                                marginTop:'6px'
+                                            }}
+                                        >
+                                            &nbsp;&#9658;&nbsp;
+                                        </Text>
+                                    </View>
+                                    {/* <TextInput
+                                        onChangeText={(text) => {
+                                        //props.setUserPhoneNumber(text);
+                                        // props.onPhoneNumberChange()
+                                        }}
+                                        // placeholder=" 좌측에 필요 수량을 입력하세요"
+                                        style={{
+                                        // marginTop: "10px",
+                                        border: "1px solid rgb(140,140,140)",
+                                        borderRadius: "4px",
+                                        width:'240px',
+                                        height:"30px",
+                                        backgroundColor:'white'
+                                        }}
+                                        
+                                        // value={props.userPhoneNumber}
+                                    ></TextInput> */}
+                                    <Text
+                                        style={{
+                                            fontSize:'24px',
+                                            lineHeight:'30px'
+                                        }}
+                                    >
+                                        {oneArea[0]*oneArea[1]}
+                                    </Text>
+                                    <Text
+                                        style={{
+                                            fontSize:"24px"
+                                        }}
+                                    >
+                                        &nbsp;&#13217;&nbsp;
+                                    </Text>
+                                </View>
+                                )
+                                
+                                // <Text>
+                                //     oneArea
+                                // </Text>
+                                })}
+                                <View
+                                    style={{
+                                        marginTop:'10px'
+                                    }}
+                                >
+                                    {/* <View
+                                        style={{
+                                            display:'flex',
+                                            flexDirection:'row',
+                                            transform:"translate(23px,0px)",
+                                            marginTop:"10px"
+                                        }}
+                                    >
+                                        <Text
+                                            style={{
+                                                fontSize:"20px",
+                                                color:"rgb(71,71,71)"
+                                            }}
+                                        >
+                                            정상 판매가 :
+                                        </Text>
+                                        <Text>
+                                            &nbsp;
+                                        </Text>
+                                        <Text
+                                            style={{
+                                                fontSize:"20px",
+                                                color:"rgb(71,71,71)",
+                                                textDecoration:"line-through"
+                                            }}
+                                        >
+                                            0원
+                                        </Text>
+                                    </View> */}
+                                    {/* <View
+                                        style={{
+                                            display:'flex',
+                                            flexDirection:'row',
+                                            marginTop:"10px"
+                                        }}
+                                    >
+                                        <Text
+                                            style={{
+                                                fontSize:"20px",
+                                                color:"rgb(71,71,71)"
+                                            }}
+                                        >
+                                            주문 예상 금액 :
+                                        </Text>
+                                        <Text>
+                                            &nbsp;
+                                        </Text>
+                                        <Text
+                                            style={{
+                                                fontSize:"20px",
+                                                color:"rgb(160,22,7)",
+                                                fontWeight:700
+                                            }}
+                                        >
+                                            0원
+                                        </Text>
+                                    </View> */}
+                                    {/* <View
+                                        style={{
+                                            display:'flex',
+                                            flexDirection:'row',
+                                            transform:"translate(40px,0px)",
+                                            marginTop:"10px"
+                                        }}
+                                    >
+                                        <Text
+                                            style={{
+                                                fontSize:"20px",
+                                                color:"rgb(71,71,71)"
+                                            }}
+                                        >
+                                            할인 금액 :
+                                        </Text>
+                                        <Text>
+                                            &nbsp;
+                                        </Text>
+                                        <Text
+                                            style={{
+                                                fontSize:"20px",
+                                                color:"rgb(160,22,7)"
+                                            }}
+                                        >
+                                            0원
+                                        </Text>
+                                        <Text>
+                                            &nbsp;
+                                        </Text>
+                                        <Text
+                                            style={{
+                                                fontSize:"20px",
+                                                color:"rgb(160,22,7)"
+                                            }}
+                                        >
+                                            (0%)
+                                        </Text>
+                                    </View> */}
+                                    {/* <Text
+                                        style={{
+                                            fontSize:"12px",
+                                            color:"rgb(160,22,7)",
+                                            transform:"translate(132px,0px)",
+                                            textDecoration:"underline"
+                                        }}
+                                    >
+                                        ※표기된 가격은 공급가(VAT 불포함) 입니다.
+                                    </Text> */}
+                                    {/* <TouchableOpacity
+                                        style={{
+                                            display:'block',
+                                            height:'50px',
+                                            // width:(width-800)+'px',
+                                            minWidth:"250px",
+                                            // width:'100%',
+                                            backgroundColor:'rgb(78,78,78)',
+                                            color:'white',
+                                            borderRadius:'10px',
+                                            alignItems:'center',
+                                            justifyContent:'center',
+                                            textAlign:'center',
+                                            verticalAlign:'middle',
+                                            lineHeight:'50px',
+                                            marginTop:'10px'
+
+                                        }}
+                                        onPress={()=>{
+                                            console.log(materialData)
+                                            // toggleAddToShoppingCart()
+                                        }}
+                                    >
+                    
+                                            <Text
+                                                style={{
+                                                    color:'white',
+                                                    fontSize:'18px'
+                                                }}
+                                            >
+                                                구매 또는 문의하기
+                                            </Text>
+                                        
+                                    </TouchableOpacity> */}
                                 </View>
                             </View>
                             
