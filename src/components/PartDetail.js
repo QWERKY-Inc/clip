@@ -24,6 +24,10 @@ function PartDetail(props){
     const [addToShoppingCart,setAddToShoppingCart]=React.useState(false)
     const [selectedMeasure,setSelectedMeasure]=React.useState("m2")
     const [areaCalc,setAreaCalc]=React.useState([[0,0]])
+    const [areaSum,setAreaSum]=React.useState(0)
+    const [lossPercentage,setLossPercentage]=React.useState(10)
+    const [loss,setLoss]=React.useState(0)
+    const [totalArea,setTotalArea]=React.useState(0)
     const toggleClipBoardOne=()=>{
         setClipBoardOne(!clipBoardOne)
     }
@@ -35,6 +39,22 @@ function PartDetail(props){
         setWidth(Dimensions.get('window').width)
         // console.log(height+" : "+width)
       }
+    const updateAreaData=()=>{
+        var sum=0
+        var loss=0
+        var total=0
+        for(var i=0; i<areaCalc.length; i++){
+            sum+=areaCalc[i][0]*areaCalc[i][1]
+        }
+        loss=sum*lossPercentage/100
+        total=loss+sum
+        setAreaSum(sum)
+        setLoss(loss)
+        setTotalArea(total)
+    }
+    // const updateLossPercentage=(input)=>{
+    //     setLossPercentage(input)
+    // }
     const materialInfo=(qStr)=>{
     // console.log(qStr)
     fetch('/materialDetail?'+qStr
@@ -70,7 +90,7 @@ function PartDetail(props){
         console.log(parsed)
         materialInfo(queryString.stringify(parsed)) 
         console.log('q = '+JSON.stringify(parsed))
-        console.log(materialData.mt_description.replaceAll("font-size: 13px;","font-size: 18px;"))
+        // console.log(materialData.mt_description.replaceAll("font-size: 13px;","font-size: 18px;"))
         // console.log(parsed.ct_id==undefined)
         // if(parsed.ct_id==undefined){
         //   brands()
@@ -83,6 +103,9 @@ function PartDetail(props){
         // }
         
       },[])
+    useEffect(()=>{
+        updateAreaData()
+    },[lossPercentage])
       if(materialData!=undefined){
         return(
             <div>
@@ -1140,12 +1163,13 @@ function PartDetail(props){
                                 <View
                                     style={{
                                         display:'flex',
-
+                                        flexDirection:'row'
                                     }}
                                 >
                                 <Text
                                     style={{
-                                        fontWeight:700
+                                        fontWeight:700,
+                                        
                                     }}
                                 >
                                     면적 계산기
@@ -1155,6 +1179,10 @@ function PartDetail(props){
                                         var temp=areaCalc.slice()
                                         temp.push([0,0])
                                         setAreaCalc(temp)
+                                    }}
+                                    style={{
+                                        position:'absolute',
+                                        right:"0px"
                                     }}
                                 >
                                     <Text>
@@ -1193,8 +1221,9 @@ function PartDetail(props){
                                             var temp=areaCalc.slice()
                                             temp[index][0]=text
                                             setAreaCalc(temp)
+                                            updateAreaData()
                                         }}
-                                        // keyboardType="numeric"
+                                        keyboardType="numeric"
                                         style={{
                                         // marginTop: "10px",
                                         border: "1px solid rgb(140,140,140)",
@@ -1248,7 +1277,9 @@ function PartDetail(props){
                                         var temp=areaCalc.slice()
                                             temp[index][1]=text
                                             setAreaCalc(temp)
+                                            updateAreaData()
                                         }}
+                                        // keyboardType="numeric"
                                         style={{
                                         // marginTop: "10px",
                                         border: "1px solid rgb(140,140,140)",
@@ -1327,6 +1358,28 @@ function PartDetail(props){
                                     >
                                         &nbsp;&#13217;&nbsp;
                                     </Text>
+                                    <View
+                                        style={{
+                                            display:index>0?'flex':'none'
+                                        }}
+                                    >
+                                        <TouchableOpacity
+                                            onPress={()=>{
+                                                var temp=areaCalc.slice()
+                                                temp.splice(index,1)
+                                                setAreaCalc(temp)
+                                                // updateAreaData()
+                                            }}
+                                        >
+                                            <Text
+                                                style={{
+                                                    lineHeight:'30px'
+                                                }}
+                                            >
+                                                X
+                                            </Text>
+                                        </TouchableOpacity>
+                                    </View>
                                 </View>
                                 )
                                 
@@ -1334,6 +1387,129 @@ function PartDetail(props){
                                 //     oneArea
                                 // </Text>
                                 })}
+                                <View
+                                    style={{
+                                        display:'flex',
+                                        flexDirection:'row',
+                                        marginTop:'15px'
+                                    }}
+                                >
+                                    <Text>
+                                        총 면적
+                                    </Text>
+                                    <Text
+                                        style={{
+                                            position:'absolute',
+                                            right:"0px"
+                                        }}
+                                    >
+                                        {areaSum}&#13217;
+                                    </Text>
+                                </View>
+                                <View
+                                    style={{
+                                        display:'flex',
+                                        flexDirection:'row',
+                                        marginTop:'15px'
+                                    }}
+                                >
+                                    <Text
+                                        style={{
+                                            lineHeight:'30px'
+                                        }}
+                                    >
+                                        로스율
+                                    </Text>
+                                    <View
+                                        style={{
+                                            position:'absolute',
+                                            left:"60px",
+                                            display:'flex',
+                                            flexDirection:'row'
+                                        }}
+                                    >
+                                        <TextInput
+                                            onChangeText={(text) => {
+                                            //props.setUserPhoneNumber(text);
+                                            // props.onPhoneNumberChange()
+                                                setLossPercentage(text)
+                                                // updateLossPercentage(text)
+                                                //updateAreaData()
+                                            }}
+                                            // keyboardType="numeric"
+                                            style={{
+                                            // marginTop: "10px",
+                                            border: "1px solid rgb(140,140,140)",
+                                            borderRadius: "4px",
+                                            width:'60px',
+                                            height:"30px",
+                                            backgroundColor:'white',
+                                            // position:'absolute',
+                                            // left:'60px'
+                                            }}
+                                            
+                                            value={lossPercentage}
+                                        ></TextInput>
+                                        <Text
+                                            style={{
+                                                lineHeight:'30px',
+                                                positioin:'absolute',
+                                                right:"100px"
+
+                                            }}
+                                        >
+                                            &nbsp;%
+                                        </Text>
+                                    </View>
+                                    <Text
+                                        style={{
+                                            position:'absolute',
+                                            right:"0px",
+                                            lineHeight:'30px'
+                                        }}
+                                    >
+                                        = {loss} &#13217;
+                                    </Text>
+                                </View>
+                                <View
+                                    style={{
+                                        display:'flex',
+                                        flexDirection:'row',
+                                        marginTop:'15px'
+                                    }}
+                                >
+                                    <Text>
+                                        주문면적
+                                    </Text>
+                                    <Text
+                                        style={{
+                                            marginLeft:"15px"
+                                        }}
+                                    >
+                                        {areaSum}&#13217;
+                                    </Text>
+                                    <Text>
+                                    &nbsp;+&nbsp;
+                                    </Text>
+                                    <Text>
+                                        {loss}&#13217;
+                                    </Text>
+                                    <View
+                                        style={{
+                                            position:'absolute',
+                                            right:"0px",
+                                            display:'flex',
+                                            flexDirection:'row'
+                                        }}
+                                    >
+                                        <Text>
+                                        &nbsp;=&nbsp;
+                                        </Text>
+                                        <Text>
+                                            {totalArea}&#13217;
+                                        </Text>
+                                    </View>
+                                </View>
                                 <View
                                     style={{
                                         marginTop:'10px'
