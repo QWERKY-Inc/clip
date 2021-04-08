@@ -28,6 +28,7 @@ function PartDetail(props){
     const [lossPercentage,setLossPercentage]=React.useState(10)
     const [loss,setLoss]=React.useState(0)
     const [totalArea,setTotalArea]=React.useState(0)
+    const [orderArea,setOrderArea]=React.useState(0)
     const toggleClipBoardOne=()=>{
         setClipBoardOne(!clipBoardOne)
     }
@@ -889,6 +890,7 @@ function PartDetail(props){
                                         onChangeText={(text) => {
                                         //props.setUserPhoneNumber(text);
                                         // props.onPhoneNumberChange()
+                                        setOrderArea(text)
                                         }}
                                         style={{
                                         // marginTop: "10px",
@@ -899,7 +901,7 @@ function PartDetail(props){
                                         backgroundColor:'white'
                                         }}
                                         
-                                        // value={props.userPhoneNumber}
+                                        value={orderArea}
                                     ></TextInput>
                                     <View
                                         style={{
@@ -1509,7 +1511,43 @@ function PartDetail(props){
                                             {totalArea}&#13217;
                                         </Text>
                                     </View>
+                                    
                                 </View>
+                                <TouchableOpacity
+                                        style={{
+                                            display:'block',
+                                            height:'50px',
+                                            // width:(width-800)+'px',
+                                            minWidth:"250px",
+                                            // width:'100%',
+                                            backgroundColor:'rgb(78,78,78)',
+                                            color:'white',
+                                            borderRadius:'10px',
+                                            alignItems:'center',
+                                            justifyContent:'center',
+                                            textAlign:'center',
+                                            verticalAlign:'middle',
+                                            lineHeight:'50px',
+                                            marginTop:'10px'
+
+                                        }}
+                                        onPress={()=>{
+                                            //console.log(materialData)
+                                            // toggleAddToShoppingCart()
+                                            setOrderArea(totalArea)
+                                        }}
+                                    >
+                    
+                                            <Text
+                                                style={{
+                                                    color:'white',
+                                                    fontSize:'18px'
+                                                }}
+                                            >
+                                                주문수량에 적용
+                                            </Text>
+                                        
+                                    </TouchableOpacity>
                                 <View
                                     style={{
                                         marginTop:'10px'
