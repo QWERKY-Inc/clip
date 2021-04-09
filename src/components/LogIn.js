@@ -107,11 +107,20 @@ function LogIn(props) {
     setImageFile(data);
     // setImageFile(image_as_files)
   };
-  //   const handleSubmitFile =() =>{
-  //       let formData = new FormData()
-  //       formData.append('customFile',this.state.)
+    const handleSubmitFile =(e) =>{
+        // let formData = new FormData()
+        // formData.append('customFile',this.state.)
+        fetch("/Picture?" + queryString.stringify(imageFile))
+        .then((res) => res.json())
+        .then((incomingData) => {
+          console.log(incomingData);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
 
-  //   }
+    }
+
   const findPasswordFunction = (obj) => {
     // console.log(qStr)
     fetch("/FindPassword?" + queryString.stringify(obj))
@@ -2037,7 +2046,7 @@ function LogIn(props) {
                           </div>
                         </TouchableOpacity>
                       </div>
-                      {/* <Text>사업자등록증 및 명함 업로드</Text> */}
+                      <Text>사업자등록증 및 명함 업로드</Text>
                       {/* <ImageUploader
                         withIcon={true}
                         buttonText="이미지 업로드"
@@ -2046,7 +2055,7 @@ function LogIn(props) {
                         maxFileSize={5242880}
                       /> */}
                       {/* <label>이미지 업로드</label> */}
-                      {/* <input type="file" onChange={handleImagePreview} /> */}
+                      <input type="file" onChange={handleImagePreview} />
 
                       {/* <input type="submit" onClick={handleSubmitFile} value="Submit"/> */}
 
