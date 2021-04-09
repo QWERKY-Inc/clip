@@ -81,13 +81,21 @@ function MainMaterialCategory() {
                 <Font family='Noto Sans KR'>
                     <div className="MainContent">
                     
-                        <Navbar />
-                        <NavBarFiller/>
-                        <span>
-                        로딩중 ...
-                        </span>
-                        {/* <Content/> */}
-                        
+                        {/* <Navbar />
+                        <NavBarFiller/> */}
+                        <div
+                            style={{
+                                marginLeft:'auto',
+                                marginRight:'auto',
+                                width:"100vw",
+                                textAlign:'center'
+                            }}
+                        >
+                            <span>
+                            로딩중 ...
+                            </span>
+                            {/* <Content/> */}
+                        </div>
                         
                     
                     </div>
@@ -146,11 +154,22 @@ function MainMaterialCategory() {
             return (
                 <Font family='Noto Sans KR'>
                     <div className="MainContent">
-                        <Navbar />
-                        <NavBarFiller/>
-                        <span>
-                        로딩중 ...
-                        </span>                
+                        {/* <Navbar />
+                        <NavBarFiller/> */}
+                        <div
+                            style={{
+                                marginLeft:'auto',
+                                marginRight:'auto',
+                                width:"100vw",
+                                textAlign:'center'
+                            }}
+                        >
+
+
+                            <span>
+                            로딩중 ...
+                            </span>  
+                        </div>              
                     </div>
                 </Font>
             );
@@ -205,11 +224,21 @@ function MainMaterialCategory() {
             return (
                 <Font family='Noto Sans KR'>
                     <div className="MainContent">
-                        <Navbar />
-                        <NavBarFiller/>
-                        <span>
-                        로딩중 ...
-                        </span>
+                        {/* <Navbar />
+                        <NavBarFiller/> */}
+                        <div
+                            style={{
+                                marginLeft:'auto',
+                                marginRight:'auto',
+                                width:"100vw",
+                                // backgroundColor:'red',
+                                textAlign:'center'
+                            }}
+                        >
+                            <span>
+                            로딩중 ...
+                            </span>
+                        </div>
                     </div>
                 </Font>
             );
