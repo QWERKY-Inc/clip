@@ -201,7 +201,7 @@ function LogIn(props) {
             imagecolumn: "mem_company_img",
             multiupload: "true",
             // mem_company_img:[picture]
-            mem_company_img: [imageFile],
+            "mem_company_img[]": [imageFile],
           };
           fetch("/Picture?" + queryString.stringify(imageUploadOBJ))
             .then((res) => res.json())

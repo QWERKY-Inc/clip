@@ -2,7 +2,7 @@ import React,{useEffect} from 'react';
 import Navbar from './Navbar';
 import NavBarFiller from './NavBarFiller';
 import {TouchableOpacity,Text,Image,View,Modal,TouchableHighlight,Dimensions,Linking} from 'react-native';
-import Font from 'react-font';
+
 function MainMoodBoard() {
 
     const[data,setData]=React.useState(undefined)
@@ -33,7 +33,6 @@ function MainMoodBoard() {
 
         if(data!=undefined){
             return (
-                <Font family='Noto Sans KR'>
                 <div className="MainContent"
                     style={{
                         display:'block',
@@ -54,14 +53,36 @@ function MainMoodBoard() {
                         }}
                     >
                         
-                       
-                        <div
-                            style={{
-                                display:'flex',
-                                flexDirection:'row'
-                            }}
+                        <TouchableOpacity
+                        onPress={()=>{  
+                            Linking.openURL('/searchpage?mode=moodboard')
+                        }}
                         >
-                        <span
+                            <div
+                                style={{
+                                    position:'absolute',
+                                    right:'100px',
+                                    top:'0px',
+                                    borderRadius:10,
+                                    border:'1px solid white',
+                                    height:"30px",
+                                    width:'100px',
+                                    textAlign:'center'
+                                }}
+                            >
+                                <Text
+                                    style={{
+                                        color:'white',
+                                        lineHeight:'30px',
+
+                                    }}
+                                >
+                                    모두 둘러보기
+                                </Text>
+                            </div>
+                        </TouchableOpacity>
+
+                        <Text
                             style={{
                                 fontSize: '25pt',
                                 fontWeight:'700',
@@ -74,51 +95,14 @@ function MainMoodBoard() {
                                 marginTop:'40px',
                                 marginBottom:'40px',
                                 padding:'auto',
-                                zIndex:2,
+                                zIndex:2
                                 // backgroundColor:'red'
-                                transform:'translate(0px,-44px)'
                             }}
                         > 
                         무드보드
-                        </span> 
-                        <a
-                        // onPress={()=>{  
-                        //     Linking.openURL('/searchpage?mode=moodboard')
-                        // }}
-                        href={'/searchpage?mode=moodboard'}
-                        >
-                            <div
-                                style={{
-                                    position:'absolute',
-                                    right:'100px',
-                                    // top:'0px',
-                                    borderRadius:10,
-                                    border:'1px solid white',
-                                    height:"30px",
-                                    width:'100px',
-                                    textAlign:'center'
-                                }}
-                            >
-                                <span
-                                    style={{
-                                        color:'white',
-                                        lineHeight:'30px',
-
-                                    }}
-                                >
-                                    모두 둘러보기
-                                </span>
-                            </div>
-                        </a>
-                        </div>
+                        </Text> 
                         <br></br>
-                        <div
-                            style={{
-                                backgroundColor:'transparent',
-                                transform:'translate(0px,-110px)'
-                            }}
-                        >
-                        <span
+                        <Text
                             style={{
                                 fontSize: '15pt',
                                 fontWeight:'700',
@@ -131,22 +115,14 @@ function MainMoodBoard() {
                                 marginTop:'40px',
                                 marginBottom:'40px',
                                 padding:'auto',
-                                zIndex:2,
+                                zIndex:2
                                 // backgroundColor:'red'
-                                
                             }}
                         > 
                             새로운 아이디어와 컨셉을 찾아보세요.
-                        </span> 
-                        </div>
+                        </Text> 
                         <br></br>
-                        <div
-                            style={{
-                                backgroundColor:'transparent',
-                                transform:'translate(0px,-130px)'
-                            }}
-                        >
-                        <span
+                        <Text
                             style={{
                                 fontSize: '15pt',
                                 fontWeight:'700',
@@ -164,10 +140,9 @@ function MainMoodBoard() {
                             }}
                         > 
                             어떤 자재가 어떤 컨셉으로 활용되는지 알아볼 수 있습니다.
-                        </span> 
-                        </div>
+                        </Text> 
                     </div>
-                        <div
+                        <View
                             style={{
                                 flex: 1, 
                                 // flexDirection: 'row',
@@ -184,11 +159,10 @@ function MainMoodBoard() {
                     {data.listMoodboard.map((listMoodboard)=>{
                         // console.log(listMoodboard)
                     return(
-                        <a
-                        // onPress={()=>{
-                        //     Linking.openURL(`/moodboarddetail?mb_no=${listMoodboard.mb_no}`)
-                        // }}
-                        href={'/moodboarddetail?mb_no='+listMoodboard.mb_no}
+                        <TouchableOpacity
+                        onPress={()=>{
+                            Linking.openURL(`/moodboarddetail?mb_no=${listMoodboard.mb_no}`)
+                        }}
                         style={{
                             flexDirection:'column',
                             borderRadius:10,
@@ -219,7 +193,7 @@ function MainMoodBoard() {
                         }}
                     >
                     
-                    <img
+                    <Image
                         style={{
                         display:'block',
                         height:'200pt',
@@ -233,17 +207,14 @@ function MainMoodBoard() {
                             translateY:'0px'
                         }]
                         }}
-                        // source={{
-                        //     uri:
-                        //         // data.listCategory[i].ct_img_url
-                        //         listMoodboard.mb_img_url
-                        // }}
-                        src={
-                            listMoodboard.mb_img_url
-                        }
+                        source={{
+                            uri:
+                                // data.listCategory[i].ct_img_url
+                                listMoodboard.mb_img_url
+                        }}
 
                     >
-                    </img>
+                    </Image>
                     {/* <a
                         style={{
                         transform:[{
@@ -251,7 +222,7 @@ function MainMoodBoard() {
                         }]
                         }}
                     > */}
-                        <div
+                        <View
                             style ={{
                                 height:'60pt',
                                 width:'200pt',
@@ -281,7 +252,7 @@ function MainMoodBoard() {
                                 
                             }}
                         >
-                            <div
+                            <View
                                 style ={{
                                     height:'60pt',
                                     width:'190pt',
@@ -295,7 +266,7 @@ function MainMoodBoard() {
                                     borderBottomLeftRadius:10,
                                     borderBottomRightRadius:10,
                                     color:'black',
-                                    textAlign:'left',
+                                    textAlign:'center',
                                     alignItems:'center',
                                     justifyContent:'center',
                                     flexDirection:'row',
@@ -305,10 +276,10 @@ function MainMoodBoard() {
                                     backgroundColor:"rgb(33,33,33)",
                                     // zIndex:99,
                                     pointerEvents:'none',
-                                    lineHeight:'65px'
+                                    
                                 }}
                             >
-                                <span
+                                <Text
                                     style ={{
                                         height:'65pt',
                                         width:'250px',
@@ -335,43 +306,40 @@ function MainMoodBoard() {
                                 >
                                     {/* {data.listCategory[i].ct_text} */}
                                     {listMoodboard.mb_name}
-                                </span>
-                            </div>
-                        </div>
+                                </Text>
+                            </View>
+                        </View>
                     {/* </a> */}
-                    </a>
+                    </TouchableOpacity>
                     )}
                     )}
-                    </div>
+                    </View>
                    
                     
                 
                 </div>
-                </Font>
             );
         }
         else{
             return (
-                <Font family='Noto Sans KR'>
                 <div className="MainContent">
                 
                     {/* <Navbar /> */}
                     {/* <NavBarFiller/> */}
-                    <div
+                    <View
                         style={{
                             textAlign:'center'
                         }}
                     >
-                        <span>
+                        <Text>
                         로딩중 ...
-                        </span>
-                    </div>
+                        </Text>
+                    </View>
                     {/* <Content/> */}
                     
                     
                 
                 </div>
-                </Font>
             );
         }
     
@@ -380,7 +348,6 @@ function MainMoodBoard() {
 
         if(data!=undefined){
             return (
-                <Font family='Noto Sans KR'>
                 <div className="MainContent"
                     style={{
                         display:'block',
@@ -401,13 +368,35 @@ function MainMoodBoard() {
                             paddingLeft:'100px'
                         }}
                     >
-                        <div
-                            style={{
-                                display:'flex',
-                                flexDirection:'row'
-                            }}
-                        >
-                        <span
+                        <TouchableOpacity
+                        
+                        onPress={()=>{  
+                            Linking.openURL('/searchpage?mode=moodboard')
+                        }}>
+                            <div
+                                style={{
+                                    position:'absolute',
+                                    right:'100px',
+                                    top:'0px',
+                                    borderRadius:10,
+                                    border:'1px solid white',
+                                    height:"30px",
+                                    width:'100px',
+                                    textAlign:'center'
+                                }}
+                            >
+                                <Text
+                                    style={{
+                                        color:'white',
+                                        lineHeight:'30px',
+
+                                    }}
+                                >
+                                    모두 둘러보기
+                                </Text>
+                            </div>
+                        </TouchableOpacity>
+                        <Text
                             style={{
                                 fontSize: '25pt',
                                 fontWeight:'700',
@@ -420,54 +409,14 @@ function MainMoodBoard() {
                                 marginTop:'40px',
                                 marginBottom:'40px',
                                 padding:'auto',
-                                zIndex:2,
-                                transform:'translate(0px,-44px)'
+                                zIndex:2
                                 // backgroundColor:'red'
                             }}
                         > 
                         무드보드
-                        </span> 
-                        
-                        <a
-                        
-                        // onPress={()=>{  
-                        //     Linking.openURL('/searchpage?mode=moodboard')
-                        
-                        // }}
-                        href={'/searchpage?mode=moodboard'}
-                        >
-                            <div
-                                style={{
-                                    position:'absolute',
-                                    right:'100px',
-                                    // top:'0px',
-                                    borderRadius:10,
-                                    border:'1px solid white',
-                                    height:"30px",
-                                    width:'100px',
-                                    textAlign:'center'
-                                }}
-                            >
-                                <span
-                                    style={{
-                                        color:'white',
-                                        lineHeight:'30px',
-                                        fontSize:'15px'
-                                    }}
-                                >
-                                    모두 둘러보기
-                                </span>
-                            </div>
-                        </a>
-                        </div>
+                        </Text> 
                         <br></br>
-                        <div
-                            style={{
-                                backgroundColor:'transparent',
-                                transform:'translate(0px,-110px)'
-                            }}
-                        >
-                        <span
+                        <Text
                             style={{
                                 fontSize: '15pt',
                                 fontWeight:'700',
@@ -480,22 +429,14 @@ function MainMoodBoard() {
                                 marginTop:'40px',
                                 marginBottom:'40px',
                                 padding:'auto',
-                                zIndex:2,
+                                zIndex:2
                                 // backgroundColor:'red'
-                                
                             }}
                         > 
                             새로운 아이디어와 컨셉을 찾아보세요.
-                        </span> 
-                        </div>
+                        </Text> 
                         <br></br>
-                        <div
-                            style={{
-                                backgroundColor:'transparent',
-                                transform:'translate(0px,-130px)'
-                            }}
-                        >
-                        <span
+                        <Text
                             style={{
                                 fontSize: '15pt',
                                 fontWeight:'700',
@@ -513,10 +454,9 @@ function MainMoodBoard() {
                             }}
                         > 
                             어떤 자재가 어떤 컨셉으로 활용되는지 알아볼 수 있습니다.
-                        </span> 
-                        </div>
+                        </Text> 
                     </div>
-                        <div
+                        <View
                             style={{
                                 flex: 1, 
                                 // flexDirection: 'row',
@@ -533,11 +473,10 @@ function MainMoodBoard() {
                     {data.listMoodboard.map((listMoodboard)=>
 
                     
-                        <a
-                        // onPress={()=>{
-                        //     Linking.openURL(`/moodboarddetail?mb_no=${listMoodboard.mb_no}`)
-                        // }}
-                        href={'/moodboarddetail?mb_no='+listMoodboard.mb_no}
+                        <TouchableOpacity
+                        onPress={()=>{
+                            Linking.openURL(`/moodboarddetail?mb_no=${listMoodboard.mb_no}`)
+                        }}
                         style={{
                             flexDirection:'column',
                             borderRadius:10,
@@ -567,7 +506,7 @@ function MainMoodBoard() {
                         }}
                     >
                     
-                    <img
+                    <Image
                         style={{
                         display:'block',
                         height:'200pt',
@@ -581,17 +520,14 @@ function MainMoodBoard() {
                             translateY:'0px'
                         }]
                         }}
-                        // source={{
-                        //     uri:
-                        //         // data.listCategory[i].ct_img_url
-                        //         listMoodboard.mb_img_url
-                        // }}
-                        src={
-                            listMoodboard.mb_img_url
-                        }
+                        source={{
+                            uri:
+                                // data.listCategory[i].ct_img_url
+                                listMoodboard.mb_img_url
+                        }}
 
                     >
-                    </img>
+                    </Image>
                     {/* <a
                         style={{
                         transform:[{
@@ -599,7 +535,7 @@ function MainMoodBoard() {
                         }]
                         }}
                     > */}
-                        <div
+                        <View
                             style ={{
                                 height:'60pt',
                                 width:'200pt',
@@ -629,7 +565,7 @@ function MainMoodBoard() {
                                 
                             }}
                         >
-                            <div
+                            <View
                                 style ={{
                                     height:'60pt',
                                     width:'190pt',
@@ -643,7 +579,7 @@ function MainMoodBoard() {
                                     borderBottomLeftRadius:10,
                                     borderBottomRightRadius:10,
                                     color:'black',
-                                    textAlign:'left',
+                                    textAlign:'center',
                                     alignItems:'center',
                                     justifyContent:'center',
                                     flexDirection:'row',
@@ -653,10 +589,10 @@ function MainMoodBoard() {
                                     backgroundColor:"rgb(33,33,33)",
                                     // zIndex:99,
                                     pointerEvents:'none',
-                                    lineHeight:'65px'
+                                    
                                 }}
                             >
-                                <span
+                                <Text
                                     style ={{
                                         height:'65pt',
                                         width:'250px',
@@ -683,42 +619,39 @@ function MainMoodBoard() {
                                 >
                                     {/* {data.listCategory[i].ct_text} */}
                                     {listMoodboard.mb_name}
-                                </span>
-                            </div>
-                        </div>
+                                </Text>
+                            </View>
+                        </View>
                     {/* </a> */}
-                    </a>
+                    </TouchableOpacity>
                     )}
-                    </div>
+                    </View>
                    
                     
                 
                 </div>
-                </Font>
             );
         }
         else{
             return (
-                <Font family='Noto Sans KR'>
                 <div className="MainContent">
                 
                     {/* <Navbar /> */}
                     {/* <NavBarFiller/> */}
-                    <div
+                    <View
                         style={{
                             textAlign:'center'
                         }}
                     >
-                        <span>
+                        <Text>
                         로딩중 ...
-                        </span>
-                    </div>
+                        </Text>
+                    </View>
                     {/* <Content/> */}
                     
                     
                 
                 </div>
-                </Font>
             );
         }
     
@@ -727,7 +660,6 @@ function MainMoodBoard() {
 
         if(data!=undefined){
             return (
-                <Font family='Noto Sans KR'>
                 <div className="MainContent"
                     style={{
                         display:'block',
@@ -747,7 +679,7 @@ function MainMoodBoard() {
                             paddingLeft:'100px'
                         }}
                     >
-                        <span
+                        <Text
                             style={{
                                 fontSize: '25pt',
                                 fontWeight:'700',
@@ -765,9 +697,9 @@ function MainMoodBoard() {
                             }}
                         > 
                         무드보드
-                        </span> 
+                        </Text> 
                         <br></br>
-                        <span
+                        <Text
                             style={{
                                 fontSize: '15pt',
                                 fontWeight:'700',
@@ -785,9 +717,9 @@ function MainMoodBoard() {
                             }}
                         > 
                             새로운 아이디어와 컨셉을 찾아보세요.
-                        </span> 
+                        </Text> 
                         <br></br>
-                        <span
+                        <Text
                             style={{
                                 fontSize: '15pt',
                                 fontWeight:'700',
@@ -805,9 +737,9 @@ function MainMoodBoard() {
                             }}
                         > 
                             어떤 자재가 어떤 컨셉으로 활용되는지 알아볼 수 있습니다.
-                        </span> 
+                        </Text> 
                     </div>
-                        <div
+                        <View
                             style={{
                                 flex: 1, 
                                 // flexDirection: 'row',
@@ -824,11 +756,10 @@ function MainMoodBoard() {
                     {data.listMoodboard.map((listMoodboard)=>
 
                     
-                        <a
+                        <TouchableOpacity
                         onPress={()=>{
                             Linking.openURL(`/moodboarddetail?mb_no=${listMoodboard.mb_no}`)
                         }}
-                        href={'/moodboarddetail?mb_no='+listMoodboard.mb_no}
                         style={{
                             flexDirection:'column',
                             borderRadius:10,
@@ -859,7 +790,7 @@ function MainMoodBoard() {
                         }}
                     >
                     
-                    <img
+                    <Image
                         style={{
                         display:'block',
                         height:'200pt',
@@ -873,15 +804,14 @@ function MainMoodBoard() {
                             translateY:'0px'
                         }]
                         }}
-                        // source={{
-                        //     uri:
-                        //         // data.listCategory[i].ct_img_url
-                        //         listMoodboard.mb_img_url
-                        // }}
-                        src={listMoodboard.mb_img_url}
+                        source={{
+                            uri:
+                                // data.listCategory[i].ct_img_url
+                                listMoodboard.mb_img_url
+                        }}
 
                     >
-                    </img>
+                    </Image>
                     {/* <a
                         style={{
                         transform:[{
@@ -889,7 +819,7 @@ function MainMoodBoard() {
                         }]
                         }}
                     > */}
-                        <div
+                        <View
                             style ={{
                                 height:'60pt',
                                 width:'200pt',
@@ -919,7 +849,7 @@ function MainMoodBoard() {
                                 
                             }}
                         >
-                            <div
+                            <View
                                 style ={{
                                     height:'60pt',
                                     width:'190pt',
@@ -933,7 +863,7 @@ function MainMoodBoard() {
                                     borderBottomLeftRadius:10,
                                     borderBottomRightRadius:10,
                                     color:'black',
-                                    textAlign:'left',
+                                    textAlign:'center',
                                     alignItems:'center',
                                     justifyContent:'center',
                                     flexDirection:'row',
@@ -943,10 +873,10 @@ function MainMoodBoard() {
                                     backgroundColor:"rgb(33,33,33)",
                                     // zIndex:99,
                                     pointerEvents:'none',
-                                    lineHeight:"65px"
+                                    
                                 }}
                             >
-                                <span
+                                <Text
                                     style ={{
                                         height:'65pt',
                                         width:'250px',
@@ -973,42 +903,39 @@ function MainMoodBoard() {
                                 >
                                     {/* {data.listCategory[i].ct_text} */}
                                     {listMoodboard.mb_name}
-                                </span>
-                            </div>
-                        </div>
+                                </Text>
+                            </View>
+                        </View>
                     {/* </a> */}
-                    </a>
+                    </TouchableOpacity>
                     )}
-                    </div>
+                    </View>
                    
                     
                 
                 </div>
-                </Font>
             );
         }
         else{
             return (
-                <Font family='Noto Sans KR'>
                 <div className="MainContent">
                 
                     {/* <Navbar /> */}
                     {/* <NavBarFiller/> */}
-                    <div
+                    <View
                         style={{
                             textAlign:'center'
                         }}
                     >
-                        <span>
+                        <Text>
                         로딩중 ...
-                        </span>
-                    </div>
+                        </Text>
+                    </View>
                     {/* <Content/> */}
                     
                     
                 
                 </div>
-                </Font>
             );
         }
     
@@ -1017,7 +944,6 @@ function MainMoodBoard() {
 
         if(data!=undefined){
             return (
-                <Font family='Noto Sans KR'>
                 <div className="MainContent"
                     style={{
                         display:'block',
@@ -1040,7 +966,7 @@ function MainMoodBoard() {
                             paddingRight:'45px'
                         }}
                     >
-                        <span
+                        <Text
                             style={{
                                 fontSize: '25pt',
                                 fontWeight:'700',
@@ -1058,9 +984,9 @@ function MainMoodBoard() {
                             }}
                         > 
                         무드보드
-                        </span> 
+                        </Text> 
                         <br></br>
-                        <span
+                        <Text
                             style={{
                                 fontSize: '15pt',
                                 fontWeight:'700',
@@ -1078,9 +1004,9 @@ function MainMoodBoard() {
                             }}
                         > 
                             새로운 아이디어와 컨셉을 찾아보세요.
-                        </span> 
+                        </Text> 
                         <br></br>
-                        <span
+                        <Text
                             style={{
                                 fontSize: '15pt',
                                 fontWeight:'700',
@@ -1098,9 +1024,9 @@ function MainMoodBoard() {
                             }}
                         > 
                             어떤 자재가 어떤 컨셉으로 활용되는지 알아볼 수 있습니다.
-                        </span> 
+                        </Text> 
                     </div>
-                        <div
+                        <View
                             style={{
                                 flex: 1, 
                                 // flexDirection: 'row',
@@ -1117,11 +1043,10 @@ function MainMoodBoard() {
                     {data.listMoodboard.map((listMoodboard)=>
 
                     
-                        <a
-                        // onPress={()=>{
-                        //     Linking.openURL(`/moodboarddetail?mb_no=${listMoodboard.mb_no}`)
-                        // }}
-                        href={'/moodboarddetail?mb_no='+listMoodboard.mb_no}
+                        <TouchableOpacity
+                        onPress={()=>{
+                            Linking.openURL(`/moodboarddetail?mb_no=${listMoodboard.mb_no}`)
+                        }}
                         style={{
                             flexDirection:'column',
                             borderRadius:10,
@@ -1152,7 +1077,7 @@ function MainMoodBoard() {
                         }}
                     >
                     
-                    <img
+                    <Image
                         style={{
                         display:'block',
                         height:'200pt',
@@ -1166,15 +1091,14 @@ function MainMoodBoard() {
                             translateY:'0px'
                         }]
                         }}
-                        // source={{
-                        //     uri:
-                        //         // data.listCategory[i].ct_img_url
-                        //         listMoodboard.mb_img_url
-                        // }}
-                        src={listMoodboard.mb_img_url}
+                        source={{
+                            uri:
+                                // data.listCategory[i].ct_img_url
+                                listMoodboard.mb_img_url
+                        }}
 
                     >
-                    </img>
+                    </Image>
                     {/* <a
                         style={{
                         transform:[{
@@ -1182,7 +1106,7 @@ function MainMoodBoard() {
                         }]
                         }}
                     > */}
-                        <div
+                        <View
                             style ={{
                                 height:'60pt',
                                 width:'200pt',
@@ -1212,7 +1136,7 @@ function MainMoodBoard() {
                                 
                             }}
                         >
-                            <div
+                            <View
                                 style ={{
                                     height:'60pt',
                                     width:'190pt',
@@ -1226,7 +1150,7 @@ function MainMoodBoard() {
                                     borderBottomLeftRadius:10,
                                     borderBottomRightRadius:10,
                                     color:'black',
-                                    textAlign:'left',
+                                    textAlign:'center',
                                     alignItems:'center',
                                     justifyContent:'center',
                                     flexDirection:'row',
@@ -1236,10 +1160,10 @@ function MainMoodBoard() {
                                     backgroundColor:"rgb(33,33,33)",
                                     // zIndex:99,
                                     pointerEvents:'none',
-                                    lineHeight:'65px'
+                                    
                                 }}
                             >
-                                <span
+                                <Text
                                     style ={{
                                         height:'65pt',
                                         width:'250px',
@@ -1266,18 +1190,17 @@ function MainMoodBoard() {
                                 >
                                     {/* {data.listCategory[i].ct_text} */}
                                     {listMoodboard.mb_name}
-                                </span>
-                            </div>
-                        </div>
+                                </Text>
+                            </View>
+                        </View>
                     {/* </a> */}
-                    </a>
+                    </TouchableOpacity>
                     )}
-                    </div>
+                    </View>
                    
                     
                 
                 </div>
-                </Font>
             );
         }
         else{
@@ -1286,15 +1209,15 @@ function MainMoodBoard() {
                 
                     {/* <Navbar /> */}
                     {/* <NavBarFiller/> */}
-                    <div
+                    <View
                         style={{
                             textAlign:'center'
                         }}
                     >
-                        <span>
+                        <Text>
                         로딩중 ...
-                        </span>
-                    </div>
+                        </Text>
+                    </View>
                     {/* <Content/> */}
                     
                     
