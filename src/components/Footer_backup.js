@@ -17,7 +17,7 @@ const IntroImage=() => {
                 height:'400px'
             }}
         >
-            <div
+            <View
                 style={{
                     // height:'40px',
                     // marginTop:'15px',
@@ -33,7 +33,7 @@ const IntroImage=() => {
             <a
             href="/clip"
           >
-            <div    
+            <View    
                 style={{
                     height:'40px',
                     width:'150px',
@@ -58,19 +58,17 @@ const IntroImage=() => {
                         height:'33pt'
                     }}
                 />
-            </div>
+            </View>
           </a>
-          <div
+          <View
             style={{
-                display:'flex',
-                flexDirection:'row',
-                // backgroundColor:'red'
+                flexDirection:'row'
             }}
           >
           <a
             href='https://www.instagram.com/clip.style.official/'
           >
-            <div
+            <View
             style={{
                 height:'40px',
                 // marginTop:'15px',
@@ -94,12 +92,12 @@ const IntroImage=() => {
                     }}
                 />
 
-            </div>
+            </View>
           </a>
           <a
             href='https://www.facebook.com/clip.style.official/'
           >
-            <div
+            <View
             style={{
                 height:'40px',
                 // marginTop:'15px',
@@ -123,12 +121,12 @@ const IntroImage=() => {
                     }}
                 />
 
-            </div>
+            </View>
           </a>
           <a
             href='https://www.pinterest.co.kr/clip_style/'
           >
-            <div
+            <View
             style={{
                 height:'40px',
                 // marginTop:'15px',
@@ -152,10 +150,10 @@ const IntroImage=() => {
                     }}
                 />
 
-            </div>
+            </View>
           </a>
-          </div>
-          <div
+          </View>
+          <View
           style={{
             height:'40px',
             marginTop:'15px',
@@ -169,7 +167,7 @@ const IntroImage=() => {
           }}>
 
           
-          <span
+          <Text
             style={{
                 // height:'40px',
                 // marginTop:'12px',
@@ -189,9 +187,9 @@ const IntroImage=() => {
           >
           주식회사 쿼키 
         
-          </span>
-          </div>
-          <div
+          </Text>
+          </View>
+          <View
             style={{
                 // height:'40px',
                 // marginTop:'15px',
@@ -204,7 +202,7 @@ const IntroImage=() => {
                 flex:2
             }}
           >
-            <div
+            <View
             style={{
                 // height:'40px',
                 // marginTop:'15px',
@@ -216,7 +214,7 @@ const IntroImage=() => {
                 // height:'33pt',
                 // flex:2
             }}>
-                <span
+                <Text
                 style={{
                     fontSize: '15pt',
                     fontWeight:'500',
@@ -227,10 +225,10 @@ const IntroImage=() => {
                 }}
                 >
                     서울시 강남구 영동대로 511 2749호
-                </span>
-            </div>
+                </Text>
+            </View>
             <br></br>
-            <div
+            <View
             style={{
                 // height:'40px',
                 // marginTop:'15px',
@@ -243,7 +241,7 @@ const IntroImage=() => {
                 // flex:2
             }}
             >
-                <span
+                <Text
                 style={{
                     fontSize: '15pt',
                     fontWeight:'500',
@@ -254,9 +252,9 @@ const IntroImage=() => {
                 }}
                 >
                     사업자 등록번호 : 444-81-01756
-                </span>
-            </div>
-            <div
+                </Text>
+            </View>
+            <View
             style={{
                 // height:'40px',
                 // marginTop:'15px',
@@ -269,7 +267,7 @@ const IntroImage=() => {
                 // flex:2
             }}
             >
-                <span
+                <Text
                 style={{
                     fontSize: '15pt',
                     fontWeight:'500',
@@ -280,12 +278,12 @@ const IntroImage=() => {
                 }}
                 >
                     통신판매업: 2020-서울강남-03319
-                </span>
-            </div>
+                </Text>
+            </View>
             <br></br>
-          </div>
-          </div>
-          <div
+          </View>
+          </View>
+          <View
           style={{
               textAlign:'left',
               height:'40px',
@@ -299,7 +297,7 @@ const IntroImage=() => {
               flex:2,
           }}
           >
-            <div
+            <View
             >
                 <a style={{           
                             textDecorationLine:'none',
@@ -308,7 +306,7 @@ const IntroImage=() => {
                             width:"100%",
                             
                           }} href="mailto:help@clip.style" >
-                <span
+                <Text
                 style={{
                     fontSize: '15pt',
                     fontWeight:'500',
@@ -319,10 +317,10 @@ const IntroImage=() => {
                 }}
                 >
                     헬프데스크: help@clip.style
-                </span>
+                </Text>
                 </a>
-            </div>
-            <div>
+            </View>
+            <View>
                 <a style={{           
                     textDecorationLine:'none',
                     textDecorationStyle:'none',
@@ -330,7 +328,7 @@ const IntroImage=() => {
                     width:"100%",
                     
                     }} href="mailto:admin@clip.style" >
-                <span
+                <Text
                 style={{
                     fontSize: '15pt',
                     fontWeight:'500',
@@ -341,12 +339,12 @@ const IntroImage=() => {
                 }}
                 >
                     제휴문의: admin@clip.style
-                </span>
+                </Text>
                 </a>
-            </div>
+            </View>
             <br></br>
-            <div>
-                <span
+            <View>
+                <Text
                 style={{
                     fontSize: '15pt',
                     fontWeight:'500',
@@ -357,16 +355,14 @@ const IntroImage=() => {
                 }}
                 >
                     © 2021 QWERKY Inc. 
-                </span>
-            </div>
-            <div
+                </Text>
+            </View>
+            <View
                 style={{
-                    display:'flex',
-                    flexDirection:'row',
-                    
+                    flexDirection:'row'
                 }}
             >
-                <div>
+                <View>
                     <a
                         href="/privacypolicy"
                         style={{
@@ -374,7 +370,7 @@ const IntroImage=() => {
                             textDecorationStyle:'none',
                         }}
                     >
-                        <span
+                        <Text
                             style={{
                                 fontSize: '15pt',
                                 fontWeight:'500',
@@ -385,11 +381,11 @@ const IntroImage=() => {
                             }}
                         >
                                 개인정보 처리방침
-                        </span>
+                        </Text>
                     </a>
-                </div>
-                <div>
-                    <span
+                </View>
+                <View>
+                    <Text
                     style={{
                         fontSize: '15pt',
                         fontWeight:'500',
@@ -400,9 +396,9 @@ const IntroImage=() => {
                     }}
                     >
                         &nbsp;|&nbsp;
-                    </span>
-                </div>
-                <div>
+                    </Text>
+                </View>
+                <View>
                     <a
                         href="/terms"
                         style={{
@@ -410,7 +406,7 @@ const IntroImage=() => {
                             textDecorationStyle:'none',
                         }}
                     >
-                        <span
+                        <Text
                         style={{
                             fontSize: '15pt',
                             fontWeight:'500',
@@ -421,12 +417,12 @@ const IntroImage=() => {
                         }}
                         >
                             이용약관
-                        </span>
+                        </Text>
                     </a>
-                </div>
-            </div>
+                </View>
+            </View>
             <br></br>
-          </div>
+          </View>
         </div>
         </Font>
     )
