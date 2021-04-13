@@ -33,6 +33,7 @@ import {
 } from "react-native-confirmation-code-field";
 import "./Login.css";
 import fetch from "node-fetch";
+import Font from 'react-font'
 const queryString = require("query-string");
 
 function LogIn(props) {
@@ -837,6 +838,7 @@ function LogIn(props) {
   else if (props.registrationScreen != 0) {
     if (props.registrationScreen == 1) {
       return (
+      <Font family='Noto Sans KR'>
         <div>
           <div
             style={{
@@ -910,7 +912,7 @@ function LogIn(props) {
                   marginRight: "auto",
                 }}
               >
-                <View
+                <div
                   style={{
                     backgroundColor: "white",
                     height: "258px",
@@ -919,7 +921,7 @@ function LogIn(props) {
                     borderBottomRightRadius: "10px",
                   }}
                 >
-                  <View
+                  <div
                     style={{
                       position: "relative",
                       top: 0,
@@ -957,8 +959,8 @@ function LogIn(props) {
                     </img>
 
                     </TouchableOpacity> */}
-                      <TouchableOpacity
-                        onPress={() => {
+                      <div
+                        onClick={() => {
                           //console.log('close project list')
                           setFindPassWord(false);
                           // setRegistrationScreen(0)
@@ -966,8 +968,11 @@ function LogIn(props) {
                           props.setJoinType("MOBILE");
                           props.setSNSID(null);
                         }}
+                        style={{
+                          cursor:'pointer'
+                        }}
                       >
-                        <View
+                        <div
                           style={{
                             backgroundColor: "transparent",
                             height: "25px",
@@ -979,10 +984,10 @@ function LogIn(props) {
                             lineHeight: "25px",
                             padding: "15px",
                             alignItems: "center",
-                            transform: "translate(0px,-23px)",
+                            transform: "translate(0px,-33px)",
                           }}
                         >
-                          <Text
+                          <span
                             style={
                               {
                                 // position:'fixed',
@@ -991,20 +996,25 @@ function LogIn(props) {
                             }
                           >
                             &lt;
-                          </Text>
-                        </View>
-                      </TouchableOpacity>
+                          </span>
+                        </div>
+                      </div>
                     </div>
-
-                    <Text
+                    <div
+                      style={{
+                        transform: "translate(0px,-28px)",
+                      }}
+                    >
+                    <span
                       style={{
                         fontWeight: 700,
                         transform: "translate(0px,-23px)",
                       }}
                     >
                       회원가입
-                    </Text>
-                  </View>
+                    </span>
+                    </div>
+                  </div>
                   {/* <View
                             style={{
                                 textAlign:'left',
@@ -1036,7 +1046,11 @@ function LogIn(props) {
                       height: "75px",
                     }}
                   >
-                    <Text>휴대폰번호</Text>
+                    <span
+                      style={{
+                        fontSize:'14px'
+                      }}
+                    >휴대폰번호</span>
 
                     <TextInput
                       onChangeText={(text) => {
@@ -1052,16 +1066,17 @@ function LogIn(props) {
                       value={props.userPhoneNumber}
                     ></TextInput>
                   </div>
-                  <View
+                  <div
                     style={{
                       textAlign: "left",
                       padding: "15px",
                       top: 0,
                       backgroundColor: "transparent",
+                      display:'flex',
                       flexDirection: "row",
                     }}
                   >
-                    <Text
+                    <span
                       style={{
                         fontWeight: 500,
                         fontSize: "15px",
@@ -1069,26 +1084,31 @@ function LogIn(props) {
                       }}
                     >
                       이미 계정을 보유하고 계시나요?
-                    </Text>
+                    </span>
 
-                    <TouchableOpacity>
-                      <Text
+                    <div
+                      onClick={() => {
+                        // setRegistrationScreen(0)
+                        props.setRegistrationScreen(0);
+                        props.setJoinType("MOBILE");
+                        props.setSNSID(null);
+                      }}
+                      style={{
+                        cursor:'pointer'
+                      }}
+                    >
+                      <span
                         style={{
                           fontWeight: 700,
                           fontSize: "15px",
                           marginLeft: "5px",
                         }}
-                        onPress={() => {
-                          // setRegistrationScreen(0)
-                          props.setRegistrationScreen(0);
-                          props.setJoinType("MOBILE");
-                          props.setSNSID(null);
-                        }}
+                        
                       >
                         로그인
-                      </Text>
-                    </TouchableOpacity>
-                  </View>
+                      </span>
+                    </div>
+                  </div>
                   <div
                     style={{
                       // display: emailLogIn ? 'none':'block',
@@ -1098,7 +1118,7 @@ function LogIn(props) {
                       paddingBottom: "15px",
                     }}
                   >
-                    <TouchableOpacity
+                    <div
                       style={{
                         marginTop: "15px",
                         backgroundColor: "rgb(255,123,88)",
@@ -1106,8 +1126,10 @@ function LogIn(props) {
                         height: "40px",
                         textAlign: "center",
                         justifyContent: "center",
+                        lineHeight:'40px',
+                        cursor:'pointer'
                       }}
-                      onPress={() => {
+                      onClick={() => {
                         fetch(
                           "/CheckExistMember?" +
                             queryString.stringify({
@@ -1142,25 +1164,28 @@ function LogIn(props) {
                         // setRegistrationScreen(3)
                       }}
                     >
-                      <Text
+                      <span
                         style={{
                           color: "white",
+                          fontSize:'14px'
                         }}
                       >
                         계속
-                      </Text>
-                    </TouchableOpacity>
+                      </span>
+                    </div>
                   </div>
-                </View>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </Font>
       );
     }
     // else if(registrationScreen==2){
     else if (props.registrationScreen == 2) {
       return (
+      <Font family='Noto Sans KR'>
         <div>
           <div
             style={{
@@ -1224,7 +1249,7 @@ function LogIn(props) {
                   marginRight: "auto",
                 }}
               >
-                <View
+                <div
                   style={{
                     backgroundColor: "white",
                     height: "298px",
@@ -1233,7 +1258,7 @@ function LogIn(props) {
                     borderBottomRightRadius: "10px",
                   }}
                 >
-                  <View
+                  <div
                     style={{
                       position: "relative",
                       top: 0,
@@ -1272,8 +1297,8 @@ function LogIn(props) {
                     </img>
 
                     </TouchableOpacity> */}
-                      <TouchableOpacity
-                        onPress={() => {
+                      <div
+                        onClick={() => {
                           //console.log('close project list')
                           setFindPassWord(false);
                           //setRegistrationScreen(0)
@@ -1281,8 +1306,11 @@ function LogIn(props) {
                           props.setJoinType("MOBILE");
                           props.setSNSID(null);
                         }}
+                        style={{
+                          cursor:'pointer'
+                        }}
                       >
-                        <View
+                        <div
                           style={{
                             backgroundColor: "transparent",
                             height: "25px",
@@ -1294,10 +1322,10 @@ function LogIn(props) {
                             lineHeight: "25px",
                             padding: "15px",
                             alignItems: "center",
-                            transform: "translate(0px,-5px)",
+                            transform: "translate(0px,-14px)",
                           }}
                         >
-                          <Text
+                          <span
                             style={
                               {
                                 // position:'fixed',
@@ -1306,19 +1334,25 @@ function LogIn(props) {
                             }
                           >
                             &lt;
-                          </Text>
-                        </View>
-                      </TouchableOpacity>
+                          </span>
+                        </div>
+                      </div>
                     </div>
-                    <Text
+                    <div
+                      style={{
+                        transform: "translate(0px,-28px)"
+                      }}
+                    >
+                    <span
                       style={{
                         fontWeight: 700,
                         transform: "translate(0px,-23px)",
                       }}
                     >
                       회원가입
-                    </Text>
-                  </View>
+                    </span>
+                    </div>
+                  </div>
                   {/* <View
                             style={{
                                 textAlign:'left',
@@ -1351,22 +1385,22 @@ function LogIn(props) {
                       flexDirection: "column",
                     }}
                   >
-                    <Text
+                    <span
                       style={{
                         fontSize: "18px",
                         fontWeight: 700,
                       }}
                     >
                       본인인증
-                    </Text>
-                    <Text
+                    </span>
+                    <span
                       style={{
                         fontSize: "15px",
                         marginTop: "5px",
                       }}
                     >
                       휴대폰 번호로 전송된 인증번호를 입력해 주세요
-                    </Text>
+                    </span>
                     {/* <TextInput 
                                 onChangeText={
                                 text=>{
@@ -1402,16 +1436,18 @@ function LogIn(props) {
                       )}
                     />
                   </div>
-                  <View
+                  <div
                     style={{
                       textAlign: "left",
-                      padding: "15px",
+                      paddingLeft: "15px",
+                      paddingRight:'15px',
                       top: 0,
                       backgroundColor: "transparent",
+                      display:'flex',
                       flexDirection: "row",
                     }}
                   >
-                    <Text
+                    <span
                       style={{
                         fontWeight: 500,
                         fontSize: "15px",
@@ -1419,24 +1455,26 @@ function LogIn(props) {
                       }}
                     >
                       메시지를 못받았습니다
-                    </Text>
+                    </span>
 
-                    <TouchableOpacity>
-                      <Text
+                    <div
+                      onClick={() => {
+                        //setRegistrationScreen(1)
+                        props.setRegistrationScreen(1);
+                      }}
+                    >
+                      <span
                         style={{
                           fontWeight: 700,
                           fontSize: "15px",
                           marginLeft: "5px",
                         }}
-                        onPress={() => {
-                          //setRegistrationScreen(1)
-                          props.setRegistrationScreen(1);
-                        }}
+                        
                       >
                         다시 받아보기
-                      </Text>
-                    </TouchableOpacity>
-                  </View>
+                      </span>
+                    </div>
+                  </div>
                   <div
                     style={{
                       // display: emailLogIn ? 'none':'block',
@@ -1446,7 +1484,7 @@ function LogIn(props) {
                       paddingBottom: "15px",
                     }}
                   >
-                    <TouchableOpacity
+                    <div
                       style={{
                         marginTop: "15px",
                         backgroundColor: "rgb(255,123,88)",
@@ -1455,7 +1493,7 @@ function LogIn(props) {
                         textAlign: "center",
                         justifyContent: "center",
                       }}
-                      onPress={() => {
+                      onClick={() => {
                         // props.logInFunction(
                         //     {
                         //         mem_jointype:'MOBILE',
@@ -1487,25 +1525,33 @@ function LogIn(props) {
                         }
                       }}
                     >
-                      <Text
+                      <div
+                        style={{
+                          transform:'translate(0px,6px)'
+                        }}
+                      >
+                      <span
                         style={{
                           color: "white",
                         }}
                       >
                         계속
-                      </Text>
-                    </TouchableOpacity>
+                      </span>
+                      </div>
+                    </div>
                   </div>
-                </View>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </Font>
       );
     }
     //else if (registrationScreen==3){
     else if (props.registrationScreen == 3) {
       return (
+        <Font family='Noto Sans KR'>
         <div>
           <div
             style={{
@@ -1560,7 +1606,7 @@ function LogIn(props) {
                   borderRadius: "10px",
                   backgroundColor: "white",
                   width: "500px",
-                  height: "500px",
+                  height: "520px",
                   paddingTop: "15px",
                   // columnCount:3,
                   // flexwrap:'wrap',
@@ -1573,7 +1619,7 @@ function LogIn(props) {
                   marginRight: "auto",
                 }}
               >
-                <View
+                <div
                   style={{
                     backgroundColor: "white",
                     height: "498px",
@@ -1582,7 +1628,7 @@ function LogIn(props) {
                     borderBottomRightRadius: "10px",
                   }}
                 >
-                  <View
+                  <div
                     style={{
                       position: "relative",
                       top: 0,
@@ -1620,8 +1666,8 @@ function LogIn(props) {
                     </img>
 
                     </TouchableOpacity> */}
-                      <TouchableOpacity
-                        onPress={() => {
+                      <div
+                        onClick={() => {
                           //console.log('close project list')
                           setFindPassWord(false);
                           // setRegistrationScreen(0)
@@ -1630,7 +1676,7 @@ function LogIn(props) {
                           props.setSNSID(null);
                         }}
                       >
-                        <View
+                        <div
                           style={{
                             backgroundColor: "transparent",
                             height: "25px",
@@ -1642,10 +1688,10 @@ function LogIn(props) {
                             lineHeight: "25px",
                             padding: "15px",
                             alignItems: "center",
-                            transform: "translate(0px,-23px)",
+                            transform: "translate(0px,-33px)",
                           }}
                         >
-                          <Text
+                          <span
                             style={
                               {
                                 // position:'fixed',
@@ -1654,19 +1700,25 @@ function LogIn(props) {
                             }
                           >
                             &lt;
-                          </Text>
-                        </View>
-                      </TouchableOpacity>
+                          </span>
+                        </div>
+                      </div>
                     </div>
-                    <Text
+                    <div
                       style={{
-                        fontWeight: 700,
-                        transform: "translate(0px,-23px)",
+                        transform: "translate(0px,-30px)",
                       }}
                     >
-                      회원가입
-                    </Text>
-                  </View>
+                      <span
+                        style={{
+                          fontWeight: 700,
+                          transform: "translate(0px,-23px)",
+                        }}
+                      >
+                        회원가입
+                      </span>
+                    </div>
+                  </div>
                   {/* <View
                             style={{
                                 textAlign:'left',
@@ -1699,15 +1751,15 @@ function LogIn(props) {
                       flexDirection: "column",
                     }}
                   >
-                    <Text
+                    <span
                       style={{
                         fontSize: "18px",
                         fontWeight: 700,
                       }}
                     >
                       디자인 전문가 회원정보 입력
-                    </Text>
-                    <Text
+                    </span>
+                    <span
                       style={{
                         fontSize: "15px",
                         marginTop: "5px",
@@ -1718,14 +1770,14 @@ function LogIn(props) {
                       운영을 위해 신청해주신 분들 중 1)사업자등록증 + 명함 2)
                       홈페이지/블로그/인스타그램 등을 통해 포트폴리오 열람이
                       가능한 가입자에게 승인 처리해드리고 있습니다.
-                    </Text>
+                    </span>
                     <div
                       style={{
                         display: "flex",
                         flexDirection: "column",
                       }}
                     >
-                      <Text
+                      <span
                         style={{
                           marginTop: "5px",
 
@@ -1733,7 +1785,7 @@ function LogIn(props) {
                         }}
                       >
                         이름
-                      </Text>
+                      </span>
 
                       <TextInput
                         onChangeText={(text) => {
@@ -1758,7 +1810,7 @@ function LogIn(props) {
                         flexDirection: "column",
                       }}
                     >
-                      <Text
+                      <span
                         style={{
                           marginTop: "5px",
 
@@ -1766,7 +1818,7 @@ function LogIn(props) {
                         }}
                       >
                         이메일
-                      </Text>
+                      </span>
                       <TextInput
                         onChangeText={(text) => {
                           props.setUserEmail(text);
@@ -1790,7 +1842,7 @@ function LogIn(props) {
                         flexDirection: "column",
                       }}
                     >
-                      <Text
+                      <span
                         style={{
                           marginTop: "5px",
 
@@ -1798,7 +1850,7 @@ function LogIn(props) {
                         }}
                       >
                         회사명
-                      </Text>
+                      </span>
                       <TextInput
                         onChangeText={(text) => {
                           props.setUserCompanyName(text);
@@ -1822,7 +1874,7 @@ function LogIn(props) {
                         flexDirection: "column",
                       }}
                     >
-                      <Text
+                      <span
                         style={{
                           marginTop: "5px",
 
@@ -1830,7 +1882,7 @@ function LogIn(props) {
                         }}
                       >
                         회사 웹사이트 또는 블로그
-                      </Text>
+                      </span>
                       <TextInput
                         onChangeText={(text) => {
                           props.setUserCompanyWebSite(text);
@@ -1854,7 +1906,7 @@ function LogIn(props) {
                         flexDirection: "column",
                       }}
                     >
-                      <Text
+                      <span
                         style={{
                           marginTop: "5px",
 
@@ -1862,7 +1914,7 @@ function LogIn(props) {
                         }}
                       >
                         비밀번호
-                      </Text>
+                      </span>
                       <div
                         style={{
                           border: "1px solid black",
@@ -1889,8 +1941,8 @@ function LogIn(props) {
                           secureTextEntry={passwordVisible}
                           value={props.password}
                         ></TextInput>
-                        <TouchableOpacity
-                          onPress={() => {
+                        <div
+                          onClick={() => {
                             togglePasswordVisible();
                           }}
                         >
@@ -1920,7 +1972,7 @@ function LogIn(props) {
                               }}
                             />
                           </div>
-                        </TouchableOpacity>
+                        </div>
                       </div>
                       {/* <TextInput 
                                 onChangeText={
@@ -1977,7 +2029,7 @@ function LogIn(props) {
                         flexDirection: "column",
                       }}
                     >
-                      <Text
+                      <span
                         style={{
                           // marginTop:'5px',
 
@@ -1985,7 +2037,7 @@ function LogIn(props) {
                         }}
                       >
                         비밀번호 확인
-                      </Text>
+                      </span>
                       <div
                         style={{
                           border: "1px solid black",
@@ -2013,8 +2065,8 @@ function LogIn(props) {
                           value={props.passwordCheck}
                         ></TextInput>
 
-                        <TouchableOpacity
-                          onPress={() => {
+                        <div
+                          onClick={() => {
                             togglePasswordCheckVisible();
                           }}
                         >
@@ -2044,9 +2096,9 @@ function LogIn(props) {
                               }}
                             />
                           </div>
-                        </TouchableOpacity>
+                        </div>
                       </div>
-                      <Text>사업자등록증 및 명함 업로드</Text>
+                      <span>사업자등록증 및 명함 업로드</span>
                       {/* <ImageUploader
                         withIcon={true}
                         buttonText="이미지 업로드"
@@ -2065,7 +2117,7 @@ function LogIn(props) {
                           flexDirection: "column",
                         }}
                       >
-                        <Text
+                        <span
                           style={{
                             fontWeight: 700,
                             marginBottom: "8px",
@@ -2073,15 +2125,15 @@ function LogIn(props) {
                           }}
                         >
                           약관동의
-                        </Text>
-                        <Text
+                        </span>
+                        <span
                           style={{
                             color: "rgb(119,119,119)",
                             marginBottom: "8px",
                           }}
                         >
                           서비스 이용을 위해서 약관을 확인해 주세요.
-                        </Text>
+                        </span>
                         <div
                           style={{
                             display: "flex",
@@ -2089,34 +2141,34 @@ function LogIn(props) {
                             marginBottom: "8px",
                           }}
                         >
-                          <TouchableOpacity
-                            onPress={() => {
+                          <div
+                            onClick={() => {
                               toggleTermsOfServicePopUpShow();
                             }}
                           >
-                            <Text
+                            <span
                               style={{
                                 textDecoration: "underline",
                               }}
                             >
                               서비스 이용 약관,
-                            </Text>
-                          </TouchableOpacity>
-                          <Text>&nbsp;</Text>
-                          <TouchableOpacity
-                            onPress={() => {
+                            </span>
+                          </div>
+                          <span>&nbsp;</span>
+                          <div
+                            onClick={() => {
                               togglePrivacyPolicyPopUpShow();
                             }}
                           >
-                            <Text
+                            <span
                               style={{
                                 textDecoration: "underline",
                               }}
                             >
                               개인정보 취급 방침
-                            </Text>
-                          </TouchableOpacity>
-                          <Text>에 동의하시겠습니까?</Text>
+                            </span>
+                          </div>
+                          <span>에 동의하시겠습니까?</span>
                         </div>
                         <div
                           style={{
@@ -2139,13 +2191,13 @@ function LogIn(props) {
                               // categoryCheckboxClicked(index,e,category.code_name,category.code_text)
                             }
                           />
-                          <Text
+                          <span
                             style={{
                               lineHeight: "18px",
                             }}
                           >
                             약관을 확인했으며, 동의합니다
-                          </Text>
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -2194,7 +2246,7 @@ function LogIn(props) {
                       paddingBottom: "15px",
                     }}
                   >
-                    <TouchableOpacity
+                    <div
                       style={{
                         marginTop: "15px",
                         backgroundColor: membershipButtonDisabled
@@ -2204,9 +2256,11 @@ function LogIn(props) {
                         height: "40px",
                         textAlign: "center",
                         justifyContent: "center",
+                        pointerEvents: membershipButtonDisabled? "none":"auto",
+                        cursor:"pointer"
                       }}
                       disabled={membershipButtonDisabled}
-                      onPress={() => {
+                      onClick={() => {
                         // props.logInFunction(
                         //     {
                         //         mem_jointype:'MOBILE',
@@ -2249,24 +2303,32 @@ function LogIn(props) {
                         // setRegistrationScreen(1)
                       }}
                     >
-                      <Text
+                      <div
                         style={{
-                          color: "white",
+                          transform:"translate(0px,6px)"
                         }}
                       >
-                        확인
-                      </Text>
-                    </TouchableOpacity>
+                        <span
+                          style={{
+                            color: "white",
+                          }}
+                        >
+                          확인
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                </View>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        </Font>
       );
     }
   } else {
     return (
+      <Font family='Noto Sans KR'>
       <div>
         <div
           style={{
@@ -2348,7 +2410,7 @@ function LogIn(props) {
                 backgroundColor: "white",
                 // width:'100%',
                 width: "500px",
-                height: emailLogIn ? "490px" : "475px",
+                height: emailLogIn ? "520px" : "500px",
                 paddingTop: "15px",
                 // columnCount:3,
                 // flexwrap:'wrap',
@@ -2361,16 +2423,16 @@ function LogIn(props) {
                 marginRight: "auto",
               }}
             >
-              <View
+              <div
                 style={{
                   backgroundColor: "white",
-                  height: emailLogIn ? "488px" : "473px",
+                  height: emailLogIn ? "400px" : "380px",
                   width: "100%",
                   borderBottomLeftRadius: "10px",
                   borderBottomRightRadius: "10px",
                 }}
               >
-                <View
+                <div
                   style={{
                     position: "relative",
                     top: 0,
@@ -2394,8 +2456,11 @@ function LogIn(props) {
                       transform: "translate(0px,-18px)",
                     }}
                   >
-                    <TouchableOpacity
-                      onPress={() => {
+                    <div
+                      // onPress={() => {
+                      //   props.toggleLogInShow();
+                      // }}
+                      onClick={()=>{
                         props.toggleLogInShow();
                       }}
                     >
@@ -2406,17 +2471,23 @@ function LogIn(props) {
                           width: "25px",
                         }}
                       ></img>
-                    </TouchableOpacity>
+                    </div>
                   </div>
-                  <Text
+                  <div
+                    style={{
+                      transform: "translate(0px,-25px)",
+                    }}
+                  >
+                  <span
                     style={{
                       fontWeight: 700,
                       transform: "translate(0px,-25px)",
                     }}
                   >
                     로그인
-                  </Text>
-                </View>
+                  </span>
+                  </div>
+                </div>
 
                 <div
                   style={{
@@ -2435,27 +2506,49 @@ function LogIn(props) {
                       display: emailLogIn ? "none" : "block",
                     }}
                   >
-                    <Text>휴대폰번호</Text>
-
-                    <TextInput
-                      onChangeText={(text) => {
-                        props.setUserPhoneNumber(text);
-                        // props.onPhoneNumberChange()
-                      }}
+                    <div
                       style={{
-                        border: "1px solid black",
-                        borderRadius: "0px",
+                        display: 'flex',
+                        flexDirection:'column'
                       }}
-                      placeholder="'-' 없이 입력"
-                      value={props.userPhoneNumber}
-                    ></TextInput>
+                    >
+                      <span
+                        style={{
+                          fontSize:'14px'
+                        }}
+                      >휴대폰번호</span>
+
+                      <TextInput
+                        onChangeText={(text) => {
+                          props.setUserPhoneNumber(text);
+                          // props.onPhoneNumberChange()
+                        }}
+                        style={{
+                          border: "1px solid black",
+                          borderRadius: "0px",
+                          resize:'none',
+                        }}
+                        placeholder="'-' 없이 입력"
+                        value={props.userPhoneNumber}
+                      ></TextInput>
+                    </div>
                   </div>
                   <div
                     style={{
                       display: emailLogIn ? "block" : "none",
                     }}
                   >
-                    <Text>이메일 주소</Text>
+                    <div
+                      style={{
+                        display:'flex',
+                        flexDirection:'column'
+                      }}
+                    >
+                    <span
+                      style={{
+                        fontSize:'14px'
+                      }}
+                    >이메일 주소</span>
 
                     <TextInput
                       onChangeText={(text) => {
@@ -2465,12 +2558,18 @@ function LogIn(props) {
                       style={{
                         border: "1px solid black",
                         borderRadius: "0px",
+                        resize:'none'
                       }}
                       placeholder="이메일 주소 입력"
                       value={props.userEmail}
                     ></TextInput>
+                    </div>
                   </div>
-                  <Text>비밀번호</Text>
+                  <span
+                    style={{
+                      fontSize:'14px'
+                    }}
+                  >비밀번호</span>
                   <div
                     style={{
                       border: "1px solid black",
@@ -2496,9 +2595,12 @@ function LogIn(props) {
                       secureTextEntry={passwordVisible}
                       value={props.password}
                     ></TextInput>
-                    <TouchableOpacity
-                      onPress={() => {
-                        togglePasswordVisible();
+                    <div
+                      // onPress={() => {
+                      //   togglePasswordVisible();
+                      // }}
+                      onClick={()=>{
+                        togglePasswordVisible()
                       }}
                     >
                       <div
@@ -2527,28 +2629,42 @@ function LogIn(props) {
                           }}
                         />
                       </div>
-                    </TouchableOpacity>
+                    </div>
                   </div>
-                  <TouchableOpacity
-                    onPress={() => {
+                  <div
+                    onClick={() => {
                       setFindPassWord(true);
                     }}
+                    style={{
+                      cursor:'pointer'
+                    }}
                   >
-                    <Text>비밀번호를 잊으셨나요?</Text>
-                  </TouchableOpacity>
+                    <span
+                     style={{
+                       fontSize:'14px'
+                     }}
+                    >비밀번호를 잊으셨나요?</span>
+                  </div>
                   <div
                     style={{
                       display: emailLogIn ? "block" : "none",
                     }}
                   >
-                    <TouchableOpacity
-                      onPress={() => {
+                    <div
+                      onClick={() => {
                         console.log("Email find on");
                         setFindEmail(true);
                       }}
+                      style={{
+                        cursor:'pointer'
+                      }}
                     >
-                      <Text>이메일 찾기</Text>
-                    </TouchableOpacity>
+                      <span
+                        style={{
+                          fontSize:'14px'
+                        }}
+                      >이메일 찾기</span>
+                    </div>
                   </div>
                   <hr></hr>
                   <div
@@ -2556,7 +2672,7 @@ function LogIn(props) {
                       display: emailLogIn ? "none" : "block",
                     }}
                   >
-                    <TouchableOpacity
+                    <div
                       style={{
                         border: "1px solid black",
                         borderRadius: "10px",
@@ -2564,26 +2680,35 @@ function LogIn(props) {
                         textAlign: "center",
                         justifyContent: "center",
                         marginBottom: "15px",
+                        cursor:'pointer'
                       }}
-                      onPress={() => {
+                      onClick={() => {
                         toggleEmailLogIn();
                       }}
                     >
-                      <Text
+                      <div
+                        style={{
+                          transform:'translate(0px,6px)'
+                        }}
+                      >
+                      <span
                         style={{
                           color: "black",
+                          fontSize:'14px',
+                          
                         }}
                       >
                         이메일로 로그인
-                      </Text>
-                    </TouchableOpacity>
+                      </span>
+                      </div>
+                    </div>
                   </div>
                   <div
                     style={{
                       display: emailLogIn ? "block" : "none",
                     }}
                   >
-                    <TouchableOpacity
+                    <div
                       style={{
                         border: "1px solid black",
                         borderRadius: "10px",
@@ -2591,19 +2716,24 @@ function LogIn(props) {
                         textAlign: "center",
                         justifyContent: "center",
                         marginBottom: "15px",
+                        cursor:'pointer',
+                        lineHeight:'40px'
                       }}
-                      onPress={() => {
+                      onClick={() => {
                         toggleEmailLogIn();
                       }}
                     >
-                      <Text
+      
+                      <span
                         style={{
                           color: "black",
+                          fontSize:'14px'
                         }}
                       >
                         휴대폰 번호로 로그인
-                      </Text>
-                    </TouchableOpacity>
+                      </span>
+     
+                    </div>
                   </div>
                   {/* <TouchableOpacity
                         style={{
@@ -2626,14 +2756,14 @@ function LogIn(props) {
                             카카오로 시작하기
                         </Text>
                     </TouchableOpacity> */}
-                  <TouchableOpacity>
+                  <div>
                     <KakaoAuth
                       logInFunction={props.logInFunction}
                       setUserEmail={props.setUserEmail}
                       setSNSID={props.setSNSID}
                     />
-                  </TouchableOpacity>
-                  <TouchableOpacity
+                  </div>
+                  <div
                     style={{
                       border: "1px solid black",
                       borderRadius: "10px",
@@ -2641,17 +2771,20 @@ function LogIn(props) {
                       textAlign: "center",
                       justifyContent: "center",
                       marginBottom: "15px",
+                      lineHeight:'40px',
+                      cursor:'pointer'
                     }}
-                    onPress={() => {}}
+                    onClick={() => {}}
                   >
-                    <Text
+                    <span
                       style={{
                         color: "black",
+                        fontSize:'14px'
                       }}
                     >
                       Apple 계정으로 계속하기
-                    </Text>
-                  </TouchableOpacity>
+                    </span>
+                  </div>
                   {/* <TouchableOpacity>
                         <AppleAuth/>
                     </TouchableOpacity> */}
@@ -2661,33 +2794,37 @@ function LogIn(props) {
                       flexDirection: "row",
                     }}
                   >
-                    <Text>아직 회원이 아니신가요?</Text>
-                    <TouchableOpacity
+                    <span
+
+                    >아직 회원이 아니신가요?</span>
+                    <div
                       style={{
                         borderRadius: "10px",
                         height: "100%",
                         textAlign: "center",
                         justifyContent: "center",
                         marginRight: "15px",
+                        cursor:'pointer'
                       }}
-                      onPress={() => {
+                      onClick={() => {
                         console.log("registration 1");
 
                         // setRegistrationScreen(1)
                         props.setRegistrationScreen(1);
                       }}
                     >
-                      <Text
+                      <span
                         style={{
                           marginLeft: "10px",
                           color: "black",
                           fontWeight: 700,
                           marginRight: "10px",
+                          fontSize:'14px'
                         }}
                       >
                         회원가입
-                      </Text>
-                    </TouchableOpacity>
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -2699,7 +2836,7 @@ function LogIn(props) {
                     paddingBottom: "15px",
                   }}
                 >
-                  <TouchableOpacity
+                  <div
                     style={{
                       marginTop: "15px",
                       backgroundColor: "rgb(255,123,88)",
@@ -2707,8 +2844,10 @@ function LogIn(props) {
                       height: "40px",
                       textAlign: "center",
                       justifyContent: "center",
+                      lineHeight:'40px',
+                      cursor:'pointer'
                     }}
-                    onPress={() => {
+                    onClick={() => {
                       props.logInFunction({
                         mem_jointype: "MOBILE",
                         mem_password: props.password,
@@ -2717,14 +2856,15 @@ function LogIn(props) {
                       });
                     }}
                   >
-                    <Text
+                    <span
                       style={{
                         color: "white",
+                        fontSize:'14px'
                       }}
                     >
                       로그인
-                    </Text>
-                  </TouchableOpacity>
+                    </span>
+                  </div>
                 </div>
                 <div
                   style={{
@@ -2762,12 +2902,13 @@ function LogIn(props) {
                     </Text>
                   </TouchableOpacity>
                 </div>
-              </View>
+              </div>
               {/* <Text>{props.material_num}</Text> */}
             </div>
           </div>
         </div>
       </div>
+      </Font>
     );
   }
 }
