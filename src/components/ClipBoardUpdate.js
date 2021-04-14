@@ -7,7 +7,7 @@ import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking,Dimens
 import xIcon from '../assets/x.png';
 const queryString = require('query-string');
 
-function ClipBoard(props){
+function ClipBoardUpdate(props){
     const [height,setHeight]=React.useState(Dimensions.get('window').height)
     const [width,setWidth]=React.useState(Dimensions.get('window').width)
     const[clipBoardData,setClipBoardData]=React.useState([])
@@ -286,7 +286,7 @@ function ClipBoard(props){
                 position: 'absolute',
                 top:'110px',
                 left:'75px',
-                zIndex:102,
+                zIndex:103,
                 }}
             >
                 <TouchableOpacity
@@ -522,7 +522,8 @@ function ClipBoard(props){
                             backgroundColor:'white',
                             borderTopLeftRadius:'10px',
                             borderTopRightRadius:'10px',
-                            borderBottom:'1px solid rgb(221,221,221)'
+                            borderBottom:'1px solid rgb(221,221,221)',
+                            textAlign:'center'
                         }}
                     >
                     <Text
@@ -898,7 +899,8 @@ function ClipBoard(props){
                         style={{
                             backgroundColor:'white',
                             borderTop:'1px solid rgb(221,221,221)',
-                            zIndex:200
+                            zIndex:200,
+                            textAlign:'center'
                         }}
                     >
                     <Text
@@ -920,4 +922,4 @@ function ClipBoard(props){
         );
     }
 }
-export default ClipBoard
+export default ClipBoardUpdate
