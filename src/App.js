@@ -13,6 +13,7 @@ import SearchPage from './components/SearchPage'
 import PartDetail from './components/PartDetail'
 import MoodboardDetail from './components/MoodboardDetail'
 import MyPage from './components/MyPage'
+import PersonalInfo from './components/PersonalInfo'
 // import {UserProvider,useUser} from './components/user-context'
 import {BrowserRouter as BrowserRouter,Router,Switch,Route,Link} from 'react-router-dom'
 
@@ -43,6 +44,7 @@ function App() {
             <Route exact path="/partdetail" component={PartDetail}/>
             <Route exact path="/moodboarddetail" component={MoodboardDetail}/>
             <Route exact path="/mypage" component={MyPage} />
+            <Route exact path="/personalinfo" component={PersonalInfo} />
           </Switch>
         </BrowserRouter>
       </div>
