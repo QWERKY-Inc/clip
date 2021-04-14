@@ -1799,7 +1799,7 @@ function PartDetail(props){
                             {materialData.samebrand_list.map((material,index)=>
                     <Card
                         material={material}
-                        toggleClipBoardOne={toggleClipBoardOne}
+                        toggleClipBoard={toggleClipBoardOne}
                     />
              
         
@@ -1844,7 +1844,7 @@ function PartDetail(props){
                         {materialData.samecategory_list.map((material,index)=>
                 <Card
                     material={material}
-                    toggleClipBoardOne={toggleClipBoardOne}
+                    toggleClipBoard={toggleClipBoardOne}
                 />
                 
     

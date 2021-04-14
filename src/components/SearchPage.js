@@ -5,6 +5,7 @@ import NavBarFiller from './NavBarFiller';
 import Pagination from './Pagination'
 import ClipBoard from './ClipBoard';
 import MoodClipBoard from './MoodClipBoard';
+import Card from './Card';
 import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking,Dimensions} from 'react-native';
 //import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 //import { Carousel } from 'react-responsive-carousel';
@@ -1447,354 +1448,358 @@ function SearchPage(props) {
                         >
                         
                         {secondSearchData.resultList.map((result,index)=>
-                        <TouchableOpacity
-                        style={{
-                            backgroundColor:'transparent',
-                            height:'240px',
-                            width:'170px',
-                            // marginLeft:'auto',
-                            // marginRight:'auto',
-                            marginTop:'20px',
-                            borderRadius:10,
-                            boxShadow:'0px 0px 3px black',
-                            backgroundColor: hover==index ? 'rgba(0,0,0,0.1)':'transparent'
-                            }}
-                        onPress={()=>{  
-                            console.log('pressed material ' + result.mt_no)
-                            Linking.openURL(`/partDetail?mt_no=${result.mt_no}`)
-                        }}
-                        onMouseEnter={()=>{
-                                console.log('entered ' + index)
-                                if(localStorage.login!=undefined){
-                                    var mem_no=JSON.parse(localStorage.login).message.split('_')
-                                    console.log(mem_no)
-                                }
-                                setHover(index)
-                                console.log(secondSearchData.resultList[index])
-                            }
-                        }
-                        onMouseLeave={()=>{
-                            setHover(null)
-                            console.log('exited '+index)
-                        }}  
+                         <Card
+                            material={result}
+                            toggleClipBoard={toggleClipBoard}
+                        />
+                        // <TouchableOpacity
+                        // style={{
+                        //     backgroundColor:'transparent',
+                        //     height:'240px',
+                        //     width:'170px',
+                        //     // marginLeft:'auto',
+                        //     // marginRight:'auto',
+                        //     marginTop:'20px',
+                        //     borderRadius:10,
+                        //     boxShadow:'0px 0px 3px black',
+                        //     backgroundColor: hover==index ? 'rgba(0,0,0,0.1)':'transparent'
+                        //     }}
+                        // onPress={()=>{  
+                        //     console.log('pressed material ' + result.mt_no)
+                        //     Linking.openURL(`/partDetail?mt_no=${result.mt_no}`)
+                        // }}
+                        // onMouseEnter={()=>{
+                        //         console.log('entered ' + index)
+                        //         if(localStorage.login!=undefined){
+                        //             var mem_no=JSON.parse(localStorage.login).message.split('_')
+                        //             console.log(mem_no)
+                        //         }
+                        //         setHover(index)
+                        //         console.log(secondSearchData.resultList[index])
+                        //     }
+                        // }
+                        // onMouseLeave={()=>{
+                        //     setHover(null)
+                        //     console.log('exited '+index)
+                        // }}  
                         
                         
-                        >
-                            <div
-                                style={{
-                                    backgroundColor:'white',
-                                    width:'55px',
-                                    height:'12px',
-                                    position:'absolute',
-                                    zIndex:100,
-                                    top:'6px',
-                                    left:'6px',
-                                    borderRadius:'6px',
-                                    display:hover==index ? 'block':'none'
-                                }}
-                                onPress={()=>{  
-                                    console.log('pressed clip ' + result.mt_no)
-                                }}
-                            >
-                                <Text
-                                    style={{
-                                        transform:'translate(2px,-2px)',
-                                        position:'absolute',
-                                        top:'1px',
-                                        left:'2px',
-                                        fontWeight:50,
-                                        fontSize:'12px',
-                                        color:secondSearchData.resultList[index].mt_budget<1 ? 'rgb(219,219,219)':'black' 
-                                    }}
-                                >₩</Text>
-                            <Text
-                                    style={{
-                                        transform:'translate(2px,-2px)',
-                                        position:'absolute',
-                                        top:'1px',
-                                        left:'12px',
-                                        fontWeight:50,
-                                        fontSize:'12px',
-                                        color:secondSearchData.resultList[index].mt_budget<2 ? 'rgb(219,219,219)':'black'
-                                    }}
-                                >₩</Text>
-                                <Text
-                                    style={{
-                                        transform:'translate(2px,-2px)',
-                                        position:'absolute',
-                                        top:'1px',
-                                        left:'22px',
-                                        fontWeight:50,
-                                        fontSize:'12px',
-                                        color:secondSearchData.resultList[index].mt_budget<3 ? 'rgb(219,219,219)':'black'
-                                    }}
-                                >₩</Text>
-                                <Text
-                                    style={{
-                                        transform:'translate(2px,-2px)',
-                                        position:'absolute',
-                                        top:'1px',
-                                        left:'32px',
-                                        fontWeight:50,
-                                        fontSize:'12px',
-                                        color:secondSearchData.resultList[index].mt_budget<4 ? 'rgb(219,219,219)':'black'
-                                    }}
-                                >₩</Text>
-                                <Text
-                                    style={{
-                                        transform:'translate(2px,-2px)',
-                                        position:'absolute',
-                                        top:'1px',
-                                        left:'42px',
-                                        fontWeight:50,
-                                        fontSize:'12px',
-                                        color:secondSearchData.resultList[index].mt_budget<5 ? 'rgb(219,219,219)':'black'
-                                    }}
-                                >₩</Text>
-                            </div>
+                        // >
+                        //     <div
+                        //         style={{
+                        //             backgroundColor:'white',
+                        //             width:'55px',
+                        //             height:'12px',
+                        //             position:'absolute',
+                        //             zIndex:100,
+                        //             top:'6px',
+                        //             left:'6px',
+                        //             borderRadius:'6px',
+                        //             display:hover==index ? 'block':'none'
+                        //         }}
+                        //         onPress={()=>{  
+                        //             console.log('pressed clip ' + result.mt_no)
+                        //         }}
+                        //     >
+                        //         <Text
+                        //             style={{
+                        //                 transform:'translate(2px,-2px)',
+                        //                 position:'absolute',
+                        //                 top:'1px',
+                        //                 left:'2px',
+                        //                 fontWeight:50,
+                        //                 fontSize:'12px',
+                        //                 color:secondSearchData.resultList[index].mt_budget<1 ? 'rgb(219,219,219)':'black' 
+                        //             }}
+                        //         >₩</Text>
+                        //     <Text
+                        //             style={{
+                        //                 transform:'translate(2px,-2px)',
+                        //                 position:'absolute',
+                        //                 top:'1px',
+                        //                 left:'12px',
+                        //                 fontWeight:50,
+                        //                 fontSize:'12px',
+                        //                 color:secondSearchData.resultList[index].mt_budget<2 ? 'rgb(219,219,219)':'black'
+                        //             }}
+                        //         >₩</Text>
+                        //         <Text
+                        //             style={{
+                        //                 transform:'translate(2px,-2px)',
+                        //                 position:'absolute',
+                        //                 top:'1px',
+                        //                 left:'22px',
+                        //                 fontWeight:50,
+                        //                 fontSize:'12px',
+                        //                 color:secondSearchData.resultList[index].mt_budget<3 ? 'rgb(219,219,219)':'black'
+                        //             }}
+                        //         >₩</Text>
+                        //         <Text
+                        //             style={{
+                        //                 transform:'translate(2px,-2px)',
+                        //                 position:'absolute',
+                        //                 top:'1px',
+                        //                 left:'32px',
+                        //                 fontWeight:50,
+                        //                 fontSize:'12px',
+                        //                 color:secondSearchData.resultList[index].mt_budget<4 ? 'rgb(219,219,219)':'black'
+                        //             }}
+                        //         >₩</Text>
+                        //         <Text
+                        //             style={{
+                        //                 transform:'translate(2px,-2px)',
+                        //                 position:'absolute',
+                        //                 top:'1px',
+                        //                 left:'42px',
+                        //                 fontWeight:50,
+                        //                 fontSize:'12px',
+                        //                 color:secondSearchData.resultList[index].mt_budget<5 ? 'rgb(219,219,219)':'black'
+                        //             }}
+                        //         >₩</Text>
+                        //     </div>
                         
-                            <TouchableOpacity
-                                style={{
-                                    backgroundColor:'transparent',
-                                    width:'20px',
-                                    height:'20px',
-                                    position:'absolute',
-                                    zIndex:100,
-                                    top:'6px',
-                                    right:'6px',
-                                    display:hover==index ? 'block':'none'
-                                }}
-                                onPress={()=>{  
-                                    console.log('pressed clip ' + result.mt_no)
-                                    setMaterialNumber(result.mt_no)
-                                    toggleClipBoard()
-                                }}
-                            >   
-                                <Image
-                                    style={{
-                                    display:'block',
-                                    height:'20px',
-                                    width:'20px',
-                                    borderTopLeftRadius:10,
-                                    borderTopRightRadius:10,
-                                    zIndex:1,
-                                    pointerEvents:'none',
-                                    // display:result.is_clipped==false ? 'block':'none'
-                                    // transform:[{
-                                    //     translateX:'0px',
-                                    //     translateY:'0px'
-                                    // }]
-                                    }}
-                                    source={clipOff}
+                        //     <TouchableOpacity
+                        //         style={{
+                        //             backgroundColor:'transparent',
+                        //             width:'20px',
+                        //             height:'20px',
+                        //             position:'absolute',
+                        //             zIndex:100,
+                        //             top:'6px',
+                        //             right:'6px',
+                        //             display:hover==index ? 'block':'none'
+                        //         }}
+                        //         onPress={()=>{  
+                        //             console.log('pressed clip ' + result.mt_no)
+                        //             setMaterialNumber(result.mt_no)
+                        //             toggleClipBoard()
+                        //         }}
+                        //     >   
+                        //         <Image
+                        //             style={{
+                        //             display:'block',
+                        //             height:'20px',
+                        //             width:'20px',
+                        //             borderTopLeftRadius:10,
+                        //             borderTopRightRadius:10,
+                        //             zIndex:1,
+                        //             pointerEvents:'none',
+                        //             // display:result.is_clipped==false ? 'block':'none'
+                        //             // transform:[{
+                        //             //     translateX:'0px',
+                        //             //     translateY:'0px'
+                        //             // }]
+                        //             }}
+                        //             source={clipOff}
 
-                                    >
+                        //             >
                                     
-                                </Image>
-                                {/* <Image
-                                    style={{
-                                    display:'block',
-                                    height:'20px',
-                                    width:'20px',
-                                    borderTopLeftRadius:10,
-                                    borderTopRightRadius:10,
-                                    zIndex:1,
-                                    pointerEvents:'none',
-                                    display:result.is_clipped==true ? 'block':'none'
+                        //         </Image>
+                        //         {/* <Image
+                        //             style={{
+                        //             display:'block',
+                        //             height:'20px',
+                        //             width:'20px',
+                        //             borderTopLeftRadius:10,
+                        //             borderTopRightRadius:10,
+                        //             zIndex:1,
+                        //             pointerEvents:'none',
+                        //             display:result.is_clipped==true ? 'block':'none'
                 
-                                    }}
-                                    source={clipOn}
+                        //             }}
+                        //             source={clipOn}
 
-                                    >
+                        //             >
                                     
-                                </Image> */}
-                            </TouchableOpacity>
+                        //         </Image> */}
+                        //     </TouchableOpacity>
                             
-                        <Image
-                        style={{
-                        display:'block',
-                        height:'170px',
-                        width:'170px',
-                        borderTopLeftRadius:10,
-                        borderTopRightRadius:10,
-                        zIndex:1,
-                        pointerEvents:'none',
-                        filter:hover==index ? 'brightness(90%)':'brightness(100%)'
-                        // transform:[{
-                        //     translateX:'0px',
-                        //     translateY:'0px'
-                        // }]
-                        }}
-                        source={{
-                            uri:
-                                result.mt_feature_img_url
-                        }}
+                        // <Image
+                        // style={{
+                        // display:'block',
+                        // height:'170px',
+                        // width:'170px',
+                        // borderTopLeftRadius:10,
+                        // borderTopRightRadius:10,
+                        // zIndex:1,
+                        // pointerEvents:'none',
+                        // filter:hover==index ? 'brightness(90%)':'brightness(100%)'
+                        // // transform:[{
+                        // //     translateX:'0px',
+                        // //     translateY:'0px'
+                        // // }]
+                        // }}
+                        // source={{
+                        //     uri:
+                        //         result.mt_feature_img_url
+                        // }}
 
-                        >
+                        // >
                         
-                        </Image>
+                        // </Image>
                         
-                        <View
-                        style ={{
-                            height:'70px',
-                            width:'170px',
-                            fontSize: '12pt',
-                            fontWeight:'500',
-                            textDecorationLine:'none',
-                            color:'white',
-                            textAlign:'center',
-                            flexDirection:'column',
-                            // pointerEvents:'none',
-                            backgroundColor:'transparent',
-                            // pointerEvents:'none',
-                            borderBottomLeftRadius:10,
-                            borderBottomRightRadius:10,
-                            padding:'10px'
-                        }}
-                        >
-                            <TouchableOpacity
-                                style={{
-                                    zIndex:100,
-                                    backgroundColor:'transparent',
-                                    position:'absolute',
-                                    top:'7px',
-                                    right:'7px',
-                                    height:'30px',
-                                    width:'30px',
-                                    display:result.mt_isdelivery=="Y"?"block":"none"
-                                }}
-                                onPress={()=>{
-                                    console.log(result.mt_isdelivery)
-                                }}
-                            >
-                            <View
-                            style={{
-                                backgroundColor:'transparent',
-                                display:'flex',
-                                height:'30px',
-                                width:'30px',
-                                // position:'absolute',
-                                // top:'7px',
-                                // right:'15px'
-                            }}
-                            >
+                        // <View
+                        // style ={{
+                        //     height:'70px',
+                        //     width:'170px',
+                        //     fontSize: '12pt',
+                        //     fontWeight:'500',
+                        //     textDecorationLine:'none',
+                        //     color:'white',
+                        //     textAlign:'center',
+                        //     flexDirection:'column',
+                        //     // pointerEvents:'none',
+                        //     backgroundColor:'transparent',
+                        //     // pointerEvents:'none',
+                        //     borderBottomLeftRadius:10,
+                        //     borderBottomRightRadius:10,
+                        //     padding:'10px'
+                        // }}
+                        // >
+                        //     <TouchableOpacity
+                        //         style={{
+                        //             zIndex:100,
+                        //             backgroundColor:'transparent',
+                        //             position:'absolute',
+                        //             top:'7px',
+                        //             right:'7px',
+                        //             height:'30px',
+                        //             width:'30px',
+                        //             display:result.mt_isdelivery=="Y"?"block":"none"
+                        //         }}
+                        //         onPress={()=>{
+                        //             console.log(result.mt_isdelivery)
+                        //         }}
+                        //     >
+                        //     <View
+                        //     style={{
+                        //         backgroundColor:'transparent',
+                        //         display:'flex',
+                        //         height:'30px',
+                        //         width:'30px',
+                        //         // position:'absolute',
+                        //         // top:'7px',
+                        //         // right:'15px'
+                        //     }}
+                        //     >
                                 
-                                <img
-                                        src={boxIcon}
-                                        style={{
-                                            //display: categoryOpened? 'none': 'block',
-                                            width:'30px',
-                                            height:'30px',
-                                            right:'15px'
-                                        }}
-                                    >
-                                    </img>
+                        //         <img
+                        //                 src={boxIcon}
+                        //                 style={{
+                        //                     //display: categoryOpened? 'none': 'block',
+                        //                     width:'30px',
+                        //                     height:'30px',
+                        //                     right:'15px'
+                        //                 }}
+                        //             >
+                        //             </img>
                                 
-                            </View>
-                            </TouchableOpacity>
-                        <View
-                        style={{
-                            backgroundColor:'transparent',
-                            width:result.mt_isdelivery=="Y"?"123px":"100%",
-                            overflow:'hidden',
+                        //     </View>
+                        //     </TouchableOpacity>
+                        // <View
+                        // style={{
+                        //     backgroundColor:'transparent',
+                        //     width:result.mt_isdelivery=="Y"?"123px":"100%",
+                        //     overflow:'hidden',
                             
-                        }}
-                        >
-                        <Text
-                            style ={{
-                                // height:'65pt',
-                                // width:'250px',
-                                fontSize: '8pt',
-                                fontWeight:'700',
-                                textDecorationLine:'none',
-                                color:'black',
-                                textAlign:'left',
-                                //alignItems:'center',
-                                //justifyContent:'center',
-                                //flexDirection:'row',
-                                //marginTop:'45pt',
-                                pointerEvents:'none',
-                                backgroundColor:'transparent',
-                                pointerEvents:'none',
-                                whiteSpace:'nowrap',
-                                textOverflow: 'ellipsis',
-                                overflow:'hidden'
+                        // }}
+                        // >
+                        // <Text
+                        //     style ={{
+                        //         // height:'65pt',
+                        //         // width:'250px',
+                        //         fontSize: '8pt',
+                        //         fontWeight:'700',
+                        //         textDecorationLine:'none',
+                        //         color:'black',
+                        //         textAlign:'left',
+                        //         //alignItems:'center',
+                        //         //justifyContent:'center',
+                        //         //flexDirection:'row',
+                        //         //marginTop:'45pt',
+                        //         pointerEvents:'none',
+                        //         backgroundColor:'transparent',
+                        //         pointerEvents:'none',
+                        //         whiteSpace:'nowrap',
+                        //         textOverflow: 'ellipsis',
+                        //         overflow:'hidden'
                                 
-                            }}
-                        >
-                            {result.vd_name}
-                        </Text>
-                        </View>
-                        <View
-                            style={{
-                                backgroundColor:'transparent',
-                                height:'20px',
-                                width:result.mt_isdelivery=="Y"?"123px":"100%",
-                                overflow:'hidden'
-                            }}
-                        >
-                        <Text
-                                style ={{
-                                    // height:'100px',
-                                    width:'120px',
-                                    fontSize: '8pt',
-                                    fontWeight:'500',
-                                    textDecorationLine:'none',
-                                    color:'black',
-                                    textAlign:'left',
-                                    alignItems:'center',
-                                    justifyContent:'center',
-                                    flexDirection:'row',
-                                    // marginLeft:'1px',
-                                    // marginTop:'1px',
-                                    pointerEvents:'none',
-                                    backgroundColor:'transparent',
-                                    whiteSpace:'nowrap',
-                                    textOverflow: 'ellipsis',
+                        //     }}
+                        // >
+                        //     {result.vd_name}
+                        // </Text>
+                        // </View>
+                        // <View
+                        //     style={{
+                        //         backgroundColor:'transparent',
+                        //         height:'20px',
+                        //         width:result.mt_isdelivery=="Y"?"123px":"100%",
+                        //         overflow:'hidden'
+                        //     }}
+                        // >
+                        // <Text
+                        //         style ={{
+                        //             // height:'100px',
+                        //             width:'120px',
+                        //             fontSize: '8pt',
+                        //             fontWeight:'500',
+                        //             textDecorationLine:'none',
+                        //             color:'black',
+                        //             textAlign:'left',
+                        //             alignItems:'center',
+                        //             justifyContent:'center',
+                        //             flexDirection:'row',
+                        //             // marginLeft:'1px',
+                        //             // marginTop:'1px',
+                        //             pointerEvents:'none',
+                        //             backgroundColor:'transparent',
+                        //             whiteSpace:'nowrap',
+                        //             textOverflow: 'ellipsis',
                                     
                                     
-                                }}
-                            >
-                            {result.mt_subname}
+                        //         }}
+                        //     >
+                        //     {result.mt_subname}
                             
-                        </Text>
-                        </View>
-                        <View
-                            style={{
-                                backgroundColor:'transparent',
-                                height:'20px',
-                                width:"100%",
-                                overflow:'hidden'
-                            }}
-                        >
-                        <Text
-                                style ={{
-                                    height:'100px',
-                                    width:'120px',
-                                    fontSize: '8pt',
-                                    fontWeight:'500',
-                                    textDecorationLine:'none',
-                                    color:'rgb(85,85,85)',
-                                    textAlign:'left',
-                                    alignItems:'center',
-                                    justifyContent:'center',
-                                    flexDirection:'row',
-                                    // marginLeft:'1px',
-                                    // marginTop:'1px',
-                                    pointerEvents:'none',
-                                    backgroundColor:'transparent',
-                                    pointerEvents:'none',
-                                    whiteSpace:'nowrap',
-                                    textOverflow: 'ellipsis',
-                                    overflow:'hidden'
-                                }}
-                            >
-                            {result.mt_name}
+                        // </Text>
+                        // </View>
+                        // <View
+                        //     style={{
+                        //         backgroundColor:'transparent',
+                        //         height:'20px',
+                        //         width:"100%",
+                        //         overflow:'hidden'
+                        //     }}
+                        // >
+                        // <Text
+                        //         style ={{
+                        //             height:'100px',
+                        //             width:'120px',
+                        //             fontSize: '8pt',
+                        //             fontWeight:'500',
+                        //             textDecorationLine:'none',
+                        //             color:'rgb(85,85,85)',
+                        //             textAlign:'left',
+                        //             alignItems:'center',
+                        //             justifyContent:'center',
+                        //             flexDirection:'row',
+                        //             // marginLeft:'1px',
+                        //             // marginTop:'1px',
+                        //             pointerEvents:'none',
+                        //             backgroundColor:'transparent',
+                        //             pointerEvents:'none',
+                        //             whiteSpace:'nowrap',
+                        //             textOverflow: 'ellipsis',
+                        //             overflow:'hidden'
+                        //         }}
+                        //     >
+                        //     {result.mt_name}
                             
-                        </Text>
-                        </View>
-                        </View>
+                        // </Text>
+                        // </View>
+                        // </View>
                         
-                        </TouchableOpacity>
+                        // </TouchableOpacity>
                         )}
                         
                         </View>
