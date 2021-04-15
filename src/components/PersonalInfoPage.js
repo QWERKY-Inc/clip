@@ -65,325 +65,337 @@ function PersonalInfoPage(props) {
       parsed.mem_no = "";
     }
   }, []);
-  return (
-    <Font family="Noto Sans KR">
-      <div className="mypage">
-        <Navbar />
-        <NavBarFiller />
-        <div
-          style={{
-            // margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "240px " + (width - 240) + "px",
-            gridGap: "1px",
-            backgroundColor: "black",
-            height: "100%",
-            width: "100%",
-          }}
-        >
-          <div>
-            <div
-              style={{
-                height: "100%",
-                width: "100%",
-                backgroundColor: "white",
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
+  if (memberDetail != null) {
+    return (
+      <Font family="Noto Sans KR">
+        <div className="mypage">
+          <Navbar />
+          <NavBarFiller />
+          <div
+            style={{
+              // margin: "0 auto",
+              display: "grid",
+              gridTemplateColumns: "240px " + (width - 240) + "px",
+              gridGap: "1px",
+              backgroundColor: "black",
+              height: "100%",
+              width: "100%",
+            }}
+          >
+            <div>
               <div
                 style={{
-                  height: "50px",
-                  width: "240px",
-                  paddingLeft: "0px",
-                  lineHeight: "50px",
+                  height: "100%",
+                  width: "100%",
                   backgroundColor: "white",
-                  textAlign: "left",
                   display: "flex",
-                  flexDirection: "row",
+                  flexDirection: "column",
                 }}
               >
                 <div
                   style={{
-                    marginLeft: "1px",
-                    width: "2px",
-                    height: "100%",
-                    backgroundColor: "black",
-                  }}
-                ></div>
-                <div
-                  style={{
-                    paddingLeft: "30px",
-                    cursor: "pointer",
+                    height: "50px",
+                    width: "240px",
+                    paddingLeft: "0px",
+                    lineHeight: "50px",
+                    backgroundColor: "white",
+                    textAlign: "left",
+                    display: "flex",
+                    flexDirection: "row",
                   }}
                 >
-                  <span
+                  <div
                     style={{
-                      fontWeight: 700,
+                      marginLeft: "1px",
+                      width: "2px",
+                      height: "100%",
+                      backgroundColor: "black",
+                    }}
+                  ></div>
+                  <div
+                    style={{
+                      paddingLeft: "30px",
+                      cursor: "pointer",
                     }}
                   >
-                    개인정보
-                  </span>
+                    <span
+                      style={{
+                        fontWeight: 700,
+                      }}
+                    >
+                      개인정보
+                    </span>
+                  </div>
+                </div>
+
+                <TouchableOpacity
+                  style={{
+                    height: "50px",
+                    width: "240px",
+                    paddingLeft: "30px",
+                    lineHeight: "50px",
+                    backgroundColor: "white",
+                    textAlign: "left",
+                  }}
+                  onPress={() => {
+                    Linking.openURL("/alarmsettings");
+                  }}
+                >
+                  <span>알림설정</span>
+                </TouchableOpacity>
+                <div
+                  style={{
+                    height: "50px",
+                    width: "240px",
+                    paddingLeft: "30px",
+                    lineHeight: "50px",
+                    backgroundColor: "white",
+                    textAlign: "left",
+                  }}
+                >
+                  <span>디자인 전문가 계정 신청</span>
+                </div>
+                <div
+                  style={{
+                    height: "50px",
+                    width: "240px",
+                    paddingLeft: "30px",
+                    lineHeight: "50px",
+                    backgroundColor: "white",
+                    textAlign: "left",
+                  }}
+                >
+                  <span>사용방법</span>
+                </div>
+                <div
+                  style={{
+                    height: "50px",
+                    width: "240px",
+                    paddingLeft: "30px",
+                    lineHeight: "50px",
+                    backgroundColor: "white",
+                    textAlign: "left",
+                  }}
+                >
+                  <span>자주 묻는 질문</span>
+                </div>
+                <div
+                  style={{
+                    height: "50px",
+                    width: "240px",
+                    paddingLeft: "30px",
+                    lineHeight: "50px",
+                    backgroundColor: "white",
+                    textAlign: "left",
+                  }}
+                >
+                  <span>이용약관</span>
+                </div>
+                <div
+                  style={{
+                    height: "50px",
+                    width: "240px",
+                    paddingLeft: "30px",
+                    lineHeight: "50px",
+                    backgroundColor: "white",
+                    textAlign: "left",
+                  }}
+                >
+                  <span>개인정보 처리방침</span>
+                </div>
+                <div
+                  style={{
+                    height: "50px",
+                    width: "240px",
+                    paddingLeft: "30px",
+                    lineHeight: "50px",
+                    backgroundColor: "white",
+                    textAlign: "left",
+                  }}
+                >
+                  <span>로그아웃</span>
                 </div>
               </div>
-
-              <TouchableOpacity
-                style={{
-                  height: "50px",
-                  width: "240px",
-                  paddingLeft: "30px",
-                  lineHeight: "50px",
-                  backgroundColor: "white",
-                  textAlign: "left",
-                }}
-                onPress={() => {
-                  Linking.openURL("/alarmsettings");
-                }}
-              >
-                <span>알림설정</span>
-              </TouchableOpacity>
-              <div
-                style={{
-                  height: "50px",
-                  width: "240px",
-                  paddingLeft: "30px",
-                  lineHeight: "50px",
-                  backgroundColor: "white",
-                  textAlign: "left",
-                }}
-              >
-                <span>디자인 전문가 계정 신청</span>
-              </div>
-              <div
-                style={{
-                  height: "50px",
-                  width: "240px",
-                  paddingLeft: "30px",
-                  lineHeight: "50px",
-                  backgroundColor: "white",
-                  textAlign: "left",
-                }}
-              >
-                <span>사용방법</span>
-              </div>
-              <div
-                style={{
-                  height: "50px",
-                  width: "240px",
-                  paddingLeft: "30px",
-                  lineHeight: "50px",
-                  backgroundColor: "white",
-                  textAlign: "left",
-                }}
-              >
-                <span>자주 묻는 질문</span>
-              </div>
-              <div
-                style={{
-                  height: "50px",
-                  width: "240px",
-                  paddingLeft: "30px",
-                  lineHeight: "50px",
-                  backgroundColor: "white",
-                  textAlign: "left",
-                }}
-              >
-                <span>이용약관</span>
-              </div>
-              <div
-                style={{
-                  height: "50px",
-                  width: "240px",
-                  paddingLeft: "30px",
-                  lineHeight: "50px",
-                  backgroundColor: "white",
-                  textAlign: "left",
-                }}
-              >
-                <span>개인정보 처리방침</span>
-              </div>
-              <div
-                style={{
-                  height: "50px",
-                  width: "240px",
-                  paddingLeft: "30px",
-                  lineHeight: "50px",
-                  backgroundColor: "white",
-                  textAlign: "left",
-                }}
-              >
-                <span>로그아웃</span>
-              </div>
             </div>
-          </div>
-          <div>
-            <div
-              className="main"
-              style={{
-                height: height - 100 + "px",
-                width: width - 240 + "px",
-                backgroundColor: "white",
-                overflowY: "scroll",
-              }}
-            >
-              {/* <div
+            <div>
+              <div
+                className="main"
+                style={{
+                  height: height - 100 + "px",
+                  width: width - 240 + "px",
+                  backgroundColor: "white",
+                  overflowY: "scroll",
+                }}
+              >
+                {/* <div
                 style={{
                   height: "1000px",
                   width: width - 255 + "px",
                   backgroundColor: "yellow",
                 }}
               ></div> */}
-              <div
-                style={{
-                  textAlign: "left",
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
-                <span>개인정보 수정</span>
-                <br></br>
-                <span>기본정보</span>
                 <div
                   style={{
-                    display: "grid",
-                    flexDirection: "row",
-                    gridTemplateColumns: "150px " + (width - 420) + "px",
-                    textAlign: "right",
-                    lineheight: "30px",
-                    height: "30px",
+                    textAlign: "left",
+                    display: "flex",
+                    flexDirection: "column",
                   }}
                 >
+                  <span>개인정보 수정</span>
+                  <br></br>
+                  <span>기본정보</span>
                   <div
                     style={{
+                      display: "grid",
+                      flexDirection: "row",
+                      gridTemplateColumns: "150px " + (width - 420) + "px",
+                      textAlign: "right",
+                      lineheight: "30px",
                       height: "30px",
-                      backgroundColor: "transparent",
-                      paddingRight: "30px",
                     }}
                   >
-                    <span>이름</span>
-                  </div>
-                  <div
-                    style={{
-                      transform: "translate(0px,-10px)",
-                    }}
-                  >
-                    <TextInput
-                      onChangeText={(text) => {
-                        // props.setUserPhoneNumber(text);
-                        // props.onPhoneNumberChange()
-                        var temp = { ...memberDetail };
-                        temp.mem_name = text;
-                        setMemberDetail(temp);
-                      }}
+                    <div
                       style={{
-                        marginTop: "10px",
-                        border: "1px solid black",
-                        borderRadius: "0px",
                         height: "30px",
+                        backgroundColor: "transparent",
+                        paddingRight: "30px",
                       }}
-                      // placeholder="'-' 없이 입력"
-                      value={memberDetail.mem_name}
-                    ></TextInput>
+                    >
+                      <span>이름</span>
+                    </div>
+                    <div
+                      style={{
+                        transform: "translate(0px,-10px)",
+                      }}
+                    >
+                      <TextInput
+                        onChangeText={(text) => {
+                          // props.setUserPhoneNumber(text);
+                          // props.onPhoneNumberChange()
+                          var temp = { ...memberDetail };
+                          temp.mem_name = text;
+                          setMemberDetail(temp);
+                        }}
+                        style={{
+                          marginTop: "10px",
+                          border: "1px solid black",
+                          borderRadius: "0px",
+                          height: "30px",
+                        }}
+                        // placeholder="'-' 없이 입력"
+                        value={memberDetail.mem_name}
+                      ></TextInput>
+                    </div>
                   </div>
-                </div>
-                <div
-                  style={{
-                    display: "grid",
-                    flexDirection: "row",
-                    gridTemplateColumns: "150px " + (width - 420) + "px",
-                    textAlign: "right",
-                    lineheight: "30px",
-                    height: "30px",
-                  }}
-                >
                   <div
                     style={{
+                      display: "grid",
+                      flexDirection: "row",
+                      gridTemplateColumns: "150px " + (width - 420) + "px",
+                      textAlign: "right",
+                      lineheight: "30px",
                       height: "30px",
-                      backgroundColor: "transparent",
-                      paddingRight: "30px",
                     }}
                   >
-                    <span>이메일</span>
-                  </div>
-                  <div
-                    style={{
-                      transform: "translate(0px,-10px)",
-                    }}
-                  >
-                    <TextInput
-                      onChangeText={(text) => {
-                        // props.setUserPhoneNumber(text);
-                        // props.onPhoneNumberChange()
-                        var temp = { ...memberDetail };
-                        temp.mem_email = text;
-                        setMemberDetail(temp);
-                      }}
+                    <div
                       style={{
-                        marginTop: "10px",
-                        border: "1px solid black",
-                        borderRadius: "0px",
                         height: "30px",
+                        backgroundColor: "transparent",
+                        paddingRight: "30px",
                       }}
-                      // placeholder="'-' 없이 입력"
-                      value={memberDetail.mem_email}
-                    ></TextInput>
+                    >
+                      <span>이메일</span>
+                    </div>
+                    <div
+                      style={{
+                        transform: "translate(0px,-10px)",
+                      }}
+                    >
+                      <TextInput
+                        onChangeText={(text) => {
+                          // props.setUserPhoneNumber(text);
+                          // props.onPhoneNumberChange()
+                          var temp = { ...memberDetail };
+                          temp.mem_email = text;
+                          setMemberDetail(temp);
+                        }}
+                        style={{
+                          marginTop: "10px",
+                          border: "1px solid black",
+                          borderRadius: "0px",
+                          height: "30px",
+                        }}
+                        // placeholder="'-' 없이 입력"
+                        value={memberDetail.mem_email}
+                      ></TextInput>
+                    </div>
                   </div>
-                </div>
 
-                <div
-                  style={{
-                    display: "grid",
-                    flexDirection: "row",
-                    gridTemplateColumns: "150px " + (width - 420) + "px",
-                    textAlign: "right",
-                    lineheight: "30px",
-                    height: "30px",
-                  }}
-                >
                   <div
                     style={{
+                      display: "grid",
+                      flexDirection: "row",
+                      gridTemplateColumns: "150px " + (width - 420) + "px",
+                      textAlign: "right",
+                      lineheight: "30px",
                       height: "30px",
-                      backgroundColor: "transparent",
-                      paddingRight: "30px",
                     }}
                   >
-                    <span>휴대폰</span>
-                  </div>
-                  <div
-                    style={{
-                      transform: "translate(0px,-10px)",
-                    }}
-                  >
-                    <TextInput
-                      onChangeText={(text) => {
-                        // props.setUserPhoneNumber(text);
-                        // props.onPhoneNumberChange()
-                        var temp = { ...memberDetail };
-                        temp.mem_mobile = text;
-                        setMemberDetail(temp);
-                      }}
+                    <div
                       style={{
-                        marginTop: "10px",
-                        border: "1px solid black",
-                        borderRadius: "0px",
                         height: "30px",
+                        backgroundColor: "transparent",
+                        paddingRight: "30px",
                       }}
-                      // placeholder="'-' 없이 입력"
-                      value={memberDetail.mem_mobile}
-                    ></TextInput>
+                    >
+                      <span>휴대폰</span>
+                    </div>
+                    <div
+                      style={{
+                        transform: "translate(0px,-10px)",
+                      }}
+                    >
+                      <TextInput
+                        onChangeText={(text) => {
+                          // props.setUserPhoneNumber(text);
+                          // props.onPhoneNumberChange()
+                          var temp = { ...memberDetail };
+                          temp.mem_mobile = text;
+                          setMemberDetail(temp);
+                        }}
+                        style={{
+                          marginTop: "10px",
+                          border: "1px solid black",
+                          borderRadius: "0px",
+                          height: "30px",
+                        }}
+                        // placeholder="'-' 없이 입력"
+                        value={memberDetail.mem_mobile}
+                      ></TextInput>
+                    </div>
                   </div>
+                  <span>비밀번호 변경</span>
+                  <span>기존 비밀번호</span>
+                  <span>새 비밀번호</span>
+                  <span>새 비밀번호 확인</span>
                 </div>
-                <span>비밀번호 변경</span>
-                <span>기존 비밀번호</span>
-                <span>새 비밀번호</span>
-                <span>새 비밀번호 확인</span>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </Font>
-  );
+      </Font>
+    );
+  } else {
+    return (
+      <Font family="Noto Sans KR">
+        <Navbar />
+        <NavBarFiller />
+        <div>
+          <span>로딩중...</span>
+        </div>
+      </Font>
+    );
+  }
 }
 
 export default PersonalInfoPage;
