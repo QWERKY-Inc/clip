@@ -33,7 +33,7 @@ import {
 } from "react-native-confirmation-code-field";
 import "./Login.css";
 import fetch from "node-fetch";
-import Font from 'react-font'
+import Font from "react-font";
 const queryString = require("query-string");
 
 function LogIn(props) {
@@ -108,19 +108,18 @@ function LogIn(props) {
     setImageFile(data);
     // setImageFile(image_as_files)
   };
-    const handleSubmitFile =(e) =>{
-        // let formData = new FormData()
-        // formData.append('customFile',this.state.)
-        fetch("/Picture?" + queryString.stringify(imageFile))
-        .then((res) => res.json())
-        .then((incomingData) => {
-          console.log(incomingData);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-
-    }
+  const handleSubmitFile = (e) => {
+    // let formData = new FormData()
+    // formData.append('customFile',this.state.)
+    fetch("/Picture?" + queryString.stringify(imageFile))
+      .then((res) => res.json())
+      .then((incomingData) => {
+        console.log(incomingData);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const findPasswordFunction = (obj) => {
     // console.log(qStr)
@@ -838,113 +837,115 @@ function LogIn(props) {
   else if (props.registrationScreen != 0) {
     if (props.registrationScreen == 1) {
       return (
-      <Font family='Noto Sans KR'>
-        <div>
-          <div
-            style={{
-              display: noExistMemberShow ? "block" : "none",
-            }}
-          >
-            <NoExistMember toggleNoExistMemberShow={toggleNoExistMemberShow} />
-          </div>
-          <div
-            style={{
-              display: sentMessageShow ? "block" : "none",
-            }}
-          >
-            <SentMessage toggleSentMessageShow={toggleSentMessageShow} />
-          </div>
-          <div
-            style={{
-              display: alreadyMemberMessageShow ? "block" : "none",
-            }}
-          >
-            <AlreadyMemberMessage
-              toggleAlreadyMemberMessageShow={toggleAlreadyMemberMessageShow}
-            />
-          </div>
-
-          <div
-            style={{
-              position: "fixed",
-              height: "100vh",
-              width: "100vw",
-              top: 0,
-              left: 0,
-              backgroundColor: "rgba(0,0,0,0.5)",
-              display: "block",
-              //   padding:'160px',
-              zIndex: 101,
-            }}
-          >
+        <Font family="Noto Sans KR">
+          <div>
             <div
               style={{
-                paddingTop: "100px",
-                // paddingLeft:'65px',
-                // paddingRight:'65px'
+                display: noExistMemberShow ? "block" : "none",
+              }}
+            >
+              <NoExistMember
+                toggleNoExistMemberShow={toggleNoExistMemberShow}
+              />
+            </div>
+            <div
+              style={{
+                display: sentMessageShow ? "block" : "none",
+              }}
+            >
+              <SentMessage toggleSentMessageShow={toggleSentMessageShow} />
+            </div>
+            <div
+              style={{
+                display: alreadyMemberMessageShow ? "block" : "none",
+              }}
+            >
+              <AlreadyMemberMessage
+                toggleAlreadyMemberMessageShow={toggleAlreadyMemberMessageShow}
+              />
+            </div>
+
+            <div
+              style={{
+                position: "fixed",
+                height: "100vh",
+                width: "100vw",
+                top: 0,
+                left: 0,
+                backgroundColor: "rgba(0,0,0,0.5)",
+                display: "block",
+                //   padding:'160px',
+                zIndex: 101,
               }}
             >
               <div
                 style={{
-                  textAlign: "left",
-                  // margin:'25pt'
-                  paddingLeft: "0px",
-                  paddingRight: "0px",
-                  backgroundColor: "transparent",
-                }}
-              ></div>
-
-              <div
-                style={{
-                  borderRadius: "10px",
-                  backgroundColor: "white",
-                  width: "500px",
-                  height: "260px",
-                  paddingTop: "15px",
-                  // columnCount:3,
-                  // flexwrap:'wrap',
-                  // flexDirection:'column',
-                  // display: 'grid',
-                  // gridTemplateColumns: 'auto auto',
-                  // // padding:'100px',
-                  overflowY: "scroll",
-                  marginLeft: "auto",
-                  marginRight: "auto",
+                  paddingTop: "100px",
+                  // paddingLeft:'65px',
+                  // paddingRight:'65px'
                 }}
               >
                 <div
                   style={{
+                    textAlign: "left",
+                    // margin:'25pt'
+                    paddingLeft: "0px",
+                    paddingRight: "0px",
+                    backgroundColor: "transparent",
+                  }}
+                ></div>
+
+                <div
+                  style={{
+                    borderRadius: "10px",
                     backgroundColor: "white",
-                    height: "258px",
-                    width: "100%",
-                    borderBottomLeftRadius: "10px",
-                    borderBottomRightRadius: "10px",
+                    width: "500px",
+                    height: "260px",
+                    paddingTop: "15px",
+                    // columnCount:3,
+                    // flexwrap:'wrap',
+                    // flexDirection:'column',
+                    // display: 'grid',
+                    // gridTemplateColumns: 'auto auto',
+                    // // padding:'100px',
+                    overflowY: "scroll",
+                    marginLeft: "auto",
+                    marginRight: "auto",
                   }}
                 >
                   <div
                     style={{
-                      position: "relative",
-                      top: 0,
-                      height: "30px",
-                      width: "100%",
                       backgroundColor: "white",
-                      borderTopLeftRadius: "10px",
-                      borderTopRightRadius: "10px",
-                      borderBottom: "1px solid rgb(221,221,221)",
+                      height: "258px",
+                      width: "100%",
+                      borderBottomLeftRadius: "10px",
+                      borderBottomRightRadius: "10px",
                     }}
                   >
                     <div
                       style={{
-                        height: "25px",
-                        width: "25px",
-                        backgroundColor: "transparent",
                         position: "relative",
-                        top: "15px",
-                        left: "15px",
-                        zIndex: 102,
+                        top: 0,
+                        height: "30px",
+                        width: "100%",
+                        backgroundColor: "white",
+                        borderTopLeftRadius: "10px",
+                        borderTopRightRadius: "10px",
+                        borderBottom: "1px solid rgb(221,221,221)",
                       }}
                     >
-                      {/* <TouchableOpacity
+                      <div
+                        style={{
+                          height: "25px",
+                          width: "25px",
+                          backgroundColor: "transparent",
+                          position: "relative",
+                          top: "15px",
+                          left: "15px",
+                          zIndex: 102,
+                        }}
+                      >
+                        {/* <TouchableOpacity
                     onPress={()=>{
                         setFindPassWord(false)
                     }}
@@ -959,330 +960,331 @@ function LogIn(props) {
                     </img>
 
                     </TouchableOpacity> */}
+                        <div
+                          onClick={() => {
+                            //console.log('close project list')
+                            setFindPassWord(false);
+                            // setRegistrationScreen(0)
+                            props.setRegistrationScreen(0);
+                            props.setJoinType("MOBILE");
+                            props.setSNSID(null);
+                          }}
+                          style={{
+                            cursor: "pointer",
+                          }}
+                        >
+                          <div
+                            style={{
+                              backgroundColor: "transparent",
+                              height: "25px",
+                              width: "100%",
+                              borderRadius: "10px",
+                              // border:'2px solid black',
+                              textAlign: "left",
+                              justifyContent: "center",
+                              lineHeight: "25px",
+                              padding: "15px",
+                              alignItems: "center",
+                              transform: "translate(0px,-33px)",
+                            }}
+                          >
+                            <span
+                              style={
+                                {
+                                  // position:'fixed',
+                                  // right:'100px'
+                                }
+                              }
+                            >
+                              &lt;
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        style={{
+                          transform: "translate(0px,-28px)",
+                        }}
+                      >
+                        <span
+                          style={{
+                            fontWeight: 700,
+                            transform: "translate(0px,-23px)",
+                          }}
+                        >
+                          회원가입
+                        </span>
+                      </div>
+                    </div>
+                    {/* <View
+                            style={{
+                                textAlign:'left',
+                                padding:'15px'
+                            }}
+                        >
+                            <Text
+                                style={{
+                                    fontWeight:700,
+                                    fontSize:'15px',
+                                    marginBottom:'5px'
+                                }}
+                            >
+                                비밀번호를 잊으셨나요?
+                            </Text>
+                            <Text>
+                                비밀번호를 다시 설정하기 위해 가입 당시의 휴대폰 번호를 입력해 주세요.
+                            </Text>
+                        </View> */}
+                    <div
+                      style={{
+                        display: "block",
+                        textAlign: "left",
+                        paddingLeft: "15px",
+                        paddingRight: "15px",
+                        paddingTop: "15px",
+                        overflowY: "scroll",
+                        backgroundColor: "transparent",
+                        height: "75px",
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontSize: "14px",
+                        }}
+                      >
+                        휴대폰번호
+                      </span>
+
+                      <TextInput
+                        onChangeText={(text) => {
+                          props.setUserPhoneNumber(text);
+                          // props.onPhoneNumberChange()
+                        }}
+                        style={{
+                          marginTop: "0px",
+                          border: "1px solid black",
+                          borderRadius: "0px",
+                        }}
+                        placeholder="'-' 없이 입력"
+                        value={props.userPhoneNumber}
+                      ></TextInput>
+                    </div>
+                    <div
+                      style={{
+                        textAlign: "left",
+                        padding: "15px",
+                        top: 0,
+                        backgroundColor: "transparent",
+                        display: "flex",
+                        flexDirection: "row",
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontWeight: 500,
+                          fontSize: "15px",
+                          marginBottom: "5px",
+                        }}
+                      >
+                        이미 계정을 보유하고 계시나요?
+                      </span>
+
                       <div
                         onClick={() => {
-                          //console.log('close project list')
-                          setFindPassWord(false);
                           // setRegistrationScreen(0)
                           props.setRegistrationScreen(0);
                           props.setJoinType("MOBILE");
                           props.setSNSID(null);
                         }}
                         style={{
-                          cursor:'pointer'
+                          cursor: "pointer",
                         }}
                       >
-                        <div
+                        <span
                           style={{
-                            backgroundColor: "transparent",
-                            height: "25px",
-                            width: "100%",
-                            borderRadius: "10px",
-                            // border:'2px solid black',
-                            textAlign: "left",
-                            justifyContent: "center",
-                            lineHeight: "25px",
-                            padding: "15px",
-                            alignItems: "center",
-                            transform: "translate(0px,-33px)",
+                            fontWeight: 700,
+                            fontSize: "15px",
+                            marginLeft: "5px",
                           }}
                         >
-                          <span
-                            style={
-                              {
-                                // position:'fixed',
-                                // right:'100px'
-                              }
-                            }
-                          >
-                            &lt;
-                          </span>
-                        </div>
+                          로그인
+                        </span>
                       </div>
                     </div>
                     <div
                       style={{
-                        transform: "translate(0px,-28px)",
+                        // display: emailLogIn ? 'none':'block',
+                        borderTop: "1px solid rgb(221,221,221)",
+                        paddingLeft: "15px",
+                        paddingRight: "15px",
+                        paddingBottom: "15px",
                       }}
                     >
-                    <span
-                      style={{
-                        fontWeight: 700,
-                        transform: "translate(0px,-23px)",
-                      }}
-                    >
-                      회원가입
-                    </span>
-                    </div>
-                  </div>
-                  {/* <View
-                            style={{
-                                textAlign:'left',
-                                padding:'15px'
-                            }}
-                        >
-                            <Text
-                                style={{
-                                    fontWeight:700,
-                                    fontSize:'15px',
-                                    marginBottom:'5px'
-                                }}
-                            >
-                                비밀번호를 잊으셨나요?
-                            </Text>
-                            <Text>
-                                비밀번호를 다시 설정하기 위해 가입 당시의 휴대폰 번호를 입력해 주세요.
-                            </Text>
-                        </View> */}
-                  <div
-                    style={{
-                      display: "block",
-                      textAlign: "left",
-                      paddingLeft: "15px",
-                      paddingRight: "15px",
-                      paddingTop: "15px",
-                      overflowY: "scroll",
-                      backgroundColor: "transparent",
-                      height: "75px",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize:'14px'
-                      }}
-                    >휴대폰번호</span>
-
-                    <TextInput
-                      onChangeText={(text) => {
-                        props.setUserPhoneNumber(text);
-                        // props.onPhoneNumberChange()
-                      }}
-                      style={{
-                        marginTop: "0px",
-                        border: "1px solid black",
-                        borderRadius: "0px",
-                      }}
-                      placeholder="'-' 없이 입력"
-                      value={props.userPhoneNumber}
-                    ></TextInput>
-                  </div>
-                  <div
-                    style={{
-                      textAlign: "left",
-                      padding: "15px",
-                      top: 0,
-                      backgroundColor: "transparent",
-                      display:'flex',
-                      flexDirection: "row",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontWeight: 500,
-                        fontSize: "15px",
-                        marginBottom: "5px",
-                      }}
-                    >
-                      이미 계정을 보유하고 계시나요?
-                    </span>
-
-                    <div
-                      onClick={() => {
-                        // setRegistrationScreen(0)
-                        props.setRegistrationScreen(0);
-                        props.setJoinType("MOBILE");
-                        props.setSNSID(null);
-                      }}
-                      style={{
-                        cursor:'pointer'
-                      }}
-                    >
-                      <span
+                      <div
                         style={{
-                          fontWeight: 700,
-                          fontSize: "15px",
-                          marginLeft: "5px",
+                          marginTop: "15px",
+                          backgroundColor: "rgb(255,123,88)",
+                          borderRadius: "10px",
+                          height: "40px",
+                          textAlign: "center",
+                          justifyContent: "center",
+                          lineHeight: "40px",
+                          cursor: "pointer",
                         }}
-                        
-                      >
-                        로그인
-                      </span>
-                    </div>
-                  </div>
-                  <div
-                    style={{
-                      // display: emailLogIn ? 'none':'block',
-                      borderTop: "1px solid rgb(221,221,221)",
-                      paddingLeft: "15px",
-                      paddingRight: "15px",
-                      paddingBottom: "15px",
-                    }}
-                  >
-                    <div
-                      style={{
-                        marginTop: "15px",
-                        backgroundColor: "rgb(255,123,88)",
-                        borderRadius: "10px",
-                        height: "40px",
-                        textAlign: "center",
-                        justifyContent: "center",
-                        lineHeight:'40px',
-                        cursor:'pointer'
-                      }}
-                      onClick={() => {
-                        fetch(
-                          "/CheckExistMember?" +
-                            queryString.stringify({
-                              mem_mobile: props.userPhoneNumber,
-                            })
-                        )
-                          .then((res) => res.json())
-                          .then((incomingData) => {
-                            console.log(incomingData);
-                            if (incomingData.result == "SUCCESS") {
-                              sendPincodeFunction({
+                        onClick={() => {
+                          fetch(
+                            "/CheckExistMember?" +
+                              queryString.stringify({
                                 mem_mobile: props.userPhoneNumber,
-                              });
-                              //setRegistrationScreen(2)
-                              props.setRegistrationScreen(2);
-                            } else {
-                              console.log("Already a member");
-                              //setRegistrationScreen(0)
-                              setAlreadyMemberMessageShow(true);
-                            }
-                            // setRegistrationScreen(3)
-                          })
-                          .catch((err) => {
-                            console.log(err);
-                          });
+                              })
+                          )
+                            .then((res) => res.json())
+                            .then((incomingData) => {
+                              console.log(incomingData);
+                              if (incomingData.result == "SUCCESS") {
+                                sendPincodeFunction({
+                                  mem_mobile: props.userPhoneNumber,
+                                });
+                                //setRegistrationScreen(2)
+                                props.setRegistrationScreen(2);
+                              } else {
+                                console.log("Already a member");
+                                //setRegistrationScreen(0)
+                                setAlreadyMemberMessageShow(true);
+                              }
+                              // setRegistrationScreen(3)
+                            })
+                            .catch((err) => {
+                              console.log(err);
+                            });
 
-                        // sendPincodeFunction({
-                        //     mem_mobile:props.userPhoneNumber
-                        // })
-                        // setRegistrationScreen(2)
+                          // sendPincodeFunction({
+                          //     mem_mobile:props.userPhoneNumber
+                          // })
+                          // setRegistrationScreen(2)
 
-                        // setRegistrationScreen(3)
-                      }}
-                    >
-                      <span
-                        style={{
-                          color: "white",
-                          fontSize:'14px'
+                          // setRegistrationScreen(3)
                         }}
                       >
-                        계속
-                      </span>
+                        <span
+                          style={{
+                            color: "white",
+                            fontSize: "14px",
+                          }}
+                        >
+                          계속
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </Font>
+        </Font>
       );
     }
     // else if(registrationScreen==2){
     else if (props.registrationScreen == 2) {
       return (
-      <Font family='Noto Sans KR'>
-        <div>
-          <div
-            style={{
-              display: wrongPinCodeShow ? "block" : "none",
-            }}
-          >
-            <WrongPinCode toggleWrongPinCodeShow={toggleWrongPinCodeShow} />
-          </div>
-          <div
-            style={{
-              display: sentMessageShow ? "block" : "none",
-            }}
-          >
-            <SentMessage toggleSentMessageShow={toggleSentMessageShow} />
-          </div>
-          <div
-            style={{
-              position: "fixed",
-              height: "100vh",
-              width: "100vw",
-              top: 0,
-              left: 0,
-              backgroundColor: "rgba(0,0,0,0.5)",
-              display: "block",
-              //   padding:'160px',
-              zIndex: 101,
-            }}
-          >
+        <Font family="Noto Sans KR">
+          <div>
             <div
               style={{
-                paddingTop: "100px",
-                // paddingLeft:'65px',
-                // paddingRight:'65px'
+                display: wrongPinCodeShow ? "block" : "none",
+              }}
+            >
+              <WrongPinCode toggleWrongPinCodeShow={toggleWrongPinCodeShow} />
+            </div>
+            <div
+              style={{
+                display: sentMessageShow ? "block" : "none",
+              }}
+            >
+              <SentMessage toggleSentMessageShow={toggleSentMessageShow} />
+            </div>
+            <div
+              style={{
+                position: "fixed",
+                height: "100vh",
+                width: "100vw",
+                top: 0,
+                left: 0,
+                backgroundColor: "rgba(0,0,0,0.5)",
+                display: "block",
+                //   padding:'160px',
+                zIndex: 101,
               }}
             >
               <div
                 style={{
-                  textAlign: "left",
-                  // margin:'25pt'
-                  paddingLeft: "0px",
-                  paddingRight: "0px",
-                  backgroundColor: "transparent",
-                }}
-              ></div>
-
-              <div
-                style={{
-                  borderRadius: "10px",
-                  backgroundColor: "white",
-                  width: "500px",
-                  height: "300px",
-                  paddingTop: "15px",
-                  // columnCount:3,
-                  // flexwrap:'wrap',
-                  // flexDirection:'column',
-                  // display: 'grid',
-                  // gridTemplateColumns: 'auto auto',
-                  // // padding:'100px',
-                  overflowY: "scroll",
-                  marginLeft: "auto",
-                  marginRight: "auto",
+                  paddingTop: "100px",
+                  // paddingLeft:'65px',
+                  // paddingRight:'65px'
                 }}
               >
                 <div
                   style={{
+                    textAlign: "left",
+                    // margin:'25pt'
+                    paddingLeft: "0px",
+                    paddingRight: "0px",
+                    backgroundColor: "transparent",
+                  }}
+                ></div>
+
+                <div
+                  style={{
+                    borderRadius: "10px",
                     backgroundColor: "white",
-                    height: "298px",
-                    width: "100%",
-                    borderBottomLeftRadius: "10px",
-                    borderBottomRightRadius: "10px",
+                    width: "500px",
+                    height: "300px",
+                    paddingTop: "15px",
+                    // columnCount:3,
+                    // flexwrap:'wrap',
+                    // flexDirection:'column',
+                    // display: 'grid',
+                    // gridTemplateColumns: 'auto auto',
+                    // // padding:'100px',
+                    overflowY: "scroll",
+                    marginLeft: "auto",
+                    marginRight: "auto",
                   }}
                 >
                   <div
                     style={{
-                      position: "relative",
-                      top: 0,
-                      height: "30px",
-                      width: "100%",
                       backgroundColor: "white",
-                      borderTopLeftRadius: "10px",
-                      borderTopRightRadius: "10px",
-                      borderBottom: "1px solid rgb(221,221,221)",
+                      height: "298px",
+                      width: "100%",
+                      borderBottomLeftRadius: "10px",
+                      borderBottomRightRadius: "10px",
                     }}
                   >
                     <div
                       style={{
-                        height: "25px",
-                        width: "25px",
-                        backgroundColor: "transparent",
                         position: "relative",
-                        top: "15px",
-                        left: "15px",
-                        zIndex: 102,
-                        transform: "translate(0px,-20px)",
+                        top: 0,
+                        height: "30px",
+                        width: "100%",
+                        backgroundColor: "white",
+                        borderTopLeftRadius: "10px",
+                        borderTopRightRadius: "10px",
+                        borderBottom: "1px solid rgb(221,221,221)",
                       }}
                     >
-                      {/* <TouchableOpacity
+                      <div
+                        style={{
+                          height: "25px",
+                          width: "25px",
+                          backgroundColor: "transparent",
+                          position: "relative",
+                          top: "15px",
+                          left: "15px",
+                          zIndex: 102,
+                          transform: "translate(0px,-20px)",
+                        }}
+                      >
+                        {/* <TouchableOpacity
                     onPress={()=>{
                         setFindPassWord(false)
                     }}
@@ -1297,63 +1299,63 @@ function LogIn(props) {
                     </img>
 
                     </TouchableOpacity> */}
-                      <div
-                        onClick={() => {
-                          //console.log('close project list')
-                          setFindPassWord(false);
-                          //setRegistrationScreen(0)
-                          props.setRegistrationScreen(0);
-                          props.setJoinType("MOBILE");
-                          props.setSNSID(null);
-                        }}
-                        style={{
-                          cursor:'pointer'
-                        }}
-                      >
                         <div
+                          onClick={() => {
+                            //console.log('close project list')
+                            setFindPassWord(false);
+                            //setRegistrationScreen(0)
+                            props.setRegistrationScreen(0);
+                            props.setJoinType("MOBILE");
+                            props.setSNSID(null);
+                          }}
                           style={{
-                            backgroundColor: "transparent",
-                            height: "25px",
-                            width: "100%",
-                            borderRadius: "10px",
-                            // border:'2px solid black',
-                            textAlign: "left",
-                            justifyContent: "center",
-                            lineHeight: "25px",
-                            padding: "15px",
-                            alignItems: "center",
-                            transform: "translate(0px,-14px)",
+                            cursor: "pointer",
                           }}
                         >
-                          <span
-                            style={
-                              {
-                                // position:'fixed',
-                                // right:'100px'
-                              }
-                            }
+                          <div
+                            style={{
+                              backgroundColor: "transparent",
+                              height: "25px",
+                              width: "100%",
+                              borderRadius: "10px",
+                              // border:'2px solid black',
+                              textAlign: "left",
+                              justifyContent: "center",
+                              lineHeight: "25px",
+                              padding: "15px",
+                              alignItems: "center",
+                              transform: "translate(0px,-14px)",
+                            }}
                           >
-                            &lt;
-                          </span>
+                            <span
+                              style={
+                                {
+                                  // position:'fixed',
+                                  // right:'100px'
+                                }
+                              }
+                            >
+                              &lt;
+                            </span>
+                          </div>
                         </div>
                       </div>
+                      <div
+                        style={{
+                          transform: "translate(0px,-28px)",
+                        }}
+                      >
+                        <span
+                          style={{
+                            fontWeight: 700,
+                            transform: "translate(0px,-23px)",
+                          }}
+                        >
+                          회원가입
+                        </span>
+                      </div>
                     </div>
-                    <div
-                      style={{
-                        transform: "translate(0px,-28px)"
-                      }}
-                    >
-                    <span
-                      style={{
-                        fontWeight: 700,
-                        transform: "translate(0px,-23px)",
-                      }}
-                    >
-                      회원가입
-                    </span>
-                    </div>
-                  </div>
-                  {/* <View
+                    {/* <View
                             style={{
                                 textAlign:'left',
                                 padding:'15px'
@@ -1372,36 +1374,36 @@ function LogIn(props) {
                                 비밀번호를 다시 설정하기 위해 가입 당시의 휴대폰 번호를 입력해 주세요.
                             </Text>
                         </View> */}
-                  <div
-                    style={{
-                      display: "flex",
-                      textAlign: "left",
-                      paddingLeft: "15px",
-                      paddingRight: "15px",
-                      paddingTop: "15px",
-                      overflowY: "scroll",
-                      backgroundColor: "transparent",
-                      height: "150px",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <span
+                    <div
                       style={{
-                        fontSize: "18px",
-                        fontWeight: 700,
+                        display: "flex",
+                        textAlign: "left",
+                        paddingLeft: "15px",
+                        paddingRight: "15px",
+                        paddingTop: "15px",
+                        overflowY: "scroll",
+                        backgroundColor: "transparent",
+                        height: "150px",
+                        flexDirection: "column",
                       }}
                     >
-                      본인인증
-                    </span>
-                    <span
-                      style={{
-                        fontSize: "15px",
-                        marginTop: "5px",
-                      }}
-                    >
-                      휴대폰 번호로 전송된 인증번호를 입력해 주세요
-                    </span>
-                    {/* <TextInput 
+                      <span
+                        style={{
+                          fontSize: "18px",
+                          fontWeight: 700,
+                        }}
+                      >
+                        본인인증
+                      </span>
+                      <span
+                        style={{
+                          fontSize: "15px",
+                          marginTop: "5px",
+                        }}
+                      >
+                        휴대폰 번호로 전송된 인증번호를 입력해 주세요
+                      </span>
+                      {/* <TextInput 
                                 onChangeText={
                                 text=>{
                                     props.setUserPhoneNumber(text)
@@ -1416,127 +1418,127 @@ function LogIn(props) {
                                 placeholder="'-' 없이 입력"
                                 value={props.userPhoneNumber}
                             ></TextInput> */}
-                    <CodeField
-                      ref={ref}
-                      {...codeFileProps}
-                      value={pincodeValue}
-                      onChangeText={setPincodeValue}
-                      cellCount={6}
-                      rootStyle={styles.codeFieldRoot}
-                      keyboardType="number-pad"
-                      textContentType="oneTimeCode"
-                      renderCell={({ index, symbol, isFocused }) => (
-                        <Text
-                          key={index}
-                          style={[styles.cell, isFocused && styles.focusCell]}
-                          onLayout={getCellOnLayoutHandler(index)}
-                        >
-                          {symbol || (isFocused ? <Cursor /> : null)}
-                        </Text>
-                      )}
-                    />
-                  </div>
-                  <div
-                    style={{
-                      textAlign: "left",
-                      paddingLeft: "15px",
-                      paddingRight:'15px',
-                      top: 0,
-                      backgroundColor: "transparent",
-                      display:'flex',
-                      flexDirection: "row",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontWeight: 500,
-                        fontSize: "15px",
-                        marginBottom: "5px",
-                      }}
-                    >
-                      메시지를 못받았습니다
-                    </span>
-
+                      <CodeField
+                        ref={ref}
+                        {...codeFileProps}
+                        value={pincodeValue}
+                        onChangeText={setPincodeValue}
+                        cellCount={6}
+                        rootStyle={styles.codeFieldRoot}
+                        keyboardType="number-pad"
+                        textContentType="oneTimeCode"
+                        renderCell={({ index, symbol, isFocused }) => (
+                          <Text
+                            key={index}
+                            style={[styles.cell, isFocused && styles.focusCell]}
+                            onLayout={getCellOnLayoutHandler(index)}
+                          >
+                            {symbol || (isFocused ? <Cursor /> : null)}
+                          </Text>
+                        )}
+                      />
+                    </div>
                     <div
-                      onClick={() => {
-                        //setRegistrationScreen(1)
-                        props.setRegistrationScreen(1);
+                      style={{
+                        textAlign: "left",
+                        paddingLeft: "15px",
+                        paddingRight: "15px",
+                        top: 0,
+                        backgroundColor: "transparent",
+                        display: "flex",
+                        flexDirection: "row",
                       }}
                     >
                       <span
                         style={{
-                          fontWeight: 700,
+                          fontWeight: 500,
                           fontSize: "15px",
-                          marginLeft: "5px",
+                          marginBottom: "5px",
                         }}
-                        
                       >
-                        다시 받아보기
+                        메시지를 못받았습니다
                       </span>
+
+                      <div
+                        onClick={() => {
+                          //setRegistrationScreen(1)
+                          props.setRegistrationScreen(1);
+                        }}
+                      >
+                        <span
+                          style={{
+                            fontWeight: 700,
+                            fontSize: "15px",
+                            marginLeft: "5px",
+                          }}
+                        >
+                          다시 받아보기
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                  <div
-                    style={{
-                      // display: emailLogIn ? 'none':'block',
-                      borderTop: "1px solid rgb(221,221,221)",
-                      paddingLeft: "15px",
-                      paddingRight: "15px",
-                      paddingBottom: "15px",
-                    }}
-                  >
                     <div
                       style={{
-                        marginTop: "15px",
-                        backgroundColor: "rgb(255,123,88)",
-                        borderRadius: "10px",
-                        height: "40px",
-                        textAlign: "center",
-                        justifyContent: "center",
-                      }}
-                      onClick={() => {
-                        // props.logInFunction(
-                        //     {
-                        //         mem_jointype:'MOBILE',
-                        //         mem_password:props.password,
-                        //         mem_token:null,
-                        //         mem_mobile:props.userPhoneNumber
-                        //     }
-                        // )
-                        // findPasswordFunction({
-                        //     mem_mobile:props.userPhoneNumber
-                        // })
-                        console.log("'" + pincodeValue.toString() + "'");
-                        // console.log(pincodeAnswer)
-                        // var temp = pincodeAnswer.slice()
-                        var temp = props.pincodeAnswer.slice();
-                        if (pincodeValue.toString() != "") {
-                          //console.log('in')
-                          //if("'"+pincodeValue.toString()+"'"==pincodeAnswer){
-                          if (
-                            "'" + pincodeValue.toString() + "'" ==
-                            props.pincodeAnswer
-                          ) {
-                            //console.log('next')
-                            // setRegistrationScreen(3)
-                            props.setRegistrationScreen(3);
-                          } else {
-                            setWrongPinCodeShow(true);
-                          }
-                        }
+                        // display: emailLogIn ? 'none':'block',
+                        borderTop: "1px solid rgb(221,221,221)",
+                        paddingLeft: "15px",
+                        paddingRight: "15px",
+                        paddingBottom: "15px",
                       }}
                     >
                       <div
                         style={{
-                          transform:'translate(0px,6px)'
+                          marginTop: "15px",
+                          backgroundColor: "rgb(255,123,88)",
+                          borderRadius: "10px",
+                          height: "40px",
+                          textAlign: "center",
+                          justifyContent: "center",
+                        }}
+                        onClick={() => {
+                          // props.logInFunction(
+                          //     {
+                          //         mem_jointype:'MOBILE',
+                          //         mem_password:props.password,
+                          //         mem_token:null,
+                          //         mem_mobile:props.userPhoneNumber
+                          //     }
+                          // )
+                          // findPasswordFunction({
+                          //     mem_mobile:props.userPhoneNumber
+                          // })
+                          console.log("'" + pincodeValue.toString() + "'");
+                          // console.log(pincodeAnswer)
+                          // var temp = pincodeAnswer.slice()
+                          var temp = props.pincodeAnswer.slice();
+                          if (pincodeValue.toString() != "") {
+                            //console.log('in')
+                            //if("'"+pincodeValue.toString()+"'"==pincodeAnswer){
+                            if (
+                              "'" + pincodeValue.toString() + "'" ==
+                              props.pincodeAnswer
+                            ) {
+                              //console.log('next')
+                              // setRegistrationScreen(3)
+                              props.setRegistrationScreen(3);
+                            } else {
+                              setWrongPinCodeShow(true);
+                            }
+                          }
                         }}
                       >
-                      <span
-                        style={{
-                          color: "white",
-                        }}
-                      >
-                        계속
-                      </span>
+                        <div
+                          style={{
+                            transform: "translate(0px,6px)",
+                          }}
+                        >
+                          <span
+                            style={{
+                              color: "white",
+                            }}
+                          >
+                            계속
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1544,114 +1546,113 @@ function LogIn(props) {
               </div>
             </div>
           </div>
-        </div>
-      </Font>
+        </Font>
       );
     }
     //else if (registrationScreen==3){
     else if (props.registrationScreen == 3) {
       return (
-        <Font family='Noto Sans KR'>
-        <div>
-          <div
-            style={{
-              display: termsOfServicePopUpShow ? "block" : "none",
-            }}
-          >
-            <TermsOfServicePopUp
-              toggleTermsOfServicePopUpShow={toggleTermsOfServicePopUpShow}
-            />
-          </div>
-          <div
-            style={{
-              display: privacyPolicyPopUpShow ? "block" : "none",
-            }}
-          >
-            <PrivacyPolicyPopUp
-              togglePrivacyPolicyPopUpShow={togglePrivacyPolicyPopUpShow}
-            />
-          </div>
-          <div
-            style={{
-              position: "fixed",
-              height: "100vh",
-              width: "100vw",
-              top: 0,
-              left: 0,
-              backgroundColor: "rgba(0,0,0,0.5)",
-              display: "block",
-              //   padding:'160px',
-              zIndex: 101,
-            }}
-          >
+        <Font family="Noto Sans KR">
+          <div>
             <div
               style={{
-                paddingTop: "100px",
-                // paddingLeft:'65px',
-                // paddingRight:'65px'
+                display: termsOfServicePopUpShow ? "block" : "none",
+              }}
+            >
+              <TermsOfServicePopUp
+                toggleTermsOfServicePopUpShow={toggleTermsOfServicePopUpShow}
+              />
+            </div>
+            <div
+              style={{
+                display: privacyPolicyPopUpShow ? "block" : "none",
+              }}
+            >
+              <PrivacyPolicyPopUp
+                togglePrivacyPolicyPopUpShow={togglePrivacyPolicyPopUpShow}
+              />
+            </div>
+            <div
+              style={{
+                position: "fixed",
+                height: "100vh",
+                width: "100vw",
+                top: 0,
+                left: 0,
+                backgroundColor: "rgba(0,0,0,0.5)",
+                display: "block",
+                //   padding:'160px',
+                zIndex: 101,
               }}
             >
               <div
                 style={{
-                  textAlign: "left",
-                  // margin:'25pt'
-                  paddingLeft: "0px",
-                  paddingRight: "0px",
-                  backgroundColor: "transparent",
-                }}
-              ></div>
-
-              <div
-                style={{
-                  borderRadius: "10px",
-                  backgroundColor: "white",
-                  width: "500px",
-                  height: "520px",
-                  paddingTop: "15px",
-                  // columnCount:3,
-                  // flexwrap:'wrap',
-                  // flexDirection:'column',
-                  // display: 'grid',
-                  // gridTemplateColumns: 'auto auto',
-                  // // padding:'100px',
-                  overflowY: "scroll",
-                  marginLeft: "auto",
-                  marginRight: "auto",
+                  paddingTop: "100px",
+                  // paddingLeft:'65px',
+                  // paddingRight:'65px'
                 }}
               >
                 <div
                   style={{
+                    textAlign: "left",
+                    // margin:'25pt'
+                    paddingLeft: "0px",
+                    paddingRight: "0px",
+                    backgroundColor: "transparent",
+                  }}
+                ></div>
+
+                <div
+                  style={{
+                    borderRadius: "10px",
                     backgroundColor: "white",
-                    height: "498px",
-                    width: "100%",
-                    borderBottomLeftRadius: "10px",
-                    borderBottomRightRadius: "10px",
+                    width: "500px",
+                    height: "520px",
+                    paddingTop: "15px",
+                    // columnCount:3,
+                    // flexwrap:'wrap',
+                    // flexDirection:'column',
+                    // display: 'grid',
+                    // gridTemplateColumns: 'auto auto',
+                    // // padding:'100px',
+                    overflowY: "scroll",
+                    marginLeft: "auto",
+                    marginRight: "auto",
                   }}
                 >
                   <div
                     style={{
-                      position: "relative",
-                      top: 0,
-                      height: "30px",
-                      width: "100%",
                       backgroundColor: "white",
-                      borderTopLeftRadius: "10px",
-                      borderTopRightRadius: "10px",
-                      borderBottom: "1px solid rgb(221,221,221)",
+                      height: "498px",
+                      width: "100%",
+                      borderBottomLeftRadius: "10px",
+                      borderBottomRightRadius: "10px",
                     }}
                   >
                     <div
                       style={{
-                        height: "25px",
-                        width: "25px",
-                        backgroundColor: "transparent",
                         position: "relative",
-                        top: "15px",
-                        left: "15px",
-                        zIndex: 102,
+                        top: 0,
+                        height: "30px",
+                        width: "100%",
+                        backgroundColor: "white",
+                        borderTopLeftRadius: "10px",
+                        borderTopRightRadius: "10px",
+                        borderBottom: "1px solid rgb(221,221,221)",
                       }}
                     >
-                      {/* <TouchableOpacity
+                      <div
+                        style={{
+                          height: "25px",
+                          width: "25px",
+                          backgroundColor: "transparent",
+                          position: "relative",
+                          top: "15px",
+                          left: "15px",
+                          zIndex: 102,
+                        }}
+                      >
+                        {/* <TouchableOpacity
                     onPress={()=>{
                         setFindPassWord(false)
                     }}
@@ -1666,60 +1667,60 @@ function LogIn(props) {
                     </img>
 
                     </TouchableOpacity> */}
-                      <div
-                        onClick={() => {
-                          //console.log('close project list')
-                          setFindPassWord(false);
-                          // setRegistrationScreen(0)
-                          props.setRegistrationScreen(0);
-                          props.setJoinType("MOBILE");
-                          props.setSNSID(null);
-                        }}
-                      >
                         <div
-                          style={{
-                            backgroundColor: "transparent",
-                            height: "25px",
-                            width: "100%",
-                            borderRadius: "10px",
-                            // border:'2px solid black',
-                            textAlign: "left",
-                            justifyContent: "center",
-                            lineHeight: "25px",
-                            padding: "15px",
-                            alignItems: "center",
-                            transform: "translate(0px,-33px)",
+                          onClick={() => {
+                            //console.log('close project list')
+                            setFindPassWord(false);
+                            // setRegistrationScreen(0)
+                            props.setRegistrationScreen(0);
+                            props.setJoinType("MOBILE");
+                            props.setSNSID(null);
                           }}
                         >
-                          <span
-                            style={
-                              {
-                                // position:'fixed',
-                                // right:'100px'
-                              }
-                            }
+                          <div
+                            style={{
+                              backgroundColor: "transparent",
+                              height: "25px",
+                              width: "100%",
+                              borderRadius: "10px",
+                              // border:'2px solid black',
+                              textAlign: "left",
+                              justifyContent: "center",
+                              lineHeight: "25px",
+                              padding: "15px",
+                              alignItems: "center",
+                              transform: "translate(0px,-33px)",
+                            }}
                           >
-                            &lt;
-                          </span>
+                            <span
+                              style={
+                                {
+                                  // position:'fixed',
+                                  // right:'100px'
+                                }
+                              }
+                            >
+                              &lt;
+                            </span>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div
-                      style={{
-                        transform: "translate(0px,-30px)",
-                      }}
-                    >
-                      <span
+                      <div
                         style={{
-                          fontWeight: 700,
-                          transform: "translate(0px,-23px)",
+                          transform: "translate(0px,-30px)",
                         }}
                       >
-                        회원가입
-                      </span>
+                        <span
+                          style={{
+                            fontWeight: 700,
+                            transform: "translate(0px,-23px)",
+                          }}
+                        >
+                          회원가입
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                  {/* <View
+                    {/* <View
                             style={{
                                 textAlign:'left',
                                 padding:'15px'
@@ -1738,243 +1739,243 @@ function LogIn(props) {
                                 비밀번호를 다시 설정하기 위해 가입 당시의 휴대폰 번호를 입력해 주세요.
                             </Text>
                         </View> */}
-                  <div
-                    style={{
-                      display: "flex",
-                      textAlign: "left",
-                      paddingLeft: "15px",
-                      paddingRight: "15px",
-                      paddingTop: "15px",
-                      overflowY: "scroll",
-                      backgroundColor: "transparent",
-                      height: "400px",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: "18px",
-                        fontWeight: 700,
-                      }}
-                    >
-                      디자인 전문가 회원정보 입력
-                    </span>
-                    <span
-                      style={{
-                        fontSize: "15px",
-                        marginTop: "5px",
-                      }}
-                    >
-                      디자인 전문가 가입이 완료되면 겁색부터 샘플 주문까지 모두
-                      무료로 사용이 가능합니다.클립에서는 보다 원활한 서비스
-                      운영을 위해 신청해주신 분들 중 1)사업자등록증 + 명함 2)
-                      홈페이지/블로그/인스타그램 등을 통해 포트폴리오 열람이
-                      가능한 가입자에게 승인 처리해드리고 있습니다.
-                    </span>
                     <div
                       style={{
                         display: "flex",
+                        textAlign: "left",
+                        paddingLeft: "15px",
+                        paddingRight: "15px",
+                        paddingTop: "15px",
+                        overflowY: "scroll",
+                        backgroundColor: "transparent",
+                        height: "400px",
                         flexDirection: "column",
                       }}
                     >
                       <span
                         style={{
-                          marginTop: "5px",
-
-                          lineHeight: "30px",
+                          fontSize: "18px",
+                          fontWeight: 700,
                         }}
                       >
-                        이름
+                        디자인 전문가 회원정보 입력
                       </span>
-
-                      <TextInput
-                        onChangeText={(text) => {
-                          props.setUserName(text);
-
-                          // props.onPhoneNumberChange()
-                        }}
-                        style={{
-                          marginTop: "5px",
-                          border: "1px solid black",
-                          // borderRadius:'10px',
-                          marginBottom: "5px",
-                          height: "30px",
-                        }}
-                        placeholder="실명"
-                        value={props.userName}
-                      ></TextInput>
-                    </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                      }}
-                    >
                       <span
                         style={{
+                          fontSize: "15px",
                           marginTop: "5px",
-
-                          lineHeight: "30px",
                         }}
                       >
-                        이메일
-                      </span>
-                      <TextInput
-                        onChangeText={(text) => {
-                          props.setUserEmail(text);
-
-                          // props.onPhoneNumberChange()
-                        }}
-                        style={{
-                          marginTop: "5px",
-                          border: "1px solid black",
-                          // borderRadius:'10px',
-                          marginBottom: "5px",
-                          height: "30px",
-                        }}
-                        placeholder="이메일 입력"
-                        value={props.userEmail}
-                      ></TextInput>
-                    </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                      }}
-                    >
-                      <span
-                        style={{
-                          marginTop: "5px",
-
-                          lineHeight: "30px",
-                        }}
-                      >
-                        회사명
-                      </span>
-                      <TextInput
-                        onChangeText={(text) => {
-                          props.setUserCompanyName(text);
-
-                          // props.onPhoneNumberChange()
-                        }}
-                        style={{
-                          marginTop: "5px",
-                          border: "1px solid black",
-                          // borderRadius:'10px',
-                          marginBottom: "5px",
-                          height: "30px",
-                        }}
-                        placeholder="회사명 입력"
-                        value={props.userCompanyName}
-                      ></TextInput>
-                    </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                      }}
-                    >
-                      <span
-                        style={{
-                          marginTop: "5px",
-
-                          lineHeight: "30px",
-                        }}
-                      >
-                        회사 웹사이트 또는 블로그
-                      </span>
-                      <TextInput
-                        onChangeText={(text) => {
-                          props.setUserCompanyWebSite(text);
-
-                          // props.onPhoneNumberChange()
-                        }}
-                        style={{
-                          marginTop: "5px",
-                          border: "1px solid black",
-                          // borderRadius:'10px',
-                          marginBottom: "5px",
-                          height: "30px",
-                        }}
-                        placeholder="회사 웹사이트 또는 블로그 주소 입력"
-                        value={props.userCompanyWebSite}
-                      ></TextInput>
-                    </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                      }}
-                    >
-                      <span
-                        style={{
-                          marginTop: "5px",
-
-                          lineHeight: "30px",
-                        }}
-                      >
-                        비밀번호
+                        디자인 전문가 가입이 완료되면 겁색부터 샘플 주문까지
+                        모두 무료로 사용이 가능합니다.클립에서는 보다 원활한
+                        서비스 운영을 위해 신청해주신 분들 중 1)사업자등록증 +
+                        명함 2) 홈페이지/블로그/인스타그램 등을 통해 포트폴리오
+                        열람이 가능한 가입자에게 승인 처리해드리고 있습니다.
                       </span>
                       <div
                         style={{
-                          border: "1px solid black",
-                          borderRadius: "0px",
-                          marginBottom: "15px",
-                          flexDirection: "row",
                           display: "flex",
-                          alignItems: "center",
-                          justifyContent: "space-between",
-                          paddingRight: "8px",
-                          height: "30px",
+                          flexDirection: "column",
                         }}
                       >
-                        <TextInput
-                          onChangeText={(text) => {
-                            props.setPassword(text);
-                            // props.onPasswordChange()
-                          }}
-                          // onBlur={
-                          //   onPasswordChange()
-                          // }
-                          style={{}}
-                          placeholder="영문,숫자 포함 8-16자"
-                          secureTextEntry={passwordVisible}
-                          value={props.password}
-                        ></TextInput>
-                        <div
-                          onClick={() => {
-                            togglePasswordVisible();
+                        <span
+                          style={{
+                            marginTop: "5px",
+
+                            lineHeight: "30px",
                           }}
                         >
+                          이름
+                        </span>
+
+                        <TextInput
+                          onChangeText={(text) => {
+                            props.setUserName(text);
+
+                            // props.onPhoneNumberChange()
+                          }}
+                          style={{
+                            marginTop: "5px",
+                            border: "1px solid black",
+                            // borderRadius:'10px',
+                            marginBottom: "5px",
+                            height: "30px",
+                          }}
+                          placeholder="실명"
+                          value={props.userName}
+                        ></TextInput>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                        }}
+                      >
+                        <span
+                          style={{
+                            marginTop: "5px",
+
+                            lineHeight: "30px",
+                          }}
+                        >
+                          이메일
+                        </span>
+                        <TextInput
+                          onChangeText={(text) => {
+                            props.setUserEmail(text);
+
+                            // props.onPhoneNumberChange()
+                          }}
+                          style={{
+                            marginTop: "5px",
+                            border: "1px solid black",
+                            // borderRadius:'10px',
+                            marginBottom: "5px",
+                            height: "30px",
+                          }}
+                          placeholder="이메일 입력"
+                          value={props.userEmail}
+                        ></TextInput>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                        }}
+                      >
+                        <span
+                          style={{
+                            marginTop: "5px",
+
+                            lineHeight: "30px",
+                          }}
+                        >
+                          회사명
+                        </span>
+                        <TextInput
+                          onChangeText={(text) => {
+                            props.setUserCompanyName(text);
+
+                            // props.onPhoneNumberChange()
+                          }}
+                          style={{
+                            marginTop: "5px",
+                            border: "1px solid black",
+                            // borderRadius:'10px',
+                            marginBottom: "5px",
+                            height: "30px",
+                          }}
+                          placeholder="회사명 입력"
+                          value={props.userCompanyName}
+                        ></TextInput>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                        }}
+                      >
+                        <span
+                          style={{
+                            marginTop: "5px",
+
+                            lineHeight: "30px",
+                          }}
+                        >
+                          회사 웹사이트 또는 블로그
+                        </span>
+                        <TextInput
+                          onChangeText={(text) => {
+                            props.setUserCompanyWebSite(text);
+
+                            // props.onPhoneNumberChange()
+                          }}
+                          style={{
+                            marginTop: "5px",
+                            border: "1px solid black",
+                            // borderRadius:'10px',
+                            marginBottom: "5px",
+                            height: "30px",
+                          }}
+                          placeholder="회사 웹사이트 또는 블로그 주소 입력"
+                          value={props.userCompanyWebSite}
+                        ></TextInput>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                        }}
+                      >
+                        <span
+                          style={{
+                            marginTop: "5px",
+
+                            lineHeight: "30px",
+                          }}
+                        >
+                          비밀번호
+                        </span>
+                        <div
+                          style={{
+                            border: "1px solid black",
+                            borderRadius: "0px",
+                            marginBottom: "15px",
+                            flexDirection: "row",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                            paddingRight: "8px",
+                            height: "30px",
+                          }}
+                        >
+                          <TextInput
+                            onChangeText={(text) => {
+                              props.setPassword(text);
+                              // props.onPasswordChange()
+                            }}
+                            // onBlur={
+                            //   onPasswordChange()
+                            // }
+                            style={{}}
+                            placeholder="영문,숫자 포함 8-16자"
+                            secureTextEntry={passwordVisible}
+                            value={props.password}
+                          ></TextInput>
                           <div
-                            style={{
-                              display: passwordVisible ? "none" : "block",
+                            onClick={() => {
+                              togglePasswordVisible();
                             }}
                           >
-                            <img
-                              src={eyeIcon}
+                            <div
                               style={{
-                                height: "25px",
-                                width: "25px",
+                                display: passwordVisible ? "none" : "block",
                               }}
-                            />
-                          </div>
-                          <div
-                            style={{
-                              display: passwordVisible ? "block" : "none",
-                            }}
-                          >
-                            <img
-                              src={eyeSlashIcon}
+                            >
+                              <img
+                                src={eyeIcon}
+                                style={{
+                                  height: "25px",
+                                  width: "25px",
+                                }}
+                              />
+                            </div>
+                            <div
                               style={{
-                                height: "25px",
-                                width: "25px",
+                                display: passwordVisible ? "block" : "none",
                               }}
-                            />
+                            >
+                              <img
+                                src={eyeSlashIcon}
+                                style={{
+                                  height: "25px",
+                                  width: "25px",
+                                }}
+                              />
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      {/* <TextInput 
+                        {/* <TextInput 
                                 onChangeText={
                                 text=>{
                                     props.setPassword(text)
@@ -2022,95 +2023,7 @@ function LogIn(props) {
                                 
                                 
                             </TouchableOpacity> */}
-                    </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                      }}
-                    >
-                      <span
-                        style={{
-                          // marginTop:'5px',
-
-                          lineHeight: "30px",
-                        }}
-                      >
-                        비밀번호 확인
-                      </span>
-                      <div
-                        style={{
-                          border: "1px solid black",
-                          borderRadius: "0px",
-                          marginBottom: "15px",
-                          flexDirection: "row",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "space-between",
-                          paddingRight: "8px",
-                          height: "30px",
-                        }}
-                      >
-                        <TextInput
-                          onChangeText={(text) => {
-                            props.setPasswordCheck(text);
-                            // props.onPasswordChange()
-                          }}
-                          // onBlur={
-                          //   onPasswordChange()
-                          // }
-                          style={{}}
-                          placeholder="영문,숫자 포함 8-16자"
-                          secureTextEntry={passwordCheckVisible}
-                          value={props.passwordCheck}
-                        ></TextInput>
-
-                        <div
-                          onClick={() => {
-                            togglePasswordCheckVisible();
-                          }}
-                        >
-                          <div
-                            style={{
-                              display: passwordCheckVisible ? "none" : "block",
-                            }}
-                          >
-                            <img
-                              src={eyeIcon}
-                              style={{
-                                height: "25px",
-                                width: "25px",
-                              }}
-                            />
-                          </div>
-                          <div
-                            style={{
-                              display: passwordCheckVisible ? "block" : "none",
-                            }}
-                          >
-                            <img
-                              src={eyeSlashIcon}
-                              style={{
-                                height: "25px",
-                                width: "25px",
-                              }}
-                            />
-                          </div>
-                        </div>
                       </div>
-                      <span>사업자등록증 및 명함 업로드</span>
-                      {/* <ImageUploader
-                        withIcon={true}
-                        buttonText="이미지 업로드"
-                        onChange={onDrop}
-                        imgExtension={[".jpg", ".gif", ".png", ".gif"]}
-                        maxFileSize={5242880}
-                      /> */}
-                      {/* <label>이미지 업로드</label> */}
-                      <input type="file" onChange={handleImagePreview} />
-
-                      {/* <input type="submit" onClick={handleSubmitFile} value="Submit"/> */}
-
                       <div
                         style={{
                           display: "flex",
@@ -2119,89 +2032,181 @@ function LogIn(props) {
                       >
                         <span
                           style={{
-                            fontWeight: 700,
-                            marginBottom: "8px",
-                            marginTop: "8px",
+                            // marginTop:'5px',
+
+                            lineHeight: "30px",
                           }}
                         >
-                          약관동의
-                        </span>
-                        <span
-                          style={{
-                            color: "rgb(119,119,119)",
-                            marginBottom: "8px",
-                          }}
-                        >
-                          서비스 이용을 위해서 약관을 확인해 주세요.
+                          비밀번호 확인
                         </span>
                         <div
                           style={{
-                            display: "flex",
+                            border: "1px solid black",
+                            borderRadius: "0px",
+                            marginBottom: "15px",
                             flexDirection: "row",
-                            marginBottom: "8px",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                            paddingRight: "8px",
+                            height: "30px",
                           }}
                         >
+                          <TextInput
+                            onChangeText={(text) => {
+                              props.setPasswordCheck(text);
+                              // props.onPasswordChange()
+                            }}
+                            // onBlur={
+                            //   onPasswordChange()
+                            // }
+                            style={{}}
+                            placeholder="영문,숫자 포함 8-16자"
+                            secureTextEntry={passwordCheckVisible}
+                            value={props.passwordCheck}
+                          ></TextInput>
+
                           <div
                             onClick={() => {
-                              toggleTermsOfServicePopUpShow();
+                              togglePasswordCheckVisible();
                             }}
                           >
-                            <span
+                            <div
                               style={{
-                                textDecoration: "underline",
+                                display: passwordCheckVisible
+                                  ? "none"
+                                  : "block",
                               }}
                             >
-                              서비스 이용 약관,
-                            </span>
-                          </div>
-                          <span>&nbsp;</span>
-                          <div
-                            onClick={() => {
-                              togglePrivacyPolicyPopUpShow();
-                            }}
-                          >
-                            <span
+                              <img
+                                src={eyeIcon}
+                                style={{
+                                  height: "25px",
+                                  width: "25px",
+                                }}
+                              />
+                            </div>
+                            <div
                               style={{
-                                textDecoration: "underline",
+                                display: passwordCheckVisible
+                                  ? "block"
+                                  : "none",
                               }}
                             >
-                              개인정보 취급 방침
-                            </span>
+                              <img
+                                src={eyeSlashIcon}
+                                style={{
+                                  height: "25px",
+                                  width: "25px",
+                                }}
+                              />
+                            </div>
                           </div>
-                          <span>에 동의하시겠습니까?</span>
                         </div>
+                        <span>사업자등록증 및 명함 업로드</span>
+                        {/* <ImageUploader
+                        withIcon={true}
+                        buttonText="이미지 업로드"
+                        onChange={onDrop}
+                        imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+                        maxFileSize={5242880}
+                      /> */}
+                        {/* <label>이미지 업로드</label> */}
+                        <input type="file" onChange={handleImagePreview} />
+
+                        {/* <input type="submit" onClick={handleSubmitFile} value="Submit"/> */}
+
                         <div
                           style={{
                             display: "flex",
-                            flexDirection: "row",
-                            justifyContent: "start",
-                            marginTop: "4px",
-                            marginBottom: "8px",
+                            flexDirection: "column",
                           }}
                         >
-                          <input
-                            type="checkbox"
-                            style={{
-                              width: "18px",
-                              height: "18px",
-                              marginRight: "8px",
-                            }}
-                            onChange={
-                              (e) => checkboxClicked(e)
-                              // categoryCheckboxClicked(index,e,category.code_name,category.code_text)
-                            }
-                          />
                           <span
                             style={{
-                              lineHeight: "18px",
+                              fontWeight: 700,
+                              marginBottom: "8px",
+                              marginTop: "8px",
                             }}
                           >
-                            약관을 확인했으며, 동의합니다
+                            약관동의
                           </span>
+                          <span
+                            style={{
+                              color: "rgb(119,119,119)",
+                              marginBottom: "8px",
+                            }}
+                          >
+                            서비스 이용을 위해서 약관을 확인해 주세요.
+                          </span>
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "row",
+                              marginBottom: "8px",
+                            }}
+                          >
+                            <div
+                              onClick={() => {
+                                toggleTermsOfServicePopUpShow();
+                              }}
+                            >
+                              <span
+                                style={{
+                                  textDecoration: "underline",
+                                }}
+                              >
+                                서비스 이용 약관,
+                              </span>
+                            </div>
+                            <span>&nbsp;</span>
+                            <div
+                              onClick={() => {
+                                togglePrivacyPolicyPopUpShow();
+                              }}
+                            >
+                              <span
+                                style={{
+                                  textDecoration: "underline",
+                                }}
+                              >
+                                개인정보 취급 방침
+                              </span>
+                            </div>
+                            <span>에 동의하시겠습니까?</span>
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "row",
+                              justifyContent: "start",
+                              marginTop: "4px",
+                              marginBottom: "8px",
+                            }}
+                          >
+                            <input
+                              type="checkbox"
+                              style={{
+                                width: "18px",
+                                height: "18px",
+                                marginRight: "8px",
+                              }}
+                              onChange={
+                                (e) => checkboxClicked(e)
+                                // categoryCheckboxClicked(index,e,category.code_name,category.code_text)
+                              }
+                            />
+                            <span
+                              style={{
+                                lineHeight: "18px",
+                              }}
+                            >
+                              약관을 확인했으며, 동의합니다
+                            </span>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    {/* <div
+                      {/* <div
                                 style={{
                                     display:'flex',
                                     flexDirection:'column'
@@ -2235,86 +2240,89 @@ function LogIn(props) {
                                 value={props.passwordCheck}
                             ></TextInput>
                             </div> */}
-                  </div>
+                    </div>
 
-                  <div
-                    style={{
-                      // display: emailLogIn ? 'none':'block',
-                      borderTop: "1px solid rgb(221,221,221)",
-                      paddingLeft: "15px",
-                      paddingRight: "15px",
-                      paddingBottom: "15px",
-                    }}
-                  >
                     <div
                       style={{
-                        marginTop: "15px",
-                        backgroundColor: membershipButtonDisabled
-                          ? "rgb(170,170,170)"
-                          : "rgb(255,123,88)",
-                        borderRadius: "10px",
-                        height: "40px",
-                        textAlign: "center",
-                        justifyContent: "center",
-                        pointerEvents: membershipButtonDisabled? "none":"auto",
-                        cursor:"pointer"
-                      }}
-                      disabled={membershipButtonDisabled}
-                      onClick={() => {
-                        // props.logInFunction(
-                        //     {
-                        //         mem_jointype:'MOBILE',
-                        //         mem_password:props.password,
-                        //         mem_token:null,
-                        //         mem_mobile:props.userPhoneNumber
-                        //     }
-                        // )
-                        // findPasswordFunction({
-                        //     mem_mobile:props.userPhoneNumber
-                        // })
-                        // console.log("'"+pincodeValue.toString()+"'")
-                        // console.log(pincodeAnswer)
-                        // var temp = pincodeAnswer.slice()
-                        // if(pincodeValue.toString()!=''){
-                        //     console.log('in')
-                        //     if("'"+pincodeValue.toString()+"'"==pincodeAnswer){
-                        //         console.log('next')
-                        //         setRegistrationScreen(3)
-                        //     }
-                        // }
-                        var memberObj = {
-                          mem_name: props.userName,
-                          mem_email: props.userEmail,
-                          mem_mobile: props.userPhoneNumber,
-                          // mem_jointype:'MOBILE',
-                          mem_jointype: props.joinType,
-                          // mem_level:'NORMAL',
-                          mem_level: "EXPERT",
-                          mem_password: props.password,
-                          mem_company_name: props.userCompanyName,
-                          mem_company_url: props.userCompanyWebSite,
-                          mem_snsid: props.SNSID,
-                        };
-                        if (props.SNSID == null) {
-                          delete memberObj.mem_snsid;
-                        }
-
-                        memberRegistrationFunction(memberObj);
-                        // setRegistrationScreen(1)
+                        // display: emailLogIn ? 'none':'block',
+                        borderTop: "1px solid rgb(221,221,221)",
+                        paddingLeft: "15px",
+                        paddingRight: "15px",
+                        paddingBottom: "15px",
                       }}
                     >
                       <div
                         style={{
-                          transform:"translate(0px,6px)"
+                          marginTop: "15px",
+                          backgroundColor: membershipButtonDisabled
+                            ? "rgb(170,170,170)"
+                            : "rgb(255,123,88)",
+                          borderRadius: "10px",
+                          height: "40px",
+                          textAlign: "center",
+                          justifyContent: "center",
+                          pointerEvents: membershipButtonDisabled
+                            ? "none"
+                            : "auto",
+                          cursor: "pointer",
+                        }}
+                        disabled={membershipButtonDisabled}
+                        onClick={() => {
+                          // props.logInFunction(
+                          //     {
+                          //         mem_jointype:'MOBILE',
+                          //         mem_password:props.password,
+                          //         mem_token:null,
+                          //         mem_mobile:props.userPhoneNumber
+                          //     }
+                          // )
+                          // findPasswordFunction({
+                          //     mem_mobile:props.userPhoneNumber
+                          // })
+                          // console.log("'"+pincodeValue.toString()+"'")
+                          // console.log(pincodeAnswer)
+                          // var temp = pincodeAnswer.slice()
+                          // if(pincodeValue.toString()!=''){
+                          //     console.log('in')
+                          //     if("'"+pincodeValue.toString()+"'"==pincodeAnswer){
+                          //         console.log('next')
+                          //         setRegistrationScreen(3)
+                          //     }
+                          // }
+                          var memberObj = {
+                            mem_name: props.userName,
+                            mem_email: props.userEmail,
+                            mem_mobile: props.userPhoneNumber,
+                            // mem_jointype:'MOBILE',
+                            mem_jointype: props.joinType,
+                            // mem_level:'NORMAL',
+                            mem_level: "EXPERT",
+                            mem_password: props.password,
+                            mem_company_name: props.userCompanyName,
+                            mem_company_url: props.userCompanyWebSite,
+                            mem_snsid: props.SNSID,
+                          };
+                          if (props.SNSID == null) {
+                            delete memberObj.mem_snsid;
+                          }
+
+                          memberRegistrationFunction(memberObj);
+                          // setRegistrationScreen(1)
                         }}
                       >
-                        <span
+                        <div
                           style={{
-                            color: "white",
+                            transform: "translate(0px,6px)",
                           }}
                         >
-                          확인
-                        </span>
+                          <span
+                            style={{
+                              color: "white",
+                            }}
+                          >
+                            확인
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -2322,420 +2330,426 @@ function LogIn(props) {
               </div>
             </div>
           </div>
-        </div>
         </Font>
       );
     }
   } else {
     return (
-      <Font family='Noto Sans KR'>
-      <div>
-        <div
-          style={{
-            display: noExistMemberShow ? "block" : "none",
-          }}
-        >
-          <NoExistMember toggleNoExistMemberShow={toggleNoExistMemberShow} />
-        </div>
-        <div
-          style={{
-            display: sentMessageShow ? "block" : "none",
-          }}
-        >
-          <SentMessage toggleSentMessageShow={toggleSentMessageShow} />
-        </div>
-        <div
-          style={{
-            display: sentEmailShow ? "block" : "none",
-          }}
-        >
-          <SentEmail
-            secureEmailString={secureEmailString}
-            toggleSentEmailShow={toggleSentEmailShow}
-          />
-        </div>
-        <div
-          style={{
-            display: showRegistrationSuccessScreen ? "block" : "none",
-          }}
-        >
-          <RegistrationSuccess
-            toggleShowRegistrationSuccessScreen={
-              toggleShowRegistrationSuccessScreen
-            }
-          />
-        </div>
-        <div
-          style={{
-            display: emailAlreadyExistsScreen ? "block" : "none",
-          }}
-        >
-          <EmailAlreadyExists
-            toggleEmailAlreadyExistsScreen={toggleEmailAlreadyExistsScreen}
-          />
-        </div>
-        <div
-          style={{
-            position: "fixed",
-            height: "100vh",
-            width: "100vw",
-            top: 0,
-            left: 0,
-            backgroundColor: "rgba(0,0,0,0.5)",
-            display: "block",
-            //   padding:'160px',
-            zIndex: 101,
-          }}
-        >
+      <Font family="Noto Sans KR">
+        <div>
           <div
             style={{
-              paddingTop: "100px",
-              // paddingLeft:'65px',
-              // paddingRight:'65px'
+              display: noExistMemberShow ? "block" : "none",
+            }}
+          >
+            <NoExistMember toggleNoExistMemberShow={toggleNoExistMemberShow} />
+          </div>
+          <div
+            style={{
+              display: sentMessageShow ? "block" : "none",
+            }}
+          >
+            <SentMessage toggleSentMessageShow={toggleSentMessageShow} />
+          </div>
+          <div
+            style={{
+              display: sentEmailShow ? "block" : "none",
+            }}
+          >
+            <SentEmail
+              secureEmailString={secureEmailString}
+              toggleSentEmailShow={toggleSentEmailShow}
+            />
+          </div>
+          <div
+            style={{
+              display: showRegistrationSuccessScreen ? "block" : "none",
+            }}
+          >
+            <RegistrationSuccess
+              toggleShowRegistrationSuccessScreen={
+                toggleShowRegistrationSuccessScreen
+              }
+            />
+          </div>
+          <div
+            style={{
+              display: emailAlreadyExistsScreen ? "block" : "none",
+            }}
+          >
+            <EmailAlreadyExists
+              toggleEmailAlreadyExistsScreen={toggleEmailAlreadyExistsScreen}
+            />
+          </div>
+          <div
+            style={{
+              position: "fixed",
+              height: "100vh",
+              width: "100vw",
+              top: 0,
+              left: 0,
+              backgroundColor: "rgba(0,0,0,0.5)",
+              display: "block",
+              //   padding:'160px',
+              zIndex: 101,
             }}
           >
             <div
               style={{
-                textAlign: "left",
-                // margin:'25pt'
-                paddingLeft: "0px",
-                paddingRight: "0px",
-                backgroundColor: "transparent",
-              }}
-            ></div>
-
-            <div
-              style={{
-                borderRadius: "10px",
-                backgroundColor: "white",
-                // width:'100%',
-                width: "500px",
-                height: emailLogIn ? "520px" : "500px",
-                paddingTop: "15px",
-                // columnCount:3,
-                // flexwrap:'wrap',
-                // flexDirection:'column',
-                // display: 'grid',
-                // gridTemplateColumns: 'auto auto',
-                // // padding:'100px',
-                overflowY: "scroll",
-                marginLeft: "auto",
-                marginRight: "auto",
+                paddingTop: "100px",
+                // paddingLeft:'65px',
+                // paddingRight:'65px'
               }}
             >
               <div
                 style={{
+                  textAlign: "left",
+                  // margin:'25pt'
+                  paddingLeft: "0px",
+                  paddingRight: "0px",
+                  backgroundColor: "transparent",
+                }}
+              ></div>
+
+              <div
+                style={{
+                  borderRadius: "10px",
                   backgroundColor: "white",
-                  height: emailLogIn ? "400px" : "380px",
-                  width: "100%",
-                  borderBottomLeftRadius: "10px",
-                  borderBottomRightRadius: "10px",
+                  // width:'100%',
+                  width: "500px",
+                  height: emailLogIn ? "520px" : "500px",
+                  paddingTop: "15px",
+                  // columnCount:3,
+                  // flexwrap:'wrap',
+                  // flexDirection:'column',
+                  // display: 'grid',
+                  // gridTemplateColumns: 'auto auto',
+                  // // padding:'100px',
+                  overflowY: "scroll",
+                  marginLeft: "auto",
+                  marginRight: "auto",
                 }}
               >
                 <div
                   style={{
-                    position: "relative",
-                    top: 0,
-                    height: "30px",
+                    backgroundColor: "white",
+                    height: emailLogIn ? "400px" : "380px",
                     width: "100%",
-                    backgroundColor: "white",
-                    borderTopLeftRadius: "10px",
-                    borderTopRightRadius: "10px",
-                    borderBottom: "1px solid rgb(221,221,221)",
+                    borderBottomLeftRadius: "10px",
+                    borderBottomRightRadius: "10px",
                   }}
                 >
                   <div
                     style={{
-                      height: "25px",
-                      width: "25px",
-                      backgroundColor: "transparent",
                       position: "relative",
-                      top: "15px",
-                      left: "15px",
-                      zIndex: 102,
-                      transform: "translate(0px,-18px)",
-                    }}
-                  >
-                    <div
-                      // onPress={() => {
-                      //   props.toggleLogInShow();
-                      // }}
-                      onClick={()=>{
-                        props.toggleLogInShow();
-                      }}
-                    >
-                      <img
-                        src={xIcon}
-                        style={{
-                          height: "25px",
-                          width: "25px",
-                        }}
-                      ></img>
-                    </div>
-                  </div>
-                  <div
-                    style={{
-                      transform: "translate(0px,-25px)",
-                    }}
-                  >
-                  <span
-                    style={{
-                      fontWeight: 700,
-                      transform: "translate(0px,-25px)",
-                    }}
-                  >
-                    로그인
-                  </span>
-                  </div>
-                </div>
-
-                <div
-                  style={{
-                    display: "block",
-                    textAlign: "left",
-                    paddingLeft: "15px",
-                    paddingRight: "15px",
-                    paddingTop: "15px",
-                    overflowY: "scroll",
-                    backgroundColor: "white",
-                    height: "100%",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: emailLogIn ? "none" : "block",
+                      top: 0,
+                      height: "30px",
+                      width: "100%",
+                      backgroundColor: "white",
+                      borderTopLeftRadius: "10px",
+                      borderTopRightRadius: "10px",
+                      borderBottom: "1px solid rgb(221,221,221)",
                     }}
                   >
                     <div
                       style={{
-                        display: 'flex',
-                        flexDirection:'column'
+                        height: "25px",
+                        width: "25px",
+                        backgroundColor: "transparent",
+                        position: "relative",
+                        top: "15px",
+                        left: "15px",
+                        zIndex: 102,
+                        transform: "translate(0px,-18px)",
+                      }}
+                    >
+                      <div
+                        // onPress={() => {
+                        //   props.toggleLogInShow();
+                        // }}
+                        onClick={() => {
+                          props.toggleLogInShow();
+                        }}
+                      >
+                        <img
+                          src={xIcon}
+                          style={{
+                            height: "25px",
+                            width: "25px",
+                          }}
+                        ></img>
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        transform: "translate(0px,-25px)",
                       }}
                     >
                       <span
                         style={{
-                          fontSize:'14px'
+                          fontWeight: 700,
+                          transform: "translate(0px,-25px)",
                         }}
-                      >휴대폰번호</span>
-
-                      <TextInput
-                        onChangeText={(text) => {
-                          props.setUserPhoneNumber(text);
-                          // props.onPhoneNumberChange()
-                        }}
-                        style={{
-                          border: "1px solid black",
-                          borderRadius: "0px",
-                          resize:'none',
-                        }}
-                        placeholder="'-' 없이 입력"
-                        value={props.userPhoneNumber}
-                      ></TextInput>
+                      >
+                        로그인
+                      </span>
                     </div>
                   </div>
+
                   <div
                     style={{
-                      display: emailLogIn ? "block" : "none",
+                      display: "block",
+                      textAlign: "left",
+                      paddingLeft: "15px",
+                      paddingRight: "15px",
+                      paddingTop: "15px",
+                      overflowY: "scroll",
+                      backgroundColor: "white",
+                      height: "100%",
                     }}
                   >
                     <div
                       style={{
-                        display:'flex',
-                        flexDirection:'column'
+                        display: emailLogIn ? "none" : "block",
                       }}
                     >
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                        }}
+                      >
+                        <span
+                          style={{
+                            fontSize: "14px",
+                          }}
+                        >
+                          휴대폰번호
+                        </span>
+
+                        <TextInput
+                          onChangeText={(text) => {
+                            props.setUserPhoneNumber(text);
+                            // props.onPhoneNumberChange()
+                          }}
+                          style={{
+                            border: "1px solid black",
+                            borderRadius: "0px",
+                            resize: "none",
+                          }}
+                          placeholder="'-' 없이 입력"
+                          value={props.userPhoneNumber}
+                        ></TextInput>
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        display: emailLogIn ? "block" : "none",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                        }}
+                      >
+                        <span
+                          style={{
+                            fontSize: "14px",
+                          }}
+                        >
+                          이메일 주소
+                        </span>
+
+                        <TextInput
+                          onChangeText={(text) => {
+                            props.setUserEmail(text);
+                            // props.onPhoneNumberChange()
+                          }}
+                          style={{
+                            border: "1px solid black",
+                            borderRadius: "0px",
+                            resize: "none",
+                          }}
+                          placeholder="이메일 주소 입력"
+                          value={props.userEmail}
+                        ></TextInput>
+                      </div>
+                    </div>
                     <span
                       style={{
-                        fontSize:'14px'
+                        fontSize: "14px",
                       }}
-                    >이메일 주소</span>
-
-                    <TextInput
-                      onChangeText={(text) => {
-                        props.setUserEmail(text);
-                        // props.onPhoneNumberChange()
-                      }}
+                    >
+                      비밀번호
+                    </span>
+                    <div
                       style={{
                         border: "1px solid black",
                         borderRadius: "0px",
-                        resize:'none'
-                      }}
-                      placeholder="이메일 주소 입력"
-                      value={props.userEmail}
-                    ></TextInput>
-                    </div>
-                  </div>
-                  <span
-                    style={{
-                      fontSize:'14px'
-                    }}
-                  >비밀번호</span>
-                  <div
-                    style={{
-                      border: "1px solid black",
-                      borderRadius: "0px",
-                      marginBottom: "15px",
-                      flexDirection: "row",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      paddingRight: "8px",
-                    }}
-                  >
-                    <TextInput
-                      onChangeText={(text) => {
-                        props.setPassword(text);
-                        // props.onPasswordChange()
-                      }}
-                      // onBlur={
-                      //   onPasswordChange()
-                      // }
-                      style={{}}
-                      placeholder="영문,숫자 포함 8-16자"
-                      secureTextEntry={passwordVisible}
-                      value={props.password}
-                    ></TextInput>
-                    <div
-                      // onPress={() => {
-                      //   togglePasswordVisible();
-                      // }}
-                      onClick={()=>{
-                        togglePasswordVisible()
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: passwordVisible ? "none" : "block",
-                        }}
-                      >
-                        <img
-                          src={eyeIcon}
-                          style={{
-                            height: "25px",
-                            width: "25px",
-                          }}
-                        />
-                      </div>
-                      <div
-                        style={{
-                          display: passwordVisible ? "block" : "none",
-                        }}
-                      >
-                        <img
-                          src={eyeSlashIcon}
-                          style={{
-                            height: "25px",
-                            width: "25px",
-                          }}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    onClick={() => {
-                      setFindPassWord(true);
-                    }}
-                    style={{
-                      cursor:'pointer'
-                    }}
-                  >
-                    <span
-                     style={{
-                       fontSize:'14px'
-                     }}
-                    >비밀번호를 잊으셨나요?</span>
-                  </div>
-                  <div
-                    style={{
-                      display: emailLogIn ? "block" : "none",
-                    }}
-                  >
-                    <div
-                      onClick={() => {
-                        console.log("Email find on");
-                        setFindEmail(true);
-                      }}
-                      style={{
-                        cursor:'pointer'
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontSize:'14px'
-                        }}
-                      >이메일 찾기</span>
-                    </div>
-                  </div>
-                  <hr></hr>
-                  <div
-                    style={{
-                      display: emailLogIn ? "none" : "block",
-                    }}
-                  >
-                    <div
-                      style={{
-                        border: "1px solid black",
-                        borderRadius: "10px",
-                        height: "40px",
-                        textAlign: "center",
-                        justifyContent: "center",
                         marginBottom: "15px",
-                        cursor:'pointer'
+                        flexDirection: "row",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        paddingRight: "8px",
                       }}
+                    >
+                      <TextInput
+                        onChangeText={(text) => {
+                          props.setPassword(text);
+                          // props.onPasswordChange()
+                        }}
+                        // onBlur={
+                        //   onPasswordChange()
+                        // }
+                        style={{}}
+                        placeholder="영문,숫자 포함 8-16자"
+                        secureTextEntry={passwordVisible}
+                        value={props.password}
+                      ></TextInput>
+                      <div
+                        // onPress={() => {
+                        //   togglePasswordVisible();
+                        // }}
+                        onClick={() => {
+                          togglePasswordVisible();
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: passwordVisible ? "none" : "block",
+                          }}
+                        >
+                          <img
+                            src={eyeIcon}
+                            style={{
+                              height: "25px",
+                              width: "25px",
+                            }}
+                          />
+                        </div>
+                        <div
+                          style={{
+                            display: passwordVisible ? "block" : "none",
+                          }}
+                        >
+                          <img
+                            src={eyeSlashIcon}
+                            style={{
+                              height: "25px",
+                              width: "25px",
+                            }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div
                       onClick={() => {
-                        toggleEmailLogIn();
+                        setFindPassWord(true);
+                      }}
+                      style={{
+                        cursor: "pointer",
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontSize: "14px",
+                        }}
+                      >
+                        비밀번호를 잊으셨나요?
+                      </span>
+                    </div>
+                    <div
+                      style={{
+                        display: emailLogIn ? "block" : "none",
+                      }}
+                    >
+                      <div
+                        onClick={() => {
+                          console.log("Email find on");
+                          setFindEmail(true);
+                        }}
+                        style={{
+                          cursor: "pointer",
+                        }}
+                      >
+                        <span
+                          style={{
+                            fontSize: "14px",
+                          }}
+                        >
+                          이메일 찾기
+                        </span>
+                      </div>
+                    </div>
+                    <hr></hr>
+                    <div
+                      style={{
+                        display: emailLogIn ? "none" : "block",
                       }}
                     >
                       <div
                         style={{
-                          transform:'translate(0px,6px)'
+                          border: "1px solid black",
+                          borderRadius: "10px",
+                          height: "40px",
+                          textAlign: "center",
+                          justifyContent: "center",
+                          marginBottom: "15px",
+                          cursor: "pointer",
+                        }}
+                        onClick={() => {
+                          toggleEmailLogIn();
                         }}
                       >
-                      <span
-                        style={{
-                          color: "black",
-                          fontSize:'14px',
-                          
-                        }}
-                      >
-                        이메일로 로그인
-                      </span>
+                        <div
+                          style={{
+                            transform: "translate(0px,6px)",
+                          }}
+                        >
+                          <span
+                            style={{
+                              color: "black",
+                              fontSize: "14px",
+                            }}
+                          >
+                            이메일로 로그인
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    style={{
-                      display: emailLogIn ? "block" : "none",
-                    }}
-                  >
                     <div
                       style={{
-                        border: "1px solid black",
-                        borderRadius: "10px",
-                        height: "40px",
-                        textAlign: "center",
-                        justifyContent: "center",
-                        marginBottom: "15px",
-                        cursor:'pointer',
-                        lineHeight:'40px'
-                      }}
-                      onClick={() => {
-                        toggleEmailLogIn();
+                        display: emailLogIn ? "block" : "none",
                       }}
                     >
-      
-                      <span
+                      <div
                         style={{
-                          color: "black",
-                          fontSize:'14px'
+                          border: "1px solid black",
+                          borderRadius: "10px",
+                          height: "40px",
+                          textAlign: "center",
+                          justifyContent: "center",
+                          marginBottom: "15px",
+                          cursor: "pointer",
+                          lineHeight: "40px",
+                        }}
+                        onClick={() => {
+                          toggleEmailLogIn();
                         }}
                       >
-                        휴대폰 번호로 로그인
-                      </span>
-     
+                        <span
+                          style={{
+                            color: "black",
+                            fontSize: "14px",
+                          }}
+                        >
+                          휴대폰 번호로 로그인
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                  {/* <TouchableOpacity
+                    {/* <TouchableOpacity
                         style={{
                             border:"1px solid black",
                             borderRadius:"10px",
@@ -2756,158 +2770,156 @@ function LogIn(props) {
                             카카오로 시작하기
                         </Text>
                     </TouchableOpacity> */}
-                  <div>
-                    <KakaoAuth
-                      logInFunction={props.logInFunction}
-                      setUserEmail={props.setUserEmail}
-                      setSNSID={props.setSNSID}
-                    />
-                  </div>
-                  <div
-                    style={{
-                      border: "1px solid black",
-                      borderRadius: "10px",
-                      height: "40px",
-                      textAlign: "center",
-                      justifyContent: "center",
-                      marginBottom: "15px",
-                      lineHeight:'40px',
-                      cursor:'pointer'
-                    }}
-                    onClick={() => {}}
-                  >
-                    <span
-                      style={{
-                        color: "black",
-                        fontSize:'14px'
-                      }}
-                    >
-                      Apple 계정으로 계속하기
-                    </span>
-                  </div>
-                  {/* <TouchableOpacity>
-                        <AppleAuth/>
-                    </TouchableOpacity> */}
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "row",
-                    }}
-                  >
-                    <span
-
-                    >아직 회원이 아니신가요?</span>
+                    <div>
+                      <KakaoAuth
+                        logInFunction={props.logInFunction}
+                        setUserEmail={props.setUserEmail}
+                        setSNSID={props.setSNSID}
+                      />
+                    </div>
                     <div
                       style={{
+                        border: "1px solid black",
                         borderRadius: "10px",
-                        height: "100%",
+                        height: "40px",
                         textAlign: "center",
                         justifyContent: "center",
-                        marginRight: "15px",
-                        cursor:'pointer'
+                        marginBottom: "15px",
+                        lineHeight: "40px",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => {}}
+                    >
+                      <span
+                        style={{
+                          color: "black",
+                          fontSize: "14px",
+                        }}
+                      >
+                        Apple 계정으로 계속하기
+                      </span>
+                    </div>
+                    {/* <TouchableOpacity>
+                        <AppleAuth/>
+                    </TouchableOpacity> */}
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                      }}
+                    >
+                      <span>아직 회원이 아니신가요?</span>
+                      <div
+                        style={{
+                          borderRadius: "10px",
+                          height: "100%",
+                          textAlign: "center",
+                          justifyContent: "center",
+                          marginRight: "15px",
+                          cursor: "pointer",
+                        }}
+                        onClick={() => {
+                          console.log("registration 1");
+
+                          // setRegistrationScreen(1)
+                          props.setRegistrationScreen(1);
+                        }}
+                      >
+                        <span
+                          style={{
+                            marginLeft: "10px",
+                            color: "black",
+                            fontWeight: 700,
+                            marginRight: "10px",
+                            fontSize: "14px",
+                          }}
+                        >
+                          회원가입
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      display: emailLogIn ? "none" : "block",
+                      borderTop: "1px solid rgb(221,221,221)",
+                      paddingLeft: "15px",
+                      paddingRight: "15px",
+                      paddingBottom: "15px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        marginTop: "15px",
+                        backgroundColor: "rgb(255,123,88)",
+                        borderRadius: "10px",
+                        height: "40px",
+                        textAlign: "center",
+                        justifyContent: "center",
+                        lineHeight: "40px",
+                        cursor: "pointer",
                       }}
                       onClick={() => {
-                        console.log("registration 1");
-
-                        // setRegistrationScreen(1)
-                        props.setRegistrationScreen(1);
+                        props.logInFunction({
+                          mem_jointype: "MOBILE",
+                          mem_password: props.password,
+                          mem_token: null,
+                          mem_mobile: props.userPhoneNumber,
+                        });
                       }}
                     >
                       <span
                         style={{
-                          marginLeft: "10px",
-                          color: "black",
-                          fontWeight: 700,
-                          marginRight: "10px",
-                          fontSize:'14px'
+                          color: "white",
+                          fontSize: "14px",
                         }}
                       >
-                        회원가입
+                        로그인
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      display: emailLogIn ? "block" : "none",
+                      borderTop: "1px solid rgb(221,221,221)",
+                      paddingLeft: "15px",
+                      paddingRight: "15px",
+                      paddingBottom: "15px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        marginTop: "15px",
+                        backgroundColor: "rgb(255,123,88)",
+                        borderRadius: "10px",
+                        height: "40px",
+                        textAlign: "center",
+                        justifyContent: "center",
+                      }}
+                      onClick={() => {
+                        props.logInFunction({
+                          mem_jointype: "MOBILE",
+                          mem_password: props.password,
+                          mem_token: null,
+                          mem_email: props.userEmail,
+                        });
+                      }}
+                    >
+                      <span
+                        style={{
+                          color: "white",
+                        }}
+                      >
+                        로그인
                       </span>
                     </div>
                   </div>
                 </div>
-                <div
-                  style={{
-                    display: emailLogIn ? "none" : "block",
-                    borderTop: "1px solid rgb(221,221,221)",
-                    paddingLeft: "15px",
-                    paddingRight: "15px",
-                    paddingBottom: "15px",
-                  }}
-                >
-                  <div
-                    style={{
-                      marginTop: "15px",
-                      backgroundColor: "rgb(255,123,88)",
-                      borderRadius: "10px",
-                      height: "40px",
-                      textAlign: "center",
-                      justifyContent: "center",
-                      lineHeight:'40px',
-                      cursor:'pointer'
-                    }}
-                    onClick={() => {
-                      props.logInFunction({
-                        mem_jointype: "MOBILE",
-                        mem_password: props.password,
-                        mem_token: null,
-                        mem_mobile: props.userPhoneNumber,
-                      });
-                    }}
-                  >
-                    <span
-                      style={{
-                        color: "white",
-                        fontSize:'14px'
-                      }}
-                    >
-                      로그인
-                    </span>
-                  </div>
-                </div>
-                <div
-                  style={{
-                    display: emailLogIn ? "block" : "none",
-                    borderTop: "1px solid rgb(221,221,221)",
-                    paddingLeft: "15px",
-                    paddingRight: "15px",
-                    paddingBottom: "15px",
-                  }}
-                >
-                  <TouchableOpacity
-                    style={{
-                      marginTop: "15px",
-                      backgroundColor: "rgb(255,123,88)",
-                      borderRadius: "10px",
-                      height: "40px",
-                      textAlign: "center",
-                      justifyContent: "center",
-                    }}
-                    onPress={() => {
-                      props.logInFunction({
-                        mem_jointype: "MOBILE",
-                        mem_password: props.password,
-                        mem_token: null,
-                        mem_email: props.userEmail,
-                      });
-                    }}
-                  >
-                    <Text
-                      style={{
-                        color: "white",
-                      }}
-                    >
-                      로그인
-                    </Text>
-                  </TouchableOpacity>
-                </div>
+                {/* <Text>{props.material_num}</Text> */}
               </div>
-              {/* <Text>{props.material_num}</Text> */}
             </div>
           </div>
         </div>
-      </div>
       </Font>
     );
   }
