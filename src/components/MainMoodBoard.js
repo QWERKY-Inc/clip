@@ -2,16 +2,16 @@ import React, { useEffect } from "react";
 import Navbar from "./Navbar";
 import NavBarFiller from "./NavBarFiller";
 import { MoodboardCard } from "./MoodboardCard";
-import {
-  TouchableOpacity,
-  Text,
-  Image,
-  View,
-  Modal,
-  TouchableHighlight,
-  Dimensions,
-  Linking,
-} from "react-native";
+// import {
+//   TouchableOpacity,
+//   Text,
+//   Image,
+//   View,
+//   Modal,
+//   TouchableHighlight,
+//   Dimensions,
+//   Linking,
+// } from "react-native";
 import styled from "styled-components";
 import Font from "react-font";
 const ContainerOne = styled.div`
@@ -119,15 +119,15 @@ const ContainerSeven = styled.div`
 `;
 function MainMoodBoard() {
   const [data, setData] = React.useState(undefined);
-  const [height, setHeight] = React.useState(Dimensions.get("window").height);
-  const [width, setWidth] = React.useState(Dimensions.get("window").width);
-  const onChange = () => {
-    setHeight(Dimensions.get("window").height);
-    setWidth(Dimensions.get("window").width);
-    // console.log(height+" : "+width)
-  };
+  // const [height, setHeight] = React.useState(Dimensions.get("window").height);
+  // const [width, setWidth] = React.useState(Dimensions.get("window").width);
+  // const onChange = () => {
+  //   setHeight(Dimensions.get("window").height);
+  //   setWidth(Dimensions.get("window").width);
+  //   // console.log(height+" : "+width)
+  // };
   useEffect(() => {
-    Dimensions.addEventListener("change", onChange);
+    // Dimensions.addEventListener("change", onChange);
     fetch("/Mainitem")
       .then((res) => res.json())
       .catch((err) => {
