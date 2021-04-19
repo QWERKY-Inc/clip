@@ -114,6 +114,9 @@ const ResponsiveContainer = styled.div`
     padding-right: 77pt;
   }
 `;
+const ContainerSeven = styled.div`
+  text-align: center;
+`;
 function MainMoodBoard() {
   const [data, setData] = React.useState(undefined);
   const [height, setHeight] = React.useState(Dimensions.get("window").height);
@@ -179,13 +182,9 @@ function MainMoodBoard() {
     return (
       <Font family="Noto Sans KR">
         <div className="MainContent">
-          <div
-            style={{
-              textAlign: "center",
-            }}
-          >
+          <ContainerSeven>
             <span>로딩중 ...</span>
-          </div>
+          </ContainerSeven>
         </div>
       </Font>
     );
