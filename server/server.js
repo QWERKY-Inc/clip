@@ -431,9 +431,49 @@ app.get("/wholeuselist", (req, res) => {
 app.get("/search", (req, res) => {
   // console.log('http://clip.partners/api/mobile/Material?'+queryString.stringify(req.query))
   //console.log(queryString.stringify(req.query))
+  var a = { ...req.query };
+  console.log(req.query.list_category);
+  delete a["list_category"];
+  delete a["list_use"];
+  delete a["list_brand"];
+  delete a["list_color"];
+  var categoryString = "";
+  if (req.query.list_category != undefined) {
+    categoryString = "&list_category=[" + String(req.query.list_category) + "]";
+  }
+  var useageString = "";
+  if (req.query.list_use != undefined) {
+    useageString = "&list_use=[" + String(req.query.list_use) + "]";
+  }
+  var brandString = "";
+  if (req.query.list_brand != undefined) {
+    brandString = "&list_brand=[" + String(req.query.list_brand) + "]";
+  }
+  var colorString = "";
+  if (req.query.list_color != undefined) {
+    colorString =
+      "&list_color=[%22" +
+      String(req.query.list_color).replace(/,/g, "%22,%22") +
+      "%22]";
+  }
+  var patternString = "";
+  if (req.query.list_pattern != undefined) {
+    patternString =
+      "&list_pattern=[%22" +
+      String(req.query.list_pattern).replace(/,/g, "%22,%22") +
+      "%22]";
+  }
+  var qString =
+    queryString.stringify(a) +
+    categoryString +
+    useageString +
+    brandString +
+    colorString +
+    patternString;
   fetch(
     "http://clip.partners/api/mobile/Material?" +
-      queryString.stringify(req.query)
+      // queryString.stringify(req.query)
+      qString
   )
     .then((res) => res.json())
     .then((data) => {
@@ -553,6 +593,8 @@ app.get("/detailedsearch", (req, res) => {
     brandString +
     colorString +
     patternString;
+
+  console.log(qString);
   //res.json(qString)
   fetch("http://clip.partners/api/mobile/Material?" + qString)
     .then((res) => res.json())
