@@ -26,8 +26,97 @@ const ContainerOne = styled.div`
   padding-top: 50px;
   padding-left: 65px;
   padding-right: 65px;
+  text-align: left;
 `;
 
+const XContainer = styled.div`
+  height: 25px;
+  width: 25px;
+  background-color: transparent;
+  position: absolute;
+  top: 62px;
+  right: 75px;
+`;
+
+const XImg = styled.img`
+  height: 25px;
+  width: 25px;
+`;
+
+const SpanOne = styled.span`
+  font-size: 40px;
+  font-weight: 700;
+  text-decoration-line: none;
+  color: black;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 5px;
+  pointer-events: none;
+`;
+const FillerOne = styled.div`
+  height: 20px;
+  width: 100vw;
+  background-color: transparent;
+`;
+const GridOne = styled.div`
+  column-count: 3;
+  flex-wrap: wrap;
+  flex-direction: column;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  // padding:'100px';
+  width: 80vw;
+  height: 62vh;
+  overflow-y: scroll;
+`;
+const GridDivOne = styled.div`
+  text-align: left;
+  height: 240px;
+  background-color: transparent;
+`;
+const GridSpanOne = styled.div`
+  font-size: 15pt;
+  font-weight: 700;
+  text-decoration-line: none;
+  color: black;
+  text-align: left;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  // marginTop:'45pt';
+  pointer-events: none;
+  background-color: transparent;
+  pointer-events: none;
+`;
+const GridDivTwo = styled.div`
+  flex-direction: column;
+`;
+const GridDivThree = styled.div`
+  padding-top: 7px;
+`;
+const GridLinkOne = styled.a`
+  text-decoration: none;
+`;
+const GridSpanTwo = styled.span`
+  font-size: 12pt;
+  font-weight: 500;
+  text-decoration-line: none;
+  color: black;
+  text-align: left;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  // marginTop:'45pt';
+  pointer-events: none;
+  background-color: transparent;
+  pointer-events: none;
+  line-height: 12pt;
+`;
+const LoadingDiv = styled.div`
+  text-align: center;
+`;
 function CategoryDropDown(props) {
   var subCategory = [];
   const [categoryData, setCategoryData] = React.useState([]);
@@ -100,208 +189,84 @@ function CategoryDropDown(props) {
     return (
       <Font family="Noto Sans KR">
         <ContainerOne>
-          <div
+          {/* <div
             style={{
               paddingTop: "50px",
               paddingLeft: "65px",
               paddingRight: "65px",
             }}
-          >
+          > */}
+          {/* <div
+            style={{
+              textAlign: "left",
+              // margin:'25pt'
+              paddingLeft: "0px",
+              paddingRight: "0px",
+              backgroundColor: "transparent",
+            }}
+          > */}
+          <XContainer>
             <div
-              style={{
-                textAlign: "left",
-                // margin:'25pt'
-                paddingLeft: "0px",
-                paddingRight: "0px",
-                backgroundColor: "transparent",
+              onClick={() => {
+                // console.log(detailedCategoryData)
+                props.toggleCategoryDropDown();
               }}
             >
-              <div
-                style={{
-                  height: "25px",
-                  width: "25px",
-                  backgroundColor: "transparent",
-                  position: "absolute",
-                  top: "62px",
-                  right: "75px",
-                }}
-              >
-                <div
-                  onClick={() => {
-                    // console.log(detailedCategoryData)
-                    props.toggleCategoryDropDown();
-                  }}
-                >
-                  <img
-                    src={xIcon}
-                    style={{
-                      height: "25px",
-                      width: "25px",
-                    }}
-                  ></img>
-                </div>
-              </div>
-
-              <span
-                style={{
-                  fontSize: "40px",
-                  fontWeight: "700",
-                  textDecorationLine: "none",
-                  color: "black",
-                  textAlign: "center",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexDirection: "row",
-                  // margin:11,
-                  marginTop: "5px",
-                  //padding:'auto',
-                  pointerEvents: "none",
-                }}
-              >
-                자재카테고리
-              </span>
+              <XImg src={xIcon} />
             </div>
-            <div
-              style={{
-                height: "20px",
-                width: "100vw",
-                backgroundColor: "transparent",
-              }}
-            ></div>
-            <div
-              style={
-                {
-                  //padding:'25px',
-                }
+          </XContainer>
+
+          <SpanOne>자재카테고리</SpanOne>
+          {/* </div> */}
+          <FillerOne />
+          {/* <div
+            style={
+              {
+                //padding:'25px',
               }
-            >
-              <div
-                style={{
-                  columnCount: 3,
-                  flexwrap: "wrap",
-                  flexDirection: "column",
-                  display: "grid",
-                  gridTemplateColumns: "auto auto auto",
-                  // padding:'100px',
-                  width: "80vw",
-                  height: "62vh",
-                  overflowY: "scroll",
-                }}
-              >
-                {/* {detailedCategoryData.map((category)=> */}
-                {categoryData.map((category, index) => (
-                  <div>
-                    <div
-                      style={{
-                        textAlign: "left",
-                        height: "240px",
-                        //paddingLeft:'27px',
-                        //paddingRight:'27px',
-                        backgroundColor: "transparent",
-                      }}
-                    >
-                      <a
+            }
+          > */}
+          <GridOne>
+            {/* {detailedCategoryData.map((category)=> */}
+            {categoryData.map((category, index) => (
+              <GridDivOne>
+                <GridLinkOne
+                  href={`/searchPage?search_target=CATEGORY_DEPTH1&search_value=${category.ct_id}`}
+                >
+                  <GridSpanOne>{category.ct_text}</GridSpanOne>
+                </GridLinkOne>
+                <GridDivTwo>
+                  {categoryData[index].children.map((child, jndex) => (
+                    <GridDivThree>
+                      <GridLinkOne
                         // onPress={() =>
                         //   Linking.openURL(`/brands?ct_id=${brand.ct_id}`)
                         // }
-                        // onClick={() =>
+                        // onPress={() =>
                         //   Linking.openURL(
-                        //     `/searchPage?search_target=CATEGORY_DEPTH1&search_value=${category.ct_id}`
+                        //     `/searchPage?search_target=CATEGORY_DEPTH2&search_value=${child.ct_id}`
                         //   )
                         // }
-                        style={{
-                          textDecoration: "none",
-                        }}
-                        href={`/searchPage?search_target=CATEGORY_DEPTH1&search_value=${category.ct_id}`}
+                        href={`/searchPage?search_target=CATEGORY_DEPTH2&search_value=${child.ct_id}`}
                       >
-                        <span
-                          style={{
-                            fontSize: "15pt",
-                            fontWeight: "700",
-                            textDecorationLine: "none",
-                            color: "black",
-                            textAlign: "left",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            flexDirection: "row",
-                            // marginTop:'45pt',
-                            pointerEvents: "none",
-                            backgroundColor: "transparent",
-                            pointerEvents: "none",
-
-                            // marginTop:100
-                          }}
-                        >
-                          {category.ct_text}
-                        </span>
-                      </a>
-                      <div
-                        style={{
-                          flexDirection: "column",
-                        }}
-                      >
-                        {categoryData[index].children.map((child, jndex) => (
-                          <div
-                            style={{
-                              paddingTop: "7px",
-                            }}
-                          >
-                            <a
-                              // onPress={() =>
-                              //   Linking.openURL(`/brands?ct_id=${brand.ct_id}`)
-                              // }
-                              // onPress={() =>
-                              //   Linking.openURL(
-                              //     `/searchPage?search_target=CATEGORY_DEPTH2&search_value=${child.ct_id}`
-                              //   )
-                              // }
-                              href={`/searchPage?search_target=CATEGORY_DEPTH2&search_value=${child.ct_id}`}
-                              style={{
-                                textDecoration: "none",
-                              }}
-                            >
-                              <span
-                                style={{
-                                  fontSize: "12pt",
-                                  fontWeight: "500",
-                                  textDecorationLine: "none",
-                                  color: "black",
-                                  textAlign: "left",
-                                  alignItems: "center",
-                                  justifyContent: "center",
-                                  flexDirection: "row",
-                                  // marginTop:'45pt',
-                                  pointerEvents: "none",
-                                  backgroundColor: "transparent",
-                                  pointerEvents: "none",
-                                  lineHeight: "12pt",
-                                  // marginTop:100
-                                }}
-                              >
-                                {child.ct_text}
-                              </span>
-                            </a>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+                        <GridSpanTwo>{child.ct_text}</GridSpanTwo>
+                      </GridLinkOne>
+                    </GridDivThree>
+                  ))}
+                </GridDivTwo>
+              </GridDivOne>
+            ))}
+          </GridOne>
+          {/* </div> */}
+          {/* </div> */}
         </ContainerOne>
       </Font>
     );
   } else {
     return (
-      <div
-        style={{
-          textAlign: "center",
-        }}
-      >
+      <LoadingDiv>
         <span>로딩중 ...</span>
-      </div>
+      </LoadingDiv>
     );
   }
 }

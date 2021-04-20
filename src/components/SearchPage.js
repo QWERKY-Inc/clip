@@ -416,8 +416,9 @@ function SearchPage(props) {
     } else {
       parsed.mem_no = "";
     }
-    // firstPage(parsed);
+
     secondPage(parsed);
+    firstPage(parsed);
     history.push("/searchpage?" + queryString.stringify(parsed));
     // var testObj= {mem_no: "63", keyword: "시트", search_target: null, search_value: null, list_color: ["GOLDSILVER","RED","BLACK"], list_pattern: ["METAL","SOLID","GEOMETRIC"], list_brand: ["62","101"], list_category: ["45"], list_use: ["56","9"], material_scope: "ALL", pagination: true, page: 1}
     // secondPage(testObj)
