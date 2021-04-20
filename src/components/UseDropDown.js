@@ -1,97 +1,202 @@
-import fetch from 'node-fetch';
-import React,{useEffect} from 'react';
-import {TouchableOpacity,Text,View,Modal,Image,TouchableHighlight,Linking,Dimensions} from 'react-native';
-import xIcon from '../assets/x.png'
+import fetch from "node-fetch";
+import React, { useEffect } from "react";
+import {
+  TouchableOpacity,
+  Text,
+  View,
+  Modal,
+  Image,
+  TouchableHighlight,
+  Linking,
+  Dimensions,
+} from "react-native";
+import xIcon from "../assets/x.png";
+import styled from "styled-components";
+import Font from "react-font";
+const queryString = require("query-string");
 
-const queryString = require('query-string');
-
+const ContainerDivOne = styled.div`
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 100px;
+  left: 0;
+  background-color: white;
+  display: block;
+  padding-top: 50px;
+  padding-left: 65px;
+  padding-right: 65px;
+`;
+const ContainerDivTwo = styled.div`
+  text-align: left;
+  // margin:'25pt'
+  padding-left: 0px;
+  padding-right: 0px;
+  background-color: transparent;
+`;
+const ContainerDivThree = styled.div`
+  height: 25px;
+  width: 25px;
+  background-color: transparent;
+  position: absolute;
+  top: 62px;
+  right: 75px;
+`;
+const XImg = styled.img`
+  height: 25px;
+  width: 25px;
+`;
+const TitleSpan = styled.span`
+  font-size: 40px;
+  font-weight: 700;
+  text-decoration-line: none;
+  color: black;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 5px;
+  pointer-events: none;
+`;
+const FillerDiv = styled.div`
+  height: 20px;
+  width: 100vw;
+  background-color: transparent;
+`;
+const GridDivOne = styled.div`
+  column-count: 3;
+  flex-wrap: wrap;
+  flex-direction: column;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  width: 80vw;
+  height: 62vh;
+  overflow-y: scroll;
+`;
+const GridElementDivOne = styled.div`
+  text-align: left;
+  height: 220px;
+  background-color: transparent;
+`;
+const GridElementLinkOne = styled.a`
+  text-decoration: none;
+`;
+const GridElementSpanOne = styled.span`
+  font-size: 15pt;
+  font-weight: 700;
+  text-decoration-line: none;
+  color: black;
+  text-align: left;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  // marginTop:'45pt';
+  pointer-events: none;
+  background-color: transparent;
+  pointer-events: none;
+  // marginTop:100
+`;
+const GridElementDivTwo = styled.div`
+  padding-top: 7px;
+`;
+const GridElementSpanTwo = styled.span`
+  font-size: 12pt;
+  font-weight: 500;
+  text-decoration-line: none;
+  color: black;
+  text-align: left;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  // marginTop:'45pt';
+  pointer-events: none;
+  background-color: transparent;
+  pointer-events: none;
+  // marginTop:100
+`;
+const LoadingDiv = styled.div`
+  text-align: "center";
+`;
 function UseDropDown(props) {
   // var bestProducts
-  var subUse=[]
-  const[usageData,setUsageData]=React.useState([])
-  const[detailedUseData,setDetailedUseData]=React.useState({})
-  const [height,setHeight]=React.useState(Dimensions.get('window').height)
-  const [width,setWidth]=React.useState(Dimensions.get('window').width)
+  var subUse = [];
+  const [usageData, setUsageData] = React.useState([]);
+  const [detailedUseData, setDetailedUseData] = React.useState({});
+  const [height, setHeight] = React.useState(Dimensions.get("window").height);
+  const [width, setWidth] = React.useState(Dimensions.get("window").width);
 
-
-  const outerUse=(ct_id)=>{
-    fetch('/Uselist?'+
+  const outerUse = (ct_id) => {
+    fetch(
+      "/Uselist?" +
         queryString.stringify({
-            ct_depth:2,
-            ct_parent:1
+          ct_depth: 2,
+          ct_parent: 1,
         })
     )
-    .then(res=>res.json())
-    .then((incomingData)=>{
-      // console.log(incomingData)
-      setUsageData(incomingData)
-    })
-    .catch(err=>{
-        console.log(err)
-    })
-  
-  }
-  const usageList=()=>{
-    fetch('/wholeuselist')
-    .then(res=>res.json())
-    .then((incomingData)=>{
-      setUsageData(incomingData)
-    })
-    .catch(err=>{
-      console.log(err)
-    })
-
-  }
-  const detailedUseDataObject = function(){
-    var data=[]
-    // if(detailedUseData.length==0){
-      console.log('fetch call for usage')
-      usageData.map((oneUse,index)=>{
-        fetch('/uselist?'+
-          queryString.stringify({
-            ct_depth:3,
-            // ct_parent:useData[index].ct_id
-            ct_parent:oneUse.ct_id
-          })
-        )
-        .then(res=>res.json())
-        .then((childrenData)=>{
-
-          //setDetailedUseData(...detailedUseData,childrenData)
-          data.push({...oneUse,children:childrenData})
-          //subUse[index]=childrenData
-
-        })
-        .catch(err=>{
-            console.log(err)
-            // return {...oneUse,children:null}
-            // data.push({...oneUse,children:null})
-        })
-  
+      .then((res) => res.json())
+      .then((incomingData) => {
+        // console.log(incomingData)
+        setUsageData(incomingData);
       })
-      setDetailedUseData(data)
-      
-      // return data
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const usageList = () => {
+    fetch("/wholeuselist")
+      .then((res) => res.json())
+      .then((incomingData) => {
+        setUsageData(incomingData);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const detailedUseDataObject = function () {
+    var data = [];
+    // if(detailedUseData.length==0){
+    console.log("fetch call for usage");
+    usageData.map((oneUse, index) => {
+      fetch(
+        "/uselist?" +
+          queryString.stringify({
+            ct_depth: 3,
+            // ct_parent:useData[index].ct_id
+            ct_parent: oneUse.ct_id,
+          })
+      )
+        .then((res) => res.json())
+        .then((childrenData) => {
+          //setDetailedUseData(...detailedUseData,childrenData)
+          data.push({ ...oneUse, children: childrenData });
+          //subUse[index]=childrenData
+        })
+        .catch((err) => {
+          console.log(err);
+          // return {...oneUse,children:null}
+          // data.push({...oneUse,children:null})
+        });
+    });
+    setDetailedUseData(data);
+
+    // return data
     // }
     // else{
     //   return detailedUseData
     // }
-   
-}
+  };
 
-
-  const onChange=()=>{
-    setHeight(Dimensions.get('window').height)
-    setWidth(Dimensions.get('window').width)
-  }
+  const onChange = () => {
+    setHeight(Dimensions.get("window").height);
+    setWidth(Dimensions.get("window").width);
+  };
   useEffect(() => {
-    Dimensions.addEventListener('change',onChange)
+    Dimensions.addEventListener("change", onChange);
     //outerUse()
-    usageList()
-  },[])
+    usageList();
+  }, []);
 
-  useEffect(()=>{
-
+  useEffect(() => {
     // const detailedUseDataArray = function(){
     //     var data=[]
     //     // if(detailedUseData.length==0){
@@ -112,227 +217,96 @@ function UseDropDown(props) {
     //             // return {...oneUse,children:null}
     //             // data.push({...oneUse,children:null})
     //         })
-      
+
     //       })
     //       return data
     //     // }
     //     // else{
     //     //   return detailedUseData
     //     // }
-       
+
     // }
 
     // setDetailedUseData(detailedUseDataArray)
-    console.log(usageData)
+    console.log(usageData);
     //detailedusageDataObject()
-  },[usageData])
-  
+  }, [usageData]);
+
   // useEffect(()=>{
   //   console.log(detaileduseData)
   // },[detaileduseData])
-  if(usageData){
+  if (usageData) {
     return (
-      <div
-      style={{
-      position:'fixed',
-      height:'100vh',
-      width:'100vw',
-      top:'100px',
-      left:0,
-      backgroundColor:'white',
-      display:'block'
-      }}
-  >
-    <div
-    style={{
-      paddingTop:'50px',
-      paddingLeft:'65px',
-      paddingRight:'65px'
-    }}
-    >
-      <div
-        style={{
-          textAlign:'left',
-          // margin:'25pt'
-          paddingLeft:'0px',
-          paddingRight:'0px',
-          backgroundColor:'transparent'
-        }}
-      >
-      <div
+      <Font family="Noto Sans KR">
+        <ContainerDivOne>
+          {/* <div
           style={{
-            height:'25px',
-            width:'25px',
-            backgroundColor:'transparent',
-            position: 'absolute',
-            top:'62px',
-            right:'75px'
+            paddingTop: "50px",
+            paddingLeft: "65px",
+            paddingRight: "65px",
           }}
-        >
-          <TouchableOpacity
-            onPress={()=>{
-              // console.log(detailedUseData)
-              props.toggleUseDropDown()
-            }}
-          >
-          <img
-            src={xIcon}
-            style={{
-              height:'25px',
-              width:'25px',
-            }}
-          >
-          </img>
-          </TouchableOpacity>
-        </div>
-        
-        <Text
-          style ={{
-            fontSize: '40px',
-            fontWeight:'700',
-            textDecorationLine:'none',
-            color:'black',
-            textAlign:'center',
-            alignItems:'center',
-            justifyContent:'center',
-            flexDirection:'row',
-            // margin:11,
-            marginTop:'5px',
-            //padding:'auto',
-            pointerEvents:'none'
-          }}
-        >
-          사공부위
-        </Text>
-       
-      </div>
-      <div
-        style={{
-          height:'20px',
-          width:'100vw',
-          backgroundColor:'transparent'
-        }}
-      >
-
-      </div>
-      <div
-      style={{
-        //padding:'25px',
-        
-      }}
-      >
-      <div
-      style={{
-        columnCount:3,
-        flexwrap:'wrap',
-        flexDirection:'column',
-        display: 'grid',
-        gridTemplateColumns: 'auto auto auto',
-        // padding:'100px',
-        width:'80vw',
-        height:'62vh',
-        overflowY: 'scroll',
-      }}
-      >
-      {/* {detaileduseData.map((use)=> */}
-      {usageData.map((usage,index)=>
-    
-      
-      <div>
-      <div
-      style={{
-        textAlign:'left',
-        height:'200px',
-        //paddingLeft:'27px',
-        //paddingRight:'27px',
-        backgroundColor:'transparent'
-      }}
-      >
-        <TouchableOpacity
-                // onPress={() => 
-                //   Linking.openURL(`/brands?ct_id=${brand.ct_id}`)
-                // }
-                onPress={() => Linking.openURL(`/searchPage?search_target=USE_DEPTH1&search_value=${usage.ct_id}`)}
+        > */}
+          <ContainerDivTwo>
+            <ContainerDivThree>
+              <TouchableOpacity
+                onPress={() => {
+                  // console.log(detailedUseData)
+                  props.toggleUseDropDown();
+                }}
               >
-        <Text
-          style ={{
-            fontSize: '15pt',
-            fontWeight:'700',
-            textDecorationLine:'none',
-            color:'black',
-            textAlign:'left',
-            alignItems:'center',
-            justifyContent:'center',
-            flexDirection:'row',
-            // marginTop:'45pt',
-            pointerEvents:'none',
-            backgroundColor:'transparent',
-            pointerEvents:'none',
-            // marginTop:100
-        }}
-        >
-          {usage.ct_text}
-        </Text>
-        </TouchableOpacity> 
-        <div
-          style={{
-            flexDirection:'column'
-          }}
-        >
-        {usageData[index].children.map((child,jndex)=>
-          <div
-            style={{
-              paddingTop:'7px'
-            }}
-          >
-          <TouchableOpacity
-          // onPress={() => 
-          //   Linking.openURL(`/brands?ct_id=${brand.ct_id}`)
-          // }
-          onPress={() => Linking.openURL(`/searchPage?search_target=USE_DEPTH2&search_value=${child.ct_id}`)}
-          >
-          <Text
-            style ={{
-              fontSize: '12pt',
-              fontWeight:'500',
-              textDecorationLine:'none',
-              color:'black',
-              textAlign:'left',
-              alignItems:'center',
-              justifyContent:'center',
-              flexDirection:'row',
-             // marginTop:'45pt',
-              pointerEvents:'none',
-              backgroundColor:'transparent',
-              pointerEvents:'none',
-              // marginTop:100
-          }}
-          >
-            {child.ct_text}
-          </Text>
-          </TouchableOpacity>
-          </div>
-        )}
-        </div>
-      </div>
-      </div>
-      
-)}
-      </div>
-      </div>
-    </div>
-</div>
+                <XImg src={xIcon} />
+              </TouchableOpacity>
+            </ContainerDivThree>
+
+            <TitleSpan>사공부위</TitleSpan>
+          </ContainerDivTwo>
+          <FillerDiv />
+
+          <GridDivOne>
+            {/* {detaileduseData.map((use)=> */}
+            {usageData.map((usage, index) => (
+              <GridElementDivOne>
+                <GridElementLinkOne
+                  href={`/searchPage?search_target=USE_DEPTH1&search_value=${usage.ct_id}`}
+                >
+                  <GridElementSpanOne>{usage.ct_text}</GridElementSpanOne>
+                </GridElementLinkOne>
+
+                {usageData[index].children.map((child, jndex) => (
+                  <GridElementDivTwo>
+                    <GridElementLinkOne
+                      // onPress={() =>
+                      //   Linking.openURL(`/brands?ct_id=${brand.ct_id}`)
+                      // }
+                      // onPress={() =>
+                      //   Linking.openURL(
+                      //     `/searchPage?search_target=USE_DEPTH2&search_value=${child.ct_id}`
+                      //   )
+                      // }
+                      href={`/searchPage?search_target=USE_DEPTH2&search_value=${child.ct_id}`}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <GridElementSpanTwo>{child.ct_text}</GridElementSpanTwo>
+                    </GridElementLinkOne>
+                  </GridElementDivTwo>
+                ))}
+              </GridElementDivOne>
+            ))}
+          </GridDivOne>
+
+          {/* </div> */}
+        </ContainerDivOne>
+      </Font>
+    );
+  } else {
+    return (
+      <Font family="Noto Sans KR">
+        <LoadingDiv>
+          <span>로딩중 ...</span>
+        </LoadingDiv>
+      </Font>
     );
   }
-	else{
-		return(
-			<div>
-				<Text>
-				로딩중 ...
-				</Text>
-			</div>
-		)
-	}
 }
-  
-  export default UseDropDown;
+
+export default UseDropDown;
