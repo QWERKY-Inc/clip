@@ -389,21 +389,22 @@ function LogIn(props) {
                 // display: 'grid',
                 // gridTemplateColumns: 'auto auto',
                 // // padding:'100px',
-                overflowY: "scroll",
+                overflowY: "hidden",
                 marginLeft: "auto",
                 marginRight: "auto",
               }}
             >
-              <View
+              <div
                 style={{
                   backgroundColor: "white",
                   height: "298px",
                   width: "100%",
                   borderBottomLeftRadius: "10px",
                   borderBottomRightRadius: "10px",
+                  overflowY: "hidden",
                 }}
               >
-                <View
+                <div
                   style={{
                     position: "relative",
                     top: 0,
@@ -441,13 +442,13 @@ function LogIn(props) {
                 </img>
 
                 </TouchableOpacity> */}
-                    <TouchableOpacity
-                      onPress={() => {
+                    <div
+                      onClick={() => {
                         //console.log('close project list')
                         setFindPassWord(false);
                       }}
                     >
-                      <View
+                      <div
                         style={{
                           backgroundColor: "transparent",
                           height: "25px",
@@ -459,10 +460,10 @@ function LogIn(props) {
                           lineHeight: "25px",
                           padding: "15px",
                           alignItems: "center",
-                          transform: "translate(0px,-23px)",
+                          transform: "translate(0px,-33px)",
                         }}
                       >
-                        <Text
+                        <span
                           style={
                             {
                               // position:'fixed',
@@ -471,27 +472,33 @@ function LogIn(props) {
                           }
                         >
                           &lt;
-                        </Text>
-                      </View>
-                    </TouchableOpacity>
+                        </span>
+                      </div>
+                    </div>
                   </div>
-
-                  <Text
+                  <div
                     style={{
-                      fontWeight: 700,
-                      transform: "translate(0px,-23px)",
+                      transform: "translate(0px,-26px)",
                     }}
                   >
-                    비밀번호 찾기
-                  </Text>
-                </View>
-                <View
+                    <span
+                      style={{
+                        fontWeight: 700,
+                      }}
+                    >
+                      비밀번호 찾기
+                    </span>
+                  </div>
+                </div>
+                <div
                   style={{
                     textAlign: "left",
                     padding: "15px",
+                    display: "flex",
+                    flexDirection: "column",
                   }}
                 >
-                  <Text
+                  <span
                     style={{
                       fontWeight: 700,
                       fontSize: "15px",
@@ -499,12 +506,12 @@ function LogIn(props) {
                     }}
                   >
                     비밀번호를 잊으셨나요?
-                  </Text>
-                  <Text>
+                  </span>
+                  <span>
                     비밀번호를 다시 설정하기 위해 가입 당시의 휴대폰 번호를
                     입력해 주세요.
-                  </Text>
-                </View>
+                  </span>
+                </div>
                 <div
                   style={{
                     display: "block",
@@ -517,7 +524,7 @@ function LogIn(props) {
                     height: "100%",
                   }}
                 >
-                  <Text>휴대폰번호</Text>
+                  <span>휴대폰번호</span>
 
                   <TextInput
                     onChangeText={(text) => {
@@ -536,13 +543,16 @@ function LogIn(props) {
                 <div
                   style={{
                     // display: emailLogIn ? 'none':'block',
+                    position: "relative",
+                    top: "0px",
                     borderTop: "1px solid rgb(221,221,221)",
                     paddingLeft: "15px",
                     paddingRight: "15px",
                     paddingBottom: "15px",
+                    transform: "translate(0px,-210px)",
                   }}
                 >
-                  <TouchableOpacity
+                  <div
                     style={{
                       marginTop: "15px",
                       backgroundColor: "rgb(255,123,88)",
@@ -551,7 +561,7 @@ function LogIn(props) {
                       textAlign: "center",
                       justifyContent: "center",
                     }}
-                    onPress={() => {
+                    onClick={() => {
                       // props.logInFunction(
                       //     {
                       //         mem_jointype:'MOBILE',
@@ -565,16 +575,22 @@ function LogIn(props) {
                       });
                     }}
                   >
-                    <Text
+                    <div
                       style={{
-                        color: "white",
+                        transform: "translate(0px,10px)",
                       }}
                     >
-                      확인
-                    </Text>
-                  </TouchableOpacity>
+                      <span
+                        style={{
+                          color: "white",
+                        }}
+                      >
+                        확인
+                      </span>
+                    </div>
+                  </div>
                 </div>
-              </View>
+              </div>
             </div>
           </div>
         </div>

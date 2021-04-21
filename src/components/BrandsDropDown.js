@@ -44,6 +44,7 @@ const XIconDiv = styled.div`
 const XImg = styled.img`
   height: 25px;
   width: 25px;
+  cursor: pointer;
 `;
 const TitleSpan = styled.span`
   font-size: 40px;
@@ -67,7 +68,7 @@ const FillerDiv = styled.span`
 const GridDivOne = styled.div`
   display: grid;
   grid-template-columns: auto auto auto;
-  width: 80vw;
+  width: calc(100vw-15px);
   height: 50vh;
   overflow-y: scroll;
 `;

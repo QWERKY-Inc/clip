@@ -45,6 +45,7 @@ const ContainerDivThree = styled.div`
 const XImg = styled.img`
   height: 25px;
   width: 25px;
+  cursor: pointer;
 `;
 const TitleSpan = styled.span`
   font-size: 40px;
@@ -69,7 +70,7 @@ const GridDivOne = styled.div`
   flex-direction: column;
   display: grid;
   grid-template-columns: auto auto auto;
-  width: 80vw;
+  width: calc(100vw-15px);
   height: 62vh;
   overflow-y: scroll;
 `;
@@ -248,14 +249,14 @@ function UseDropDown(props) {
         > */}
           <ContainerDivTwo>
             <ContainerDivThree>
-              <TouchableOpacity
-                onPress={() => {
+              <div
+                onClick={() => {
                   // console.log(detailedUseData)
                   props.toggleUseDropDown();
                 }}
               >
                 <XImg src={xIcon} />
-              </TouchableOpacity>
+              </div>
             </ContainerDivThree>
 
             <TitleSpan>사공부위</TitleSpan>

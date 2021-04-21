@@ -41,6 +41,7 @@ const XContainer = styled.div`
 const XImg = styled.img`
   height: 25px;
   width: 25px;
+  cursor: pointer;
 `;
 
 const SpanOne = styled.span`
@@ -67,7 +68,8 @@ const GridOne = styled.div`
   display: grid;
   grid-template-columns: auto auto auto;
   // padding:'100px';
-  width: 80vw;
+  /* width: 80vw; */
+  width: calc(100vw-15px);
   height: 62vh;
   overflow-y: scroll;
 `;
