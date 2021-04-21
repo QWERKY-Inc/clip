@@ -34,8 +34,78 @@ import {
 import "./Login.css";
 import fetch from "node-fetch";
 import Font from "react-font";
+import styled from "styled-components";
 const queryString = require("query-string");
 
+const ToggleDiv = styled.div`
+  display: ${(props) => (props.toggle ? "block" : "none")};
+`;
+const ContainerOne = styled.div`
+  position: "fixed";
+  height: "100vh";
+  width: "100vw";
+  top: 0;
+  left: 0;
+  background-color: "rgba(0,0,0,0.5)";
+  display: "block";
+  z-index: 101;
+`;
+const ContainerTwo = styled.div`
+  padding-top: 100px;
+`;
+const ContainerThree = styled.div`
+  border-radius: 10px;
+  background-color: white;
+  width: 500px;
+  height: 300px;
+  padding-top: 15px;
+  overflow-y: hidden;
+  margin-left: auto;
+  margin-right: auto;
+`
+const ContainerFour = styled.div`
+  background-color: white;
+  height: 298px;
+  width: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  overflow-y: hidden;
+`
+const ContainerFive = styled.div`
+  position: relative;
+  top: 0;
+  height: 30px;
+  width: 100%;
+  background-color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: 1px solid rgb(221,221,221);
+`
+const ContainerSix = styled.div`
+  height: 25px;
+  width: 25px;
+  background-color: transparent;
+  position: relative;
+  top: 15px;
+  left: 15px;
+  z-index: 102;
+`
+const ContainerSeven = styled.div`
+  background-color: transparent;
+  height: 25px;
+  width: 100%;
+  border-radius: 10px;
+  // border:'2px solid black';
+  text-align: left;
+  justify-content: center;
+  line-height: 25px;
+  padding: 15px;
+  align-items: center;
+  transform: translate(0px,-33px);
+`
+const ContainerEight = styled.div`
+  transform: translate(0px,-26px);
+`
 function LogIn(props) {
   const [height, setHeight] = React.useState(Dimensions.get("window").height);
   const [width, setWidth] = React.useState(Dimensions.get("window").width);
@@ -332,101 +402,21 @@ function LogIn(props) {
   if (findPassWord) {
     return (
       <div>
-        <div
-          style={{
-            display: noExistMemberShow ? "block" : "none",
-          }}
-        >
+        <ToggleDiv toggle={noExistMemberShow}>
           <NoExistMember toggleNoExistMemberShow={toggleNoExistMemberShow} />
-        </div>
-        <div
-          style={{
-            display: sentMessageShow ? "block" : "none",
-          }}
-        >
-          <SentMessage toggleSentMessageShow={toggleSentMessageShow} />
-        </div>
-        <div
-          style={{
-            position: "fixed",
-            height: "100vh",
-            width: "100vw",
-            top: 0,
-            left: 0,
-            backgroundColor: "rgba(0,0,0,0.5)",
-            display: "block",
-            //   padding:'160px',
-            zIndex: 101,
-          }}
-        >
-          <div
-            style={{
-              paddingTop: "100px",
-              // paddingLeft:'65px',
-              // paddingRight:'65px'
-            }}
-          >
-            <div
-              style={{
-                textAlign: "left",
-                // margin:'25pt'
-                paddingLeft: "0px",
-                paddingRight: "0px",
-                backgroundColor: "transparent",
-              }}
-            ></div>
+        </ToggleDiv>
 
-            <div
-              style={{
-                borderRadius: "10px",
-                backgroundColor: "white",
-                width: "500px",
-                height: "300px",
-                paddingTop: "15px",
-                // columnCount:3,
-                // flexwrap:'wrap',
-                // flexDirection:'column',
-                // display: 'grid',
-                // gridTemplateColumns: 'auto auto',
-                // // padding:'100px',
-                overflowY: "hidden",
-                marginLeft: "auto",
-                marginRight: "auto",
-              }}
-            >
-              <div
-                style={{
-                  backgroundColor: "white",
-                  height: "298px",
-                  width: "100%",
-                  borderBottomLeftRadius: "10px",
-                  borderBottomRightRadius: "10px",
-                  overflowY: "hidden",
-                }}
-              >
-                <div
-                  style={{
-                    position: "relative",
-                    top: 0,
-                    height: "30px",
-                    width: "100%",
-                    backgroundColor: "white",
-                    borderTopLeftRadius: "10px",
-                    borderTopRightRadius: "10px",
-                    borderBottom: "1px solid rgb(221,221,221)",
-                  }}
-                >
-                  <div
-                    style={{
-                      height: "25px",
-                      width: "25px",
-                      backgroundColor: "transparent",
-                      position: "relative",
-                      top: "15px",
-                      left: "15px",
-                      zIndex: 102,
-                    }}
-                  >
+        <ToggleDiv toggle={sentMessageShow}>
+          <SentMessage toggleSentMessageShow={toggleSentMessageShow} />
+        </ToggleDiv>
+
+        <ContainerOne>
+          <ContainerTwo>
+            <ContainerThree>
+              <ContainerFour>
+                
+                <ContainerFive>
+                  <ContainerSix>
                     {/* <TouchableOpacity
                 onPress={()=>{
                     setFindPassWord(false)
@@ -448,39 +438,14 @@ function LogIn(props) {
                         setFindPassWord(false);
                       }}
                     >
-                      <div
-                        style={{
-                          backgroundColor: "transparent",
-                          height: "25px",
-                          width: "100%",
-                          borderRadius: "10px",
-                          // border:'2px solid black',
-                          textAlign: "left",
-                          justifyContent: "center",
-                          lineHeight: "25px",
-                          padding: "15px",
-                          alignItems: "center",
-                          transform: "translate(0px,-33px)",
-                        }}
-                      >
-                        <span
-                          style={
-                            {
-                              // position:'fixed',
-                              // right:'100px'
-                            }
-                          }
-                        >
+                      <ContainerSeven>
+                        <span>
                           &lt;
                         </span>
-                      </div>
+                      </ContainerSeven>
                     </div>
-                  </div>
-                  <div
-                    style={{
-                      transform: "translate(0px,-26px)",
-                    }}
-                  >
+                  </ContainerSix>
+                  <ContainerEight>
                     <span
                       style={{
                         fontWeight: 700,
@@ -488,8 +453,9 @@ function LogIn(props) {
                     >
                       비밀번호 찾기
                     </span>
-                  </div>
-                </div>
+                  </ContainerEight>
+                </ContainerFive>
+                
                 <div
                   style={{
                     textAlign: "left",
@@ -590,10 +556,12 @@ function LogIn(props) {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                </ContainerFour>
+              
+              </ContainerThree>
+            
+          </ContainerTwo>
+        </ContainerOne>
       </div>
     );
   } else if (findEmail) {
