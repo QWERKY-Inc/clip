@@ -40,19 +40,21 @@ const queryString = require("query-string");
 const ToggleDiv = styled.div`
   display: ${(props) => (props.toggle ? "block" : "none")};
 `;
+
 const ContainerOne = styled.div`
-  position: "fixed";
-  height: "100vh";
-  width: "100vw";
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
   top: 0;
   left: 0;
-  background-color: "rgba(0,0,0,0.5)";
-  display: "block";
+  background-color: rgba(0,0,0,0.5);
+  display: block;
+  //   padding:'160px';
   z-index: 101;
-`;
+`
 const ContainerTwo = styled.div`
   padding-top: 100px;
-`;
+`
 const ContainerThree = styled.div`
   border-radius: 10px;
   background-color: white;
@@ -81,31 +83,8 @@ const ContainerFive = styled.div`
   border-top-right-radius: 10px;
   border-bottom: 1px solid rgb(221,221,221);
 `
-const ContainerSix = styled.div`
-  height: 25px;
-  width: 25px;
-  background-color: transparent;
-  position: relative;
-  top: 15px;
-  left: 15px;
-  z-index: 102;
-`
-const ContainerSeven = styled.div`
-  background-color: transparent;
-  height: 25px;
-  width: 100%;
-  border-radius: 10px;
-  // border:'2px solid black';
-  text-align: left;
-  justify-content: center;
-  line-height: 25px;
-  padding: 15px;
-  align-items: center;
-  transform: translate(0px,-33px);
-`
-const ContainerEight = styled.div`
-  transform: translate(0px,-26px);
-`
+
+
 function LogIn(props) {
   const [height, setHeight] = React.useState(Dimensions.get("window").height);
   const [width, setWidth] = React.useState(Dimensions.get("window").width);
@@ -412,11 +391,22 @@ function LogIn(props) {
 
         <ContainerOne>
           <ContainerTwo>
+
+
             <ContainerThree>
               <ContainerFour>
-                
                 <ContainerFive>
-                  <ContainerSix>
+                  <div
+                    style={{
+                      height: "25px",
+                      width: "25px",
+                      backgroundColor: "transparent",
+                      position: "relative",
+                      top: "15px",
+                      left: "15px",
+                      zIndex: 102,
+                    }}
+                  >
                     {/* <TouchableOpacity
                 onPress={()=>{
                     setFindPassWord(false)
@@ -438,14 +428,39 @@ function LogIn(props) {
                         setFindPassWord(false);
                       }}
                     >
-                      <ContainerSeven>
-                        <span>
+                      <div
+                        style={{
+                          backgroundColor: "transparent",
+                          height: "25px",
+                          width: "100%",
+                          borderRadius: "10px",
+                          // border:'2px solid black',
+                          textAlign: "left",
+                          justifyContent: "center",
+                          lineHeight: "25px",
+                          padding: "15px",
+                          alignItems: "center",
+                          transform: "translate(0px,-33px)",
+                        }}
+                      >
+                        <span
+                          style={
+                            {
+                              // position:'fixed',
+                              // right:'100px'
+                            }
+                          }
+                        >
                           &lt;
                         </span>
-                      </ContainerSeven>
+                      </div>
                     </div>
-                  </ContainerSix>
-                  <ContainerEight>
+                  </div>
+                  <div
+                    style={{
+                      transform: "translate(0px,-26px)",
+                    }}
+                  >
                     <span
                       style={{
                         fontWeight: 700,
@@ -453,9 +468,8 @@ function LogIn(props) {
                     >
                       비밀번호 찾기
                     </span>
-                  </ContainerEight>
+                  </div>
                 </ContainerFive>
-                
                 <div
                   style={{
                     textAlign: "left",
@@ -556,10 +570,8 @@ function LogIn(props) {
                     </div>
                   </div>
                 </div>
-                </ContainerFour>
-              
-              </ContainerThree>
-            
+              </ContainerFour>
+            </ContainerThree>
           </ContainerTwo>
         </ContainerOne>
       </div>
