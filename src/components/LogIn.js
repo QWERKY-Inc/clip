@@ -106,7 +106,7 @@ const ContainerSeven =styled.div`
   line-height: 25px;
   padding: 15px;
   align-items: center;
-  transform: translate(0px,-33px);
+  transform: translate(0px,-34px);
 `
 
 
