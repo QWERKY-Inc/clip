@@ -52,6 +52,7 @@ const ContainerOne = styled.div`
   //   padding:'160px';
   z-index: 101;
 `
+
 const ContainerTwo = styled.div`
   padding-top: 100px;
 `
@@ -85,6 +86,577 @@ const ContainerFive = styled.div`
 `
 
 
+const ContainerSix = styled.div`
+  height: 25px;
+  width: 25px;
+  background-color: transparent;
+  position: relative;
+  top: 15px;
+  left: 15px;
+  z-index: 102;
+`
+
+const ContainerSeven =styled.div`
+  background-color: transparent;
+  height: 25px;
+  width: 100%;
+  border-radius: 10px;
+  text-align: left;
+  justify-content: center;
+  line-height: 25px;
+  padding: 15px;
+  align-items: center;
+  transform: translate(0px,-33px);
+`
+
+
+const ContainerEight = styled.div`
+  transform: translate(0px,-26px);
+`
+
+const TitleSpan = styled.span`
+  font-weight: 700;
+`
+const ContainerNine = styled.div`
+  text-align: left;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+`
+const SubTitleSpan = styled.span`
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 5px;
+`
+const ContainerTen = styled.div`
+  display: block;
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  overflow-y: scroll;
+  background-color: white;
+  height: 100%;
+`
+
+
+
+const Container11 = styled.div`
+  position: relative;
+  top: 0px;
+  border-top: 1px solid rgb(221,221,221);
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  transform: translate(0px,-210px);
+`
+
+const Container12 = styled.div`
+  margin-top: 15px;
+  background-color: rgb(255,123,88);
+  border-radius: 10px;
+  height: 40px;
+  text-align: center;
+  justify-content: center;
+`
+
+const Container13 = styled.div`
+  transform: translate(0px,10px);
+`
+const ButtonSpan = styled.span`
+  color: white;          
+`
+const Container14 = styled.div`
+  border-radius: 10px;
+  background-color: white;
+  width: 500px;
+  height: 265px;
+  padding-top: 15px;
+  overflow-y: hidden;
+  margin-left: auto;
+  margin-right: auto;
+`
+const Container15 =styled.div`
+  background-color: white;
+  height: 248px;
+  width: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+`
+const Container16 = styled.div`
+  position: relative;
+  top: 0;
+  height: 30px;
+  width: 100%;
+  background-color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: 1px solid rgb(221,221,221);
+`
+
+const Container17 = styled.div`
+  height: 25px;
+  width: 25px;
+  background-color: transparent;
+  position: relative;
+  top: 15px;
+  left: 15px;
+  z-index: 102;
+`
+const Container18 = styled.div`
+  background-color: transparent;
+  height: 25px;
+  width: 100%;
+  border-radius: 10px;
+  text-align: left;
+  justify-content: center;
+  line-height: 25px;
+  padding: 15px;
+  align-items: center;
+  transform: translate(0px,-30px);
+`
+const Container19 = styled.div`
+  transform: translate(0px,-23px);
+`
+const Container20 = styled.div`
+  border-top: 1px solid rgb(221,221,221);
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  transform:translate(0px,-160px);
+`
+
+const Container21 = styled.div`
+  border-radius: 10px;
+  background-color: white;
+  width: 500px;
+  height: 260px;
+  padding-top: 15px;
+  overflow-y: hidden;
+  margin-left: auto;
+  margin-right: auto;
+`
+const Container22 = styled.div`
+  background-color: white;
+  height: 258px;
+  width: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+`
+const Container23 = styled.div`
+  cursor: pointer;
+`
+const Container24 = styled.div`
+  display: block;
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  overflow-y: scroll;
+  background-color: transparent;
+  height: 80px;
+`
+const Container25 = styled.div`
+  text-align: left;
+  padding: 15px;
+  top: 0;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+`
+const MiscSpanOne = styled.span`
+  font-weight: 500;
+  font-size: 15px;
+  margin-bottom: 5px;
+`
+const MiscSpanTwo = styled.span`
+  font-weight: 700;
+  font-size: 15px;
+  margin-left: 5px;
+`
+const Container26=styled.div`
+  border-top: 1px solid rgb(221,221,221);
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+`
+const Container27 = styled.div`
+  margin-top: 15px;
+  background-color: rgb(255,123,88);
+  border-radius: 10px;
+  height: 40px;
+  text-align: center;
+  justify-content: center;
+  line-height: 40px;
+  cursor: pointer;
+`
+const Container28 = styled.div`
+  border-radius: 10px;
+  background-color: white;
+  width: 500px;
+  height: 300px;
+  padding-top: 15px;
+  overflow-y: hidden;
+  margin-left: auto;
+  margin-right: auto;
+`
+const Container29 = styled.div`
+  background-color: white;
+  height: 298px;
+  width: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+`
+const Container30 = styled.div`
+  height: 25px;
+  width: 25px;
+  background-color: transparent;
+  position: relative;
+  top: 15px;
+  left: 15px;
+  z-index: 102;
+  transform: translate(0px,-20px);
+`
+const Container31 = styled.div`
+  background-color: transparent;
+  height: 25px;
+  width: 100%;
+  border-radius: 10px;
+  // border:'2px solid black';
+  text-align: left;
+  justify-content: center;
+  line-height: 25px;
+  padding: 15px;
+  align-items: center;
+  transform: translate(0px,-14px);
+`
+const Container32 = styled.div`
+  transform: translate(0px,-28px);
+`
+const TitleSpan2 = styled.span`
+  font-weight: 700;
+  transform: translate(0px,-23px);
+`
+const Container33 = styled.div`
+  display: flex;
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  overflow-y: scroll;
+  background-color: transparent;
+  height: 150px;
+  flex-direction: column;
+`
+const Container34 = styled.div`
+  font-size: 18px;
+  font-weight: 700;
+`
+const Container35 = styled.div`
+  font-size: 15px;
+  margin-top: 5px;
+`
+const Container36 = styled.div`
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  top: 0;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+`
+const Container37 = styled.div`
+  font-weight: 500;
+  font-size: 15px;
+  margin-bottom: 5px;
+`
+const Container38 = styled.div`
+  font-weight: 700;
+  font-size: 15px;
+  margin-left: 5px;
+  margin-bottom:5px;
+`
+const Container39 = styled.div`
+  border-top: 1px solid rgb(221,221,221);
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+`
+const Container40 = styled.div`
+  margin-top: 15px;
+  background-color: rgb(255,123,88);
+  border-radius: 10px;
+  height: 40px;
+  text-align: center;
+  justify-content: center;
+`
+const Container41 = styled.div`
+  transform: translate(0px,6px);
+`
+const Container42 = styled.div`
+  border-radius: 10px;
+  background-color: white;
+  width: 500px;
+  height: 520px;
+  padding-top: 15px;
+  overflow-y: scroll;
+  margin-left: auto;
+  margin-right: auto;
+`
+const Container43 = styled.div`
+  background-color: white;
+  height: 498px;
+  width: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+`
+const Container44 = styled.div`
+  transform: translate(0px,-30px);
+`
+const Container45 = styled.div`
+  display: flex;
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  overflow-y: scroll;
+  background-color: transparent;
+  height: 400px;
+  flex-direction: column;
+`
+const Container46 = styled.div`
+  font-size: 15px;
+  margin-top: 5px;
+` 
+const Container47 = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+const Container48 = styled.div`
+  margin-top: 5px;
+  line-height: 30px;
+`
+const Container49 = styled.div`
+  border: 1px solid black;
+  border-radius: 0px;
+  margin-bottom: 15px;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 8px;
+  height: 30px;
+`
+
+const Container50 = styled.div`
+  display: ${(props)=>props.toggle?"none" : "block"};
+`
+const Img = styled.img`
+  height: 25px;
+  width: 25px;
+`
+const Container51 = styled.div`
+  display: ${(props)=>props.toggle?"block" : "none"};
+`
+const Container52 = styled.div`
+  line-height: 30px;
+`
+const Container53 = styled.div`
+  font-weight: 700;
+  margin-bottom: 8px;
+  margin-top: 8px;
+`
+const Container54 = styled.div`
+  color: rgb(119,119,119);
+  margin-bottom: 8px;
+`
+const Container55 = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 8px;
+`
+const Container56 = styled.div`
+  text-decoration: underline;
+`
+const Container57 = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  margin-top: 4px;
+  margin-bottom: 8px;
+`
+const CheckBox1 = styled.input`
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+`
+const Container58 = styled.div`
+  line-height: 18px;
+`
+const Container59 = styled.div`
+  border-top: 1px solid rgb(221,221,221);
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+`
+const Container60 = styled.div`
+  margin-top: 15px;
+  background-color: ${(props)=>props.toggle ? "rgb(170,170,170)": "rgb(255,123,88)"};
+  border-radius: 10px;
+  height: 40px;
+  text-align: center;
+  justify-content: center;
+  pointer-events: ${(props)=>props.toggle ? "none"  : "auto"};
+  cursor: pointer;
+`
+const Container61 = styled.div`
+  transform: translate(0px,6px);
+`
+const Container62 = styled.div`
+  border-radius: 10px;
+  background-color: white;
+  width: 500px;
+  height: ${(props)=>props.toggle ? "520px" : "500px"};
+  padding-top: 15px;
+  overflow-y: hidden;
+  margin-left: auto;
+  margin-right: auto;
+`
+const Container63 = styled.div`
+  background-color: white;
+  height: ${(props)=>props.toggle ? "415px" : "390px"};
+  width: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+`
+const Container64 = styled.div`
+  position: relative;
+  top: 0;
+  height: 30px;
+  width: 100%;
+  background-color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: 1px solid rgb(221,221,221);
+`
+const Container65 = styled.div`
+  height: 25px;
+  width: 25px;
+  background-color: transparent;
+  position: relative;
+  top: 15px;
+  left: 15px;
+  z-index: 102;
+  transform: translate(0px,-18px);
+`
+const Container66 = styled.div`
+  transform: translate(0px,-25px);
+`
+const Container67 = styled.div`
+  display: block;
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  overflow-y: scroll;
+  background-color: white;
+  height: 100%;
+`
+const Container68 = styled.div`
+  font-size: 14px;
+`
+const Container69 = styled.div`
+  border: 1px solid black;
+  border-radius: 0px;
+  margin-bottom: 15px;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 8px;
+`
+const Container70 = styled.div`
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 40px;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  cursor: pointer;
+`
+
+const Container71 = styled.div`
+  color: black;
+  font-size: 14px;
+  transform: translate(0px,3px);
+`
+const Container72 = styled.div`
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 40px;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  cursor: pointer;
+  line-height: 40px;
+`
+const Container73 = styled.div`
+  color: black;
+  font-size: 14px;
+  transform:translate(0px,-1px);
+`
+const Container74 = styled.div`
+  color: black;
+  font-size: 14px;
+`
+const Container75 = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+const Container76 = styled.div`
+  border-radius: 10px;
+  height: 100%;
+  text-align: center;
+  justify-content: center;
+  margin-right: 15px;
+  cursor: pointer;
+`
+const Containter77 = styled.div`
+  margin-left: 10px;
+  color: black;
+  font-weight: 700;
+  margin-right: 10px;
+  font-size: 14px;
+  transform:translate(0px,2px);
+`
+const Container78 = styled.div`
+  display: ${(props)=>props.toggle ? "none" : "block"};
+  border-top: 1px solid rgb(221,221,221);
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+`
+const Container79 =styled.div`
+  margin-top: 15px;
+  background-color: rgb(255,123,88);
+  border-radius: 10px;
+  height: 40px;
+  text-align: center;
+  justify-content: center;
+  line-height: 40px;
+  cursor: pointer;
+`
+
+const Container80 = styled.div`
+  color: white;
+  font-size: 14px;
+`
+const Container81 = styled.div`
+  display:${(props)=>props.toggle ? "block" : "none"};
+  border-top: 1px solid rgb(221,221,221);
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+`
 function LogIn(props) {
   const [height, setHeight] = React.useState(Dimensions.get("window").height);
   const [width, setWidth] = React.useState(Dimensions.get("window").width);
@@ -396,17 +968,7 @@ function LogIn(props) {
             <ContainerThree>
               <ContainerFour>
                 <ContainerFive>
-                  <div
-                    style={{
-                      height: "25px",
-                      width: "25px",
-                      backgroundColor: "transparent",
-                      position: "relative",
-                      top: "15px",
-                      left: "15px",
-                      zIndex: 102,
-                    }}
-                  >
+                  <ContainerSix>
                     {/* <TouchableOpacity
                 onPress={()=>{
                     setFindPassWord(false)
@@ -428,82 +990,29 @@ function LogIn(props) {
                         setFindPassWord(false);
                       }}
                     >
-                      <div
-                        style={{
-                          backgroundColor: "transparent",
-                          height: "25px",
-                          width: "100%",
-                          borderRadius: "10px",
-                          // border:'2px solid black',
-                          textAlign: "left",
-                          justifyContent: "center",
-                          lineHeight: "25px",
-                          padding: "15px",
-                          alignItems: "center",
-                          transform: "translate(0px,-33px)",
-                        }}
-                      >
-                        <span
-                          style={
-                            {
-                              // position:'fixed',
-                              // right:'100px'
-                            }
-                          }
-                        >
+                      <ContainerSeven>
+                        <span>
                           &lt;
                         </span>
-                      </div>
+                      </ContainerSeven>
                     </div>
-                  </div>
-                  <div
-                    style={{
-                      transform: "translate(0px,-26px)",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontWeight: 700,
-                      }}
-                    >
+                  </ContainerSix>
+                  <ContainerEight>
+                    <TitleSpan>
                       비밀번호 찾기
-                    </span>
-                  </div>
+                    </TitleSpan>
+                  </ContainerEight>
                 </ContainerFive>
-                <div
-                  style={{
-                    textAlign: "left",
-                    padding: "15px",
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontWeight: 700,
-                      fontSize: "15px",
-                      marginBottom: "5px",
-                    }}
-                  >
+                <ContainerNine>
+                  <SubTitleSpan>
                     비밀번호를 잊으셨나요?
-                  </span>
+                  </SubTitleSpan>
                   <span>
                     비밀번호를 다시 설정하기 위해 가입 당시의 휴대폰 번호를
                     입력해 주세요.
                   </span>
-                </div>
-                <div
-                  style={{
-                    display: "block",
-                    textAlign: "left",
-                    paddingLeft: "15px",
-                    paddingRight: "15px",
-                    // paddingTop:'5px',
-                    overflowY: "scroll",
-                    backgroundColor: "white",
-                    height: "100%",
-                  }}
-                >
+                </ContainerNine>
+                <ContainerTen>
                   <span>휴대폰번호</span>
 
                   <TextInput
@@ -519,57 +1028,23 @@ function LogIn(props) {
                     placeholder="'-' 없이 입력"
                     value={props.userPhoneNumber}
                   ></TextInput>
-                </div>
-                <div
-                  style={{
-                    // display: emailLogIn ? 'none':'block',
-                    position: "relative",
-                    top: "0px",
-                    borderTop: "1px solid rgb(221,221,221)",
-                    paddingLeft: "15px",
-                    paddingRight: "15px",
-                    paddingBottom: "15px",
-                    transform: "translate(0px,-210px)",
-                  }}
-                >
-                  <div
-                    style={{
-                      marginTop: "15px",
-                      backgroundColor: "rgb(255,123,88)",
-                      borderRadius: "10px",
-                      height: "40px",
-                      textAlign: "center",
-                      justifyContent: "center",
-                    }}
+                </ContainerTen>
+                <Container11>
+                  <Container12
                     onClick={() => {
-                      // props.logInFunction(
-                      //     {
-                      //         mem_jointype:'MOBILE',
-                      //         mem_password:props.password,
-                      //         mem_token:null,
-                      //         mem_mobile:props.userPhoneNumber
-                      //     }
-                      // )
                       findPasswordFunction({
                         mem_mobile: props.userPhoneNumber,
                       });
                     }}
                   >
-                    <div
-                      style={{
-                        transform: "translate(0px,10px)",
-                      }}
+                    <Container13
                     >
-                      <span
-                        style={{
-                          color: "white",
-                        }}
-                      >
+                      <ButtonSpan>
                         확인
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                      </ButtonSpan>
+                    </Container13>
+                  </Container12>
+                </Container11>
               </ContainerFour>
             </ContainerThree>
           </ContainerTwo>
@@ -579,100 +1054,18 @@ function LogIn(props) {
   } else if (findEmail) {
     return (
       <div>
-        <div
-          style={{
-            display: noExistMemberShow ? "block" : "none",
-          }}
-        >
+        <ToggleDiv toggle={noExistMemberShow}>
           <NoExistMember toggleNoExistMemberShow={toggleNoExistMemberShow} />
-        </div>
-        <div
-          style={{
-            display: sentMessageShow ? "block" : "none",
-          }}
-        >
+        </ToggleDiv>
+        <ToggleDiv toggle={sentMessageShow}>
           <SentMessage toggleSentMessageShow={toggleSentMessageShow} />
-        </div>
-        <div
-          style={{
-            position: "fixed",
-            height: "100vh",
-            width: "100vw",
-            top: 0,
-            left: 0,
-            backgroundColor: "rgba(0,0,0,0.5)",
-            display: "block",
-            //   padding:'160px',
-            zIndex: 101,
-          }}
-        >
-          <div
-            style={{
-              paddingTop: "100px",
-              //paddingLeft:'65px',
-              //paddingRight:'65px'
-            }}
-          >
-            <div
-              style={{
-                textAlign: "left",
-                // margin:'25pt'
-                paddingLeft: "0px",
-                paddingRight: "0px",
-                backgroundColor: "transparent",
-              }}
-            ></div>
-
-            <div
-              style={{
-                borderRadius: "10px",
-                backgroundColor: "white",
-                width: "500px",
-                height: "250px",
-                paddingTop: "15px",
-                // columnCount:3,
-                // flexwrap:'wrap',
-                // flexDirection:'column',
-                // display: 'grid',
-                // gridTemplateColumns: 'auto auto',
-                // // padding:'100px',
-                overflowY: "scroll",
-                marginLeft: "auto",
-                marginRight: "auto",
-              }}
-            >
-              <View
-                style={{
-                  backgroundColor: "white",
-                  height: "248px",
-                  width: "100%",
-                  borderBottomLeftRadius: "10px",
-                  borderBottomRightRadius: "10px",
-                }}
-              >
-                <View
-                  style={{
-                    position: "relative",
-                    top: 0,
-                    height: "30px",
-                    width: "100%",
-                    backgroundColor: "white",
-                    borderTopLeftRadius: "10px",
-                    borderTopRightRadius: "10px",
-                    borderBottom: "1px solid rgb(221,221,221)",
-                  }}
-                >
-                  <div
-                    style={{
-                      height: "25px",
-                      width: "25px",
-                      backgroundColor: "transparent",
-                      position: "relative",
-                      top: "15px",
-                      left: "15px",
-                      zIndex: 102,
-                    }}
-                  >
+        </ToggleDiv>
+        <ContainerOne>
+          <ContainerTwo>
+            <Container14>
+              <Container15>
+                <Container16>
+                  <Container17>
                     {/* <TouchableOpacity
                 onPress={()=>{
                     setFindPassWord(false)
@@ -688,28 +1081,14 @@ function LogIn(props) {
                 </img>
 
                 </TouchableOpacity> */}
-                    <TouchableOpacity
-                      onPress={() => {
+                    <div
+                      onClick={() => {
                         //console.log('close project list')
                         setFindEmail(false);
                       }}
                     >
-                      <View
-                        style={{
-                          backgroundColor: "transparent",
-                          height: "25px",
-                          width: "100%",
-                          borderRadius: "10px",
-                          // border:'2px solid black',
-                          textAlign: "left",
-                          justifyContent: "center",
-                          lineHeight: "25px",
-                          padding: "15px",
-                          alignItems: "center",
-                          transform: "translate(0px,-23px)",
-                        }}
-                      >
-                        <Text
+                      <Container18>
+                        <span
                           style={
                             {
                               // position:'fixed',
@@ -718,26 +1097,17 @@ function LogIn(props) {
                           }
                         >
                           &lt;
-                        </Text>
-                      </View>
-                    </TouchableOpacity>
-                  </div>
-
-                  <Text
-                    style={{
-                      fontWeight: 700,
-                      transform: "translate(0px,-23px)",
-                    }}
-                  >
+                        </span>
+                      </Container18>
+                    </div>
+                  </Container17>
+                  <Container19>
+                  <TitleSpan>
                     이메일 찾기
-                  </Text>
-                </View>
-                <View
-                  style={{
-                    textAlign: "left",
-                    padding: "15px",
-                  }}
-                >
+                  </TitleSpan>
+                  </Container19>
+                </Container16>
+                <ContainerNine>
                   {/* <Text
                             style={{
                                 fontWeight:700,
@@ -747,24 +1117,13 @@ function LogIn(props) {
                         >
                             비밀번호를 잊으셨나요?
                         </Text> */}
-                  <Text>
+                  <span>
                     이메일을 찾기 위해서 가입 당시의 휴대폰 번호를 입력해
                     주세요.
-                  </Text>
-                </View>
-                <div
-                  style={{
-                    display: "block",
-                    textAlign: "left",
-                    paddingLeft: "15px",
-                    paddingRight: "15px",
-                    // paddingTop:'5px',
-                    overflowY: "scroll",
-                    backgroundColor: "white",
-                    height: "100%",
-                  }}
-                >
-                  <Text>휴대폰 번호</Text>
+                  </span>
+                </ContainerNine>
+                <ContainerTen>
+                  <span>휴대폰 번호</span>
 
                   <TextInput
                     onChangeText={(text) => {
@@ -779,52 +1138,26 @@ function LogIn(props) {
                     placeholder="'-' 없이 입력"
                     value={props.userPhoneNumber}
                   ></TextInput>
-                </div>
-                <div
-                  style={{
-                    // display: emailLogIn ? 'none':'block',
-                    borderTop: "1px solid rgb(221,221,221)",
-                    paddingLeft: "15px",
-                    paddingRight: "15px",
-                    paddingBottom: "15px",
-                  }}
-                >
-                  <TouchableOpacity
-                    style={{
-                      marginTop: "15px",
-                      backgroundColor: "rgb(255,123,88)",
-                      borderRadius: "10px",
-                      height: "40px",
-                      textAlign: "center",
-                      justifyContent: "center",
-                    }}
-                    onPress={() => {
-                      // props.logInFunction(
-                      //     {
-                      //         mem_jointype:'MOBILE',
-                      //         mem_password:props.password,
-                      //         mem_token:null,
-                      //         mem_mobile:props.userPhoneNumber
-                      //     }
-                      // )
+                </ContainerTen>
+                <Container20>
+                  <Container12
+                    onClick={() => {
                       findEmailFunction({
                         mem_mobile: props.userPhoneNumber,
                       });
                     }}
                   >
-                    <Text
-                      style={{
-                        color: "white",
-                      }}
-                    >
+                    <Container13>
+                    <ButtonSpan>
                       확인
-                    </Text>
-                  </TouchableOpacity>
-                </div>
-              </View>
-            </div>
-          </div>
-        </div>
+                    </ButtonSpan>
+                    </Container13>
+                  </Container12>
+                </Container20>
+              </Container15>
+            </Container14>
+          </ContainerTwo>
+        </ContainerOne>
       </div>
     );
   }
@@ -835,112 +1168,28 @@ function LogIn(props) {
       return (
         <Font family="Noto Sans KR">
           <div>
-            <div
-              style={{
-                display: noExistMemberShow ? "block" : "none",
-              }}
-            >
+
+            <ToggleDiv toggle={noExistMemberShow}>
               <NoExistMember
                 toggleNoExistMemberShow={toggleNoExistMemberShow}
               />
-            </div>
-            <div
-              style={{
-                display: sentMessageShow ? "block" : "none",
-              }}
-            >
+            </ToggleDiv>
+            <ToggleDiv toggle={sentMessageShow}>
               <SentMessage toggleSentMessageShow={toggleSentMessageShow} />
-            </div>
-            <div
-              style={{
-                display: alreadyMemberMessageShow ? "block" : "none",
-              }}
-            >
+            
+            </ToggleDiv>
+            <ToggleDiv toggle={alreadyMemberMessageShow}> 
               <AlreadyMemberMessage
                 toggleAlreadyMemberMessageShow={toggleAlreadyMemberMessageShow}
               />
-            </div>
+            </ToggleDiv>
 
-            <div
-              style={{
-                position: "fixed",
-                height: "100vh",
-                width: "100vw",
-                top: 0,
-                left: 0,
-                backgroundColor: "rgba(0,0,0,0.5)",
-                display: "block",
-                //   padding:'160px',
-                zIndex: 101,
-              }}
-            >
-              <div
-                style={{
-                  paddingTop: "100px",
-                  // paddingLeft:'65px',
-                  // paddingRight:'65px'
-                }}
-              >
-                <div
-                  style={{
-                    textAlign: "left",
-                    // margin:'25pt'
-                    paddingLeft: "0px",
-                    paddingRight: "0px",
-                    backgroundColor: "transparent",
-                  }}
-                ></div>
-
-                <div
-                  style={{
-                    borderRadius: "10px",
-                    backgroundColor: "white",
-                    width: "500px",
-                    height: "260px",
-                    paddingTop: "15px",
-                    // columnCount:3,
-                    // flexwrap:'wrap',
-                    // flexDirection:'column',
-                    // display: 'grid',
-                    // gridTemplateColumns: 'auto auto',
-                    // // padding:'100px',
-                    overflowY: "scroll",
-                    marginLeft: "auto",
-                    marginRight: "auto",
-                  }}
-                >
-                  <div
-                    style={{
-                      backgroundColor: "white",
-                      height: "258px",
-                      width: "100%",
-                      borderBottomLeftRadius: "10px",
-                      borderBottomRightRadius: "10px",
-                    }}
-                  >
-                    <div
-                      style={{
-                        position: "relative",
-                        top: 0,
-                        height: "30px",
-                        width: "100%",
-                        backgroundColor: "white",
-                        borderTopLeftRadius: "10px",
-                        borderTopRightRadius: "10px",
-                        borderBottom: "1px solid rgb(221,221,221)",
-                      }}
-                    >
-                      <div
-                        style={{
-                          height: "25px",
-                          width: "25px",
-                          backgroundColor: "transparent",
-                          position: "relative",
-                          top: "15px",
-                          left: "15px",
-                          zIndex: 102,
-                        }}
-                      >
+            <ContainerOne>
+              <ContainerTwo>
+                <Container21>
+                  <Container22>
+                    <ContainerFive>
+                      <ContainerSix>
                         {/* <TouchableOpacity
                     onPress={()=>{
                         setFindPassWord(false)
@@ -956,7 +1205,7 @@ function LogIn(props) {
                     </img>
 
                     </TouchableOpacity> */}
-                        <div
+                        <Container23
                           onClick={() => {
                             //console.log('close project list')
                             setFindPassWord(false);
@@ -965,25 +1214,8 @@ function LogIn(props) {
                             props.setJoinType("MOBILE");
                             props.setSNSID(null);
                           }}
-                          style={{
-                            cursor: "pointer",
-                          }}
                         >
-                          <div
-                            style={{
-                              backgroundColor: "transparent",
-                              height: "25px",
-                              width: "100%",
-                              borderRadius: "10px",
-                              // border:'2px solid black',
-                              textAlign: "left",
-                              justifyContent: "center",
-                              lineHeight: "25px",
-                              padding: "15px",
-                              alignItems: "center",
-                              transform: "translate(0px,-33px)",
-                            }}
-                          >
+                          <ContainerSeven>
                             <span
                               style={
                                 {
@@ -994,24 +1226,15 @@ function LogIn(props) {
                             >
                               &lt;
                             </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        style={{
-                          transform: "translate(0px,-28px)",
-                        }}
-                      >
-                        <span
-                          style={{
-                            fontWeight: 700,
-                            transform: "translate(0px,-23px)",
-                          }}
-                        >
+                          </ContainerSeven>
+                        </Container23>
+                      </ContainerSix>
+                      <ContainerEight>
+                        <TitleSpan>
                           회원가입
-                        </span>
-                      </div>
-                    </div>
+                        </TitleSpan>
+                      </ContainerEight>
+                    </ContainerFive>
                     {/* <View
                             style={{
                                 textAlign:'left',
@@ -1031,26 +1254,10 @@ function LogIn(props) {
                                 비밀번호를 다시 설정하기 위해 가입 당시의 휴대폰 번호를 입력해 주세요.
                             </Text>
                         </View> */}
-                    <div
-                      style={{
-                        display: "block",
-                        textAlign: "left",
-                        paddingLeft: "15px",
-                        paddingRight: "15px",
-                        paddingTop: "15px",
-                        overflowY: "scroll",
-                        backgroundColor: "transparent",
-                        height: "75px",
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontSize: "14px",
-                        }}
-                      >
+                    <Container24>
+                      <SubTitleSpan>
                         휴대폰번호
-                      </span>
-
+                      </SubTitleSpan>
                       <TextInput
                         onChangeText={(text) => {
                           props.setUserPhoneNumber(text);
@@ -1064,69 +1271,29 @@ function LogIn(props) {
                         placeholder="'-' 없이 입력"
                         value={props.userPhoneNumber}
                       ></TextInput>
-                    </div>
-                    <div
-                      style={{
-                        textAlign: "left",
-                        padding: "15px",
-                        top: 0,
-                        backgroundColor: "transparent",
-                        display: "flex",
-                        flexDirection: "row",
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontWeight: 500,
-                          fontSize: "15px",
-                          marginBottom: "5px",
-                        }}
-                      >
+                    </Container24>
+                    <Container25>
+                      <MiscSpanOne>
                         이미 계정을 보유하고 계시나요?
-                      </span>
+                      </MiscSpanOne>
 
-                      <div
+                      <Container23
                         onClick={() => {
                           // setRegistrationScreen(0)
                           props.setRegistrationScreen(0);
                           props.setJoinType("MOBILE");
                           props.setSNSID(null);
                         }}
-                        style={{
-                          cursor: "pointer",
-                        }}
+
                       >
-                        <span
-                          style={{
-                            fontWeight: 700,
-                            fontSize: "15px",
-                            marginLeft: "5px",
-                          }}
+                        <MiscSpanTwo
                         >
                           로그인
-                        </span>
-                      </div>
-                    </div>
-                    <div
-                      style={{
-                        // display: emailLogIn ? 'none':'block',
-                        borderTop: "1px solid rgb(221,221,221)",
-                        paddingLeft: "15px",
-                        paddingRight: "15px",
-                        paddingBottom: "15px",
-                      }}
-                    >
-                      <div
-                        style={{
-                          marginTop: "15px",
-                          backgroundColor: "rgb(255,123,88)",
-                          borderRadius: "10px",
-                          height: "40px",
-                          textAlign: "center",
-                          justifyContent: "center",
-                          lineHeight: "40px",
-                          cursor: "pointer",
-                        }}
+                        </MiscSpanTwo>
+                      </Container23>
+                    </Container25>
+                    <Container26>
+                      <Container27
                         onClick={() => {
                           fetch(
                             "/CheckExistMember?" +
@@ -1162,20 +1329,16 @@ function LogIn(props) {
                           // setRegistrationScreen(3)
                         }}
                       >
-                        <span
-                          style={{
-                            color: "white",
-                            fontSize: "14px",
-                          }}
+                        <ButtonSpan
                         >
                           계속
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                        </ButtonSpan>
+                      </Container27>
+                    </Container26>
+                  </Container22>
+                </Container21>
+              </ContainerTwo>
+            </ContainerOne>
           </div>
         </Font>
       );
@@ -1185,101 +1348,22 @@ function LogIn(props) {
       return (
         <Font family="Noto Sans KR">
           <div>
-            <div
-              style={{
-                display: wrongPinCodeShow ? "block" : "none",
-              }}
-            >
-              <WrongPinCode toggleWrongPinCodeShow={toggleWrongPinCodeShow} />
-            </div>
-            <div
-              style={{
-                display: sentMessageShow ? "block" : "none",
-              }}
-            >
-              <SentMessage toggleSentMessageShow={toggleSentMessageShow} />
-            </div>
-            <div
-              style={{
-                position: "fixed",
-                height: "100vh",
-                width: "100vw",
-                top: 0,
-                left: 0,
-                backgroundColor: "rgba(0,0,0,0.5)",
-                display: "block",
-                //   padding:'160px',
-                zIndex: 101,
-              }}
-            >
-              <div
-                style={{
-                  paddingTop: "100px",
-                  // paddingLeft:'65px',
-                  // paddingRight:'65px'
-                }}
-              >
-                <div
-                  style={{
-                    textAlign: "left",
-                    // margin:'25pt'
-                    paddingLeft: "0px",
-                    paddingRight: "0px",
-                    backgroundColor: "transparent",
-                  }}
-                ></div>
 
-                <div
-                  style={{
-                    borderRadius: "10px",
-                    backgroundColor: "white",
-                    width: "500px",
-                    height: "300px",
-                    paddingTop: "15px",
-                    // columnCount:3,
-                    // flexwrap:'wrap',
-                    // flexDirection:'column',
-                    // display: 'grid',
-                    // gridTemplateColumns: 'auto auto',
-                    // // padding:'100px',
-                    overflowY: "scroll",
-                    marginLeft: "auto",
-                    marginRight: "auto",
-                  }}
-                >
-                  <div
-                    style={{
-                      backgroundColor: "white",
-                      height: "298px",
-                      width: "100%",
-                      borderBottomLeftRadius: "10px",
-                      borderBottomRightRadius: "10px",
-                    }}
-                  >
-                    <div
-                      style={{
-                        position: "relative",
-                        top: 0,
-                        height: "30px",
-                        width: "100%",
-                        backgroundColor: "white",
-                        borderTopLeftRadius: "10px",
-                        borderTopRightRadius: "10px",
-                        borderBottom: "1px solid rgb(221,221,221)",
-                      }}
-                    >
-                      <div
-                        style={{
-                          height: "25px",
-                          width: "25px",
-                          backgroundColor: "transparent",
-                          position: "relative",
-                          top: "15px",
-                          left: "15px",
-                          zIndex: 102,
-                          transform: "translate(0px,-20px)",
-                        }}
-                      >
+            <ToggleDiv toggle={wrongPinCodeShow}>
+              <WrongPinCode toggleWrongPinCodeShow={toggleWrongPinCodeShow} />
+            </ToggleDiv>
+
+           
+            <ToggleDiv toggle={sentMessageShow}>
+              <SentMessage toggleSentMessageShow={toggleSentMessageShow} />
+            </ToggleDiv>
+            
+            <ContainerOne>
+              <ContainerTwo>
+                <Container28>
+                  <Container29>
+                    <ContainerFive>
+                      <Container30>
                         {/* <TouchableOpacity
                     onPress={()=>{
                         setFindPassWord(false)
@@ -1295,7 +1379,7 @@ function LogIn(props) {
                     </img>
 
                     </TouchableOpacity> */}
-                        <div
+                        <Container23
                           onClick={() => {
                             //console.log('close project list')
                             setFindPassWord(false);
@@ -1304,53 +1388,20 @@ function LogIn(props) {
                             props.setJoinType("MOBILE");
                             props.setSNSID(null);
                           }}
-                          style={{
-                            cursor: "pointer",
-                          }}
                         >
-                          <div
-                            style={{
-                              backgroundColor: "transparent",
-                              height: "25px",
-                              width: "100%",
-                              borderRadius: "10px",
-                              // border:'2px solid black',
-                              textAlign: "left",
-                              justifyContent: "center",
-                              lineHeight: "25px",
-                              padding: "15px",
-                              alignItems: "center",
-                              transform: "translate(0px,-14px)",
-                            }}
-                          >
-                            <span
-                              style={
-                                {
-                                  // position:'fixed',
-                                  // right:'100px'
-                                }
-                              }
-                            >
+                          <Container31>
+                            <span>
                               &lt;
                             </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        style={{
-                          transform: "translate(0px,-28px)",
-                        }}
-                      >
-                        <span
-                          style={{
-                            fontWeight: 700,
-                            transform: "translate(0px,-23px)",
-                          }}
-                        >
+                          </Container31>
+                        </Container23>
+                      </Container30>
+                      <Container32>
+                        <TitleSpan2>
                           회원가입
-                        </span>
-                      </div>
-                    </div>
+                        </TitleSpan2>
+                      </Container32>
+                    </ContainerFive>
                     {/* <View
                             style={{
                                 textAlign:'left',
@@ -1370,35 +1421,13 @@ function LogIn(props) {
                                 비밀번호를 다시 설정하기 위해 가입 당시의 휴대폰 번호를 입력해 주세요.
                             </Text>
                         </View> */}
-                    <div
-                      style={{
-                        display: "flex",
-                        textAlign: "left",
-                        paddingLeft: "15px",
-                        paddingRight: "15px",
-                        paddingTop: "15px",
-                        overflowY: "scroll",
-                        backgroundColor: "transparent",
-                        height: "150px",
-                        flexDirection: "column",
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontSize: "18px",
-                          fontWeight: 700,
-                        }}
-                      >
+                    <Container33>
+                      <Container34>
                         본인인증
-                      </span>
-                      <span
-                        style={{
-                          fontSize: "15px",
-                          marginTop: "5px",
-                        }}
-                      >
+                      </Container34>
+                      <Container35>
                         휴대폰 번호로 전송된 인증번호를 입력해 주세요
-                      </span>
+                      </Container35>
                       {/* <TextInput 
                                 onChangeText={
                                 text=>{
@@ -1433,27 +1462,11 @@ function LogIn(props) {
                           </Text>
                         )}
                       />
-                    </div>
-                    <div
-                      style={{
-                        textAlign: "left",
-                        paddingLeft: "15px",
-                        paddingRight: "15px",
-                        top: 0,
-                        backgroundColor: "transparent",
-                        display: "flex",
-                        flexDirection: "row",
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontWeight: 500,
-                          fontSize: "15px",
-                          marginBottom: "5px",
-                        }}
-                      >
+                    </Container33>
+                    <Container36>
+                      <Container37>
                         메시지를 못받았습니다
-                      </span>
+                      </Container37>
 
                       <div
                         onClick={() => {
@@ -1461,35 +1474,13 @@ function LogIn(props) {
                           props.setRegistrationScreen(1);
                         }}
                       >
-                        <span
-                          style={{
-                            fontWeight: 700,
-                            fontSize: "15px",
-                            marginLeft: "5px",
-                          }}
-                        >
+                        <Container38>
                           다시 받아보기
-                        </span>
+                        </Container38>
                       </div>
-                    </div>
-                    <div
-                      style={{
-                        // display: emailLogIn ? 'none':'block',
-                        borderTop: "1px solid rgb(221,221,221)",
-                        paddingLeft: "15px",
-                        paddingRight: "15px",
-                        paddingBottom: "15px",
-                      }}
-                    >
-                      <div
-                        style={{
-                          marginTop: "15px",
-                          backgroundColor: "rgb(255,123,88)",
-                          borderRadius: "10px",
-                          height: "40px",
-                          textAlign: "center",
-                          justifyContent: "center",
-                        }}
+                    </Container36>
+                    <Container39>
+                      <Container40
                         onClick={() => {
                           // props.logInFunction(
                           //     {
@@ -1522,25 +1513,17 @@ function LogIn(props) {
                           }
                         }}
                       >
-                        <div
-                          style={{
-                            transform: "translate(0px,6px)",
-                          }}
-                        >
-                          <span
-                            style={{
-                              color: "white",
-                            }}
-                          >
+                        <Container41>
+                          <ButtonSpan>
                             계속
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                          </ButtonSpan>
+                        </Container41>
+                      </Container40>
+                    </Container39>
+                  </Container29>
+                </Container28>
+              </ContainerTwo>
+            </ContainerOne>
           </div>
         </Font>
       );
@@ -1550,104 +1533,31 @@ function LogIn(props) {
       return (
         <Font family="Noto Sans KR">
           <div>
-            <div
-              style={{
-                display: termsOfServicePopUpShow ? "block" : "none",
-              }}
-            >
+
+            <ToggleDiv toggle={termsOfServicePopUpShow}>
               <TermsOfServicePopUp
                 toggleTermsOfServicePopUpShow={toggleTermsOfServicePopUpShow}
               />
-            </div>
-            <div
-              style={{
-                display: privacyPolicyPopUpShow ? "block" : "none",
-              }}
-            >
+            </ToggleDiv>
+
+            <ToggleDiv toggle={privacyPolicyPopUpShow}>
               <PrivacyPolicyPopUp
                 togglePrivacyPolicyPopUpShow={togglePrivacyPolicyPopUpShow}
               />
-            </div>
-            <div
-              style={{
-                position: "fixed",
-                height: "100vh",
-                width: "100vw",
-                top: 0,
-                left: 0,
-                backgroundColor: "rgba(0,0,0,0.5)",
-                display: "block",
-                //   padding:'160px',
-                zIndex: 101,
-              }}
-            >
-              <div
+            </ToggleDiv>
+            <ContainerOne>
+              <ContainerTwo
                 style={{
                   paddingTop: "100px",
                   // paddingLeft:'65px',
                   // paddingRight:'65px'
                 }}
               >
-                <div
-                  style={{
-                    textAlign: "left",
-                    // margin:'25pt'
-                    paddingLeft: "0px",
-                    paddingRight: "0px",
-                    backgroundColor: "transparent",
-                  }}
-                ></div>
 
-                <div
-                  style={{
-                    borderRadius: "10px",
-                    backgroundColor: "white",
-                    width: "500px",
-                    height: "520px",
-                    paddingTop: "15px",
-                    // columnCount:3,
-                    // flexwrap:'wrap',
-                    // flexDirection:'column',
-                    // display: 'grid',
-                    // gridTemplateColumns: 'auto auto',
-                    // // padding:'100px',
-                    overflowY: "scroll",
-                    marginLeft: "auto",
-                    marginRight: "auto",
-                  }}
-                >
-                  <div
-                    style={{
-                      backgroundColor: "white",
-                      height: "498px",
-                      width: "100%",
-                      borderBottomLeftRadius: "10px",
-                      borderBottomRightRadius: "10px",
-                    }}
-                  >
-                    <div
-                      style={{
-                        position: "relative",
-                        top: 0,
-                        height: "30px",
-                        width: "100%",
-                        backgroundColor: "white",
-                        borderTopLeftRadius: "10px",
-                        borderTopRightRadius: "10px",
-                        borderBottom: "1px solid rgb(221,221,221)",
-                      }}
-                    >
-                      <div
-                        style={{
-                          height: "25px",
-                          width: "25px",
-                          backgroundColor: "transparent",
-                          position: "relative",
-                          top: "15px",
-                          left: "15px",
-                          zIndex: 102,
-                        }}
-                      >
+                <Container42>
+                  <Container43>
+                    <ContainerFive>
+                      <ContainerSix>
                         {/* <TouchableOpacity
                     onPress={()=>{
                         setFindPassWord(false)
@@ -1673,49 +1583,19 @@ function LogIn(props) {
                             props.setSNSID(null);
                           }}
                         >
-                          <div
-                            style={{
-                              backgroundColor: "transparent",
-                              height: "25px",
-                              width: "100%",
-                              borderRadius: "10px",
-                              // border:'2px solid black',
-                              textAlign: "left",
-                              justifyContent: "center",
-                              lineHeight: "25px",
-                              padding: "15px",
-                              alignItems: "center",
-                              transform: "translate(0px,-33px)",
-                            }}
-                          >
-                            <span
-                              style={
-                                {
-                                  // position:'fixed',
-                                  // right:'100px'
-                                }
-                              }
-                            >
+                          <ContainerSeven>
+                            <span>
                               &lt;
                             </span>
-                          </div>
+                          </ContainerSeven>
                         </div>
-                      </div>
-                      <div
-                        style={{
-                          transform: "translate(0px,-30px)",
-                        }}
-                      >
-                        <span
-                          style={{
-                            fontWeight: 700,
-                            transform: "translate(0px,-23px)",
-                          }}
-                        >
+                      </ContainerSix>
+                      <Container44>
+                        <TitleSpan>
                           회원가입
-                        </span>
-                      </div>
-                    </div>
+                        </TitleSpan>
+                      </Container44>
+                    </ContainerFive>
                     {/* <View
                             style={{
                                 textAlign:'left',
@@ -1735,54 +1615,21 @@ function LogIn(props) {
                                 비밀번호를 다시 설정하기 위해 가입 당시의 휴대폰 번호를 입력해 주세요.
                             </Text>
                         </View> */}
-                    <div
-                      style={{
-                        display: "flex",
-                        textAlign: "left",
-                        paddingLeft: "15px",
-                        paddingRight: "15px",
-                        paddingTop: "15px",
-                        overflowY: "scroll",
-                        backgroundColor: "transparent",
-                        height: "400px",
-                        flexDirection: "column",
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontSize: "18px",
-                          fontWeight: 700,
-                        }}
-                      >
+                    <Container45>
+                      <Container34>
                         디자인 전문가 회원정보 입력
-                      </span>
-                      <span
-                        style={{
-                          fontSize: "15px",
-                          marginTop: "5px",
-                        }}
-                      >
+                      </Container34>
+                      <Container46>
                         디자인 전문가 가입이 완료되면 겁색부터 샘플 주문까지
                         모두 무료로 사용이 가능합니다.클립에서는 보다 원활한
                         서비스 운영을 위해 신청해주신 분들 중 1)사업자등록증 +
                         명함 2) 홈페이지/블로그/인스타그램 등을 통해 포트폴리오
                         열람이 가능한 가입자에게 승인 처리해드리고 있습니다.
-                      </span>
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                        }}
-                      >
-                        <span
-                          style={{
-                            marginTop: "5px",
-
-                            lineHeight: "30px",
-                          }}
-                        >
+                      </Container46>
+                      <Container47>
+                        <Container48>
                           이름
-                        </span>
+                        </Container48>
 
                         <TextInput
                           onChangeText={(text) => {
@@ -1800,22 +1647,11 @@ function LogIn(props) {
                           placeholder="실명"
                           value={props.userName}
                         ></TextInput>
-                      </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                        }}
-                      >
-                        <span
-                          style={{
-                            marginTop: "5px",
-
-                            lineHeight: "30px",
-                          }}
-                        >
+                      </Container47>
+                      <Container47>
+                        <Container48>
                           이메일
-                        </span>
+                        </Container48>
                         <TextInput
                           onChangeText={(text) => {
                             props.setUserEmail(text);
@@ -1832,22 +1668,11 @@ function LogIn(props) {
                           placeholder="이메일 입력"
                           value={props.userEmail}
                         ></TextInput>
-                      </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                        }}
-                      >
-                        <span
-                          style={{
-                            marginTop: "5px",
-
-                            lineHeight: "30px",
-                          }}
-                        >
+                      </Container47>
+                      <Container47>
+                        <Container48>
                           회사명
-                        </span>
+                        </Container48>
                         <TextInput
                           onChangeText={(text) => {
                             props.setUserCompanyName(text);
@@ -1864,22 +1689,11 @@ function LogIn(props) {
                           placeholder="회사명 입력"
                           value={props.userCompanyName}
                         ></TextInput>
-                      </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                        }}
-                      >
-                        <span
-                          style={{
-                            marginTop: "5px",
-
-                            lineHeight: "30px",
-                          }}
-                        >
+                      </Container47>
+                      <Container47>
+                        <Container48>
                           회사 웹사이트 또는 블로그
-                        </span>
+                        </Container48>
                         <TextInput
                           onChangeText={(text) => {
                             props.setUserCompanyWebSite(text);
@@ -1896,35 +1710,13 @@ function LogIn(props) {
                           placeholder="회사 웹사이트 또는 블로그 주소 입력"
                           value={props.userCompanyWebSite}
                         ></TextInput>
-                      </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                        }}
+                      </Container47>
+                      <Container47
                       >
-                        <span
-                          style={{
-                            marginTop: "5px",
-
-                            lineHeight: "30px",
-                          }}
-                        >
+                        <Container48>
                           비밀번호
-                        </span>
-                        <div
-                          style={{
-                            border: "1px solid black",
-                            borderRadius: "0px",
-                            marginBottom: "15px",
-                            flexDirection: "row",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "space-between",
-                            paddingRight: "8px",
-                            height: "30px",
-                          }}
-                        >
+                        </Container48>
+                        <Container49>
                           <TextInput
                             onChangeText={(text) => {
                               props.setPassword(text);
@@ -1943,111 +1735,22 @@ function LogIn(props) {
                               togglePasswordVisible();
                             }}
                           >
-                            <div
-                              style={{
-                                display: passwordVisible ? "none" : "block",
-                              }}
-                            >
-                              <img
-                                src={eyeIcon}
-                                style={{
-                                  height: "25px",
-                                  width: "25px",
-                                }}
-                              />
-                            </div>
-                            <div
-                              style={{
-                                display: passwordVisible ? "block" : "none",
-                              }}
-                            >
-                              <img
-                                src={eyeSlashIcon}
-                                style={{
-                                  height: "25px",
-                                  width: "25px",
-                                }}
-                              />
-                            </div>
+                            
+                            <Container50 toggle={passwordVisible}>
+                              <Img src={eyeIcon}/>
+                            </Container50>
+                            
+                            <Container51 toggle={passwordVisible}>
+                              <Img src={eyeSlashIcon}/>
+                            </Container51>
                           </div>
-                        </div>
-                        {/* <TextInput 
-                                onChangeText={
-                                text=>{
-                                    props.setPassword(text)
-
-                                    // props.onPhoneNumberChange()
-                                }
-                                }
-                                style={{
-                                    marginTop:'5px',
-                                    border:"1px solid black",
-                                    // borderRadius:'10px',
-                                    marginBottom:'5px',
-                                    height:'30px',
-                                }}
-                                placeholder="영문,숫자 포함 8-16자"
-                                value={props.password}
-                            ></TextInput>
-                            <TouchableOpacity
-                                onPress={()=>{
-                                    togglePasswordVisible()
-                                }}
-                            >
-                                <div
-                                    style={{
-                                        display:passwordVisible?'none':'block'
-                                    }}
-                                >
-                                    <img src={eyeIcon} 
-                                    style={{
-                                        height:'25px',
-                                        width:'25px'
-                                    }} />
-                                </div>
-                                <div
-                                    style={{
-                                        display:passwordVisible?'block':'none'
-                                    }}
-                                >
-                                    <img src={eyeSlashIcon} 
-                                    style={{
-                                        height:'25px',
-                                        width:'25px'
-                                    }} />
-                                </div>
-                                
-                                
-                            </TouchableOpacity> */}
-                      </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                        }}
-                      >
-                        <span
-                          style={{
-                            // marginTop:'5px',
-
-                            lineHeight: "30px",
-                          }}
-                        >
+                        </Container49>
+                      </Container47>
+                      <Container47>
+                        <Container52>
                           비밀번호 확인
-                        </span>
-                        <div
-                          style={{
-                            border: "1px solid black",
-                            borderRadius: "0px",
-                            marginBottom: "15px",
-                            flexDirection: "row",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "space-between",
-                            paddingRight: "8px",
-                            height: "30px",
-                          }}
-                        >
+                        </Container52>
+                        <Container49>
                           <TextInput
                             onChangeText={(text) => {
                               props.setPasswordCheck(text);
@@ -2067,38 +1770,14 @@ function LogIn(props) {
                               togglePasswordCheckVisible();
                             }}
                           >
-                            <div
-                              style={{
-                                display: passwordCheckVisible
-                                  ? "none"
-                                  : "block",
-                              }}
-                            >
-                              <img
-                                src={eyeIcon}
-                                style={{
-                                  height: "25px",
-                                  width: "25px",
-                                }}
-                              />
-                            </div>
-                            <div
-                              style={{
-                                display: passwordCheckVisible
-                                  ? "block"
-                                  : "none",
-                              }}
-                            >
-                              <img
-                                src={eyeSlashIcon}
-                                style={{
-                                  height: "25px",
-                                  width: "25px",
-                                }}
-                              />
-                            </div>
+                            <Container50 toggle={passwordCheckVisible}>
+                              <Img src={eyeIcon}/>
+                            </Container50>
+                            <Container51 toggle={passwordCheckVisible}>
+                              <Img src={eyeSlashIcon}/>
+                            </Container51>
                           </div>
-                        </div>
+                        </Container49>
                         <span>사업자등록증 및 명함 업로드</span>
                         {/* <ImageUploader
                         withIcon={true}
@@ -2112,48 +1791,22 @@ function LogIn(props) {
 
                         {/* <input type="submit" onClick={handleSubmitFile} value="Submit"/> */}
 
-                        <div
-                          style={{
-                            display: "flex",
-                            flexDirection: "column",
-                          }}
-                        >
-                          <span
-                            style={{
-                              fontWeight: 700,
-                              marginBottom: "8px",
-                              marginTop: "8px",
-                            }}
-                          >
+                        <Container47>
+                          <Container53>
                             약관동의
-                          </span>
-                          <span
-                            style={{
-                              color: "rgb(119,119,119)",
-                              marginBottom: "8px",
-                            }}
-                          >
+                          </Container53>
+                          <Container54>
                             서비스 이용을 위해서 약관을 확인해 주세요.
-                          </span>
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "row",
-                              marginBottom: "8px",
-                            }}
-                          >
+                          </Container54>
+                          <Container55>
                             <div
                               onClick={() => {
                                 toggleTermsOfServicePopUpShow();
                               }}
                             >
-                              <span
-                                style={{
-                                  textDecoration: "underline",
-                                }}
-                              >
+                              <Container56>
                                 서비스 이용 약관,
-                              </span>
+                              </Container56>
                             </div>
                             <span>&nbsp;</span>
                             <div
@@ -2161,130 +1814,33 @@ function LogIn(props) {
                                 togglePrivacyPolicyPopUpShow();
                               }}
                             >
-                              <span
-                                style={{
-                                  textDecoration: "underline",
-                                }}
-                              >
+                              <Container56>
                                 개인정보 취급 방침
-                              </span>
+                              </Container56>
                             </div>
                             <span>에 동의하시겠습니까?</span>
-                          </div>
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "row",
-                              justifyContent: "start",
-                              marginTop: "4px",
-                              marginBottom: "8px",
-                            }}
-                          >
-                            <input
+                          </Container55>
+                          <Container57>
+                            <CheckBox1
                               type="checkbox"
-                              style={{
-                                width: "18px",
-                                height: "18px",
-                                marginRight: "8px",
-                              }}
                               onChange={
                                 (e) => checkboxClicked(e)
                                 // categoryCheckboxClicked(index,e,category.code_name,category.code_text)
                               }
                             />
-                            <span
-                              style={{
-                                lineHeight: "18px",
-                              }}
-                            >
+                            <Container58>
                               약관을 확인했으며, 동의합니다
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      {/* <div
-                                style={{
-                                    display:'flex',
-                                    flexDirection:'column'
-                                }}
-                            >
-                            <Text
-                                style={{
-                                    marginTop:'5px',
-                                    
-                                    lineHeight:'30px'
-                                }}
-                            >
-                                비밀번호 확인
-                            </Text>
-                            <TextInput 
-                                onChangeText={
-                                text=>{
-                                    props.setPasswordCheck(text)
-
-                                    // props.onPhoneNumberChange()
-                                }
-                                }
-                                style={{
-                                    marginTop:'5px',
-                                    border:"1px solid black",
-                                    // borderRadius:'10px',
-                                    marginBottom:'5px',
-                                    height:'30px',
-                                }}
-                                placeholder="영문,숫자 포함 8-16자"
-                                value={props.passwordCheck}
-                            ></TextInput>
-                            </div> */}
-                    </div>
-
-                    <div
-                      style={{
-                        // display: emailLogIn ? 'none':'block',
-                        borderTop: "1px solid rgb(221,221,221)",
-                        paddingLeft: "15px",
-                        paddingRight: "15px",
-                        paddingBottom: "15px",
-                      }}
-                    >
-                      <div
-                        style={{
-                          marginTop: "15px",
-                          backgroundColor: membershipButtonDisabled
-                            ? "rgb(170,170,170)"
-                            : "rgb(255,123,88)",
-                          borderRadius: "10px",
-                          height: "40px",
-                          textAlign: "center",
-                          justifyContent: "center",
-                          pointerEvents: membershipButtonDisabled
-                            ? "none"
-                            : "auto",
-                          cursor: "pointer",
-                        }}
+                            </Container58>
+                          </Container57>
+                        </Container47>
+                      </Container47>
+                    </Container45>
+                    <Container59>
+                      <Container60
+                        toggle={membershipButtonDisabled}
                         disabled={membershipButtonDisabled}
                         onClick={() => {
-                          // props.logInFunction(
-                          //     {
-                          //         mem_jointype:'MOBILE',
-                          //         mem_password:props.password,
-                          //         mem_token:null,
-                          //         mem_mobile:props.userPhoneNumber
-                          //     }
-                          // )
-                          // findPasswordFunction({
-                          //     mem_mobile:props.userPhoneNumber
-                          // })
-                          // console.log("'"+pincodeValue.toString()+"'")
-                          // console.log(pincodeAnswer)
-                          // var temp = pincodeAnswer.slice()
-                          // if(pincodeValue.toString()!=''){
-                          //     console.log('in')
-                          //     if("'"+pincodeValue.toString()+"'"==pincodeAnswer){
-                          //         console.log('next')
-                          //         setRegistrationScreen(3)
-                          //     }
-                          // }
+
                           var memberObj = {
                             mem_name: props.userName,
                             mem_email: props.userEmail,
@@ -2306,25 +1862,17 @@ function LogIn(props) {
                           // setRegistrationScreen(1)
                         }}
                       >
-                        <div
-                          style={{
-                            transform: "translate(0px,6px)",
-                          }}
-                        >
-                          <span
-                            style={{
-                              color: "white",
-                            }}
-                          >
+                        <Container61>
+                          <ButtonSpan>
                             확인
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                          </ButtonSpan>
+                        </Container61>
+                      </Container60>
+                    </Container59>
+                  </Container43>
+                </Container42>
+              </ContainerTwo>
+            </ContainerOne>
           </div>
         </Font>
       );
@@ -2333,132 +1881,44 @@ function LogIn(props) {
     return (
       <Font family="Noto Sans KR">
         <div>
-          <div
-            style={{
-              display: noExistMemberShow ? "block" : "none",
-            }}
-          >
+
+          <ToggleDiv toggle={noExistMemberShow}>
             <NoExistMember toggleNoExistMemberShow={toggleNoExistMemberShow} />
-          </div>
-          <div
-            style={{
-              display: sentMessageShow ? "block" : "none",
-            }}
-          >
+          </ToggleDiv>
+
+
+          <ToggleDiv toggle={sentMessageShow}>
             <SentMessage toggleSentMessageShow={toggleSentMessageShow} />
-          </div>
-          <div
-            style={{
-              display: sentEmailShow ? "block" : "none",
-            }}
-          >
+          </ToggleDiv>
+
+          <ToggleDiv toggle={sentEmailShow}>
             <SentEmail
               secureEmailString={secureEmailString}
               toggleSentEmailShow={toggleSentEmailShow}
             />
-          </div>
-          <div
-            style={{
-              display: showRegistrationSuccessScreen ? "block" : "none",
-            }}
-          >
+          </ToggleDiv>
+
+          <ToggleDiv toggle={showRegistrationSuccessScreen}>
             <RegistrationSuccess
               toggleShowRegistrationSuccessScreen={
                 toggleShowRegistrationSuccessScreen
               }
             />
-          </div>
-          <div
-            style={{
-              display: emailAlreadyExistsScreen ? "block" : "none",
-            }}
-          >
+          </ToggleDiv>
+
+
+          <ToggleDiv toggle={emailAlreadyExistsScreen}>
             <EmailAlreadyExists
               toggleEmailAlreadyExistsScreen={toggleEmailAlreadyExistsScreen}
             />
-          </div>
-          <div
-            style={{
-              position: "fixed",
-              height: "100vh",
-              width: "100vw",
-              top: 0,
-              left: 0,
-              backgroundColor: "rgba(0,0,0,0.5)",
-              display: "block",
-              //   padding:'160px',
-              zIndex: 101,
-            }}
-          >
-            <div
-              style={{
-                paddingTop: "100px",
-                // paddingLeft:'65px',
-                // paddingRight:'65px'
-              }}
-            >
-              <div
-                style={{
-                  textAlign: "left",
-                  // margin:'25pt'
-                  paddingLeft: "0px",
-                  paddingRight: "0px",
-                  backgroundColor: "transparent",
-                }}
-              ></div>
+          </ToggleDiv>
+          <ContainerOne>
+            <ContainerTwo>
 
-              <div
-                style={{
-                  borderRadius: "10px",
-                  backgroundColor: "white",
-                  // width:'100%',
-                  width: "500px",
-                  height: emailLogIn ? "520px" : "500px",
-                  paddingTop: "15px",
-                  // columnCount:3,
-                  // flexwrap:'wrap',
-                  // flexDirection:'column',
-                  // display: 'grid',
-                  // gridTemplateColumns: 'auto auto',
-                  // // padding:'100px',
-                  overflowY: "scroll",
-                  marginLeft: "auto",
-                  marginRight: "auto",
-                }}
-              >
-                <div
-                  style={{
-                    backgroundColor: "white",
-                    height: emailLogIn ? "400px" : "380px",
-                    width: "100%",
-                    borderBottomLeftRadius: "10px",
-                    borderBottomRightRadius: "10px",
-                  }}
-                >
-                  <div
-                    style={{
-                      position: "relative",
-                      top: 0,
-                      height: "30px",
-                      width: "100%",
-                      backgroundColor: "white",
-                      borderTopLeftRadius: "10px",
-                      borderTopRightRadius: "10px",
-                      borderBottom: "1px solid rgb(221,221,221)",
-                    }}
-                  >
-                    <div
-                      style={{
-                        height: "25px",
-                        width: "25px",
-                        backgroundColor: "transparent",
-                        position: "relative",
-                        top: "15px",
-                        left: "15px",
-                        zIndex: 102,
-                        transform: "translate(0px,-18px)",
-                      }}
-                    >
+              <Container62 toggle={emailLogIn}>
+                <Container63 toggle={emailLogIn}>
+                  <Container64>
+                    <Container65>
                       <div
                         // onPress={() => {
                         //   props.toggleLogInShow();
@@ -2467,61 +1927,26 @@ function LogIn(props) {
                           props.toggleLogInShow();
                         }}
                       >
-                        <img
+                        <Img
                           src={xIcon}
-                          style={{
-                            height: "25px",
-                            width: "25px",
-                          }}
-                        ></img>
+                        />
                       </div>
-                    </div>
-                    <div
-                      style={{
-                        transform: "translate(0px,-25px)",
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontWeight: 700,
-                          transform: "translate(0px,-25px)",
-                        }}
-                      >
+                    </Container65>
+                    <Container66>
+                      <TitleSpan>
                         로그인
-                      </span>
-                    </div>
-                  </div>
+                      </TitleSpan>
+                    </Container66>
+                  </Container64>
 
-                  <div
-                    style={{
-                      display: "block",
-                      textAlign: "left",
-                      paddingLeft: "15px",
-                      paddingRight: "15px",
-                      paddingTop: "15px",
-                      overflowY: "scroll",
-                      backgroundColor: "white",
-                      height: "100%",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: emailLogIn ? "none" : "block",
-                      }}
+                  <Container67>
+                    <Container50
+                      toggle={emailLogIn}
                     >
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                        }}
-                      >
-                        <span
-                          style={{
-                            fontSize: "14px",
-                          }}
-                        >
+                      <Container47>
+                        <Container68>
                           휴대폰번호
-                        </span>
+                        </Container68>
 
                         <TextInput
                           onChangeText={(text) => {
@@ -2536,26 +1961,15 @@ function LogIn(props) {
                           placeholder="'-' 없이 입력"
                           value={props.userPhoneNumber}
                         ></TextInput>
-                      </div>
-                    </div>
-                    <div
-                      style={{
-                        display: emailLogIn ? "block" : "none",
-                      }}
+                      </Container47>
+                    </Container50>
+                    <Container51
+                      toggle={emailLogIn}
                     >
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                        }}
-                      >
-                        <span
-                          style={{
-                            fontSize: "14px",
-                          }}
-                        >
+                      <Container47>
+                        <Container68>
                           이메일 주소
-                        </span>
+                        </Container68>
 
                         <TextInput
                           onChangeText={(text) => {
@@ -2570,27 +1984,12 @@ function LogIn(props) {
                           placeholder="이메일 주소 입력"
                           value={props.userEmail}
                         ></TextInput>
-                      </div>
-                    </div>
-                    <span
-                      style={{
-                        fontSize: "14px",
-                      }}
-                    >
+                      </Container47>
+                    </Container51>
+                    <Container68>
                       비밀번호
-                    </span>
-                    <div
-                      style={{
-                        border: "1px solid black",
-                        borderRadius: "0px",
-                        marginBottom: "15px",
-                        flexDirection: "row",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                        paddingRight: "8px",
-                      }}
-                    >
+                    </Container68>
+                    <Container69>
                       <TextInput
                         onChangeText={(text) => {
                           props.setPassword(text);
@@ -2605,167 +2004,74 @@ function LogIn(props) {
                         value={props.password}
                       ></TextInput>
                       <div
-                        // onPress={() => {
-                        //   togglePasswordVisible();
-                        // }}
                         onClick={() => {
                           togglePasswordVisible();
                         }}
                       >
-                        <div
-                          style={{
-                            display: passwordVisible ? "none" : "block",
-                          }}
+                        <Container50
+                          toggle={passwordVisible}
                         >
-                          <img
-                            src={eyeIcon}
-                            style={{
-                              height: "25px",
-                              width: "25px",
-                            }}
-                          />
-                        </div>
-                        <div
-                          style={{
-                            display: passwordVisible ? "block" : "none",
-                          }}
+                          <Img src={eyeIcon}/>
+                        </Container50>
+                        <Container51
+                          toggle={passwordVisible}
                         >
-                          <img
-                            src={eyeSlashIcon}
-                            style={{
-                              height: "25px",
-                              width: "25px",
-                            }}
-                          />
-                        </div>
+                          <Img src={eyeSlashIcon} />
+                        </Container51>
                       </div>
-                    </div>
-                    <div
+                    </Container69>
+                    <Container23
                       onClick={() => {
                         setFindPassWord(true);
                       }}
-                      style={{
-                        cursor: "pointer",
-                      }}
                     >
-                      <span
-                        style={{
-                          fontSize: "14px",
-                        }}
-                      >
+                      <Container68>
                         비밀번호를 잊으셨나요?
-                      </span>
-                    </div>
-                    <div
-                      style={{
-                        display: emailLogIn ? "block" : "none",
-                      }}
+                      </Container68>
+                    </Container23>
+                    <Container51
+                      toggle={emailLogIn}
                     >
-                      <div
+                      <Container23
                         onClick={() => {
                           console.log("Email find on");
                           setFindEmail(true);
                         }}
-                        style={{
-                          cursor: "pointer",
-                        }}
                       >
-                        <span
-                          style={{
-                            fontSize: "14px",
-                          }}
-                        >
+                        <Container68>
                           이메일 찾기
-                        </span>
-                      </div>
-                    </div>
+                        </Container68>
+                      </Container23>
+                    </Container51>
                     <hr></hr>
-                    <div
-                      style={{
-                        display: emailLogIn ? "none" : "block",
-                      }}
+                    <Container50
+                      toggle={emailLogIn}
                     >
-                      <div
-                        style={{
-                          border: "1px solid black",
-                          borderRadius: "10px",
-                          height: "40px",
-                          textAlign: "center",
-                          justifyContent: "center",
-                          marginBottom: "15px",
-                          cursor: "pointer",
-                        }}
+                      <Container70
                         onClick={() => {
                           toggleEmailLogIn();
                         }}
                       >
-                        <div
-                          style={{
-                            transform: "translate(0px,6px)",
-                          }}
-                        >
-                          <span
-                            style={{
-                              color: "black",
-                              fontSize: "14px",
-                            }}
-                          >
+                        <Container41>
+                          <Container71>
                             이메일로 로그인
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      style={{
-                        display: emailLogIn ? "block" : "none",
-                      }}
+                          </Container71>
+                        </Container41>
+                      </Container70>
+                    </Container50>
+                    <Container51
+                      toggle={emailLogIn}
                     >
-                      <div
-                        style={{
-                          border: "1px solid black",
-                          borderRadius: "10px",
-                          height: "40px",
-                          textAlign: "center",
-                          justifyContent: "center",
-                          marginBottom: "15px",
-                          cursor: "pointer",
-                          lineHeight: "40px",
-                        }}
+                      <Container72
                         onClick={() => {
                           toggleEmailLogIn();
                         }}
                       >
-                        <span
-                          style={{
-                            color: "black",
-                            fontSize: "14px",
-                          }}
-                        >
+                        <Container73>
                           휴대폰 번호로 로그인
-                        </span>
-                      </div>
-                    </div>
-                    {/* <TouchableOpacity
-                        style={{
-                            border:"1px solid black",
-                            borderRadius:"10px",
-                            height:'40px',
-                            textAlign:'center',
-                            justifyContent:'center',
-                            marginBottom:'15px'
-                        }}
-                        onPress={()=>{
-                            
-                        }}
-                    >
-                        <Text
-                            style={{
-                                color:'black'
-                            }}
-                        >
-                            카카오로 시작하기
-                        </Text>
-                    </TouchableOpacity> */}
+                        </Container73>
+                      </Container72>
+                    </Container51>
                     <div>
                       <KakaoAuth
                         logInFunction={props.logInFunction}
@@ -2773,88 +2079,31 @@ function LogIn(props) {
                         setSNSID={props.setSNSID}
                       />
                     </div>
-                    <div
-                      style={{
-                        border: "1px solid black",
-                        borderRadius: "10px",
-                        height: "40px",
-                        textAlign: "center",
-                        justifyContent: "center",
-                        marginBottom: "15px",
-                        lineHeight: "40px",
-                        cursor: "pointer",
-                      }}
+                    <Container72
                       onClick={() => {}}
                     >
-                      <span
-                        style={{
-                          color: "black",
-                          fontSize: "14px",
-                        }}
-                      >
+                      <Container74>
                         Apple 계정으로 계속하기
-                      </span>
-                    </div>
-                    {/* <TouchableOpacity>
-                        <AppleAuth/>
-                    </TouchableOpacity> */}
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "row",
-                      }}
-                    >
+                      </Container74>
+                    </Container72>
+                    <Container75>
                       <span>아직 회원이 아니신가요?</span>
-                      <div
-                        style={{
-                          borderRadius: "10px",
-                          height: "100%",
-                          textAlign: "center",
-                          justifyContent: "center",
-                          marginRight: "15px",
-                          cursor: "pointer",
-                        }}
+                      <Container76
                         onClick={() => {
                           console.log("registration 1");
-
-                          // setRegistrationScreen(1)
                           props.setRegistrationScreen(1);
                         }}
                       >
-                        <span
-                          style={{
-                            marginLeft: "10px",
-                            color: "black",
-                            fontWeight: 700,
-                            marginRight: "10px",
-                            fontSize: "14px",
-                          }}
-                        >
+                        <Containter77>
                           회원가입
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    style={{
-                      display: emailLogIn ? "none" : "block",
-                      borderTop: "1px solid rgb(221,221,221)",
-                      paddingLeft: "15px",
-                      paddingRight: "15px",
-                      paddingBottom: "15px",
-                    }}
+                        </Containter77>
+                      </Container76>
+                    </Container75>
+                  </Container67>
+                  <Container78
+                    toggle={emailLogIn}
                   >
-                    <div
-                      style={{
-                        marginTop: "15px",
-                        backgroundColor: "rgb(255,123,88)",
-                        borderRadius: "10px",
-                        height: "40px",
-                        textAlign: "center",
-                        justifyContent: "center",
-                        lineHeight: "40px",
-                        cursor: "pointer",
-                      }}
+                    <Container79
                       onClick={() => {
                         props.logInFunction({
                           mem_jointype: "MOBILE",
@@ -2864,34 +2113,15 @@ function LogIn(props) {
                         });
                       }}
                     >
-                      <span
-                        style={{
-                          color: "white",
-                          fontSize: "14px",
-                        }}
-                      >
+                      <Container80>
                         로그인
-                      </span>
-                    </div>
-                  </div>
-                  <div
-                    style={{
-                      display: emailLogIn ? "block" : "none",
-                      borderTop: "1px solid rgb(221,221,221)",
-                      paddingLeft: "15px",
-                      paddingRight: "15px",
-                      paddingBottom: "15px",
-                    }}
+                      </Container80>
+                    </Container79>
+                  </Container78>
+                  <Container81
+                    toggle={emailLogIn}
                   >
-                    <div
-                      style={{
-                        marginTop: "15px",
-                        backgroundColor: "rgb(255,123,88)",
-                        borderRadius: "10px",
-                        height: "40px",
-                        textAlign: "center",
-                        justifyContent: "center",
-                      }}
+                    <Container79
                       onClick={() => {
                         props.logInFunction({
                           mem_jointype: "MOBILE",
@@ -2901,20 +2131,16 @@ function LogIn(props) {
                         });
                       }}
                     >
-                      <span
-                        style={{
-                          color: "white",
-                        }}
-                      >
+                      <Container80>
                         로그인
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                      </Container80>
+                    </Container79>
+                  </Container81>
+                </Container63>
                 {/* <Text>{props.material_num}</Text> */}
-              </div>
-            </div>
-          </div>
+              </Container62>
+            </ContainerTwo>
+          </ContainerOne>
         </div>
       </Font>
     );
