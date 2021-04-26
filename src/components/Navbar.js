@@ -71,6 +71,7 @@ const CategoryDiv1=styled.div`
   background-color: transparent;
   z-index: 1;
 `
+
 const CategoryDiv2=styled.div`
   font-size: 25px;
   font-weight: 700;
@@ -83,6 +84,7 @@ const CategoryDiv2=styled.div`
   margin: 11;
   pointer-events: none;
 `
+
 const UseDiv1 = styled.div`
   position: fixed;
   height: 50px;
@@ -92,6 +94,7 @@ const UseDiv1 = styled.div`
   background-color: transparent;
   z-index: 1;
 `
+
 const UseDiv2 = styled.div`
   font-size: 25px;
   font-weight: 700;
@@ -113,6 +116,7 @@ const BrandsDiv1 = styled.div`
   background-color: transparent;
   z-index: 1;
 `
+
 const BrandsDiv2 = styled.div`
   font-size: 25px;
   font-weight: 700;
@@ -135,6 +139,7 @@ const SearchBarDiv1 = styled.div`
   top: 28px;
   right: 230px;
 `
+
 const SearchBarInput = styled.input`
   overflow: hidden;
   width: 200px;
@@ -157,6 +162,8 @@ const SearchIconDiv = styled.div`
   background-color: transparent;
   z-index: 1;
 `
+
+
 const IconImg = styled.img`
   height: 47px;
   width: 47px;
@@ -170,6 +177,8 @@ const BoxIconDiv = styled.div`
   background-color: transparent;
   z-index: 1;
 `
+
+
 const UserIconDiv = styled.div`
   position: fixed;
   height: 47px;
@@ -179,6 +188,41 @@ const UserIconDiv = styled.div`
   background-color: transparent;
   z-index: 1;
 `
+
+const MarginDiv = styled.div`
+  margin-top: 22px;
+`
+const SearchIconDiv2 = styled.div`
+  position: fixed;
+  height: 47;
+  width: 47;
+  top: 29px;
+  right: 105pt;
+  background-color: transparent;
+  z-index: 1;
+`
+
+const BoxIconDiv2 = styled.div`
+  position: fixed;
+  height: 47;
+  width: 47;
+  top: 29px;
+  right: 60pt;
+  background-color: transparent;
+  z-index: 1;
+`
+
+
+const UserIconDiv2 = styled.div`
+  position: fixed;
+  height: 47px;
+  width: 47px;
+  top: 29px;
+  right: 15pt;
+  background-color: transparent;
+  z-index: 1;
+`
+
 const ToggleDiv = styled.div`
   display: ${(props) => (props.toggle ? "block" : "none")};
 `;
@@ -1376,38 +1420,13 @@ const Navbar = () => {
                   </a>
                 </div>
 
-                <div
-                  style={{
-                    backgroundColor: "white",
-                    border: "1px solid #ccc",
-                    width: 252,
-                    height: 49,
-                    borderRadius: "24px",
-                    position: "fixed",
-                    top: 28,
-                    right: 230,
-                  }}
-                >
-                  <input
-                    style={{
-                      overflow: "hidden",
-                      width: "200px",
-                      height: "49px",
-                      padding: "12px 20px",
-                      margin: "8px 0",
-                      // border:"1px solid #ccc",
-                      borderRadius: "24px",
-                      boxSizing: "border-box",
-                      position: "fixed",
-                      top: 20,
-                      right: 280,
-                      fontSize: "18px",
-                    }}
+                <SearchBarDiv1>
+                  <SearchBarInput
                     value={inputValue}
                     onChange={updateInputValue}
                     placeholder={"검색"}
                   />
-                  <div
+                  <SearchIconDiv
                     onClick={() => {
                       if (searchTermEnable == true) {
                         Linking.openURL(`/searchpage?keyword=` + inputValue);
@@ -1415,65 +1434,31 @@ const Navbar = () => {
                         Linking.openURL(`/searchpage?mem_no=`);
                       }
                     }}
-                    style={{
-                      position: "fixed",
-                      height: 47,
-                      width: 47,
-                      top: "29px",
-                      right: "173pt",
-                      backgroundColor: "transparent",
-                      zIndex: 1,
-                    }}
                   >
-                    <img
-                      style={{
-                        height: 47,
-                        width: 47,
-                      }}
+                    <IconImg
                       src={searchIcon}
-                    ></img>
-                  </div>
-                </div>
-                <div
-                  style={{
-                    position: "fixed",
-                    height: 47,
-                    width: 47,
-                    top: "29px",
-                    right: "103pt",
-                    backgroundColor: "transparent",
-                    zIndex: 1,
-                  }}
+                    />
+                  </SearchIconDiv>
+                </SearchBarDiv1>
+                <BoxIconDiv
                   onClick={() => {
                     toggleCartModal();
                   }}
                 >
-                  <img src={boxIcon}></img>
-                </div>
-                <div
+                  <IconImg src={boxIcon}/>
+                </BoxIconDiv>
+                <UserIconDiv
                   className="linkTo"
-                  style={{
-                    position: "fixed",
-                    height: "47px",
-                    width: "47px",
-                    top: "29px",
-                    right: "33pt",
-                    backgroundColor: "transparent",
-                    zIndex: 1,
-                  }}
+                  
                   onClick={() => {
                     // toggleUserModal()
                     toggleLogInShow();
                   }}
                 >
-                  <img
+                  <IconImg
                     src={userIcon}
-                    style={{
-                      height: "47px",
-                      width: "47px",
-                    }}
-                  ></img>
-                </div>
+                  />
+                </UserIconDiv>
               </div>
             </header>
           </ShowTwo>
@@ -1489,7 +1474,7 @@ const Navbar = () => {
                   console.log("user modal has been closed");
                 }}
               >
-                <div style={{ marginTop: 22 }}>
+                <MarginDiv>
                   <div>
                     <span>cart Info</span>
 
@@ -1501,29 +1486,22 @@ const Navbar = () => {
                       <span>x</span>
                     </div>
                   </div>
-                </div>
+                </MarginDiv>
               </Modal>
-              <div
-                style={{
-                  display: wrongLogInShow ? "block" : "none",
-                }}
-              >
+              
+              <ToggleDiv toggle={wrongLogInShow}>
                 <WrongLogIn toggleWrongLogInShow={toggleWrongLogInShow} />
-              </div>
-              <div
-                style={{
-                  display: alreadyKakaoMemberShow ? "block" : "none",
-                }}
-              >
+              </ToggleDiv>
+              
+    
+              <ToggleDiv toggle={alreadyKakaoMemberShow}>
                 <AlreadyKakaoMember
                   toggleAlreadyKakaoMemberShow={toggleAlreadyKakaoMemberShow}
                 />
-              </div>
-              <div
-                style={{
-                  display: logInShow ? "block" : "none",
-                }}
-              >
+              </ToggleDiv>
+              
+              
+              <ToggleDiv toggle={logInShow}>
                 {/* <LogIn toggleLogInShow={toggleLogInShow} logInFunction={logInFunction} setUserPhoneNumber={setUserPhoneNumber} onPhoneNumberChange={onPhoneNumberChange} userPhoneNumber={userPhoneNumber} setPassword={setPassword} onPasswordChange={onPasswordChange} password={password} setUserEmail={setUserEmail} userEmail={userEmail}/> */}
                 <LogIn
                   toggleLogInShow={toggleLogInShow}
@@ -1553,7 +1531,8 @@ const Navbar = () => {
                   setJoinType={setJoinType}
                   joinType={joinType}
                 />
-              </div>
+              </ToggleDiv>
+              
               <div className="headerContainer">
                 <div className="logo">
                   <a href="/clip">
@@ -1561,66 +1540,32 @@ const Navbar = () => {
                   </a>
                 </div>
 
-                <div
+                <SearchIconDiv2
                   onClick={() => Linking.openURL(`/searchpage`)}
-                  style={{
-                    position: "fixed",
-                    height: 47,
-                    width: 47,
-                    top: "29px",
-                    right: "105pt",
-                    backgroundColor: "transparent",
-                    zIndex: 1,
-                  }}
+                  
                 >
-                  <img
-                    style={{
-                      height: 47,
-                      width: 47,
-                    }}
+                  <IconImg
                     src={searchIcon}
-                  ></img>
-                </div>
-                <div
-                  style={{
-                    position: "fixed",
-                    height: 47,
-                    width: 47,
-                    top: "29px",
-                    right: "60pt",
-                    backgroundColor: "transparent",
-                    zIndex: 1,
-                  }}
+                  />
+                </SearchIconDiv2>
+                <BoxIconDiv2
                   onClick={() => {
                     toggleCartModal();
                   }}
                 >
-                  <img src={boxIcon}></img>
-                </div>
-                <div
+                  <IconImg src={boxIcon}/>
+                </BoxIconDiv2>
+                <UserIconDiv2
                   className="linkTo"
-                  style={{
-                    position: "fixed",
-                    height: 47,
-                    width: 47,
-                    top: "29px",
-                    right: "15pt",
-                    backgroundColor: "transparent",
-                    zIndex: 1,
-                  }}
                   onClick={() => {
                     //toggleUserModal()
                     toggleLogInShow();
                   }}
                 >
-                  <img
+                  <IconImg
                     src={userIcon}
-                    style={{
-                      height: "47px",
-                      width: "47px",
-                    }}
-                  ></img>
-                </div>
+                  />
+                </UserIconDiv2>
               </div>
             </header>
           </ShowThree>
@@ -1640,7 +1585,7 @@ const Navbar = () => {
                   console.log("user modal has been closed");
                 }}
               >
-                <div style={{ marginTop: 22 }}>
+                <MarginDiv>
                   <div>
                     <span>cart Info</span>
 
@@ -1652,7 +1597,7 @@ const Navbar = () => {
                       <span>x</span>
                     </div>
                   </div>
-                </div>
+                </MarginDiv>
               </Modal>
               {/* <Modal
                 animationType="fade"
@@ -1687,27 +1632,20 @@ const Navbar = () => {
                 >
                     <LogOut toggleLogOutShow={toggleLogOutShow} logOutFunction={logOutFunction}/>
                 </div> */}
-              <div
-                style={{
-                  display: wrongLogInShow ? "block" : "none",
-                }}
-              >
+              
+              <ToggleDiv toggle={wrongLogInShow}>
                 <WrongLogIn toggleWrongLogInShow={toggleWrongLogInShow} />
-              </div>
-              <div
-                style={{
-                  display: alreadyKakaoMemberShow ? "block" : "none",
-                }}
-              >
+              </ToggleDiv>
+             
+              
+              <ToggleDiv toggle={alreadyKakaoMemberShow}>
                 <AlreadyKakaoMember
                   toggleAlreadyKakaoMemberShow={toggleAlreadyKakaoMemberShow}
                 />
-              </div>
-              <div
-                style={{
-                  display: logInShow ? "block" : "none",
-                }}
-              >
+              </ToggleDiv>
+              
+              
+              <ToggleDiv toggle={logInShow}>
                 {/* <LogIn toggleLogInShow={toggleLogInShow} logInFunction={logInFunction} setUserPhoneNumber={setUserPhoneNumber} onPhoneNumberChange={onPhoneNumberChange} userPhoneNumber={userPhoneNumber} setPassword={setPassword} onPasswordChange={onPasswordChange} password={password} setUserEmail={setUserEmail} userEmail={userEmail}/> */}
                 <LogIn
                   toggleLogInShow={toggleLogInShow}
@@ -1737,30 +1675,24 @@ const Navbar = () => {
                   setJoinType={setJoinType}
                   joinType={joinType}
                 />
-              </div>
-              <div
-                style={{
-                  display: useDropDown ? "block" : "none",
-                }}
-              >
+              </ToggleDiv>
+              
+              <ToggleDiv toggle={useDropDown}>
                 <UseDropDown toggleUseDropDown={toggleUseDropDown} />
-              </div>
-              <div
-                style={{
-                  display: categoryDropDown ? "block" : "none",
-                }}
-              >
+              </ToggleDiv>
+              
+              
+              <ToggleDiv toggle={categoryDropDown}>
                 <CategoryDropDown
                   toggleCategoryDropDown={toggleCategoryDropDown}
                 />
-              </div>
-              <div
-                style={{
-                  display: brandsDropDown ? "block" : "none",
-                }}
-              >
+              </ToggleDiv>
+              
+              
+              <ToggleDiv toggle={brandsDropDown}>
                 <BrandsDropDown toggleBrandsDropDown={toggleBrandsDropDown} />
-              </div>
+              </ToggleDiv>
+              
 
               <div className="headerContainer">
                 <div className="logo">
@@ -1769,18 +1701,10 @@ const Navbar = () => {
                   </a>
                 </div>
 
-                <div
+                <CategoryDiv1
                   className="linkTo"
                   id="category"
-                  style={{
-                    position: "fixed",
-                    height: 50,
-                    width: 240,
-                    top: 38,
-                    left: "167pt",
-                    backgroundColor: "transparent",
-                    zIndex: 1,
-                  }}
+                  
                   activeOpacity={0.5}
                   onClick={() => {
                     toggleCategoryDropDown();
@@ -1810,41 +1734,18 @@ const Navbar = () => {
                     }}
                     // href="/category"
                   >
-                    <span
+                    <CategoryDiv2
                       selectable={false}
-                      style={{
-                        fontSize: "25px",
-                        fontWeight: "700",
-                        textDecorationLine: "none",
-                        color: "black",
-                        // textShadowColor: 'rgba(0, 0, 0, 0.85)',
-                        // textShadowOffset: {width: 0, height: 0},
-                        // textShadowRadius: 2,
-                        textAlign: "center",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        flexDirection: "row",
-                        margin: 11,
-                        // padding:'auto',
-                        pointerEvents: "none",
-                      }}
+                      
                     >
                       자재카테고리
-                    </span>
+                    </CategoryDiv2>
                   </a>
-                </div>
+                </CategoryDiv1>
 
-                <div
+                <UseDiv1
                   className="linkTo"
-                  style={{
-                    position: "fixed",
-                    height: 50,
-                    width: 170,
-                    top: 38,
-                    left: "349pt",
-                    backgroundColor: "transparent",
-                    zIndex: 1,
-                  }}
+                  
                   activeOpacity={0.5}
                   onClick={() => {
                     toggleUseDropDown();
@@ -1856,41 +1757,16 @@ const Navbar = () => {
                     }}
                     // href="/constructionpart"
                   >
-                    <span
+                    <UseDiv2
                       selectable={false}
-                      style={{
-                        fontSize: "25px",
-                        fontWeight: "700",
-                        textDecorationLine: "none",
-                        // color:'white',
-                        // textShadowColor: 'rgba(0, 0, 0, 0.85)',
-                        // textShadowOffset: {width: 0, height: 0},
-                        // textShadowRadius: 2,
-                        color: "black",
-                        textAlign: "center",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        flexDirection: "row",
-                        margin: 11,
-                        padding: "auto",
-                        pointerEvents: "none",
-                      }}
                     >
                       사공부위
-                    </span>
+                    </UseDiv2>
                   </a>
-                </div>
-                <div
+                </UseDiv1>
+                <BrandsDiv1
                   className="linkTo"
-                  style={{
-                    position: "fixed",
-                    height: 50,
-                    width: 140,
-                    top: 38,
-                    left: "478pt",
-                    backgroundColor: "transparent",
-                    zIndex: 1,
-                  }}
+                  
                   activeOpacity={0.5}
                   // onMouseEnter={()=>
                   //   console.log('mouse entered')
@@ -1906,63 +1782,21 @@ const Navbar = () => {
                     }}
                     // href="/brands"
                   >
-                    <span
+                    <BrandsDiv2
                       selectable={false}
-                      style={{
-                        fontSize: "25px",
-                        fontWeight: "700",
-                        textDecorationLine: "none",
-                        // color:'white',
-                        // textShadowColor: 'rgba(0, 0, 0, 0.85)',
-                        // textShadowOffset: {width: 0, height: 0},
-                        // textShadowRadius: 2,
-                        color: "black",
-                        textAlign: "center",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        flexDirection: "row",
-                        margin: 11,
-                        padding: "auto",
-                        pointerEvents: "none",
-                      }}
                     >
                       브랜드
-                    </span>
+                    </BrandsDiv2>
                   </a>
-                </div>
+                </BrandsDiv1>
 
-                <div
-                  style={{
-                    backgroundColor: "white",
-                    border: "1px solid #ccc",
-                    width: 252,
-                    height: 49,
-                    borderRadius: "24px",
-                    position: "fixed",
-                    top: 28,
-                    right: 230,
-                  }}
-                >
-                  <input
-                    style={{
-                      overflow: "hidden",
-                      width: "200px",
-                      height: "49px",
-                      padding: "12px 20px",
-                      margin: "8px 0",
-                      // border:"1px solid #ccc",
-                      borderRadius: "24px",
-                      boxSizing: "border-box",
-                      position: "fixed",
-                      top: 20,
-                      right: 280,
-                      fontSize: "18px",
-                    }}
+                <SearchBarDiv1>
+                  <SearchBarInput
                     value={inputValue}
                     onChange={updateInputValue}
                     placeholder={"검색"}
                   />
-                  <div
+                  <SearchIconDiv
                     onClick={() => {
                       if (searchTermEnable == true) {
                         Linking.openURL(`/searchpage?keyword=` + inputValue);
@@ -1970,66 +1804,32 @@ const Navbar = () => {
                         Linking.openURL(`/searchpage`);
                       }
                     }}
-                    style={{
-                      position: "fixed",
-                      height: 47,
-                      width: 47,
-                      top: "29px",
-                      right: "173pt",
-                      backgroundColor: "transparent",
-                      zIndex: 1,
-                    }}
                   >
-                    <img
-                      style={{
-                        height: 47,
-                        width: 47,
-                      }}
+                    <IconImg
                       src={searchIcon}
-                    ></img>
-                  </div>
-                </div>
-                <div
-                  style={{
-                    position: "fixed",
-                    height: 47,
-                    width: 47,
-                    top: "29px",
-                    right: "103pt",
-                    backgroundColor: "transparent",
-                    zIndex: 1,
-                  }}
+                    />
+                  </SearchIconDiv>
+                </SearchBarDiv1>
+                <BoxIconDiv
                   onClick={() => {
                     toggleCartModal();
                   }}
                 >
                   <img src={boxIcon}></img>
-                </div>
-                <div
+                </BoxIconDiv>
+                <UserIconDiv
                   className="linkTo"
-                  style={{
-                    position: "fixed",
-                    height: 47,
-                    width: 47,
-                    top: "29px",
-                    right: "33pt",
-                    backgroundColor: "transparent",
-                    zIndex: 1,
-                  }}
+                  
                   onClick={() => {
                     // toggleUserModal()
                     // toggleLogOutShow()
                     toggleLogInShow();
                   }}
                 >
-                  <img
+                  <IconImg                    
                     src={userIcon}
-                    style={{
-                      height: "47px",
-                      width: "47px",
-                    }}
-                  ></img>
-                </div>
+                  />
+                </UserIconDiv>
               </div>
             </header>
           </ShowOne>
@@ -2044,7 +1844,7 @@ const Navbar = () => {
                   console.log("user modal has been closed");
                 }}
               >
-                <div style={{ marginTop: 22 }}>
+                <MarginDiv>
                   <div>
                     <span>cart Info</span>
 
@@ -2056,28 +1856,24 @@ const Navbar = () => {
                       <span>x</span>
                     </div>
                   </div>
-                </div>
+                </MarginDiv>
               </Modal>
-              <div
-                style={{
-                  display: wrongLogInShow ? "block" : "none",
-                }}
-              >
+              
+              <ToggleDiv  toggle={wrongLogInShow}>
                 <WrongLogIn toggleWrongLogInShow={toggleWrongLogInShow} />
-              </div>
-              <div
-                style={{
-                  display: alreadyKakaoMemberShow ? "block" : "none",
-                }}
+              </ToggleDiv>
+          
+             
+              <ToggleDiv
+                toggle={alreadyKakaoMemberShow}
               >
                 <AlreadyKakaoMember
                   toggleAlreadyKakaoMemberShow={toggleAlreadyKakaoMemberShow}
                 />
-              </div>
-              <div
-                style={{
-                  display: logInShow ? "block" : "none",
-                }}
+              </ToggleDiv>
+              
+              <ToggleDiv
+                toggle={logInShow}
               >
                 {/* <LogIn toggleLogInShow={toggleLogInShow} logInFunction={logInFunction} setUserPhoneNumber={setUserPhoneNumber} onPhoneNumberChange={onPhoneNumberChange} userPhoneNumber={userPhoneNumber} setPassword={setPassword} onPasswordChange={onPasswordChange} password={password} setUserEmail={setUserEmail} userEmail={userEmail}/> */}
                 <LogIn
@@ -2108,7 +1904,7 @@ const Navbar = () => {
                   setJoinType={setJoinType}
                   joinType={joinType}
                 />
-              </div>
+              </ToggleDiv>
               <div className="headerContainer">
                 <div className="logo">
                   <a href="/clip">
@@ -2116,38 +1912,13 @@ const Navbar = () => {
                   </a>
                 </div>
 
-                <div
-                  style={{
-                    backgroundColor: "white",
-                    border: "1px solid #ccc",
-                    width: 252,
-                    height: 49,
-                    borderRadius: "24px",
-                    position: "fixed",
-                    top: 28,
-                    right: 230,
-                  }}
-                >
-                  <input
-                    style={{
-                      overflow: "hidden",
-                      width: "200px",
-                      height: "49px",
-                      padding: "12px 20px",
-                      margin: "8px 0",
-                      // border:"1px solid #ccc",
-                      borderRadius: "24px",
-                      boxSizing: "border-box",
-                      position: "fixed",
-                      top: 20,
-                      right: 280,
-                      fontSize: "18px",
-                    }}
+                <SearchBarDiv1>
+                  <SearchBarInput
                     value={inputValue}
                     onChange={updateInputValue}
                     placeholder={"검색"}
                   />
-                  <div
+                  <SearchIconDiv
                     onClick={() => {
                       if (searchTermEnable == true) {
                         Linking.openURL(
@@ -2157,65 +1928,30 @@ const Navbar = () => {
                         Linking.openURL("/searchpage?mem_no=");
                       }
                     }}
-                    style={{
-                      position: "fixed",
-                      height: 47,
-                      width: 47,
-                      top: "29px",
-                      right: "173pt",
-                      backgroundColor: "transparent",
-                      zIndex: 1,
-                    }}
                   >
-                    <img
-                      style={{
-                        height: 47,
-                        width: 47,
-                      }}
+                    <IconImg
                       src={searchIcon}
-                    ></img>
-                  </div>
-                </div>
-                <div
-                  style={{
-                    position: "fixed",
-                    height: 47,
-                    width: 47,
-                    top: "29px",
-                    right: "103pt",
-                    backgroundColor: "transparent",
-                    zIndex: 1,
-                  }}
+                    />
+                  </SearchIconDiv>
+                </SearchBarDiv1>
+                <BoxIconDiv
                   onClick={() => {
                     toggleCartModal();
                   }}
                 >
-                  <img src={boxIcon}></img>
-                </div>
-                <div
+                  <IconImg src={boxIcon}/>
+                </BoxIconDiv>
+                <UserIconDiv
                   className="linkTo"
-                  style={{
-                    position: "fixed",
-                    height: 47,
-                    width: 47,
-                    top: "29px",
-                    right: "33pt",
-                    backgroundColor: "transparent",
-                    zIndex: 1,
-                  }}
                   onClick={() => {
                     //toggleUserModal()
                     toggleLogInShow();
                   }}
                 >
-                  <img
+                  <IconImg
                     src={userIcon}
-                    style={{
-                      height: "47px",
-                      width: "47px",
-                    }}
-                  ></img>
-                </div>
+                  />
+                </UserIconDiv>
               </div>
             </header>
           </ShowTwo>
@@ -2230,7 +1966,7 @@ const Navbar = () => {
                   console.log("user modal has been closed");
                 }}
               >
-                <div style={{ marginTop: 22 }}>
+                <MarginDiv>
                   <div>
                     <span>cart Info</span>
 
@@ -2242,29 +1978,22 @@ const Navbar = () => {
                       <span>x</span>
                     </div>
                   </div>
-                </div>
+                </MarginDiv>
               </Modal>
-              <div
-                style={{
-                  display: wrongLogInShow ? "block" : "none",
-                }}
-              >
+
+              <ToggleDiv toggle={wrongLogInShow}>
                 <WrongLogIn toggleWrongLogInShow={toggleWrongLogInShow} />
-              </div>
-              <div
-                style={{
-                  display: alreadyKakaoMemberShow ? "block" : "none",
-                }}
-              >
+              </ToggleDiv>
+              
+              
+              <ToggleDiv toggle={alreadyKakaoMemberShow}>
                 <AlreadyKakaoMember
                   toggleAlreadyKakaoMemberShow={toggleAlreadyKakaoMemberShow}
                 />
-              </div>
-              <div
-                style={{
-                  display: logInShow ? "block" : "none",
-                }}
-              >
+              </ToggleDiv>
+
+             
+              <ToggleDiv toggle={logInShow}>
                 {/* <LogIn toggleLogInShow={toggleLogInShow} logInFunction={logInFunction} setUserPhoneNumber={setUserPhoneNumber} onPhoneNumberChange={onPhoneNumberChange} userPhoneNumber={userPhoneNumber} setPassword={setPassword} onPasswordChange={onPasswordChange} password={password} setUserEmail={setUserEmail} userEmail={userEmail}/> */}
                 <LogIn
                   toggleLogInShow={toggleLogInShow}
@@ -2294,7 +2023,7 @@ const Navbar = () => {
                   setJoinType={setJoinType}
                   joinType={joinType}
                 />
-              </div>
+              </ToggleDiv>
               <div className="headerContainer">
                 <div className="logo">
                   <a href="/clip">
@@ -2302,66 +2031,32 @@ const Navbar = () => {
                   </a>
                 </div>
 
-                <div
+                <SearchIconDiv2
                   onClick={() => Linking.openURL(`/searchpage`)}
-                  style={{
-                    position: "fixed",
-                    height: 47,
-                    width: 47,
-                    top: "29px",
-                    right: "105pt",
-                    backgroundColor: "transparent",
-                    zIndex: 1,
-                  }}
-                >
-                  <img
-                    style={{
-                      height: 47,
-                      width: 47,
-                    }}
+                  >
+                  <IconImg
                     src={searchIcon}
-                  ></img>
-                </div>
-                <div
-                  style={{
-                    position: "fixed",
-                    height: 47,
-                    width: 47,
-                    top: "29px",
-                    right: "60pt",
-                    backgroundColor: "transparent",
-                    zIndex: 1,
-                  }}
+                  />
+                </SearchIconDiv2>
+                <BoxIconDiv2
                   onClick={() => {
                     toggleCartModal();
                   }}
                 >
-                  <img src={boxIcon}></img>
-                </div>
-                <div
+                  <IconImg src={boxIcon}/>
+                </BoxIconDiv2>
+                <UserIconDiv2
                   className="linkTo"
-                  style={{
-                    position: "fixed",
-                    height: 47,
-                    width: 47,
-                    top: "29px",
-                    right: "15pt",
-                    backgroundColor: "transparent",
-                    zIndex: 1,
-                  }}
+                  
                   onClick={() => {
                     //toggleUserModal()
                     toggleLogInShow();
                   }}
                 >
-                  <img
+                  <IconImg
                     src={userIcon}
-                    style={{
-                      height: "47px",
-                      width: "47px",
-                    }}
-                  ></img>
-                </div>
+                  ></IconImg>
+                </UserIconDiv2>
               </div>
             </header>
           </ShowThree>
