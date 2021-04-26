@@ -26,7 +26,6 @@ import boxIcon from "../assets/icnBox.png";
 import clipOff from "../assets/clipOff.png";
 import clipOn from "../assets/clipOn.png";
 import "./searchpage.css";
-import styled from "styled-components"
 // import Pagination from "react-js-pagination";
 // import ReactPaginate from 'react-paginate';
 // import { red100 } from 'react-native-paper/lib/typescript/styles/colors';
@@ -35,29 +34,6 @@ import styled from "styled-components"
 // import 'pure-react-carousel/dist/react-carousel.es.css'
 
 const queryString = require("query-string");
-
-const MaterialModeButton = styled.div`
-  border-radius: 15px;
-  /* background-color:${props=> props.mode == "material" ? "rgb(255,123,88)" : "transparent"}; */
-  background-color:${props=> props.mode == "material" ? props.theme.colors.main : "transparent"};
-  width: 100px;
-  height: 30px;
-  margin-top: 10px;
-  /* border:${props=>props.mode == "material" ? "none" : "2px solid rgb(221,221,221)"}; */
-  border:${props=>props.mode == "material" ? "none" : `2px solid ${props.theme.colors.grey[800]}`};
-`
-const ModeButton = styled.div`
-  border-radius: 15px;
-  background-color:${props=> props.mode == props.matchword ? props.theme.colors.main : "transparent"};
-  width: 100px;
-  height: 30px;
-  margin-left: ${props=>props.marginLeft};
-  /* margin-left: "15px"; */
-  margin-top: 10px;
-  border:${props=>props.mode == props.matchword ? "none" : `2px solid ${props.theme.colors.grey[200]}`};
-   
-`
-
 
 function SearchPage(props) {
   // var bestProducts
@@ -508,7 +484,7 @@ function SearchPage(props) {
             }}
           >
             <TouchableOpacity onPress={() => setMode("material")}>
-              {/* <div
+              <div
                 style={{
                   borderRadius: "15px",
                   backgroundColor:
@@ -519,9 +495,7 @@ function SearchPage(props) {
                   border:
                     mode == "material" ? "none" : "2px solid rgb(221,221,221)",
                 }}
-              > */}
-              {/* <MaterialModeButton mode={mode}> */}
-              <ModeButton marginLeft="0px" mode={mode} matchword='material'>
+              >
                 <Text
                   style={{
                     lineHeight: "30px",
@@ -531,11 +505,10 @@ function SearchPage(props) {
                 >
                   자재
                 </Text>
-              </ModeButton>
-              {/* </div> */}
+              </div>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => setMode("moodboard")}>
-              {/* <div
+              <div
                 style={{
                   borderRadius: "15px",
                   backgroundColor:
@@ -547,8 +520,7 @@ function SearchPage(props) {
                   border:
                     mode == "moodboard" ? "none" : "2px solid rgb(221,221,221)",
                 }}
-              > */}
-              <ModeButton marginLeft="15px" mode={mode} matchword='moodboard'>
+              >
                 <Text
                   style={{
                     lineHeight: "30px",
@@ -558,8 +530,7 @@ function SearchPage(props) {
                 >
                   무드보드
                 </Text>
-              </ModeButton>
-              {/* </div> */}
+              </div>
             </TouchableOpacity>
           </div>
           <div
@@ -1888,9 +1859,8 @@ function SearchPage(props) {
                 flexDirection: "row",
               }}
             >
-            
               <TouchableOpacity onPress={() => setMode("material")}>
-                {/* <div
+                <div
                   style={{
                     borderRadius: "15px",
                     backgroundColor:
@@ -1903,8 +1873,7 @@ function SearchPage(props) {
                         ? "none"
                         : "2px solid rgb(221,221,221)",
                   }}
-                > */}
-                <ModeButton marginLeft="0px" mode={mode} matchword='material'>
+                >
                   <Text
                     style={{
                       lineHeight: "30px",
@@ -1914,11 +1883,10 @@ function SearchPage(props) {
                   >
                     자재
                   </Text>
-                </ModeButton>
-                {/* </div> */}
+                </div>
               </TouchableOpacity>
               <TouchableOpacity onPress={() => setMode("moodboard")}>
-                {/* <div
+                <div
                   style={{
                     borderRadius: "15px",
                     backgroundColor:
@@ -1932,8 +1900,7 @@ function SearchPage(props) {
                         ? "none"
                         : "2px solid rgb(221,221,221)",
                   }}
-                > */}
-                <ModeButton marginLeft="15px" mode={mode} matchword='moodboard'>
+                >
                   <Text
                     style={{
                       lineHeight: "30px",
@@ -1943,8 +1910,7 @@ function SearchPage(props) {
                   >
                     무드보드
                   </Text>
-                </ModeButton>
-                {/* </div> */}
+                </div>
               </TouchableOpacity>
             </div>
             <div

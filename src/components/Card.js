@@ -46,6 +46,16 @@ const ContainerDivTwo = styled.div`
   border-radius: 6px;
   display: ${(props) => (props.hover == true ? "block" : "none")};
 `;
+const PriceSignSpan = styled.span`
+  transform: translate(2px, -4px);
+  position: absolute;
+  top: 1px;
+  /* left: 2px; */
+  left : ${(props)=>(props.left)};
+  font-weight: 50;
+  font-size: 12px;
+  color: ${(props) => (props.mt_budget < props.matchnumber ? props.theme.colors.grey[200] : "black")};
+`
 const PriceSignSpanOne = styled.span`
   transform: translate(2px, -4px);
   position: absolute;
@@ -260,21 +270,21 @@ function Card(props) {
             console.log("pressed clip " + props.material.mt_no);
           }}
         >
-          <PriceSignSpanOne mt_budget={props.material.mt_budget}>
+          <PriceSignSpan mt_budget={props.material.mt_budget} matchnumber={1} left="2px">
             ₩
-          </PriceSignSpanOne>
-          <PriceSignSpanTwo mt_budget={props.material.mt_budget}>
+          </PriceSignSpan>
+          <PriceSignSpan mt_budget={props.material.mt_budget} matchnumber={2} left="12px">
             ₩
-          </PriceSignSpanTwo>
-          <PriceSignSpanThree mt_budget={props.material.mt_budget}>
+          </PriceSignSpan>
+          <PriceSignSpan mt_budget={props.material.mt_budget} matchnumber={3} left = "22px">
             ₩
-          </PriceSignSpanThree>
-          <PriceSignSpanFour mt_budget={props.material.mt_budget}>
+          </PriceSignSpan>
+          <PriceSignSpan mt_budget={props.material.mt_budget} matchnumber={4} left="32px">
             ₩
-          </PriceSignSpanFour>
-          <PriceSignSpanFive mt_budget={props.material.mt_budget}>
+          </PriceSignSpan>
+          <PriceSignSpan mt_budget={props.material.mt_budget} matchnumber={5} left="42px">
             ₩
-          </PriceSignSpanFive>
+          </PriceSignSpan>
         </ContainerDivTwo>
 
         <ClipDiv

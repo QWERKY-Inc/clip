@@ -14,6 +14,7 @@ import PartDetail from "./components/PartDetail";
 import MoodboardDetail from "./components/MoodboardDetail";
 import MyPage from "./components/MyPage";
 import PersonalInfoPage from "./components/PersonalInfoPage";
+import Theme from "./components/Theme"
 // import {UserProvider,useUser} from './components/user-context'
 import {
   BrowserRouter as BrowserRouter,
@@ -34,6 +35,7 @@ function App() {
   return (
     // <UserProvider>
     <div className="App">
+      <Theme>
       <BrowserRouter>
         {/* <Navbar />
           <Content /> */}
@@ -52,6 +54,7 @@ function App() {
           <Route exact path="/personalinfopage" component={PersonalInfoPage} />
         </Switch>
       </BrowserRouter>
+      </Theme>
     </div>
     // </UserProvider>
   );
